@@ -1,0 +1,31 @@
+{
+	"Classes": {
+		"groups": [
+			"ui"
+		],
+		"classes": [
+			"menu",
+			"progress",
+			"svg",
+			"tips",
+			"xml"
+		]
+	},
+	"ui": {
+		"classes": [
+			"button",
+			"form",
+			"formObject",
+			"group",
+			"input",
+			"listbox",
+			"picture",
+			"scrollable",
+			"subform",
+			"thermometer",
+			"webArea",
+			"widget"
+		]
+	},
+	"trash": {}
+}

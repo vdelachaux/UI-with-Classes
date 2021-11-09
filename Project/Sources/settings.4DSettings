@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="2">
+	<com.4d>
+		<general execute_host_database_event="true"/>
+	</com.4d>
+</preferences>
