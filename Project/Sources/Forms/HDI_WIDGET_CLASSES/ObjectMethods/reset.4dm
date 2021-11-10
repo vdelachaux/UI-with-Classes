@@ -25,6 +25,6 @@ For each ($o; Form:C1466.group1.members)
 	
 End for each 
 
-Form:C1466.bevel.setPicture("")
+Form:C1466.group1.members[1].setTitle("xxx")
 
-cs:C1710.button.new("Button4").setTitle("xxx")
+Form:C1466.bevel.setPicture("")

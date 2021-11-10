@@ -4,7 +4,7 @@ $e:=FORM Event:C1606
 
 HDI_LOAD_PAGE
 
-If (FORM Event:C1606.objectName=Null:C1517)  // <== FORM METHOD
+If ($e.objectName=Null:C1517)  // <== FORM METHOD
 	
 	// <NOTHING MORE TO DO>
 	
@@ -45,14 +45,14 @@ Else   // <== WIDGETS METHOD
 			
 		: (Form:C1466.showHide1=Null:C1517)
 			
-			// Page 3 was never displayed
+			// PAGE 3 IS NOT INITIALIZED (never displayed)
 			
 			//______________________________________________________
 		: (Form:C1466.showHide1.catch())\
 			 | (Form:C1466.showHide2.catch())
 			
 			var $group : cs:C1710.group
-			$group:=Choose:C955($e.objectName="showHideGroup_1"; Form:C1466.group_1; Form:C1466.group_2)
+			$group:=Choose:C955($e.objectName="showHideGroup1"; Form:C1466.group1; Form:C1466.group2)
 			
 			If ($group.members[0].isVisible())
 				
@@ -67,6 +67,6 @@ Else   // <== WIDGETS METHOD
 				
 			End if 
 			
-			//________________________________________
+			//______________________________________________________
 	End case 
 End if 

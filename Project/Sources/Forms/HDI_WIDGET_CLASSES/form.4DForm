@@ -458,7 +458,7 @@
 				},
 				"Text9": {
 					"type": "text",
-					"text": ".distributeHorizontally()",
+					"text": ".distributeLeftToRight()",
 					"top": 418,
 					"left": 21,
 					"width": 425,
@@ -692,18 +692,18 @@
 				"Group Box": {
 					"type": "groupBox",
 					"text": "Group 1",
-					"top": 72,
+					"top": 69,
 					"left": 33,
-					"width": 381,
+					"width": 321,
 					"height": 159
 				},
 				"Button11": {
 					"type": "button",
 					"text": "Button",
-					"top": 182,
+					"top": 179,
 					"left": 62,
 					"width": 77,
-					"height": 30,
+					"height": 22,
 					"events": [
 						"onClick"
 					]
@@ -711,7 +711,7 @@
 				"Text28": {
 					"type": "text",
 					"text": "Label",
-					"top": 98,
+					"top": 95,
 					"left": 62,
 					"width": 86,
 					"height": 16,
@@ -720,16 +720,16 @@
 				"Input4": {
 					"type": "input",
 					"left": 168,
-					"top": 98,
-					"width": 213,
+					"top": 95,
+					"width": 153,
 					"height": 17
 				},
 				"Check Box2": {
 					"type": "checkbox",
 					"text": "Checkbox",
-					"top": 135,
+					"top": 132,
 					"left": 168,
-					"width": 122,
+					"width": 102,
 					"height": 26,
 					"events": [
 						"onClick"
@@ -738,18 +738,18 @@
 				"Group Box1": {
 					"type": "groupBox",
 					"text": "Group 2",
-					"top": 261,
-					"left": 33,
-					"width": 381,
+					"top": 69,
+					"left": 476,
+					"width": 321,
 					"height": 159
 				},
 				"Button12": {
 					"type": "button",
 					"text": "Button",
-					"top": 371,
-					"left": 62,
+					"top": 179,
+					"left": 525,
 					"width": 77,
-					"height": 30,
+					"height": 22,
 					"events": [
 						"onClick"
 					]
@@ -757,24 +757,24 @@
 				"Text29": {
 					"type": "text",
 					"text": "Label",
-					"top": 287,
-					"left": 62,
+					"top": 95,
+					"left": 525,
 					"width": 86,
 					"height": 16,
 					"textAlign": "right"
 				},
 				"Input5": {
 					"type": "input",
-					"left": 168,
-					"top": 287,
-					"width": 213,
+					"left": 611,
+					"top": 95,
+					"width": 153,
 					"height": 17
 				},
 				"Check Box3": {
 					"type": "checkbox",
 					"text": "Checkbox",
-					"top": 324,
-					"left": 168,
+					"top": 132,
+					"left": 631,
 					"width": 122,
 					"height": 26,
 					"events": [
@@ -783,18 +783,19 @@
 				},
 				"Rectangle9": {
 					"type": "rectangle",
-					"top": 323,
-					"left": 458,
-					"width": 351,
-					"height": 134,
-					"fill": "transparent"
+					"top": 403,
+					"left": 577,
+					"width": 220,
+					"height": 88,
+					"fill": "#6495ed",
+					"stroke": "#6495ed"
 				},
-				"showHideGroup_1": {
+				"showHideGroup1": {
 					"type": "button",
 					"text": "Hide group 1",
-					"top": 362,
-					"left": 484,
-					"width": 156,
+					"top": 416,
+					"left": 606,
+					"width": 119,
 					"height": 22,
 					"events": [
 						"onClick"
@@ -802,12 +803,12 @@
 					"action": "",
 					"focusable": false
 				},
-				"showHideGroup_2": {
+				"showHideGroup2": {
 					"type": "button",
 					"text": "Hide group 2",
-					"top": 404,
-					"left": 484,
-					"width": 156,
+					"top": 443,
+					"left": 606,
+					"width": 119,
 					"height": 22,
 					"events": [
 						"onClick"
@@ -823,8 +824,8 @@
 				"Input5",
 				"Check Box3",
 				"Button12",
-				"showHideGroup_1",
-				"showHideGroup_2"
+				"showHideGroup1",
+				"showHideGroup2"
 			]
 		},
 		{
@@ -1071,5 +1072,5 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 182
+	"geometryStamp": 354
 }

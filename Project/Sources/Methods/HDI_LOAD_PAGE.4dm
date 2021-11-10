@@ -11,7 +11,7 @@ End if
 
 $page:=FORM Get current page:C276
 
-If (Form:C1466.pages[$page]=Null:C1517)  // The page was not previously displayed
+If (Form:C1466.pages[$page]=Null:C1517) | Shift down:C543  // The page was not previously displayed
 	
 	Form:C1466.pages[$page]:=True:C214
 	
@@ -54,7 +54,7 @@ If (Form:C1466.pages[$page]=Null:C1517)  // The page was not previously displaye
 				.setShortcut("m"; Command key mask:K16:1)\
 				.highlightShortcut()\
 				.setHelpTip("Click on \"Execute\" to activate me")\
-				.setCallback(Formula:C1597(ALERT:C41("You have clicked on Button1\r\rNow, click again to see...")))\
+				.setCallback(Formula:C1597(ALERT:C41("You clicked on me\r\rNow try it again and see...")))\
 				.disable()
 			
 			//=========================================
@@ -86,34 +86,41 @@ If (Form:C1466.pages[$page]=Null:C1517)  // The page was not previously displaye
 		: ($page=3)
 			
 			// Create a group 1
-			Form:C1466.group_1:=cs:C1710.group.new()
+			Form:C1466.group1:=cs:C1710.group.new()
 			
 			// Add the data I will need
-			Form:C1466.group_1.index:="1"
+			Form:C1466.group1.index:="1"
 			
 			// Add widgets as members
-			Form:C1466.box1:=cs:C1710.formObject.new("Group Box").addToGroup(Form:C1466.group_1)
-			Form:C1466.label1:=cs:C1710.formObject.new("Text28").addToGroup(Form:C1466.group_1)
-			Form:C1466.input1:=cs:C1710.input.new("Input4").addToGroup(Form:C1466.group_1)
-			Form:C1466.checkbox1:=cs:C1710.button.new("Check Box2").addToGroup(Form:C1466.group_1)
-			Form:C1466.button1:=cs:C1710.button.new("Button11").addToGroup(Form:C1466.group_1)
+			Form:C1466.box1:=cs:C1710.formObject.new("Group Box").addToGroup(Form:C1466.group1)
+			Form:C1466.label1:=cs:C1710.formObject.new("Text28").addToGroup(Form:C1466.group1)
+			Form:C1466.input1:=cs:C1710.input.new("Input4").addToGroup(Form:C1466.group1)
+			Form:C1466.checkbox1:=cs:C1710.button.new("Check Box2").addToGroup(Form:C1466.group1)
+			Form:C1466.button1:=cs:C1710.button.new("Button11").addToGroup(Form:C1466.group1)
 			
 			// Create a group 2
-			Form:C1466.group_2:=cs:C1710.group.new()
+			Form:C1466.group2:=cs:C1710.group.new()
 			
 			// Add the data I will need
-			Form:C1466.group_2.index:="2"
+			Form:C1466.group2.index:="2"
 			
 			// Add widgets as members
-			Form:C1466.box2:=cs:C1710.formObject.new("Group Box1").addToGroup(Form:C1466.group_2)
-			Form:C1466.label2:=cs:C1710.formObject.new("Text29").addToGroup(Form:C1466.group_2)
-			Form:C1466.input2:=cs:C1710.input.new("Input5").addToGroup(Form:C1466.group_2)
-			Form:C1466.checkbox2:=cs:C1710.button.new("Check Box3").addToGroup(Form:C1466.group_2)
-			Form:C1466.button2:=cs:C1710.button.new("Button12").addToGroup(Form:C1466.group_2)
+			Form:C1466.box2:=cs:C1710.formObject.new("Group Box1").addToGroup(Form:C1466.group2)
+			Form:C1466.label2:=cs:C1710.formObject.new("Text29").addToGroup(Form:C1466.group2)
+			Form:C1466.input2:=cs:C1710.input.new("Input5").addToGroup(Form:C1466.group2)
+			Form:C1466.checkbox2:=cs:C1710.button.new("Check Box3").addToGroup(Form:C1466.group2)
+			Form:C1466.button2:=cs:C1710.button.new("Button12").addToGroup(Form:C1466.group2)
 			
 			// Demo buttons
-			Form:C1466.showHide1:=cs:C1710.button.new("showHideGroup_1")
-			Form:C1466.showHide2:=cs:C1710.button.new("showHideGroup_2")
+			Form:C1466.groupDemo:=cs:C1710.group.new()
+			Form:C1466.showHide1:=cs:C1710.button.new("showHidegroup1").bestSize().addToGroup(Form:C1466.groupDemo)
+			Form:C1466.showHide2:=cs:C1710.button.new("showHidegroup2").bestSize().addToGroup(Form:C1466.groupDemo)
+			Form:C1466.groupDemo.centerVertically()
+			
+			Form:C1466.buttonBack:=cs:C1710.formObject.new("Rectangle9")\
+				.setCoordinates(Form:C1466.groupDemo.enclosingRect())\
+				.moveAndResizeHorizontally(-10; 10)\
+				.moveAndResizeVertically(-10; 10)
 			
 			//______________________________________________________
 		: ($page=4)

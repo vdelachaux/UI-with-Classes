@@ -139,7 +139,7 @@ Function belongsTo($formObject : Variant)->$yes : Boolean
 	
 	//════════════════════════════════════════════
 	// Returns the coordinates of the rectangle enclosing the group.
-Function enclosingRec()->$coordinates : Object
+Function enclosingRect()->$coordinates : Object
 	
 	var $left; $top; $right; $bottom : Integer
 	var $o : Object
