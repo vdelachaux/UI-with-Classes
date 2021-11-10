@@ -56,14 +56,20 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**getShortcut** ()  → `Object` | Returns the keyboard shortcut associated with the widget as an object {"key", "modifier"}|
 |.**setShortcut** ( key : `Text`{; modifier : `Integer`})  → `cs.widget` | Sets the keyboard shortcut associated with the widget|
 |.**focus** ()  → `cs.widget` | Gives focus to the widget |
-|.**addEvent** ( event : `Integer`)  → `cs.widget`<br/>**addEvent** ( events : `Collection`)  → `cs.widget` | Adds one or more  form events to the widget |
-|.**removeEvent** ( event : `Integer`)  → `cs.widget`<br/>**removeEvent** ( events : `Collection`)  → `cs.widget` | Removes one or more  form events to the widget |
-## 🔹 .setPicture()
+|.**addEvent** ( event : `Integer`)  → `cs.widget`<br/>.**addEvent** ( events : `Collection`)  → `cs.widget` | Adds one or more  form events to the widget |
+|.**removeEvent** ( event : `Integer`)  → `cs.widget`<br/>.**removeEvent** ( events : `Collection`)  → `cs.widget` | Removes one or more  form events to the widget |
+
+
+
+## 🔹 .setPicture()
 .**setPicture** ( { proxy : `Text`} )  → `cs.widget`
 
 This function is intended to set the image of the compatible `3D button`, `3D checkbox`, `3D radio button`, `picture button`, `picture popup menu`, `listbox header` or `static picture`.
 
 Possible values for the `proxy` parameter are:
-* The string `#{folder/}picturename` or `file:{folder/}picturename` if the picture comes from a file stored in the `Resources` folder
+
+* The string `#{folder/}picturename` or `file:{folder/}picturename` if the picture comes from a file stored in the `Resources` folder
 * A variable name if the picture comes from a `picture variable`
-* A number, preceded with a question mark (ex.: “?250”) if the picture comes from a `picture library` (OBSOLETE)If the `proxy` parameter is omitted, the picture is removed
+* A number, preceded with a question mark (ex.: “?250”) if the picture comes from a `picture library` (OBSOLETE)
+
+If the `proxy` parameter is omitted, the picture is removed
