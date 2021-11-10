@@ -14,33 +14,14 @@ Class constructor($name : Text; $datasource)
 	End if 
 	
 /*═════════════════════════════════════════════════
-⚠️ .setShortcut(text{;int} ) -> This
-*/
-Function setShortcut($key : Text; $modifier : Integer)->$this : cs:C1710.button
-	
-	If (Count parameters:C259>=2)
-		
-		Super:C1705($key; $modifier)
-		
-	Else 
-		
-		Super:C1705($key)
-		
-	End if 
-	
-	This:C1470.highlightShortcut()
-	
-	$this:=This:C1470
-	
-/*═════════════════════════════════════════════════
 Tryes to underline the first capital letter or,
 if not found the first letter, corresponding to
 the associated key shortcut
 */
 Function highlightShortcut()->$this : cs:C1710.button
 	
-	C_LONGINT:C283($index; $lModifier)
-	C_TEXT:C284($key; $t)
+	var $key; $t : Text
+	var $index; $lModifier : Integer
 	
 	$t:=This:C1470.title()
 	
@@ -75,17 +56,17 @@ Function highlightShortcut()->$this : cs:C1710.button
 	//═════════════════════════════════════════════════
 Function setLinkedPopupMenu()->$this : cs:C1710.button
 	
-	$this:=This:C1470.setPopupMenu("linked")
+	$this:=This:C1470._setPopupMenu("linked")
 	
 	//═════════════════════════════════════════════════
 Function setSeparatePopupMenu()->$this : cs:C1710.button
 	
-	$this:=This:C1470.setPopupMenu("separate")
+	$this:=This:C1470._setPopupMenu("separate")
 	
 	//═════════════════════════════════════════════════
 Function setNoPopupMenu()->$this : cs:C1710.button
 	
-	$this:=This:C1470.setPopupMenu("none")
+	$this:=This:C1470._setPopupMenu("none")
 	
 /*═════════════════════════════════════════════════
 Association of a pop-up menu with a 3D button
@@ -97,7 +78,7 @@ else, possible values are:
 • 1 or "linked": With linked pop-up menu
 • 2 or "separate": With separate pop-up menu
 */
-Function setPopupMenu($value : Variant)->$this : cs:C1710.button
+Function _setPopupMenu($value : Variant)->$this : cs:C1710.button
 	
 	If (This:C1470.type=Object type 3D button:K79:17)
 		
@@ -182,6 +163,9 @@ Function setPicture($proxy : Text)->$this : cs:C1710.button
 			
 			Super:C1706.setPicture("path:/RESOURCES"+$proxy)
 			
+			//Button;path:/RESOURCES/Images/light_on.png;;3;1;1;3;0;0;0;0;0;1
+			//Button;path:/RESOURCES/RESOURCES/Images/light_on.png
+			
 			//______________________________________________________
 		Else 
 			
@@ -253,15 +237,15 @@ A hack to force a button to be boolean type
 	
 ⚠️ Obsolete in project mode because you can
 choose the type for the checkboxes
+Function asBoolean->$this : cs.button
+	
+If (This.type=Object type checkbox)
+If (This.assignable)
+	
+EXECUTE FORMULA(":C305((:C1124(:K67:5;This.name))->)")
+	
+End if 
+End if 
+	
+$this:=This
 */
-Function asBoolean->$this : cs:C1710.button
-	
-	If (This:C1470.type=Object type checkbox:K79:26)
-		If (This:C1470.assignable)
-			
-			EXECUTE FORMULA:C63(":C305((:C1124(:K67:5;This.name))->)")
-			
-		End if 
-	End if 
-	
-	$this:=This:C1470

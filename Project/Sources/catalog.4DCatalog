@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
-<base name="UI-with-class" uuid="A445B4B9F3494B579D3DAACD1DAF8AB5" collation_locale="en">
+<base name="UI-with-classes" uuid="A445B4B9F3494B579D3DAACD1DAF8AB5" collation_locale="en">
 	<schema name="DEFAULT_SCHEMA"/>
 	<base_extra __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0"/>
 </base>

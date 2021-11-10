@@ -56,6 +56,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**isHidden** ()  → `Boolean` | Returns **False** if the object is not visible and **False** otherwise |
 |.**isEnabled** ()  → `Boolean` | Returns **True** if the object is enabled and **False** otherwise |
 |.**updateCoordinates** ( left : `Integer`; top : `Integer`; right : `Integer`; bottom : `Integer`)   → `cs.formObject` | To update `coordinates`, `dimensions` and `windowCoordinates` properties |
+|.**addToGroup** ( group : cs.group) → `cs.formObject` | Adds the current widget to a [**`group`**](group.md) |
     
 \* Automatically update the `coordinates`, `dimensions` and `windowCoordinates` properties.    
 \** Can be applied to a static text and will be avalaible for the inherited classes (buttons, check boxes, radio buttons, …)

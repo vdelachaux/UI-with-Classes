@@ -26,13 +26,15 @@ Class constructor($name : Text)
 	
 	//=== === === === === === === === === === === === === === === === === === ===
 	// Adds this widget to a group
-Function addToGroup($group : cs:C1710.group)
+Function addToGroup($group : cs:C1710.group)->$this : Object
 	
 	If (Asserted:C1132(OB Instance of:C1731($group; cs:C1710.group); "The parameter isn't a group"))
 		
 		$group.addMember(This:C1470)
 		
 	End if 
+	
+	$this:=This:C1470
 	
 	//=== === === === === === === === === === === === === === === === === === ===
 Function hide()->$this : cs:C1710.formObject

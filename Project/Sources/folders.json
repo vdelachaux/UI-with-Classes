@@ -1,4 +1,13 @@
 {
+	"_DEMO": {
+		"methods": [
+			"HDI_DEMO",
+			"HDI_LOAD_PAGE"
+		],
+		"forms": [
+			"HDI_WIDGET_CLASSES"
+		]
+	},
 	"Classes": {
 		"groups": [
 			"ui"
@@ -12,11 +21,21 @@
 		]
 	},
 	"ui": {
+		"groups": [
+			"widgets"
+		],
+		"methods": [
+			"form_spreadToSubforms"
+		],
+		"classes": [
+			"form",
+			"group"
+		]
+	},
+	"widgets": {
 		"classes": [
 			"button",
-			"form",
 			"formObject",
-			"group",
 			"input",
 			"listbox",
 			"picture",
