@@ -38,7 +38,7 @@ Function barber->$this : cs:C1710.thermometer
 	//========================================================
 Function isBarber()->$yes : Boolean
 	
-	$yes:=(This:C1470.getIndicatorType=Barber shop:K42:35)
+	$yes:=(This:C1470.getIndicatorType()=Barber shop:K42:35)
 	
 	//========================================================
 Function progress->$this : cs:C1710.thermometer
@@ -50,7 +50,7 @@ Function progress->$this : cs:C1710.thermometer
 	//========================================================
 Function isProgress()->$yes : Boolean
 	
-	$yes:=(This:C1470.getIndicatorType=Progress bar:K42:34)
+	$yes:=(This:C1470.getIndicatorType()=Progress bar:K42:34)
 	
 	//========================================================
 Function indicatorType($type : Integer)->$this : cs:C1710.thermometer

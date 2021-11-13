@@ -1,6 +1,6 @@
 # button
 
-The `button ` class is intended to manage button widgets.  
+The `button` class is intended to manage button widgets.  
 
 > #### 📌 This class inherit from the [`widget`](widget.md) class
 
@@ -18,9 +18,9 @@ The `button ` class is intended to manage button widgets.
 |**.pointer** | [*inherited*](widget.md) |
 |**.value** | [*inherited*](widget.md) |
 
-## 🔸 cs. button.new()
+## 🔸 cs.button.new()
 
-The class constructor `cs. button.new({formObjectName})` creates a new class instance.
+The class constructor `cs.button.new({formObjectName})` creates a new class instance.
 
 If the `formObjectName` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv18R6/4D/18-R6/OBJECT-Get-name.301-5198296.en.html)** ( _Object current_ )
 

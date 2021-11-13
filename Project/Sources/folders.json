@@ -1,16 +1,7 @@
 {
-	"_DEMO": {
-		"methods": [
-			"HDI_DEMO",
-			"HDI_LOAD_PAGE"
-		],
-		"forms": [
-			"HDI_WIDGET_CLASSES"
-		]
-	},
-	"Classes": {
+	"classes": {
 		"groups": [
-			"ui"
+			"form"
 		],
 		"classes": [
 			"menu",
@@ -20,22 +11,24 @@
 			"xml"
 		]
 	},
-	"ui": {
-		"groups": [
-			"widgets"
+	"DEMOS": {
+		"methods": [
+			"HDI_DEMO",
+			"HDI_LOAD_PAGE"
 		],
+		"forms": [
+			"HDI_WIDGET_CLASSES"
+		]
+	},
+	"form": {
 		"methods": [
 			"form_spreadToSubforms"
 		],
 		"classes": [
-			"form",
-			"group"
-		]
-	},
-	"widgets": {
-		"classes": [
 			"button",
+			"form",
 			"formObject",
+			"group",
 			"input",
 			"listbox",
 			"picture",
