@@ -9,8 +9,6 @@
 	"windowMinHeight": 0,
 	"windowMaxWidth": 32767,
 	"windowMaxHeight": 32767,
-	"rightMargin": 20,
-	"bottomMargin": 20,
 	"events": [
 		"onLoad",
 		"onClick",
@@ -20,6 +18,17 @@
 	"pages": [
 		{
 			"objects": {
+				"Rectangle10": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 829,
+					"height": 559,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"stroke": "transparent",
+					"fill": "#fffacd"
+				},
 				"close": {
 					"type": "button",
 					"text": "Close",
@@ -44,7 +53,7 @@
 						"onClick"
 					],
 					"dataSourceTypeHint": "boolean",
-					"dataSource": "Form:C1466.trace",
+					"dataSource": "Form:C1466.$.trace",
 					"stroke": "#ff0000",
 					"fontWeight": "normal",
 					"focusable": false
@@ -417,8 +426,8 @@
 				"execute": {
 					"type": "button",
 					"text": "Execute",
-					"top": 416,
-					"left": 474,
+					"top": 418,
+					"left": 476,
 					"width": 105,
 					"height": 22,
 					"events": [
@@ -468,8 +477,8 @@
 				"reset": {
 					"type": "button",
 					"text": "Reset",
-					"top": 416,
-					"left": 676,
+					"top": 418,
+					"left": 674,
 					"width": 105,
 					"height": 22,
 					"events": [
@@ -489,6 +498,16 @@
 					"fontSize": 24,
 					"stroke": "#808080",
 					"textAlign": "center"
+				},
+				"Text12": {
+					"type": "text",
+					"text": "You can execute the object positioning code once or several times by clicking on the \"Execute\" button and then restore the initial positions with the \"Reset\" button.",
+					"top": 333,
+					"left": 476,
+					"width": 303,
+					"height": 77,
+					"fill": "transparent",
+					"stroke": "#FFFFFF"
 				},
 				"Button10": {
 					"type": "button",
@@ -511,16 +530,6 @@
 					"width": 241,
 					"height": 16,
 					"stroke": "#1e90ff"
-				},
-				"Text12": {
-					"type": "text",
-					"text": "You can execute the object positioning code once or several times by clicking on the \"Execute\" button and then restore the initial positions with the \"Reset\" button.",
-					"top": 333,
-					"left": 476,
-					"width": 303,
-					"height": 77,
-					"fill": "transparent",
-					"stroke": "#FFFFFF"
 				}
 			}
 		},
@@ -703,7 +712,7 @@
 					"type": "button",
 					"text": "Button",
 					"top": 179,
-					"left": 62,
+					"left": 71,
 					"width": 77,
 					"height": 22,
 					"events": [
@@ -729,7 +738,7 @@
 				"Check Box2": {
 					"type": "checkbox",
 					"text": "Checkbox",
-					"top": 132,
+					"top": 127,
 					"left": 168,
 					"width": 102,
 					"height": 26,
@@ -749,7 +758,7 @@
 					"type": "button",
 					"text": "Button",
 					"top": 179,
-					"left": 525,
+					"left": 631,
 					"width": 77,
 					"height": 22,
 					"events": [
@@ -759,8 +768,8 @@
 				"Text29": {
 					"type": "text",
 					"text": "Label",
-					"top": 95,
-					"left": 525,
+					"top": 96,
+					"left": 505,
 					"width": 86,
 					"height": 16,
 					"textAlign": "right"
@@ -775,7 +784,7 @@
 				"Check Box3": {
 					"type": "checkbox",
 					"text": "Checkbox",
-					"top": 132,
+					"top": 127,
 					"left": 631,
 					"width": 122,
 					"height": 26,
@@ -852,7 +861,7 @@
 					"top": 87,
 					"width": 183,
 					"height": 17,
-					"dataSource": "Form:C1466.nonAssignable",
+					"dataSource": "Form:C1466.$.nonAssignable",
 					"enterable": true,
 					"focusable": false,
 					"contextMenu": "none",
@@ -1088,6 +1097,7 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 372,
-	"windowTitle": "DEMO WIDGET CLASSES"
+	"geometryStamp": 414,
+	"width": 829,
+	"height": 559
 }

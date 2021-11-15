@@ -4,8 +4,8 @@ A group is a collection of static or active objects
 You can define it by passing N objects as parameters
 --> cs.group.new(object1, object2, …, objectN)
 
-or a collection of objects
---> cs.group.new(object collection)
+or a collection of objects (could be a group)
+--> cs.group.new(object collection)    
 
 or a comma separated list of object names
 --> cs.group.new("name1,name2,…,nameN")
@@ -32,13 +32,13 @@ Class constructor($members : Variant)
 			This:C1470.members:=$members
 			
 			//___________________________
-		: (Value type:C1509($members)=Is object:K8:27)  // 1 to n objects
+		: (Value type:C1509($members)=Is object:K8:27)  // 1 to N objects (could be groups)
 			
 			This:C1470.members:=New collection:C1472
 			
 			For ($i; 1; Count parameters:C259; 1)
 				
-				This:C1470.members.push(${$i})
+				This:C1470.addMember(${$i})
 				
 			End for 
 			
@@ -47,11 +47,7 @@ Class constructor($members : Variant)
 			
 			This:C1470.members:=New collection:C1472
 			
-			For each ($t; Split string:C1554($members; ","))
-				
-				This:C1470.members.push(cs:C1710.widget.new($t))  // Widget by default
-				
-			End for each 
+			This:C1470.addMember($members)
 			
 			//___________________________
 		Else 

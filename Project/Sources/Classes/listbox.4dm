@@ -649,8 +649,6 @@ Function restoreProperties()->$this : cs:C1710.listbox
 	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function saveProperties()
 	
-	var $unit : Integer
-	
 	This:C1470.properties:=New object:C1471
 	
 	This:C1470.properties.selectionMode:=LISTBOX Get property:C917(*; This:C1470.name; lk selection mode:K53:35)
@@ -665,11 +663,9 @@ Function saveProperties()
 	This:C1470.properties.resizingMode:=LISTBOX Get property:C917(*; This:C1470.name; lk resizing mode:K53:36)
 	
 	This:C1470.properties.displayFooter:=LISTBOX Get property:C917(*; This:C1470.name; lk display footer:K53:20)
-	This:C1470.properties.footerHeight:=LISTBOX Get footers height:C1146(*; This:C1470.name; $unit)
-	This:C1470.properties.footerHeightUnit:=$unit
+	This:C1470.properties.footerHeight:=LISTBOX Get footers height:C1146(*; This:C1470.name)
 	This:C1470.properties.displayHeader:=LISTBOX Get property:C917(*; This:C1470.name; lk display header:K53:4)
-	This:C1470.properties.headerHeight:=LISTBOX Get headers height:C1144(*; This:C1470.name; $unit)
-	This:C1470.properties.headerHeightUnit:=$unit
+	This:C1470.properties.headerHeight:=LISTBOX Get headers height:C1144(*; This:C1470.name)
 	
 	This:C1470.properties.rowHeight:=LISTBOX Get rows height:C836(*; This:C1470.name; lk pixels:K53:22)
 	This:C1470.properties.autoRowHeight:=LISTBOX Get property:C917(*; This:C1470.name; lk auto row height:K53:72)

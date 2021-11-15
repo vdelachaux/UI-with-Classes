@@ -20,6 +20,8 @@ Class constructor($name : Text; $datasource)
 		Object type hierarchical list:K79:7; \
 		Object type text input:K79:4).indexOf(This:C1470.type)#-1)
 	
+	This:C1470.getScrollbars()
+	
 	//=== === === === === === === === === === === === === === === === === === === === === 
 Function getScrollPosition()->$scroll
 	
@@ -44,18 +46,18 @@ Function getScrollPosition()->$scroll
 	$scroll:=This:C1470.scroll
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-Function setScrollPosition($vertical : Integer; $horizontal : Integer)->$this : cs:C1710.scrollable
+Function setScrollPosition($vertical; $horizontal)->$this : cs:C1710.scrollable
 	
 	var $h; $v : Integer
 	
 	OBJECT GET SCROLL POSITION:C1114(*; This:C1470.name; $v; $h)
 	
-	$v:=$vertical
+	$v:=Num:C11($vertical)
 	
 	If (Count parameters:C259>=2)\
 		 & ((This:C1470.type=Object type picture input:K79:5) | (This:C1470.type=Object type listbox:K79:8))
 		
-		$h:=$horizontal
+		$h:=Num:C11($horizontal)
 		
 		OBJECT SET SCROLL POSITION:C906(*; This:C1470.name; $v; $h; *)
 		
@@ -80,7 +82,7 @@ Function getScrollbars
 	
 	OBJECT GET SCROLLBAR:C1076(*; This:C1470.name; $horizontal; $vertical)
 	
-	This:C1470.scrollbar:=New object:C1471(\
+	This:C1470.scrollbars:=New object:C1471(\
 		"vertical"; $vertical; \
 		"horizontal"; $horizontal)
 	

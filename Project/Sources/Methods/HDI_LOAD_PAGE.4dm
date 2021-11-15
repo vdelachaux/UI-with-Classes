@@ -111,10 +111,16 @@ If (Form:C1466.pages[$page]=Null:C1517) | Shift down:C543  // The page was not p
 			Form:C1466.checkbox2:=cs:C1710.button.new("Check Box3").addToGroup(Form:C1466.group2)
 			Form:C1466.button2:=cs:C1710.button.new("Button12").addToGroup(Form:C1466.group2)
 			
+			// Create a super-group
+			Form:C1466.super:=cs:C1710.group.new()
+			Form:C1466.super.addMember(Form:C1466.group1)
+			Form:C1466.super.addMember(Form:C1466.group2)
+			
 			// Demo buttons
 			Form:C1466.groupDemo:=cs:C1710.group.new()
 			Form:C1466.showHide1:=cs:C1710.button.new("showHidegroup1").bestSize().addToGroup(Form:C1466.groupDemo)
 			Form:C1466.showHide2:=cs:C1710.button.new("showHidegroup2").bestSize().addToGroup(Form:C1466.groupDemo)
+			Form:C1466.showHideSuper:=cs:C1710.button.new("showHidegroupSuper").bestSize().addToGroup(Form:C1466.groupDemo)
 			Form:C1466.groupDemo.centerVertically()
 			
 			Form:C1466.buttonBack:=cs:C1710.formObject.new("Rectangle9")\

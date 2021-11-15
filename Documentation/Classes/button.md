@@ -22,7 +22,7 @@ The `button` class is intended to manage button widgets.
 
 The class constructor `cs.button.new({formObjectName})` creates a new class instance.
 
-If the `formObjectName` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv18R6/4D/18-R6/OBJECT-Get-name.301-5198296.en.html)** ( _Object current_ )
+If the `formObjectName` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv18R6/4D/18-R6/OBJECT-Get-name.301-5198296.en.html)** ( _Object current_ )
 
 > 📌 Omitting the object name can only be used if the constructor is called from the object method.
 
@@ -32,7 +32,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 
 | Function | Action |
 | -------- | ------ |  
-|.**highlightShortcut** ()  → `cs.button` | Tryes to underline the first capital letter or, if not found the first letter, corresponding to the associated key shortcut |
-|.**setLinkedPopupMenu** ()  → `cs.button` | Associates a linked pop-up menu with the button |
-|.**setSeparatePopupMenu** ()  → `cs.button` | Associates a separate pop-up menu with the button |
-|.**setNoPopupMenu** ()  → `cs.button` | Removes the pop-up menu associated with the button if any |
+|.**highlightShortcut** () →`cs.button` | Tryes to underline the first capital letter or, if not found the first letter, corresponding to the associated key shortcut |
+|.**setLinkedPopupMenu** () →`cs.button` | Associates a linked pop-up menu with the button |
+|.**setSeparatePopupMenu** () →`cs.button` | Associates a separate pop-up menu with the button |
+|.**setNoPopupMenu** () →`cs.button` | Removes the pop-up menu associated with the button if any |

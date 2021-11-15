@@ -13,9 +13,16 @@ If (Not:C34(Is compiled mode:C492))
 		READ PICTURE FILE:C678(File:C1566("/RESOURCES/Images/light_on.png").platformPath; $icon)
 		var $o : Object
 		$o:=New object:C1471(\
-			"name"; "Demo"; \
+			"name"; " Demo 1"; \
 			"icon"; $icon; \
-			"formula"; Formula:C1597(HDI_DEMO))
+			"formula"; Formula:C1597(DEMO_1))
+		
+		EXECUTE METHOD:C1007("quickOpenPushAction"; *; $o)
+		
+		$o:=New object:C1471(\
+			"name"; " Demo 2"; \
+			"icon"; $icon; \
+			"formula"; Formula:C1597(DEMO_2))
 		
 		EXECUTE METHOD:C1007("quickOpenPushAction"; *; $o)
 		

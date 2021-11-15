@@ -1,0 +1,1 @@
+Form:C1466.getValue.enable(Get edited text:C655#"")

@@ -1,4 +1,5 @@
 {
+	"(HDI_WIDGETS_CLASSES)": {},
 	"classes": {
 		"groups": [
 			"form"
@@ -11,13 +12,31 @@
 			"xml"
 		]
 	},
-	"DEMOS": {
+	"DEMO_1": {
 		"methods": [
-			"HDI_DEMO",
+			"DEMO_1",
 			"HDI_LOAD_PAGE"
 		],
 		"forms": [
 			"HDI_WIDGET_CLASSES"
+		]
+	},
+	"DEMO_2": {
+		"methods": [
+			"DEMO_2",
+			"HDI_FORM_CALLBACK"
+		],
+		"forms": [
+			"HDI_FORM"
+		],
+		"classes": [
+			"HDI_FORM"
+		]
+	},
+	"DEMO_PROGRESS": {
+		"methods": [
+			"HTU_progress",
+			"htuProgressDoSomething"
 		]
 	},
 	"form": {
@@ -39,5 +58,9 @@
 			"widget"
 		]
 	},
-	"trash": {}
+	"trash": {
+		"groups": [
+			"(HDI_WIDGETS_CLASSES)"
+		]
+	}
 }

@@ -43,9 +43,30 @@ Else   // <== WIDGETS METHOD
 			
 			// <THE WIDGET CALLBACK METHOD HAS BEEN EXECUTED DURING .catch()>
 			
+			//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		: (Form:C1466.showHide1=Null:C1517)
 			
 			// PAGE 3 IS NOT INITIALIZED (never displayed)
+			
+			//______________________________________________________
+		: (Form:C1466.showHideSuper.catch())
+			
+			If (Form:C1466.group1.members[0].isVisible())\
+				 | (Form:C1466.group2.members[0].isVisible())
+				
+				Form:C1466.super.hide()
+				Form:C1466.showHideSuper.setTitle("Show groups")
+				Form:C1466.showHide1.setTitle("Show group 1")
+				Form:C1466.showHide2.setTitle("Show group 2")
+				
+			Else 
+				
+				Form:C1466.super.show()
+				Form:C1466.showHideSuper.setTitle("Hide groups")
+				Form:C1466.showHide1.setTitle("Hide group 1")
+				Form:C1466.showHide2.setTitle("Hide group 2")
+				
+			End if 
 			
 			//______________________________________________________
 		: (Form:C1466.showHide1.catch())\
@@ -64,6 +85,17 @@ Else   // <== WIDGETS METHOD
 				$group.show()
 				Form:C1466["showHide"+$group.index].setTitle("Hide group "+$group.index)
 				Form:C1466["input"+$group.index].focus()
+				
+			End if 
+			
+			If (Form:C1466.group1.members[0].isVisible())\
+				 | (Form:C1466.group2.members[0].isVisible())
+				
+				Form:C1466.showHideSuper.setTitle("Hide groups")
+				
+			Else 
+				
+				Form:C1466.showHideSuper.setTitle("Show groups")
 				
 			End if 
 			

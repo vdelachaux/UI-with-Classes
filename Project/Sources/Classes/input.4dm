@@ -13,7 +13,7 @@ Class constructor($name : Text; $datasource)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function highlight($startSel : Integer; $endSel : Integer)
+Function highlight($startSel : Integer; $endSel : Integer)->$this : cs:C1710.input
 	
 	Case of 
 			
@@ -43,11 +43,15 @@ Function highlight($startSel : Integer; $endSel : Integer)
 			//______________________________________________________
 	End case 
 	
+	$this:=This:C1470
+	
 	// === === === === === === === === === === === === === === === === === === === === ===
 	// From the last character entered to the end
-Function highlightLastToEnd()
+Function highlightLastToEnd()->$this : cs:C1710.input
 	
 	HIGHLIGHT TEXT:C210(*; This:C1470.name; This:C1470.highlightingStart()+1; MAXLONG:K35:2)
+	
+	$this:=This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 Function highlighted()->$highlight : Object
