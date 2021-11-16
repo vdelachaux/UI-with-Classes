@@ -1,14 +1,17 @@
-C_OBJECT:C1216($menu)
+var $ui : Object
+var $menu : cs:C1710.menu
 
-If (Bool:C1537(Form:C1466.trace))
+$ui:=Form:C1466.$
+
+If (Bool:C1537($ui.trace))
 	
-	Form:C1466.trace:=False:C215
+	$ui.trace:=False:C215
 	TRACE:C157
 	
 End if 
 
-  // Create a fonts menu
-If (Bool:C1537((OBJECT Get pointer:C1124(Object named:K67:5;"fontStyles"))->))
+// Create a fonts menu
+If (OBJECT Get value:C1743("fontStyles"))
 	
 	$menu:=cs:C1710.menu.new().fonts(True:C214)
 	
@@ -18,13 +21,13 @@ Else
 	
 End if 
 
-  // Display as popup
+// Display as popup
 $menu.popup()
 
 If ($menu.selected)
 	
-	OBJECT SET FONT:C164(*;"Input2";$menu.choice)
+	OBJECT SET FONT:C164(*; "Input2"; $menu.choice)
 	
 End if 
 
-GOTO OBJECT:C206(*;"Input2")
+$ui.goTo("Input2")

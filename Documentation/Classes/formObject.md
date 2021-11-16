@@ -47,6 +47,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**setWidth** (width`:Integer` ) →`cs.formObject` | To modify the object width \*  |
 |.**setTitle** (title`:Text`) →`cs.formObject` | To change the title of the object (if the title is a `resname`, the localization is performed) \** |
 |.**title** () →`Text` | Returns the title of the object \** |
+|.**setFont** (fontName`:Text`}) →`cs.formObject` | To set the font|
 |.**setFontStyle** ({style`:Integer`}) →`cs.formObject` | To set the style of the title (use the 4D constants _Bold_, _Italic_, _Plain_, _Underline_) Default = _Plain_ \** |
 |.**setColors** (foreground{; background{; altBackground }}) →`cs.formObject` | To set the object color(s)  |
 |.**getForegroundColor** () →`Text` | To get the foreground color of the object |

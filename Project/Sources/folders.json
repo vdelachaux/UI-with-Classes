@@ -14,7 +14,6 @@
 	},
 	"DEMO_1": {
 		"methods": [
-			"DEMO_1",
 			"HDI_LOAD_PAGE"
 		],
 		"forms": [
@@ -23,7 +22,7 @@
 	},
 	"DEMO_2": {
 		"methods": [
-			"DEMO_2",
+			"HDI_FORM",
 			"HDI_FORM_CALLBACK"
 		],
 		"forms": [

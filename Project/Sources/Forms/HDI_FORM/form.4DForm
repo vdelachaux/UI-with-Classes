@@ -27,7 +27,7 @@
 					"sizingX": "grow",
 					"sizingY": "grow",
 					"stroke": "transparent",
-					"fill": "#fffacd"
+					"fill": "#c0c0c0"
 				},
 				"close": {
 					"type": "button",
@@ -136,7 +136,7 @@
 					"width": 422,
 					"height": 0,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -149,7 +149,7 @@
 					"width": 422,
 					"height": 0,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -162,7 +162,7 @@
 					"width": 0,
 					"height": 409,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -175,7 +175,7 @@
 					"width": 0,
 					"height": 409,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -188,7 +188,7 @@
 					"width": 0,
 					"height": 409,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -201,7 +201,7 @@
 					"width": 0,
 					"height": 409,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -214,7 +214,7 @@
 					"width": 422,
 					"height": 0,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -227,7 +227,7 @@
 					"width": 422,
 					"height": 0,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -240,7 +240,7 @@
 					"width": 422,
 					"height": 0,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -253,7 +253,7 @@
 					"width": 422,
 					"height": 0,
 					"startPoint": "topLeft",
-					"stroke": "#1e90ff",
+					"stroke": "#FFFFFF",
 					"strokeDashArray": [
 						1,
 						2
@@ -511,11 +511,11 @@
 				},
 				"Button10": {
 					"type": "button",
-					"text": "Button",
+					"text": "Bevel",
 					"top": 74,
 					"left": 474,
 					"width": 216,
-					"height": 42,
+					"height": 36,
 					"events": [],
 					"style": "bevel",
 					"textPlacement": "right",
@@ -550,7 +550,7 @@
 					"type": "button",
 					"text": "pop menu",
 					"top": 88,
-					"left": 366,
+					"left": 456,
 					"width": 115,
 					"height": 30,
 					"events": [
@@ -565,7 +565,7 @@
 					"type": "button",
 					"text": "Fonts",
 					"top": 177,
-					"left": 366,
+					"left": 456,
 					"width": 115,
 					"height": 30,
 					"events": [
@@ -579,20 +579,21 @@
 				"fontStyles": {
 					"type": "checkbox",
 					"text": "styles",
-					"top": 182,
-					"left": 274,
-					"width": 109,
+					"top": 183,
+					"left": 219,
+					"width": 152,
 					"height": 20,
 					"events": [
 						"onClick"
 					],
-					"dataSourceTypeHint": "boolean"
+					"dataSourceTypeHint": "boolean",
+					"focusable": false
 				},
 				"Button7": {
 					"type": "button",
 					"text": "Edit",
-					"top": 227,
-					"left": 366,
+					"top": 247,
+					"left": 456,
 					"width": 115,
 					"height": 30,
 					"events": [
@@ -606,8 +607,8 @@
 				"Button8": {
 					"type": "button",
 					"text": "Windows",
-					"top": 277,
-					"left": 366,
+					"top": 317,
+					"left": 456,
 					"width": 115,
 					"height": 30,
 					"events": [
@@ -620,16 +621,16 @@
 				},
 				"Text17": {
 					"type": "text",
-					"text": "Display a font menu with or without ",
-					"top": 184,
-					"left": 54,
-					"width": 305,
+					"text": "Display a font menu with",
+					"top": 185,
+					"left": 28,
+					"width": 181,
 					"height": 16
 				},
 				"Input2": {
 					"type": "input",
-					"left": 501,
-					"top": 234,
+					"left": 591,
+					"top": 254,
 					"width": 172,
 					"height": 17,
 					"dataSource": "Form:C1466.input"
@@ -637,53 +638,70 @@
 				"Text18": {
 					"type": "text",
 					"text": "Display a standard Edit menu",
-					"top": 234,
-					"left": 54,
+					"top": 255,
+					"left": 28,
 					"width": 305,
 					"height": 16
 				},
 				"Text19": {
 					"type": "text",
 					"text": "Display a Windows menu",
-					"top": 284,
-					"left": 54,
+					"top": 325,
+					"left": 28,
 					"width": 305,
 					"height": 16
 				},
 				"Text20": {
 					"type": "text",
 					"text": "cs.menu.new().fonts(bool)",
-					"top": 163,
-					"left": 54,
-					"width": 406,
+					"top": 157,
+					"left": 456,
+					"width": 196,
 					"height": 16,
 					"stroke": "#1e90ff"
 				},
 				"Text21": {
 					"type": "text",
 					"text": "cs.menu.new().edit()",
-					"top": 215,
-					"left": 54,
-					"width": 406,
+					"top": 227,
+					"left": 456,
+					"width": 297,
 					"height": 16,
 					"stroke": "#1e90ff"
 				},
 				"Text22": {
 					"type": "text",
 					"text": "cs.menu.new().windows()",
-					"top": 267,
-					"left": 54,
-					"width": 406,
+					"top": 297,
+					"left": 456,
+					"width": 292,
 					"height": 16,
 					"stroke": "#1e90ff"
 				},
 				"Text23": {
 					"type": "text",
 					"text": "Display a contextual menu",
-					"top": 95,
-					"left": 54,
+					"top": 96,
+					"left": 28,
 					"width": 305,
 					"height": 16
+				},
+				"Text30": {
+					"type": "text",
+					"text": "or without ",
+					"top": 185,
+					"left": 290,
+					"width": 100,
+					"height": 16
+				},
+				"Text31": {
+					"type": "text",
+					"text": "cs.group.new(\"Text17,fontStyles,Text30\").distributeLeftToRight()",
+					"top": 157,
+					"left": 28,
+					"width": 398,
+					"height": 16,
+					"stroke": "#1e90ff"
 				}
 			}
 		},
@@ -861,7 +879,7 @@
 					"top": 87,
 					"width": 183,
 					"height": 17,
-					"dataSource": "Form:C1466.$.nonAssignable",
+					"dataSource": "Form:C1466.nonAssignable",
 					"enterable": true,
 					"focusable": false,
 					"contextMenu": "none",
@@ -1081,7 +1099,6 @@
 			}
 		}
 	],
-	"method": "method.4dm",
 	"editor": {
 		"groups": {
 			"Group": [
@@ -1097,7 +1114,8 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 414,
+	"geometryStamp": 453,
 	"width": 829,
-	"height": 559
+	"height": 559,
+	"method": "HDI_FORM"
 }

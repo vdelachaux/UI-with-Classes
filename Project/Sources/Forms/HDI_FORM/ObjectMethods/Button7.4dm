@@ -1,16 +1,19 @@
-C_OBJECT:C1216($menu)
+var $ui : Object
+var $menu : cs:C1710.menu
 
-If (Bool:C1537(Form:C1466.trace))
+$ui:=Form:C1466.$
+
+If (Bool:C1537($ui.trace))
 	
-	Form:C1466.trace:=False:C215
+	$ui.trace:=False:C215
 	TRACE:C157
 	
 End if 
 
-GOTO OBJECT:C206(*;"Input2")
+GOTO OBJECT:C206(*; "Input2")
 
-  // Create edit menu
+// Create edit menu
 $menu:=cs:C1710.menu.new().edit()
 
-  // Display as popup
+// Display as popup
 $menu.popup()

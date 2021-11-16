@@ -129,6 +129,13 @@ Function title()->$title : Text
 	$title:=OBJECT Get title:C1068(*; This:C1470.name)
 	
 	//=== === === === === === === === === === === === === === === === === === ===
+Function setFont($font : Text)->$this : cs:C1710.formObject
+	
+	OBJECT SET FONT:C164(*; This:C1470.name; $font)
+	
+	$this:=This:C1470
+	
+	//=== === === === === === === === === === === === === === === === === === ===
 Function setFontStyle($style : Integer)->$this : cs:C1710.formObject
 	
 	If (Count parameters:C259>=1)

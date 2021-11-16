@@ -1,5 +1,5 @@
 //%attributes = {"invisible":true}
-#DECLARE($message : Text)
+#DECLARE($message : Text; $param : Object)
 
 var $o; $ui : Object
 
@@ -16,7 +16,7 @@ End if
 Case of 
 		
 		//______________________________________________________
-	: ($message="execute")
+	: ($message="doExecute")
 		
 		$ui.clickMe.bestSize().enable().setHelpTip("Click here for more information about me")
 		
@@ -43,9 +43,9 @@ Case of
 		$ui.trace:=False:C215
 		
 		//______________________________________________________
-	: ($message="reset")
+	: ($message="doRestore")
 		
-		$ui.clickMe.setCoordinates($ui.clickMe.origin).disable()
+		$ui.clickMe.setCoordinates($ui.clickMe.origin).setCallback(Formula:C1597(ALERT:C41("You clicked on me\r\rTry again to see..."))).disable()
 		$ui.alignRight.setCoordinates($ui.alignRight.origin)
 		$ui.login.setCoordinates($ui.login.origin)
 		$ui.close.setCoordinates($ui.close.origin)
@@ -91,7 +91,7 @@ Case of
 		//______________________________________________________
 	: ($message="showHideGroup")
 		
-		$group:=$2
+		$group:=$param
 		
 		If ($group.members[0].isVisible())
 			
@@ -120,7 +120,7 @@ Case of
 		//______________________________________________________
 	Else 
 		
-		// A "Case of" statement should never omit "Else"
+		ASSERT:C1129(False:C215; "Unknown entry point: \""+$message+"\"")
 		
 		//______________________________________________________
 End case 

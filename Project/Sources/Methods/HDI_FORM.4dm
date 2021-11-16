@@ -1,3 +1,4 @@
+//%attributes = {"invisible":true}
 var $e; $ui : Object
 
 If (Form:C1466.$=Null:C1517)
@@ -52,11 +53,6 @@ Else   // <== WIDGETS METHOD
 		: ($ui.alignRight.catch($e))
 			
 			ALERT:C41("You have clicked on "+$e.objectName)
-			
-			//______________________________________________________
-		: (Split string:C1554("execute.reset.trace.next.previous"; ".").indexOf($e.objectName)#-1)
-			
-			// Ignore
 			
 			//______________________________________________________
 		: ($ui.close.catch($e; On Clicked:K2:4))

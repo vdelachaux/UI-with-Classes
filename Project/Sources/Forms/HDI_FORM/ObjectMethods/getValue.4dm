@@ -1,6 +1,10 @@
-If (Bool:C1537(Form:C1466.trace))
+var $ui : Object
+
+$ui:=Form:C1466.$
+
+If (Bool:C1537($ui.trace))
 	
-	Form:C1466.trace:=False:C215
+	$ui.trace:=False:C215
 	TRACE:C157
 	
 End if 

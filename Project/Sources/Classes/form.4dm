@@ -50,11 +50,11 @@ Function formObject($name : Text; $widgetName : Text)->$widget : cs:C1710.formOb
 	
 	If (Count parameters:C259>=2)
 		
-		This:C1470.instantiate("formObject"; $name; $widgetName)
+		This:C1470._instantiate("formObject"; $name; $widgetName)
 		
 	Else 
 		
-		This:C1470.instantiate("formObject"; $name)
+		This:C1470._instantiate("formObject"; $name)
 		
 	End if 
 	
@@ -66,11 +66,11 @@ Function button($name : Text; $widgetName : Text)->$widget : cs:C1710.button
 	
 	If (Count parameters:C259>=2)
 		
-		This:C1470.instantiate("button"; $name; $widgetName)
+		This:C1470._instantiate("button"; $name; $widgetName)
 		
 	Else 
 		
-		This:C1470.instantiate("button"; $name)
+		This:C1470._instantiate("button"; $name)
 		
 	End if 
 	
@@ -82,11 +82,11 @@ Function widget($name : Text; $widgetName : Text)->$widget : cs:C1710.widget
 	
 	If (Count parameters:C259>=2)
 		
-		This:C1470.instantiate("widget"; $name; $widgetName)
+		This:C1470._instantiate("widget"; $name; $widgetName)
 		
 	Else 
 		
-		This:C1470.instantiate("widget"; $name)
+		This:C1470._instantiate("widget"; $name)
 		
 	End if 
 	
@@ -98,11 +98,11 @@ Function input($name : Text; $widgetName : Text)->$widget : cs:C1710.input
 	
 	If (Count parameters:C259>=2)
 		
-		This:C1470.instantiate("input"; $name; $widgetName)
+		This:C1470._instantiate("input"; $name; $widgetName)
 		
 	Else 
 		
-		This:C1470.instantiate("input"; $name)
+		This:C1470._instantiate("input"; $name)
 		
 	End if 
 	
@@ -114,11 +114,11 @@ Function thermometer($name : Text; $widgetName : Text)->$widget : cs:C1710.therm
 	
 	If (Count parameters:C259>=2)
 		
-		This:C1470.instantiate("thermometer"; $name; $widgetName)
+		This:C1470._instantiate("thermometer"; $name; $widgetName)
 		
 	Else 
 		
-		This:C1470.instantiate("thermometer"; $name)
+		This:C1470._instantiate("thermometer"; $name)
 		
 	End if 
 	
@@ -130,11 +130,11 @@ Function listbox($name : Text; $widgetName : Text)->$widget : cs:C1710.listbox
 	
 	If (Count parameters:C259>=2)
 		
-		This:C1470.instantiate("listbox"; $name; $widgetName)
+		This:C1470._instantiate("listbox"; $name; $widgetName)
 		
 	Else 
 		
-		This:C1470.instantiate("listbox"; $name)
+		This:C1470._instantiate("listbox"; $name)
 		
 	End if 
 	
@@ -146,11 +146,11 @@ Function picture($name : Text; $widgetName : Text)->$widget : cs:C1710.picture
 	
 	If (Count parameters:C259>=2)
 		
-		This:C1470.instantiate("picture"; $name; $widgetName)
+		This:C1470._instantiate("picture"; $name; $widgetName)
 		
 	Else 
 		
-		This:C1470.instantiate("picture"; $name)
+		This:C1470._instantiate("picture"; $name)
 		
 	End if 
 	
@@ -162,11 +162,11 @@ Function subform($name : Text; $widgetName : Text)->$widget : cs:C1710.subform
 	
 	If (Count parameters:C259>=2)
 		
-		This:C1470.instantiate("subform"; $name; $widgetName)
+		This:C1470._instantiate("subform"; $name; $widgetName)
 		
 	Else 
 		
-		This:C1470.instantiate("subform"; $name)
+		This:C1470._instantiate("subform"; $name)
 		
 	End if 
 	
@@ -214,7 +214,7 @@ Function getWidgets()
 				 | ($type=Object type 3D radio button:K79:24)\
 				 | ($type=Object type picture button:K79:20)
 				
-				This:C1470.instantiate("button"; $name)
+				This:C1470._instantiate("button"; $name)
 				
 				//______________________________________________________
 			: ($type=Object type static text:K79:2)\
@@ -224,7 +224,7 @@ Function getWidgets()
 				 | ($type=Object type rounded rectangle:K79:34)\
 				 | ($type=Object type oval:K79:35)
 				
-				This:C1470.instantiate("static"; $name)
+				This:C1470._instantiate("static"; $name)
 				
 				//______________________________________________________
 			: (False:C215)
@@ -240,19 +240,19 @@ Function getWidgets()
 	End for 
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-	// Add form event(s) of the current form
+	// Add form event(s) for the current form
 Function appendEvents($events)
 	
 	This:C1470._setEvents($events; Enable events others unchanged:K42:38)
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-	// Remove form event(s) of the current form
+	// Remove form event(s) for the current form
 Function removeEvents($events)
 	
 	This:C1470._setEvents($events; Disable events others unchanged:K42:39)
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-	// Define the event(s) of the current form
+	// Define the event(s) for the current form
 Function setEvents($events)
 	
 	This:C1470._setEvents($events; Enable events disable others:K42:37)
@@ -662,6 +662,8 @@ Function previousPage()
 	// Gives the focus to a widget in the current form
 Function goTo($widget : Text)
 	
+	// TODO: allow a cs.widget
+	
 	GOTO OBJECT:C206(*; $widget)
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
@@ -671,7 +673,7 @@ Function removeFocus()
 	GOTO OBJECT:C206(*; "")
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-Function instantiate($class : Text; $key : Text; $name : Text)
+Function _instantiate($class : Text; $key : Text; $name : Text)
 	
 	If (Asserted:C1132(Count parameters:C259>=1; "Missing parameter"))
 		
