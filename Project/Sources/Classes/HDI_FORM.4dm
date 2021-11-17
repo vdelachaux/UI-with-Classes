@@ -85,6 +85,8 @@ Form.Input:=this.widget("objectThatDoesNotExist")
 				.setCallback(Formula:C1597(ALERT:C41("You clicked on me\r\rTry again to see...")))\
 				.disable()
 			
+			This:C1470.dragMe:=This:C1470.input("drag").setValue("Drag me")
+			
 			// Demo buttons
 			$o:=cs:C1710.group.new("reset,execute").setFontStyle(Bold:K14:2).distributeRigthToLeft()
 			
@@ -94,7 +96,7 @@ Form.Input:=this.widget("objectThatDoesNotExist")
 			Form:C1466.input:="Hello world"
 			
 			// Align labels and checkbox on best size
-			cs:C1710.group.new("Text17,fontStyles,Text30").distributeLeftToRight()
+			cs:C1710.group.new("Text17,fontStyles,Text30").distributeLeftToRight(New object:C1471("spacing"; -8))
 			
 			//______________________________________________________
 		: ($page=3)

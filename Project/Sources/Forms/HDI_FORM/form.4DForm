@@ -490,7 +490,7 @@
 				},
 				"Text10": {
 					"type": "text",
-					"text": "Form objects positionning",
+					"text": "Form objects",
 					"top": 8,
 					"left": 97,
 					"width": 466,
@@ -516,7 +516,10 @@
 					"left": 474,
 					"width": 216,
 					"height": 36,
-					"events": [],
+					"events": [
+						"onDragOver",
+						"onBeginDragOver"
+					],
 					"style": "bevel",
 					"textPlacement": "right",
 					"icon": "#",
@@ -530,6 +533,23 @@
 					"width": 241,
 					"height": 16,
 					"stroke": "#1e90ff"
+				},
+				"drag": {
+					"type": "input",
+					"left": 482,
+					"top": 146,
+					"width": 122,
+					"height": 17,
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "custom",
+					"events": [
+						"onBeginDragOver"
+					],
+					"method": "ObjectMethods/drag.4dm",
+					"focusable": false,
+					"fill": "transparent",
+					"textAlign": "center"
 				}
 			}
 		},
@@ -576,19 +596,6 @@
 					"popupPlacement": "linked",
 					"focusable": false
 				},
-				"fontStyles": {
-					"type": "checkbox",
-					"text": "styles",
-					"top": 183,
-					"left": 219,
-					"width": 152,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"dataSourceTypeHint": "boolean",
-					"focusable": false
-				},
 				"Button7": {
 					"type": "button",
 					"text": "Edit",
@@ -618,14 +625,6 @@
 					"style": "bevel",
 					"popupPlacement": "linked",
 					"focusable": false
-				},
-				"Text17": {
-					"type": "text",
-					"text": "Display a font menu with",
-					"top": 185,
-					"left": 28,
-					"width": 181,
-					"height": 16
 				},
 				"Input2": {
 					"type": "input",
@@ -686,14 +685,6 @@
 					"width": 305,
 					"height": 16
 				},
-				"Text30": {
-					"type": "text",
-					"text": "or without ",
-					"top": 185,
-					"left": 290,
-					"width": 100,
-					"height": 16
-				},
 				"Text31": {
 					"type": "text",
 					"text": "cs.group.new(\"Text17,fontStyles,Text30\").distributeLeftToRight()",
@@ -702,6 +693,80 @@
 					"width": 398,
 					"height": 16,
 					"stroke": "#1e90ff"
+				},
+				"Line10": {
+					"type": "line",
+					"top": 201,
+					"left": 27,
+					"width": 1,
+					"height": 13,
+					"startPoint": "topLeft",
+					"stroke": "#FFFFFF"
+				},
+				"Line11": {
+					"type": "line",
+					"top": 201,
+					"left": 209,
+					"width": 1,
+					"height": 13,
+					"startPoint": "topLeft",
+					"stroke": "#FFFFFF"
+				},
+				"Line12": {
+					"type": "line",
+					"top": 201,
+					"left": 390,
+					"width": 1,
+					"height": 13,
+					"startPoint": "topLeft",
+					"stroke": "#FFFFFF"
+				},
+				"Line13": {
+					"type": "line",
+					"top": 201,
+					"left": 289,
+					"width": 1,
+					"height": 13,
+					"startPoint": "topLeft",
+					"stroke": "#FFFFFF"
+				},
+				"Line14": {
+					"type": "line",
+					"top": 201,
+					"left": 222,
+					"width": 1,
+					"height": 13,
+					"startPoint": "topLeft",
+					"stroke": "#FFFFFF"
+				},
+				"fontStyles": {
+					"type": "checkbox",
+					"text": "styles",
+					"top": 183,
+					"left": 219,
+					"width": 152,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"dataSourceTypeHint": "boolean",
+					"focusable": false
+				},
+				"Text17": {
+					"type": "text",
+					"text": "Display a font menu with",
+					"top": 185,
+					"left": 28,
+					"width": 181,
+					"height": 16
+				},
+				"Text30": {
+					"type": "text",
+					"text": "or without ",
+					"top": 185,
+					"left": 290,
+					"width": 100,
+					"height": 16
 				}
 			}
 		},
@@ -887,7 +952,7 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 457,
+	"geometryStamp": 546,
 	"width": 829,
 	"height": 559,
 	"method": "HDI_FORM"
