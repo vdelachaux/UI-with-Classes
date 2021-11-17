@@ -103,6 +103,7 @@ Form.Input:=this.widget("objectThatDoesNotExist")
 			This:C1470.group("groupLeft")
 			
 			// Add the data I will need
+			This:C1470.groupLeft.ID:="Left"
 			This:C1470.groupLeft.index:="1"
 			
 			// Add widgets as members
@@ -116,6 +117,7 @@ Form.Input:=this.widget("objectThatDoesNotExist")
 			This:C1470.group("groupRight")
 			
 			// Add the data I will need
+			This:C1470.groupRight.ID:="Right"
 			This:C1470.groupRight.index:="2"
 			
 			// Add widgets as members
@@ -132,27 +134,14 @@ Form.Input:=this.widget("objectThatDoesNotExist")
 			
 			// Demo buttons
 			This:C1470.groupDemo:=This:C1470.group("groupDemo")
-			This:C1470.showHide1:=This:C1470.button("showHidegroup1").bestSize().addToGroup(This:C1470.groupDemo)
-			This:C1470.showHide2:=This:C1470.button("showHidegroup2").bestSize().addToGroup(This:C1470.groupDemo)
+			This:C1470.showHideLeft:=This:C1470.button("showHidegroup1").bestSize().addToGroup(This:C1470.groupDemo)
+			This:C1470.showHideRight:=This:C1470.button("showHidegroup2").bestSize().addToGroup(This:C1470.groupDemo)
 			This:C1470.showHideSuper:=This:C1470.button("showHidegroupSuper").bestSize().addToGroup(This:C1470.groupDemo)
 			This:C1470.groupDemo.centerVertically()
 			
-			This:C1470.buttonBack:=This:C1470.formObject("Rectangle9")\
-				.setCoordinates(This:C1470.groupDemo.enclosingRect())\
-				.moveAndResizeHorizontally(-10; 10)\
-				.moveAndResizeVertically(-10; 10)
-			
-			//______________________________________________________
-		: ($page=4)
-			
-			Form:C1466.nonAssignable:="Hello"
-			Form:C1466.testDatasource:=cs:C1710.input.new("Input"; Formula:C1597(Form:C1466.nonAssignable))
-			Form:C1466.value:=cs:C1710.input.new("Input1")
-			Form:C1466.getValue:=cs:C1710.button.new("Button3").disable()
-			
-			Form:C1466.testPicture:=cs:C1710.picture.new("picture"; Formula:C1597(Form:C1466.picture))
-			Form:C1466.testPicture.read(File:C1566("/RESOURCES/images/4d.png")).thumbnail(100)\
-				.superImposition(File:C1566("/RESOURCES/images/light_on.png"); 5; 5)
+			// Place the background of the buttons
+			This:C1470.groupDemoBackground:=This:C1470.formObject("Rectangle9")\
+				.setCoordinates(This:C1470.groupDemo.enclosingRect(10))
 			
 			//______________________________________________________
 	End case 

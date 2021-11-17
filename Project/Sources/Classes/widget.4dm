@@ -26,18 +26,8 @@ Class constructor($name : Text; $datasource)
 		
 		If (Count parameters:C259>=2)
 			
-			This:C1470.dataSource:=$datasource
+			This:C1470.setDatasource($datasource)
 			
-			If (Value type:C1509($datasource)=Is object:K8:27)
-				
-				// Formula
-				This:C1470.value:=This:C1470.dataSource.call()
-				
-			Else 
-				
-				This:C1470.value:=Formula from string:C1601($datasource).call()
-				
-			End if 
 		End if 
 	End if 
 	
@@ -58,6 +48,22 @@ Function updatePointer()->$p : Pointer
 Function pointer()->$p : Pointer
 	
 	$p:=OBJECT Get pointer:C1124(Object named:K67:5; This:C1470.name)
+	
+	//=== === === === === === === === === === === === === === === === === === ===
+Function setDatasource($datasource)
+	
+	This:C1470.dataSource:=$datasource
+	
+	If (Value type:C1509($datasource)=Is object:K8:27)
+		
+		// Formula
+		This:C1470.value:=This:C1470.dataSource.call()
+		
+	Else 
+		
+		This:C1470.value:=Formula from string:C1601($datasource).call()
+		
+	End if 
 	
 	//=== === === === === === === === === === === === === === === === === === ===
 Function setFormat($format : Text)->$this : cs:C1710.widget

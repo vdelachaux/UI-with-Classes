@@ -821,10 +821,10 @@
 				},
 				"showHideGroup1": {
 					"type": "button",
-					"text": "Hide group 1",
+					"text": "Hide Group Left",
 					"top": 404,
 					"left": 606,
-					"width": 119,
+					"width": 159,
 					"height": 22,
 					"events": [
 						"onClick"
@@ -834,10 +834,10 @@
 				},
 				"showHideGroup2": {
 					"type": "button",
-					"text": "Hide group 2",
+					"text": "Hide Group Right",
 					"top": 431,
 					"left": 606,
-					"width": 119,
+					"width": 159,
 					"height": 22,
 					"events": [
 						"onClick"
@@ -847,10 +847,10 @@
 				},
 				"showHidegroupSuper": {
 					"type": "button",
-					"text": "Hide groups",
+					"text": "Hide all Groups",
 					"top": 457,
 					"left": 606,
-					"width": 119,
+					"width": 159,
 					"height": 22,
 					"events": [
 						"onClick"
@@ -870,233 +870,6 @@
 				"showHideGroup2",
 				"showHidegroupSuper"
 			]
-		},
-		{
-			"objects": {
-				"Input": {
-					"type": "input",
-					"left": 97,
-					"top": 87,
-					"width": 183,
-					"height": 17,
-					"dataSource": "Form:C1466.nonAssignable",
-					"enterable": true,
-					"focusable": false,
-					"contextMenu": "none",
-					"fill": "automatic"
-				},
-				"Input1": {
-					"type": "input",
-					"left": 402,
-					"top": 155,
-					"width": 257,
-					"height": 17,
-					"dataSource": "",
-					"events": [
-						"onAfterEdit"
-					],
-					"method": "ObjectMethods/Input1.4dm"
-				},
-				"getValue": {
-					"type": "button",
-					"text": "Get value",
-					"top": 153,
-					"left": 300,
-					"width": 82,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/getValue.4dm",
-					"focusable": true,
-					"display": true
-				},
-				"Button3": {
-					"type": "button",
-					"text": "Set value",
-					"top": 213,
-					"left": 300,
-					"width": 82,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/Button3.4dm",
-					"focusable": true
-				},
-				"Text13": {
-					"type": "text",
-					"text": "Get - Set value",
-					"top": 8,
-					"left": 97,
-					"width": 466,
-					"height": 29,
-					"fontSize": 24,
-					"stroke": "#808080",
-					"textAlign": "center"
-				},
-				"Text11": {
-					"type": "text",
-					"text": "The input box on left is linked to the expression \"Form.nonAssignable\".\rYou can retrieve it's value and put it into the one below (it is a dynamic variable), by clicking the button \"Get value\"",
-					"top": 87,
-					"left": 300,
-					"width": 497,
-					"height": 56
-				},
-				"Text14": {
-					"type": "text",
-					"text": "Then, set its content or clear it",
-					"top": 191,
-					"left": 454,
-					"width": 267,
-					"height": 16
-				},
-				"Line10": {
-					"type": "line",
-					"top": 107,
-					"left": 204,
-					"width": 0,
-					"height": 56,
-					"startPoint": "topLeft",
-					"stroke": "#ff0000"
-				},
-				"Line11": {
-					"type": "line",
-					"top": 163,
-					"left": 204,
-					"width": 93,
-					"height": 0,
-					"startPoint": "topLeft",
-					"stroke": "#ff0000"
-				},
-				"Line12": {
-					"type": "line",
-					"top": 163,
-					"left": 384,
-					"width": 13,
-					"height": 0,
-					"startPoint": "topLeft",
-					"stroke": "#ff0000"
-				},
-				"Text16": {
-					"type": "text",
-					"text": "Form.nonAssignable",
-					"top": 64,
-					"left": 97,
-					"width": 183,
-					"height": 16,
-					"stroke": "#1e90ff"
-				},
-				"Line15": {
-					"type": "line",
-					"top": 223,
-					"left": 155,
-					"width": 142,
-					"height": 0,
-					"startPoint": "topLeft",
-					"stroke": "#0000cd"
-				},
-				"Line16": {
-					"type": "line",
-					"top": 107,
-					"left": 155,
-					"width": 0,
-					"height": 116,
-					"startPoint": "topLeft",
-					"stroke": "#0000cd"
-				},
-				"Line13": {
-					"type": "line",
-					"top": 223,
-					"left": 384,
-					"width": 50,
-					"height": 0,
-					"startPoint": "topLeft",
-					"stroke": "#0000cd"
-				},
-				"Line14": {
-					"type": "line",
-					"top": 176,
-					"left": 434,
-					"width": 0,
-					"height": 48,
-					"startPoint": "topLeft",
-					"stroke": "#0000cd"
-				},
-				"picture": {
-					"type": "input",
-					"left": 97,
-					"top": 275,
-					"width": 150,
-					"height": 150,
-					"dataSource": "Form:C1466.picture",
-					"enterable": false,
-					"focusable": false,
-					"contextMenu": "none",
-					"fill": "transparent",
-					"dataSourceTypeHint": "picture",
-					"pictureFormat": "proportionalCenter",
-					"borderStyle": "system"
-				},
-				"Text24": {
-					"type": "text",
-					"text": "Form.picture",
-					"top": 250,
-					"left": 97,
-					"width": 343,
-					"height": 16,
-					"stroke": "#1e90ff"
-				},
-				"Button9": {
-					"type": "button",
-					"text": "Browse…",
-					"top": 286,
-					"left": 294,
-					"width": 82,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/Button9.4dm",
-					"focusable": false
-				},
-				"Text25": {
-					"type": "text",
-					"text": "Form.picture.read()",
-					"top": 288,
-					"left": 390,
-					"width": 178,
-					"height": 16,
-					"stroke": "#1e90ff"
-				},
-				"clearValue1": {
-					"type": "button",
-					"text": "Clear",
-					"top": 190,
-					"left": 658,
-					"width": 82,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/clearValue1.4dm",
-					"focusable": true
-				},
-				"Input3": {
-					"type": "input",
-					"left": 97,
-					"top": 431,
-					"width": 149,
-					"height": 17,
-					"dataSource": "Form:C1466.picture.fileName",
-					"enterable": false,
-					"focusable": false,
-					"contextMenu": "none",
-					"fill": "transparent",
-					"borderStyle": "none",
-					"textAlign": "center"
-				}
-			}
 		}
 	],
 	"editor": {
@@ -1114,7 +887,7 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 453,
+	"geometryStamp": 457,
 	"width": 829,
 	"height": 559,
 	"method": "HDI_FORM"

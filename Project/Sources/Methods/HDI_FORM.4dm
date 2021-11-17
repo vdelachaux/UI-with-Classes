@@ -60,7 +60,7 @@ Else   // <== WIDGETS METHOD
 			// <THE WIDGET CALLBACK METHOD HAS BEEN EXECUTED DURING .catch()>
 			
 			//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		: ($ui.showHide1=Null:C1517)
+		: ($ui.showHideLeft=Null:C1517)
 			
 			// PAGE 3 IS NOT INITIALIZED (never displayed)
 			
@@ -70,8 +70,8 @@ Else   // <== WIDGETS METHOD
 			$ui.callMeBack("showHideSuper")
 			
 			//______________________________________________________
-		: ($ui.showHide1.catch())\
-			 | ($ui.showHide2.catch())
+		: ($ui.showHideLeft.catch())\
+			 | ($ui.showHideRight.catch())
 			
 			$ui.callMeBack("showHideGroup"; Choose:C955($e.objectName="showHideGroup1"; $ui.groupLeft; $ui.groupRight))
 			

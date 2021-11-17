@@ -450,7 +450,7 @@
 				},
 				"Text8": {
 					"type": "text",
-					"text": ":xliff:",
+					"text": "????",
 					"top": 441,
 					"left": 21,
 					"width": 174,
@@ -794,10 +794,10 @@
 				},
 				"showHideGroup1": {
 					"type": "button",
-					"text": "Hide group 1",
+					"text": "Hide Group Left",
 					"top": 404,
 					"left": 606,
-					"width": 119,
+					"width": 159,
 					"height": 22,
 					"events": [
 						"onClick"
@@ -807,10 +807,10 @@
 				},
 				"showHideGroup2": {
 					"type": "button",
-					"text": "Hide group 2",
+					"text": "Hide Group Right",
 					"top": 431,
 					"left": 606,
-					"width": 119,
+					"width": 159,
 					"height": 22,
 					"events": [
 						"onClick"
@@ -820,10 +820,10 @@
 				},
 				"showHidegroupSuper": {
 					"type": "button",
-					"text": "Hide groups",
+					"text": "Hide all Groups",
 					"top": 457,
 					"left": 606,
-					"width": 119,
+					"width": 159,
 					"height": 22,
 					"events": [
 						"onClick"
@@ -1088,6 +1088,6 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 372,
+	"geometryStamp": 383,
 	"windowTitle": "DEMO WIDGET CLASSES"
 }

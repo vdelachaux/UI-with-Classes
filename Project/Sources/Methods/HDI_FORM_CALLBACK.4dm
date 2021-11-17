@@ -75,16 +75,16 @@ Case of
 			
 			$ui.super.hide()
 			$ui.removeFocus()
-			$ui.showHideSuper.setTitle("Show groups")
-			$ui.showHide1.setTitle("Show group 1")
-			$ui.showHide2.setTitle("Show group 2")
+			$ui.showHideSuper.setTitle("Show all Groups")
+			$ui.showHideLeft.setTitle("Show Group Left")
+			$ui.showHideRight.setTitle("Show Group Right")
 			
 		Else 
 			
 			$ui.super.show()
-			$ui.showHideSuper.setTitle("Hide groups")
-			$ui.showHide1.setTitle("Hide group 1")
-			$ui.showHide2.setTitle("Hide group 2")
+			$ui.showHideSuper.setTitle("Hide all Groups")
+			$ui.showHideLeft.setTitle("Hide Group Left")
+			$ui.showHideRight.setTitle("Hide Group Right")
 			
 		End if 
 		
@@ -96,12 +96,12 @@ Case of
 		If ($group.members[0].isVisible())
 			
 			$group.hide()
-			$ui["showHide"+$group.index].setTitle("Show group "+$group.index)
+			$ui["showHide"+$group.ID].setTitle("Show Group "+$group.ID)
 			
 		Else 
 			
 			$group.show()
-			$ui["showHide"+$group.index].setTitle("Hide group "+$group.index)
+			$ui["showHide"+$group.ID].setTitle("Hide Group "+$group.ID)
 			$ui["input"+$group.index].focus()
 			
 		End if 
@@ -109,11 +109,11 @@ Case of
 		If ($ui.groupLeft.members[0].isVisible())\
 			 | ($ui.groupRight.members[0].isVisible())
 			
-			$ui.showHideSuper.setTitle("Hide groups")
+			$ui.showHideSuper.setTitle("Hide all Groups")
 			
 		Else 
 			
-			$ui.showHideSuper.setTitle("Show groups")
+			$ui.showHideSuper.setTitle("Show all Groups")
 			
 		End if 
 		

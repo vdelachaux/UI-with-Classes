@@ -135,7 +135,7 @@ Function belongsTo($formObject : Variant)->$yes : Boolean
 	
 	//════════════════════════════════════════════
 	// Returns the coordinates of the rectangle enclosing the group.
-Function enclosingRect()->$coordinates : Object
+Function enclosingRect($gap : Integer)->$coordinates : Object
 	
 	var $left; $top; $right; $bottom : Integer
 	var $o : Object
@@ -161,6 +161,15 @@ Function enclosingRect()->$coordinates : Object
 			
 		End if 
 	End for each 
+	
+	If ($coordinates#Null:C1517) & (Count parameters:C259>=1)
+		
+		$coordinates.left:=$coordinates.left-$gap
+		$coordinates.top:=$coordinates.top-$gap
+		$coordinates.right:=$coordinates.right+$gap
+		$coordinates.bottom:=$coordinates.bottom+$gap
+		
+	End if 
 	
 	//════════════════════════════════════════════
 Function moveVertically($offset : Integer)

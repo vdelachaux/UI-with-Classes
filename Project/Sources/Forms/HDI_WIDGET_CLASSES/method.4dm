@@ -44,58 +44,59 @@ Else   // <== WIDGETS METHOD
 			// <THE WIDGET CALLBACK METHOD HAS BEEN EXECUTED DURING .catch()>
 			
 			//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		: (Form:C1466.showHide1=Null:C1517)
+		: (Form:C1466.showHideLeft=Null:C1517)
 			
 			// PAGE 3 IS NOT INITIALIZED (never displayed)
 			
 			//______________________________________________________
 		: (Form:C1466.showHideSuper.catch())
 			
-			If (Form:C1466.group1.members[0].isVisible())\
-				 | (Form:C1466.group2.members[0].isVisible())
+			If (Form:C1466.groupLeft.members[0].isVisible())\
+				 | (Form:C1466.groupRight.members[0].isVisible())
 				
 				Form:C1466.super.hide()
-				Form:C1466.showHideSuper.setTitle("Show groups")
-				Form:C1466.showHide1.setTitle("Show group 1")
-				Form:C1466.showHide2.setTitle("Show group 2")
+				Form:C1466.showHideSuper.setTitle("Show all Groups")
+				Form:C1466.showHideLeft.setTitle("Show Group Left")
+				Form:C1466.showHideRight.setTitle("Show Group Right")
 				
 			Else 
 				
 				Form:C1466.super.show()
-				Form:C1466.showHideSuper.setTitle("Hide groups")
-				Form:C1466.showHide1.setTitle("Hide group 1")
-				Form:C1466.showHide2.setTitle("Hide group 2")
+				Form:C1466.showHideSuper.setTitle("Hide all Groups")
+				Form:C1466.showHideLeft.setTitle("Hide Group Left")
+				Form:C1466.showHideRight.setTitle("Hide Group Right")
 				
 			End if 
 			
+			
 			//______________________________________________________
-		: (Form:C1466.showHide1.catch())\
-			 | (Form:C1466.showHide2.catch())
+		: (Form:C1466.showHideLeft.catch())\
+			 | (Form:C1466.showHideRight.catch())
 			
 			var $group : cs:C1710.group
-			$group:=Choose:C955($e.objectName="showHideGroup1"; Form:C1466.group1; Form:C1466.group2)
+			$group:=Choose:C955($e.objectName="showHideGroup1"; Form:C1466.groupLeft; Form:C1466.groupRight)
 			
 			If ($group.members[0].isVisible())
 				
 				$group.hide()
-				Form:C1466["showHide"+$group.index].setTitle("Show group "+$group.index)
+				Form:C1466["showHide"+$group.ID].setTitle("Show Group "+$group.ID)
 				
 			Else 
 				
 				$group.show()
-				Form:C1466["showHide"+$group.index].setTitle("Hide group "+$group.index)
+				Form:C1466["showHide"+$group.ID].setTitle("Hide Group "+$group.ID)
 				Form:C1466["input"+$group.index].focus()
 				
 			End if 
 			
-			If (Form:C1466.group1.members[0].isVisible())\
-				 | (Form:C1466.group2.members[0].isVisible())
+			If (Form:C1466.groupLeft.members[0].isVisible())\
+				 | (Form:C1466.groupRight.members[0].isVisible())
 				
-				Form:C1466.showHideSuper.setTitle("Hide groups")
+				Form:C1466.showHideSuper.setTitle("Hide all Groups")
 				
 			Else 
 				
-				Form:C1466.showHideSuper.setTitle("Show groups")
+				Form:C1466.showHideSuper.setTitle("Show all Groups")
 				
 			End if 
 			
