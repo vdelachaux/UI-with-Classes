@@ -12,15 +12,7 @@
 			"xml"
 		]
 	},
-	"DEMO_1": {
-		"methods": [
-			"HDI_LOAD_PAGE"
-		],
-		"forms": [
-			"HDI_WIDGET_CLASSES"
-		]
-	},
-	"DEMO_2": {
+	"DEMO_FORM": {
 		"methods": [
 			"HDI_FORM",
 			"HDI_FORM_CALLBACK"
@@ -34,8 +26,16 @@
 	},
 	"DEMO_PROGRESS": {
 		"methods": [
-			"HTU_progress",
-			"htuProgressDoSomething"
+			"DEMO_progress",
+			"demoProgressDoSomething"
+		]
+	},
+	"DEMO_WIDGETS": {
+		"methods": [
+			"HDI_LOAD_PAGE"
+		],
+		"forms": [
+			"HDI_WIDGET_CLASSES"
 		]
 	},
 	"form": {

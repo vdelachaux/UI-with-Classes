@@ -7,11 +7,9 @@ var $progress : cs:C1710.progress
 $c:=New collection:C1472()
 $c[19]:=True:C214
 
-Progress QUIT(0)
-
 $progress:=cs:C1710.progress.new("PROCESSING A COLLECTION")
 
-$progress.forEach($c; Formula:C1597(htuProgressDoSomething); True:C214)
+$progress.forEach($c; Formula:C1597(demoProgressDoSomething); True:C214)
 
 $progress.setTitle("Waiting for next step…")
 DELAY PROCESS:C323(Current process:C322; 60)
@@ -24,8 +22,8 @@ For ($i; 1; 50; 1)
 	
 End for 
 
-$progress.setTitle("PROCESSING AN OBJECT").setDelay(60*2).showStop()\
-.forEach($o; Formula:C1597(htuProgressDoSomething); True:C214)
+$progress.setTitle("PROCESSING AN OBJECT").setDelay(60).showStop()\
+.forEach($o; Formula:C1597(demoProgressDoSomething); True:C214)
 
 If ($progress.stopped)
 	
@@ -49,6 +47,6 @@ Else
 	End for 
 	
 	$progress.setTitle("PROCESSING AN ARRAY")\
-		.forEach($c; Formula:C1597(htuProgressDoSomething))
+		.forEach($c; Formula:C1597(demoProgressDoSomething))
 	
 End if 
