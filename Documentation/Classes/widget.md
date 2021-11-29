@@ -53,6 +53,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**execute** () | Executes the `callback` formula associated to the widget |
 |.**getHelpTip** () →`Text` | Returns the help message associated with the widget|
 |.**setHelpTip** ({`Text`}) →`cs.widget` | Sets the help tip associated with the widget.  If no parameter , the help tip will be removed. |
+|.**removeHelpTip** () →`cs.widget` | Removes the help tip associated with the widget. |
 |.**getShortcut** () →`Object` | Returns the keyboard shortcut associated with the widget as an object{"key", "modifier"}|
 |.**setShortcut** ( key`:Text`{; modifier`:Integer`}) →`cs.widget` | Sets the keyboard shortcut associated with the widget|
 |.**focus** () →`cs.widget` | Gives focus to the widget |

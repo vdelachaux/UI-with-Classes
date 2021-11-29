@@ -109,6 +109,22 @@ Function input($name : Text; $widgetName : Text)->$widget : cs:C1710.input
 	$widget:=This:C1470[$name]
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
+	// Create a stepper object instance
+Function stepper($name : Text; $widgetName : Text)->$widget : cs:C1710.stepper
+	
+	If (Count parameters:C259>=2)
+		
+		This:C1470._instantiate("stepper"; $name; $widgetName)
+		
+	Else 
+		
+		This:C1470._instantiate("stepper"; $name)
+		
+	End if 
+	
+	$widget:=This:C1470[$name]
+	
+	//=== === === === === === === === === === === === === === === === === === === === === 
 	// Create a thermometer object instance
 Function thermometer($name : Text; $widgetName : Text)->$widget : cs:C1710.thermometer
 	

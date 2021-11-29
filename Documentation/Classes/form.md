@@ -28,6 +28,7 @@ The class constructor `cs.form.new({callbackMethodName})` creates a new class in
 |.**thermometer** (name`:Text`{ widgetName`:Text`}) →`cs.thermometer` | Instantiate a new [thermometer](thermometer.md) \*|
 |.**listbox** (name`:Text`{ widgetName`:Text`}) →`cs.listbox` | Instantiate a new [listbox](listbox.md) \*|
 |.**picture** (name`:Text`{ widgetName`:Text`}) →`cs.listbox` | Instantiate a new [picture](picture.md) \*|
+|.**stepper** (name`:Text`{ widgetName`:Text`}) →`cs.stepper` | Instantiate a new [stepper](stepper.md) \*|
 |.**subform** (name`:Text`{ widgetName`:Text`}) →`cs.subform` | Instantiate a new [subform](subform.md) \*|
 |.**group** (name`:Text`{ widgetName`:Text`}) →`cs.group` | Instantiate a new [group](group.md) \*|
 |.**appendEvents** (events`:Integer`\|`Collection`) | Adds form event(s) for the current form|

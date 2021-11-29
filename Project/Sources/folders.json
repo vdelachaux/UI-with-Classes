@@ -51,6 +51,7 @@
 			"listbox",
 			"picture",
 			"scrollable",
+			"stepper",
 			"subform",
 			"thermometer",
 			"webArea",

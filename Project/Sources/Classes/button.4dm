@@ -9,8 +9,15 @@ Class constructor($name : Text; $datasource)
 		
 	Else 
 		
-		Super:C1705($name)
-		
+		If (Count parameters:C259>=1)
+			
+			Super:C1705($name)
+			
+		Else 
+			
+			Super:C1705()
+			
+		End if 
 	End if 
 	
 /*═════════════════════════════════════════════════
@@ -68,16 +75,15 @@ Function setNoPopupMenu()->$this : cs:C1710.button
 	
 	$this:=This:C1470._setPopupMenu("none")
 	
-/*═════════════════════════════════════════════════
-Association of a pop-up menu with a 3D button
-	
-If no parameter, the pop menu is removed, if any,
-else, possible values are:
-	
-• 0 or "none": No pop-up menu
-• 1 or "linked": With linked pop-up menu
-• 2 or "separate": With separate pop-up menu
-*/
+	//═════════════════════════════════════════════════
+	/// Association of a pop-up menu with a 3D button
+/**
+If no parameter is passed the pop menu is removed, if any.
+Otherwise, the possible values are :	
+  - 0 or "none": No pop-up menu
+  - 1 or "linked": With linked pop-up menu
+  - 2 or "separate": With separate pop-up menu
+**/
 Function _setPopupMenu($value : Variant)->$this : cs:C1710.button
 	
 	If (This:C1470.type=Object type 3D button:K79:17)
@@ -136,7 +142,7 @@ Function _setPopupMenu($value : Variant)->$this : cs:C1710.button
 	$this:=This:C1470
 	
 	//═════════════════════════════════════════════════
-	// Picture linked to a button
+	/// Picture linked to a button
 Function setPicture($proxy : Text)->$this : cs:C1710.button
 	
 	Case of 
@@ -173,6 +179,31 @@ Function setPicture($proxy : Text)->$this : cs:C1710.button
 			
 			//______________________________________________________
 	End case 
+	
+	$this:=This:C1470
+	
+	
+	//═════════════════════════════════════════════════
+	/// Returns the number of pixels delimiting the inside left and right margins of the button
+	/// (areas that the icon and the text must not encroach upon).
+Function get horizontalMargin()->$pixels : Integer
+	
+	If (This:C1470.is3DButton("horizontalMargin is only managed for 3D buttons"))
+		
+		$pixels:=Num:C11(Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")[7])
+		
+	End if 
+	
+	//═════════════════════════════════════════════════
+	/// Sets the number of pixels delimiting the inside left and right margins of the button
+	/// (areas that the icon and the text must not encroach upon).
+Function set horizontalMargin($pixels : Integer)->$this : cs:C1710.button
+	
+	If (This:C1470.is3DButton("horizontalMargin is only managed for 3D buttons"))
+		
+		Super:C1706.setFormat(";;;;;;;"+String:C10($pixels))
+		
+	End if 
 	
 	$this:=This:C1470
 	
@@ -232,20 +263,16 @@ Function setNumStates($states : Integer)->$this : cs:C1710.button
 	
 	$this:=This:C1470
 	
-/*═════════════════════════════════════════════════
-A hack to force a button to be boolean type
 	
-⚠️ Obsolete in project mode because you can
-choose the type for the checkboxes
-Function asBoolean->$this : cs.button
+	//═════════════════════════════════════════════════
+	/// Returns True if the current button is a 3D button
+Function is3DButton($message : Text)->$success : Boolean
 	
-If (This.type=Object type checkbox)
-If (This.assignable)
+	$success:=(New collection:C1472(Object type 3D button:K79:17; Object type 3D checkbox:K79:27; Object type 3D radio button:K79:24).indexOf(This:C1470.type)#-1)
 	
-EXECUTE FORMULA(":C305((:C1124(:K67:5;This.name))->)")
+	If (Length:C16($message)>0)
+		
+		ASSERT:C1129(False:C215; $message)
+		
+	End if 
 	
-End if 
-End if 
-	
-$this:=This
-*/
