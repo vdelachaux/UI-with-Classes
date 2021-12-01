@@ -291,16 +291,19 @@ Function cellCoordinates($column : Integer; $row : Integer)->$coordinates : Obje
 			$columnƒ:=$e.column
 			$rowƒ:=$e.row
 			
-		Else 
-			
-			// A "If" statement should never omit "Else"
-			
 		End if 
 		
 	Else 
 		
 		$columnƒ:=$column
 		$rowƒ:=$row
+		
+	End if 
+	
+	// Mark: TURNAROUND
+	If ($rowƒ<=0)
+		
+		LISTBOX GET CELL POSITION:C971(*; This:C1470.name; $columnƒ; $rowƒ)
 		
 	End if 
 	
