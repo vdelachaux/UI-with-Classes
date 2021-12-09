@@ -1,7 +1,7 @@
 //%attributes = {}
 var $data : Object
 
-
+// Create and install a minimal menu bar
 cs:C1710.menu.new().defaultMinimalMenuBar().setBar()
 
 $data:=New object:C1471(\
