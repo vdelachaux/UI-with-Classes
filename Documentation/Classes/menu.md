@@ -36,6 +36,7 @@ End if
 |---------|:----:|------|:------:|
 | .**ref** | Text | The menu reference|**Null**|
 | .**autoRelease** | Boolean | Indicates whether the memory should be automatically freed after a call to one of the functions: `.setBar()`, `.popup()` or after adding the menu as a submenu.| **True\*** 🚨|
+| .**localize** | Boolean | Indicates whether item text are considered as a xliff resname. In this case, the code tries to get the corresponding localized string.| **True** |
 | .**metacharacters** | Boolean | Indicates whether metacharacters are considered as standard characters.| **Null** |
 | .**selected** | Boolean | Indicates whether, after displaying the context menu, an item has been selected. | **False** |
 | .**choice** | Text | The reference of the selected context menu item, if any. | "" |

@@ -5,6 +5,7 @@ Class constructor
 	
 	This:C1470.ref:=Null:C1517
 	This:C1470.autoRelease:=True:C214
+	This:C1470.localize:=True:C214
 	This:C1470.metacharacters:=False:C215
 	This:C1470.selected:=False:C215
 	This:C1470.choice:=""
@@ -44,6 +45,12 @@ Class constructor
 								
 								This:C1470.autoRelease:=($c.indexOf("keepReference")=-1)
 								This:C1470.metacharacters:=($c.indexOf("displayMetacharacters")#-1)
+								This:C1470.localize:=($c.indexOf("no-localization")=-1)
+								
+								//-----------------
+							: ($1="no-localization")
+								
+								This:C1470.localize:=False:C215
 								
 								//-----------------
 							: ($1="keepReference")
@@ -137,6 +144,11 @@ Function append($item : Variant; $param : Variant; $mark : Boolean)->$this : cs:
 					//%W+533.1
 					
 					// 🤬 4D does not like at all
+					
+					//______________________________________________________
+				: (Not:C34(This:C1470.localize))
+					
+					// Don't try to localize
 					
 					//______________________________________________________
 				Else 
