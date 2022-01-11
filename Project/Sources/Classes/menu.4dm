@@ -1,7 +1,6 @@
-Class constructor
+Class constructor($options)
 	
-	C_VARIANT:C1683($1)
-	C_COLLECTION:C1488($c)
+	var $c : Collection
 	
 	This:C1470.ref:=Null:C1517
 	This:C1470.autoRelease:=True:C214
@@ -17,55 +16,55 @@ Class constructor
 		Case of 
 				
 				//______________________________________________________
-			: (Value type:C1509($1)=Is text:K8:3)
+			: (Value type:C1509($options)=Is text:K8:3)
 				
 				Case of 
 						
 						//______________________________________________________
-					: ($1="menuBar")  // Load the current menu bar
+					: ($options="menuBar")  // Load the current menu bar
 						
 						This:C1470.ref:=Get menu bar reference:C979
 						
 						//______________________________________________________
-					: (Match regex:C1019("(?m-si)\\|MR\\|\\d{12}"; $1; 1))  // Menu reference
+					: (Match regex:C1019("(?m-si)\\|MR\\|\\d{12}"; $options; 1))  // Menu reference
 						
-						This:C1470.ref:=$1
+						This:C1470.ref:=$options
 						
 						//______________________________________________________
 					Else 
 						
 						This:C1470.ref:=Create menu:C408
 						
-						$c:=Split string:C1554(String:C10($1); ";")
+						$c:=Split string:C1554(String:C10($options); ";")
 						
 						Case of 
 								
 								//-----------------
 							: ($c.length>1)
 								
-								This:C1470.autoRelease:=($c.indexOf("keepReference")=-1)
-								This:C1470.metacharacters:=($c.indexOf("displayMetacharacters")#-1)
+								This:C1470.autoRelease:=($c.indexOf("keep-reference")=-1)
+								This:C1470.metacharacters:=($c.indexOf("display-metacharacters")#-1)
 								This:C1470.localize:=($c.indexOf("no-localization")=-1)
 								
 								//-----------------
-							: ($1="no-localization")
+							: ($options="no-localization")
 								
 								This:C1470.localize:=False:C215
 								
 								//-----------------
-							: ($1="keepReference")
+							: ($options="keep-reference")
 								
 								This:C1470.autoRelease:=False:C215
 								
 								//-----------------
-							: ($1="displayMetacharacters")
+							: ($options="display-metacharacters")
 								
 								This:C1470.metacharacters:=True:C214
 								
 								//-----------------
 							Else   // Menu bar name
 								
-								This:C1470.ref:=Create menu:C408($1)
+								This:C1470.ref:=Create menu:C408($options)
 								
 								//-----------------
 						End case 
@@ -73,16 +72,16 @@ Class constructor
 						//______________________________________________________
 				End case 
 				//______________________________________________________
-			: (Value type:C1509($1)=Is real:K8:4)\
-				 | (Value type:C1509($1)=Is longint:K8:6)  // Menu bar number
+			: (Value type:C1509($options)=Is real:K8:4)\
+				 | (Value type:C1509($options)=Is longint:K8:6)  // Menu bar number
 				
-				This:C1470.ref:=Create menu:C408($1)
+				This:C1470.ref:=Create menu:C408($options)
 				
 				//______________________________________________________
-			: (Value type:C1509($1)=Is collection:K8:32)  // Create from collection
+			: (Value type:C1509($options)=Is collection:K8:32)  // Create from collection
 				
 				This:C1470.ref:=Create menu:C408
-				This:C1470.append($1)
+				This:C1470.append($options)
 				
 				//______________________________________________________
 			Else 
@@ -300,7 +299,7 @@ Function append($item : Variant; $param : Variant; $mark : Boolean)->$this : cs:
 	// ===============================================
 Function add($ref : Text; $text : Text; $param : Variant; $mark : Boolean)
 	
-	
+	// TODO: wip
 	
 	
 	

@@ -114,6 +114,46 @@ Function selectAll()->$this : cs:C1710.listbox
 	$this:=This:C1470.select()
 	
 	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function edit($target; $item : Integer)
+	
+	If (Value type:C1509($target)=Is object:K8:27)
+		
+		ASSERT:C1129($target.columnName#Null:C1517)
+		
+		If ($target.row#Null:C1517)
+			
+			EDIT ITEM:C870(*; String:C10($target.columnName); Num:C11($target.row))
+			
+		Else 
+			
+			If (Count parameters:C259=1)
+				
+				// Current item
+				EDIT ITEM:C870(*; String:C10($target.columnName))
+				
+			Else 
+				
+				EDIT ITEM:C870(*; String:C10($target.columnName); $item)
+				
+			End if 
+			
+		End if 
+		
+	Else 
+		
+		If (Count parameters:C259=1)
+			
+			// Current item
+			EDIT ITEM:C870(*; String:C10($target))
+			
+		Else 
+			
+			EDIT ITEM:C870(*; String:C10($target); $item)
+			
+		End if 
+	End if 
+	
+	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Returns a row coordinates
 Function getRowCoordinates($row : Integer)->$coordinates : Object
 	

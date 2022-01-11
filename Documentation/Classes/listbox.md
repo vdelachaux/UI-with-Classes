@@ -42,6 +42,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**unselect** ({row `:Integer`}) →`:cs.listbox` | Unselects a row or all lines if no parameter is passed.|
 |.**doSafeSelect** (row `:Integer`) →`:cs.listbox` | Selects the given row if possible, else the most appropiate one. <br/>Useful to maintain a selection after a deletion|
 |.**selectAll** ( ) →`:cs.listbox` | Selects all rows |
+|.**edit** (event `:Object` {; item `:Integer`})<br/>.**edit** (target `:Text` {; item `:Integer`}) | To edit a listbox item |
 |.**reveal** (row `:Integer`)  → `:cs.listbox` | Selects ans reveal the passed row number |
 |.**selectedNumber** ()  →`:Integer` | Gives the number of selected rows |
 |.**columnNumber** ()  →`:Integer` | Gives the number of columns |
