@@ -79,6 +79,18 @@ Function unselect($row : Integer)->$this : cs:C1710.listbox
 	$this:=This:C1470
 	
 	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Select the last row
+Function selectLastRow()->$this : cs:C1710.listbox
+	
+	var $row : Integer
+	
+	$row:=This:C1470.rowsNumber()
+	This:C1470.select($row)
+	OBJECT SET SCROLL POSITION:C906(*; This:C1470.name; $row)
+	
+	$this:=This:C1470
+	
+	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Selects the given row if possible, else the most appropiate one
 	// Useful to maintain a selection after a deletion
 Function doSafeSelect($row : Integer)->$this : cs:C1710.listbox
@@ -116,7 +128,7 @@ Function selectAll()->$this : cs:C1710.listbox
 	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function edit($target; $item : Integer)
 	
-	If (Value type:C1509($target)=Is object:K8:27)
+	If (Value type:C1509($target)=Is object:K8:27)  // ⚠️ Should be an event object
 		
 		ASSERT:C1129($target.columnName#Null:C1517)
 		
@@ -126,9 +138,8 @@ Function edit($target; $item : Integer)
 			
 		Else 
 			
-			If (Count parameters:C259=1)
+			If (Count parameters:C259=1)  // Current item
 				
-				// Current item
 				EDIT ITEM:C870(*; String:C10($target.columnName))
 				
 			Else 
@@ -141,16 +152,47 @@ Function edit($target; $item : Integer)
 		
 	Else 
 		
-		If (Count parameters:C259=1)
-			
-			// Current item
-			EDIT ITEM:C870(*; String:C10($target))
-			
-		Else 
-			
-			EDIT ITEM:C870(*; String:C10($target); $item)
-			
-		End if 
+		Case of 
+				
+				//______________________________________________________
+			: (Count parameters:C259=0)  // First editable column of the current row
+				
+				ARRAY BOOLEAN:C223($isVisible; 0x0000)
+				ARRAY POINTER:C280($columnsPtr; 0x0000)
+				ARRAY POINTER:C280($headersPtr; 0x0000)
+				ARRAY POINTER:C280($stylesPtr; 0x0000)
+				ARRAY TEXT:C222($columns; 0x0000)
+				ARRAY TEXT:C222($headers; 0x0000)
+				
+				LISTBOX GET ARRAYS:C832(*; This:C1470.name; \
+					$columns; $headers; \
+					$columnsPtr; $headersPtr; \
+					$isVisible; \
+					$stylesPtr)
+				
+				var $i : Integer
+				For ($i; 1; Size of array:C274($columns); 1)
+					
+					If (OBJECT Get enterable:C1067(*; $columns{$i})) & (OBJECT Get visible:C1075(*; $columns{$i}))
+						
+						EDIT ITEM:C870(*; $columns{$i})
+						break
+						
+					End if 
+				End for 
+				
+				//______________________________________________________
+			: (Count parameters:C259=1)  // Current item
+				
+				EDIT ITEM:C870(*; String:C10($target))
+				
+				//______________________________________________________
+			Else 
+				
+				EDIT ITEM:C870(*; String:C10($target); $item)
+				
+				//______________________________________________________
+		End case 
 	End if 
 	
 	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -253,6 +295,7 @@ Function updateDefinition()->$this : cs:C1710.listbox
 		This:C1470.columns[$columns{$i}]:=New object:C1471(\
 			"number"; $i; \
 			"visible"; $isVisible{$i}; \
+			"enterable"; OBJECT Get enterable:C1067(*; $columns{$i}); \
 			"height"; LISTBOX Get row height:C1408(*; This:C1470.name; $i); \
 			"wordwrap"; LISTBOX Get property:C917(*; $columns{$i}; lk allow wordwrap:K53:39); \
 			"autoRowHeight"; LISTBOX Get property:C917(*; $columns{$i}; lk auto row height:K53:72); \
@@ -487,6 +530,7 @@ Function getProperties($column : Text)->$properties : Object
 	End if 
 	
 	$properties:=New object:C1471(\
+		"enterable"; OBJECT Get enterable:C1067(*; $target); \
 		"allowWordwrap"; LISTBOX Get property:C917(*; $target; lk allow wordwrap:K53:39); \
 		"autoRowHeight"; LISTBOX Get property:C917(*; $target; lk auto row height:K53:72); \
 		"backgroundColorExpression"; LISTBOX Get property:C917(*; $target; lk background color expression:K53:47); \
