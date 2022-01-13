@@ -108,6 +108,12 @@ Function selectLastRow()->$this : cs:C1710.listbox
 	$this:=This:C1470
 	
 	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Select the last touched row (last mouse click, last selection made via the keyboard or last drop)
+Function autoSelect()
+	
+	This:C1470.select(This:C1470.cellPosition().row)
+	
+	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Selects the given row if possible, else the most appropiate one
 	// Useful to maintain a selection after a deletion
 Function doSafeSelect($row : Integer)->$this : cs:C1710.listbox

@@ -42,6 +42,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**unselect** ({row `:Integer`}) →`:cs.listbox` | Unselects a row or all lines if no parameter is passed.|
 |.**selectFirstRow** () →`:cs.listbox` | Selects the first line of the list.|
 |.**selectLastRow** () →`:cs.listbox` | Selects the last line of the list.|
+|.**autoSelect** () →`:cs.listbox` | Selects the last touched row (last mouse click, last selection made via the keyboard or last drop).|
 |.**doSafeSelect** (row `:Integer`) →`:cs.listbox` | Selects the given row if possible, else the most appropiate one. <br/>Useful to maintain a selection after a deletion|
 |.**selectAll** ( ) →`:cs.listbox` | Selects all rows |
 |.**edit** ()<br/>.**edit** (event `:Object` {; item `:Integer`})<br/>.**edit** (target `:Text` {; item `:Integer`}) | To edit a listbox item |
