@@ -80,6 +80,23 @@ Function unselect($row : Integer)->$this : cs:C1710.listbox
 	
 	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Select the last row
+Function selectFirstRow()->$this : cs:C1710.listbox
+	
+	If (LISTBOX Get number of rows:C915(*; This:C1470.name)>0)
+		
+		This:C1470.select(1)
+		OBJECT SET SCROLL POSITION:C906(*; This:C1470.name; 1)
+		
+	Else 
+		
+		This:C1470.unselect()
+		
+	End if 
+	
+	$this:=This:C1470
+	
+	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Select the last row
 Function selectLastRow()->$this : cs:C1710.listbox
 	
 	var $row : Integer
