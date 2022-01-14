@@ -24,6 +24,10 @@ Class constructor($method : Text)
 		
 	End if 
 	
+	//MARK:- COMPUTED ATTRIBUTES 📌
+	
+	
+	//MARK:- FUNCTIONS 📌
 	//=== === === === === === === === === === === === === === === === === === === === === 
 Function init()
 	
@@ -44,6 +48,7 @@ Function restoreContext()
 	
 	ASSERT:C1129(False:C215; "👀 restore() must be overriden by the subclass!")
 	
+	//MARK:- FORM OBJECTS CREATION
 	//=== === === === === === === === === === === === === === === === === === === === === 
 	// Create a static object instance
 Function formObject($name : Text; $widgetName : Text)->$widget : cs:C1710.formObject
@@ -189,6 +194,22 @@ Function subform($name : Text; $widgetName : Text)->$widget : cs:C1710.subform
 	$widget:=This:C1470[$name]
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
+	// Create a selector object instance
+Function selector($name : Text; $widgetName : Text)->$widget : cs:C1710.selector
+	
+	If (Count parameters:C259>=2)
+		
+		This:C1470._instantiate("selector"; $name; $widgetName)
+		
+	Else 
+		
+		This:C1470._instantiate("selector"; $name)
+		
+	End if 
+	
+	$widget:=This:C1470[$name]
+	
+	//=== === === === === === === === === === === === === === === === === === === === === 
 	// Create a group instance
 Function group($name : Text; $member; $member2; $memberN)->$widget : cs:C1710.group
 	
@@ -255,6 +276,7 @@ Function getWidgets()
 		
 	End for 
 	
+	//MARK:- WIDGETS 📌
 	//=== === === === === === === === === === === === === === === === === === === === === 
 	// Add form event(s) for the current form
 Function appendEvents($events)
@@ -687,33 +709,6 @@ Function goTo($widget : Text)
 Function removeFocus()
 	
 	GOTO OBJECT:C206(*; "")
-	
-	//=== === === === === === === === === === === === === === === === === === === === === 
-Function _instantiate($class : Text; $key : Text; $name : Text)
-	
-	If (Asserted:C1132(Count parameters:C259>=1; "Missing parameter"))
-		
-		Case of 
-				
-				//______________________________________________________
-			: (Count parameters:C259=3)
-				
-				This:C1470[$key]:=cs:C1710[$class].new($name)
-				
-				//______________________________________________________
-			: (Count parameters:C259=2)  // Use key as the widget name
-				
-				This:C1470[$key]:=cs:C1710[$class].new($key)
-				
-				//______________________________________________________
-			: (Count parameters:C259=1)  // A tool init
-				
-				This:C1470[$class]:=cs:C1710[$class].new()
-				
-				//______________________________________________________
-		End case 
-	End if 
-	
 	//=== === === === === === === === === === === === === === === === === === === === === 
 Function postKeyDown($keyCode : Integer; $modifier : Integer)
 	
@@ -744,6 +739,34 @@ Function setCursor($cursor : Integer)
 Function restoreCursor()
 	
 	SET CURSOR:C469
+	
+	//MARK:-PRIVATE 📌
+	//=== === === === === === === === === === === === === === === === === === === === === 
+Function _instantiate($class : Text; $key : Text; $name : Text)
+	
+	If (Asserted:C1132(Count parameters:C259>=1; "Missing parameter"))
+		
+		Case of 
+				
+				//______________________________________________________
+			: (Count parameters:C259=3)
+				
+				This:C1470[$key]:=cs:C1710[$class].new($name)
+				
+				//______________________________________________________
+			: (Count parameters:C259=2)  // Use key as the widget name
+				
+				This:C1470[$key]:=cs:C1710[$class].new($key)
+				
+				//______________________________________________________
+			: (Count parameters:C259=1)  // A tool init
+				
+				This:C1470[$class]:=cs:C1710[$class].new()
+				
+				//______________________________________________________
+		End case 
+	End if 
+	
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
 	// [PRIVATE] set form events
