@@ -85,7 +85,6 @@ Function selectFirstRow()->$this : cs:C1710.listbox
 	If (LISTBOX Get number of rows:C915(*; This:C1470.name)>0)
 		
 		This:C1470.select(1)
-		OBJECT SET SCROLL POSITION:C906(*; This:C1470.name; 1)
 		
 	Else 
 		
@@ -103,7 +102,6 @@ Function selectLastRow()->$this : cs:C1710.listbox
 	
 	$row:=This:C1470.rowsNumber()
 	This:C1470.select($row)
-	OBJECT SET SCROLL POSITION:C906(*; This:C1470.name; $row)
 	
 	$this:=This:C1470
 	
@@ -112,6 +110,7 @@ Function selectLastRow()->$this : cs:C1710.listbox
 Function autoSelect()
 	
 	This:C1470.select(This:C1470.cellPosition().row)
+	This:C1470.touch()
 	
 	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Selects the given row if possible, else the most appropiate one
@@ -121,6 +120,7 @@ Function doSafeSelect($row : Integer)->$this : cs:C1710.listbox
 	var $rowNumber : Integer
 	
 	$rowNumber:=This:C1470.rowsNumber()
+	LISTBOX SELECT ROW:C912(*; This:C1470.name; 0; lk remove from selection:K53:3)
 	
 	Case of 
 			
@@ -743,8 +743,13 @@ Function restoreProperties()->$this : cs:C1710.listbox
 	
 	This:C1470.setRowsHeight(This:C1470.properties.rowHeight; This:C1470.properties.rowHeightUnit)
 	This:C1470.setProperty(lk row height unit:K53:42; This:C1470.properties.rowHeightUnit)
-	This:C1470.setProperty(lk row max height:K53:74; This:C1470.properties.rowMaxHeight)
-	This:C1470.setProperty(lk row min height:K53:73; This:C1470.properties.rowMinHeight)
+	
+	If (This:C1470.isArray)
+		
+		This:C1470.setProperty(lk row max height:K53:74; This:C1470.properties.rowMaxHeight)
+		This:C1470.setProperty(lk row min height:K53:73; This:C1470.properties.rowMinHeight)
+		
+	End if 
 	
 	This:C1470.setProperty(lk selection mode:K53:35; This:C1470.properties.selectionMode)
 	This:C1470.setProperty(lk single click edit:K53:70; This:C1470.properties.singleClickEdit)
@@ -780,8 +785,14 @@ Function saveProperties()
 	This:C1470.properties.rowHeight:=LISTBOX Get rows height:C836(*; This:C1470.name; lk pixels:K53:22)
 	This:C1470.properties.autoRowHeight:=LISTBOX Get property:C917(*; This:C1470.name; lk auto row height:K53:72)
 	This:C1470.properties.rowHeightUnit:=LISTBOX Get property:C917(*; This:C1470.name; lk row height unit:K53:42)
-	This:C1470.properties.rowMaxHeight:=LISTBOX Get property:C917(*; This:C1470.name; lk row max height:K53:74)
-	This:C1470.properties.rowMinHeight:=LISTBOX Get property:C917(*; This:C1470.name; lk row min height:K53:73)
+	
+	If (This:C1470.isArray)
+		
+		// These properties returns -1 for a collection listbox
+		This:C1470.properties.rowMaxHeight:=LISTBOX Get property:C917(*; This:C1470.name; lk row max height:K53:74)
+		This:C1470.properties.rowMinHeight:=LISTBOX Get property:C917(*; This:C1470.name; lk row min height:K53:73)
+		
+	End if 
 	
 	This:C1470.properties.highlightSet:=LISTBOX Get property:C917(*; This:C1470.name; lk highlight set:K53:66)
 	This:C1470.properties.metaExpression:=LISTBOX Get property:C917(*; This:C1470.name; lk meta expression:K53:75)

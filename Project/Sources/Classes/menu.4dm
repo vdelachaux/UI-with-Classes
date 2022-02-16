@@ -558,7 +558,9 @@ Function mark($checked : Boolean; $index : Integer)->$this : cs:C1710.menu
 	
 	// ===============================================
 	// Replaces the shortcut key associated with the menu item
-Function shortcut($key : Variant; $index : Integer)->$this : cs:C1710.menu
+Function shortcut($key; $modifier : Integer; $index : Integer)->$this : cs:C1710.menu
+	
+	$index:=($index=0) ? -1 : $index
 	
 	If (Count parameters:C259>=2)
 		
@@ -568,7 +570,7 @@ Function shortcut($key : Variant; $index : Integer)->$this : cs:C1710.menu
 			
 		Else 
 			
-			SET MENU ITEM SHORTCUT:C423(This:C1470.ref; $index; String:C10($key); 0)
+			SET MENU ITEM SHORTCUT:C423(This:C1470.ref; $index; String:C10($key); $modifier)
 			
 		End if 
 		
