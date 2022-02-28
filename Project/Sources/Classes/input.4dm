@@ -13,7 +13,7 @@ Class constructor($name : Text; $datasource)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function highlight($startSel : Integer; $endSel : Integer)->$this : cs:C1710.input
+Function highlight($startSel : Integer; $endSel : Integer) : cs:C1710.input
 	
 	Case of 
 			
@@ -43,44 +43,60 @@ Function highlight($startSel : Integer; $endSel : Integer)->$this : cs:C1710.inp
 			//______________________________________________________
 	End case 
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 	// From the last character entered to the end
-Function highlightLastToEnd()->$this : cs:C1710.input
+Function highlightLastToEnd() : cs:C1710.input
 	
 	HIGHLIGHT TEXT:C210(*; This:C1470.name; This:C1470.highlightingStart()+1; MAXLONG:K35:2)
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 Function highlighted()->$highlight : Object
 	
+	var $t : Text
 	var $end; $start : Integer
+	
 	GET HIGHLIGHT:C209(*; This:C1470.name; $start; $end)
 	
 	$highlight:=New object:C1471(\
 		"start"; $start; \
-		"end"; $end)
+		"end"; $end; \
+		"length"; $end-$start; \
+		"withSelection"; $end#$start; \
+		"noSelection"; $end=$start; \
+		"selection"; "")
+	
+	$t:=This:C1470.getValue()
+	
+	If (Length:C16($t)>0)
+		
+		$highlight.selection:=Substring:C12($t; $start; $highlight.length)
+		
+	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function highlightingStart()->$pos : Integer
+Function highlightingStart() : Integer
 	
-	var $end : Integer
-	GET HIGHLIGHT:C209(*; This:C1470.name; $pos; $end)
+	var $end; $start : Integer
+	GET HIGHLIGHT:C209(*; This:C1470.name; $start; $end)
+	return ($start)
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function highlightingEnd()->$pos : Integer
+Function highlightingEnd() : Integer
 	
-	var $start : Integer
-	GET HIGHLIGHT:C209(*; This:C1470.name; $start; $pos)
+	var $end; $start : Integer
+	GET HIGHLIGHT:C209(*; This:C1470.name; $start; $end)
+	return ($end)
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 /*
 .setFilter(int) -> This
 .setFilter(text) -> This
 */
-Function setFilter($filter; $separator : Text)->$this : cs:C1710.input
+Function setFilter($filter; $separator : Text) : cs:C1710.input
 	
 	var $t : Text
 	
@@ -157,9 +173,37 @@ Function setFilter($filter; $separator : Text)->$this : cs:C1710.input
 		
 	End if 
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function getFilter()->$filter : Text
+Function getFilter() : Text
 	
-	$filter:=OBJECT Get filter:C1073(*; This:C1470.name)
+	return (OBJECT Get filter:C1073(*; This:C1470.name))
+	
+	// === === === === === === === === === === === === === === === === === === === === ===
+Function get password() : Boolean
+	
+	return (OBJECT Get font:C1069(*; This:C1470.name)="%password")
+	
+	// === === === === === === === === === === === === === === === === === === === === ===
+Function set password($isPassword : Boolean)
+	
+	$isPassword:=$isPassword=Null:C1517 ? True:C214 : $isPassword
+	
+	If ($isPassword)
+		
+		If (This:C1470.font=Null:C1517)
+			
+			// Retain the original font
+			This:C1470.font:=OBJECT Get font:C1069(*; This:C1470.name)
+			
+		End if 
+		
+		This:C1470.setFont("%password")
+		
+	Else 
+		
+		This:C1470.setFont(This:C1470.font)
+		
+	End if 
+	

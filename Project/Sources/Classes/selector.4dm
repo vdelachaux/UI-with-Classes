@@ -30,14 +30,13 @@ Class constructor($name : Text; $values : Collection)
 		
 	End if 
 	
-	//todo: get the datasource type to return a correct value
-	
+	// Todo: get the datasource type to return a correct value
 	
 	// MARK:-COMPUTED ATTRIBUTES
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function get values()->$values : Collection
+Function get values() : Collection
 	
-	$values:=This:C1470.data ? This:C1470.data.values : Null:C1517
+	return (This:C1470.data ? This:C1470.data.values : Null:C1517)
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 Function set values($values : Collection)
@@ -47,9 +46,9 @@ Function set values($values : Collection)
 	// Todo: manage binding length if any
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function get binding()->$values : Collection
+Function get binding() : Collection
 	
-	$values:=This:C1470.data ? This:C1470.data.binding : Null:C1517
+	return (This:C1470.data ? This:C1470.data.binding : Null:C1517)
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 Function set binding($values : Collection)
@@ -59,9 +58,9 @@ Function set binding($values : Collection)
 	// Todo: manage values length if any
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function get index()->$index : Integer
+Function get index() : Integer
 	
-	$index:=This:C1470.data ? This:C1470.data.index : -1
+	return (This:C1470.data ? This:C1470.data.index : -1)
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 Function set index($index : Integer)
@@ -69,16 +68,16 @@ Function set index($index : Integer)
 	This:C1470.data.index:=$index
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function get current()->$current : Text
+Function get current() : Text
 	
 	If (This:C1470.data.binding.length>0)\
 		 && (This:C1470.data.binding.length=This:C1470.data.values.length)
 		
-		$current:=This:C1470.data.index#-1 ? This:C1470.data.binding[This:C1470.data.index] : This:C1470.data.currentValue
+		return (This:C1470.data.index#-1 ? This:C1470.data.binding[This:C1470.data.index] : This:C1470.data.currentValue)
 		
 	Else 
 		
-		$current:=This:C1470.data.currentValue
+		return (This:C1470.data.currentValue)
 		
 	End if 
 	
@@ -98,22 +97,16 @@ Function set current($current)
 			
 		Else 
 			
-			//If (Asserted(Value type(OBJECT Get value(This.name))=Value type($current); "Type mistmatch"))
-			
 			// Keeping the past value
 			This:C1470.data.currentValue:=$current
 			
-			//End if 
 		End if 
 		
 	Else 
 		
-		//If (Asserted(Value type(OBJECT Get value(This.name))=Value type($current); "Type mistmatch"))
-		
 		// Keeping the past value
 		This:C1470.data.currentValue:=$current
 		
-		//End if 
 	End if 
 	
 	// MARK:-FUNCTIONS
@@ -141,7 +134,8 @@ Function select($element)
 			End if 
 			
 			//______________________________________________________
-		: (Value type:C1509($element)=Is real:K8:4) | (Value type:C1509($element)=Is longint:K8:6)
+		: (Value type:C1509($element)=Is real:K8:4)\
+			 | (Value type:C1509($element)=Is longint:K8:6)
 			
 			If (Asserted:C1132(($element>=0) && ($element<This:C1470.data.values.length); "Invalid index: "+String:C10($element)))
 				

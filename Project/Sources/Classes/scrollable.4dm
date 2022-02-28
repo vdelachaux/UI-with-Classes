@@ -23,7 +23,7 @@ Class constructor($name : Text; $datasource)
 	This:C1470.getScrollbars()
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-Function getScrollPosition()->$scroll
+Function getScrollPosition() : Variant
 	
 	var $h; $v : Integer
 	
@@ -43,10 +43,10 @@ Function getScrollPosition()->$scroll
 		
 	End if 
 	
-	$scroll:=This:C1470.scroll
+	return (This:C1470.scroll)
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-Function setScrollPosition($vertical; $horizontal)->$this : cs:C1710.scrollable
+Function setScrollPosition($vertical; $horizontal) : cs:C1710.scrollable
 	
 	var $h; $v : Integer
 	
@@ -73,7 +73,7 @@ Function setScrollPosition($vertical; $horizontal)->$this : cs:C1710.scrollable
 		
 	End if 
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
 Function getScrollbars
@@ -87,27 +87,27 @@ Function getScrollbars
 		"horizontal"; $horizontal)
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-Function setScrollbars($horizontal; $vertical)->$this : Object
+Function setScrollbars($horizontal; $vertical) : cs:C1710.scrollable
 	
 	OBJECT SET SCROLLBAR:C843(*; This:C1470.name; Num:C11($horizontal); Num:C11($vertical))
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-Function setHorizontalScrollbar($display)->$this : Object
+Function setHorizontalScrollbar($display) : cs:C1710.scrollable
 	
 	This:C1470.getScrollbars()
 	
 	OBJECT SET SCROLLBAR:C843(*; This:C1470.name; Num:C11($display); Num:C11(This:C1470.scrollbar.vertical))
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	//=== === === === === === === === === === === === === === === === === === === === === 
-Function setVerticalScrollbar($display)->$this : Object
+Function setVerticalScrollbar($display) : cs:C1710.scrollable
 	
 	This:C1470.getScrollbars()
 	
 	OBJECT SET SCROLLBAR:C843(*; This:C1470.name; Num:C11(This:C1470.scrollbar.horizontal); Num:C11($display))
 	
-	$this:=This:C1470
+	return (This:C1470)
 	

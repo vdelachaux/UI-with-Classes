@@ -33,9 +33,8 @@ Function getCoordinates()->$coordinates : Object
 	This:C1470.getScrollPosition()
 	This:C1470.getDimensions()
 	
-Function getDimensions
+Function getDimensions() : Object
 	
-	C_OBJECT:C1216($0)
 	C_PICTURE:C286($p)
 	C_LONGINT:C283($width; $height)
 	
@@ -43,22 +42,21 @@ Function getDimensions
 	
 	PICTURE PROPERTIES:C457($p; $width; $height)
 	
-	$0:=New object:C1471(\
+	return (New object:C1471(\
 		"width"; $width; \
-		"height"; $height)
+		"height"; $height))
 	
-Function read
+Function read($file : 4D:C1709.File) : cs:C1710.picture
 	
-	C_OBJECT:C1216($1)
 	C_PICTURE:C286($p)
 	
 	If (Asserted:C1132(Count parameters:C259>=1; Current method name:C684+".read(): Missing File parameter"))
 		
-		If (Asserted:C1132(OB Instance of:C1731($1; 4D:C1709.File); Current method name:C684+".read(): The passed parameter is not a File object"))
+		If (Asserted:C1132(OB Instance of:C1731($file; 4D:C1709.File); Current method name:C684+".read(): The passed parameter is not a File object"))
 			
-			If (Asserted:C1132($1.exists; Current method name:C684+".read(): File not found"))
+			If (Asserted:C1132($file.exists; Current method name:C684+".read(): File not found"))
 				
-				READ PICTURE FILE:C678($1.platformPath; $p)
+				READ PICTURE FILE:C678($file.platformPath; $p)
 				
 				If (Bool:C1537(OK))
 					
@@ -71,8 +69,7 @@ Function read
 		End if 
 	End if 
 	
-	C_OBJECT:C1216($0)
-	$0:=This:C1470
+	return (This:C1470)
 	
 Function thumbnail
 	

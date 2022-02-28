@@ -1,6 +1,6 @@
 Class extends scrollable
 
-//=== === === === === === === === === === === === === === === === === === ===
+// === === === === === === === === === === === === === === === === === === ===
 Class constructor($objectName : Text; $datasource)
 	
 	If (Count parameters:C259>=2)
@@ -15,48 +15,50 @@ Class constructor($objectName : Text; $datasource)
 	
 	This:C1470.parent:=This:C1470.getParent()
 	
-	//=== === === === === === === === === === === === === === === === === === === === === === === === === ===
-	//⚠️
-Function getCoordinates()->$coordinates : Object
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// ⚠️
+Function getCoordinates() : Object
 	
-	$coordinates:=Super:C1706.getCoordinates()
+	return (Super:C1706.getCoordinates())
 	
 	This:C1470.getSubform()
 	
-	//=== === === === === === === === === === === === === === === === === === ===
-Function getParent()->$parent : Object
+	// === === === === === === === === === === === === === === === === === === ===
+Function getParent() : Object
 	
 	var $height; $width : Integer
 	
 /*
+	
 If the command is called from a form that is not being used as a subform,
+	
 it returns the current size of the form window.
 */
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
 	
-	$parent:=New object:C1471(\
+	return (New object:C1471(\
 		"name"; Current form name:C1298; \
 		"dimensions"; New object:C1471(\
 		"width"; $width; \
-		"height"; $height))
+		"height"; $height)))
 	
-	//=== === === === === === === === === === === === === === === === === === ===
-Function getParentDimensions()->$dimensions : Object
+	// === === === === === === === === === === === === === === === === === === ===
+Function getParentDimensions() : Object
 	
 	var $height; $width : Integer
 	
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
 	
-	$dimensions:=New object:C1471(\
+	return (New object:C1471(\
 		"width"; $width; \
-		"height"; $height)
+		"height"; $height))
 	
-	//=== === === === === === === === === === === === === === === === === === ===
+	// === === === === === === === === === === === === === === === === === === ===
 Function callParent($eventCode : Integer)
 	
 	CALL SUBFORM CONTAINER:C1086($eventCode)
 	
-	//=== === === === === === === === === === === === === === === === === === ===
+	// === === === === === === === === === === === === === === === === === === ===
 Function alignHorizontally($alignment : Integer; $reference)
 	
 	var $middle : Integer
@@ -93,7 +95,7 @@ Function alignHorizontally($alignment : Integer; $reference)
 			//______________________________________________________
 	End case 
 	
-	//=== === === === === === === === === === === === === === === === === === ===
+	// === === === === === === === === === === === === === === === === === === ===
 Function getSubform()
 	
 	var $detail; $list : Text
@@ -106,8 +108,8 @@ Function getSubform()
 		"detail"; $detail; \
 		"list"; $list)
 	
-	//=== === === === === === === === === === === === === === === === === === ===
-Function setSubform($detail : Text; $list : Text; $table : Pointer)->$this : cs:C1710.subform
+	// === === === === === === === === === === === === === === === === === === ===
+Function setSubform($detail : Text; $list : Text; $table : Pointer) : cs:C1710.subform
 	
 	Case of 
 			
@@ -134,12 +136,14 @@ Function setSubform($detail : Text; $list : Text; $table : Pointer)->$this : cs:
 			//______________________________________________________
 	End case 
 	
-	//=== === === === === === === === === === === === === === === === === === ===
-Function currentPage()->$page : Integer
+	return (This:C1470)
 	
-	$page:=FORM Get current page:C276(*)
+	// === === === === === === === === === === === === === === === === === === ===
+Function currentPage() : Integer
 	
-	//=== === === === === === === === === === === === === === === === === === ===
+	return (FORM Get current page:C276(*))
+	
+	// === === === === === === === === === === === === === === === === === === ===
 Function goToPage($page : Integer)
 	
 	FORM GOTO PAGE:C247($page; *)

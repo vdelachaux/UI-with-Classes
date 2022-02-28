@@ -24,6 +24,6 @@ Function stop()
 	This:C1470.setValue(0)
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
-Function isRunning()->$isRunning : Boolean
+Function isRunning() : Boolean
 	
-	$isRunning:=(This:C1470.getValue()#0)
+	return (This:C1470.getValue()#0)

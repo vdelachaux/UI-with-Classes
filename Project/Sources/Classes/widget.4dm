@@ -36,6 +36,7 @@ Class constructor($name : Text; $datasource)
 	//=== === === === === === === === === === === === === === === === === === ===
 Function updatePointer()->$p : Pointer
 	
+	var $p : Pointer
 	$p:=OBJECT Get pointer:C1124(Object named:K67:5; This:C1470.name)
 	
 	If (Not:C34(Is nil pointer:C315($p)))
@@ -43,6 +44,7 @@ Function updatePointer()->$p : Pointer
 		This:C1470.pointer:=$p
 		
 	End if 
+	
 	
 	//=== === === === === === === === === === === === === === === === === === ===
 Function pointer()->$p : Pointer
@@ -66,11 +68,11 @@ Function setDatasource($datasource)
 	End if 
 	
 	//=== === === === === === === === === === === === === === === === === === ===
-Function setFormat($format : Text)->$this : cs:C1710.widget
+Function setFormat($format : Text) : cs:C1710.widget
 	
 	OBJECT SET FORMAT:C236(*; This:C1470.name; $format)
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 /*═════════════════════════════════════════════════
 Attaches an image to the widget
@@ -80,7 +82,7 @@ Attaches an image to the widget
     • variable name if the picture comes from a picture variable
     • number, preceded with a question mark (ex.: “?250”) if the picture comes from a picture library (OBSOLETE)
 */
-Function setPicture($proxy : Text)->$this : cs:C1710.widget
+Function setPicture($proxy : Text) : cs:C1710.widget
 	
 	If (Count parameters:C259>=1)
 		
@@ -147,7 +149,7 @@ Function setPicture($proxy : Text)->$this : cs:C1710.widget
 		End case 
 	End if 
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 /*══════════════════════════*/
 Function getEnterable
@@ -188,7 +190,7 @@ Function notEnterable
 	$0:=This:C1470
 	
 	//=== === === === === === === === === === === === === === === === === === ===
-Function draggable($enabled : Boolean; $automatic : Boolean)->$this : cs:C1710.widget
+Function draggable($enabled : Boolean; $automatic : Boolean) : cs:C1710.widget
 	
 	var $automaticDrag; $automaticDrop; $draggable; $droppable : Boolean
 	
@@ -219,20 +221,20 @@ Function draggable($enabled : Boolean; $automatic : Boolean)->$this : cs:C1710.w
 	
 	OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; $draggable; $automaticDrag; $droppable; $automaticDrop)
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	//=== === === === === === === === === === === === === === === === === === ===
-Function notDraggable()->$this : cs:C1710.widget
+Function notDraggable() : cs:C1710.widget
 	
 	var $automaticDrag; $automaticDrop; $draggable; $droppable : Boolean
 	
 	OBJECT GET DRAG AND DROP OPTIONS:C1184(*; This:C1470.name; $draggable; $automaticDrag; $droppable; $automaticDrop)
 	OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; False:C215; False:C215; $droppable; $automaticDrop)
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	//=== === === === === === === === === === === === === === === === === === ===
-Function droppable($enabled : Boolean; $automatic : Boolean)->$this : cs:C1710.widget
+Function droppable($enabled : Boolean; $automatic : Boolean) : cs:C1710.widget
 	
 	var $automaticDrag; $automaticDrop; $draggable; $droppable : Boolean
 	
@@ -263,33 +265,33 @@ Function droppable($enabled : Boolean; $automatic : Boolean)->$this : cs:C1710.w
 	
 	OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; $draggable; $automaticDrag; $droppable; $automaticDrop)
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	//=== === === === === === === === === === === === === === === === === === ===
-Function notDroppable()->$this : cs:C1710.widget
+Function notDroppable() : cs:C1710.widget
 	
 	var $automaticDrag; $automaticDrop; $draggable; $droppable : Boolean
 	
 	OBJECT GET DRAG AND DROP OPTIONS:C1184(*; This:C1470.name; $draggable; $automaticDrag; $droppable; $automaticDrop)
 	OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; $draggable; $automaticDrag; False:C215; False:C215)
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	//=== === === === === === === === === === === === === === === === === === ===
-Function getValue()->$value
+Function getValue() : Variant
 	
-	$value:=OBJECT Get value:C1743(This:C1470.name)
+	return (OBJECT Get value:C1743(This:C1470.name))
 	
 	//=== === === === === === === === === === === === === === === === === === ===
-Function setValue($value)->$this : cs:C1710.widget
+Function setValue($value) : cs:C1710.widget
 	
 	OBJECT SET VALUE:C1742(This:C1470.name; $value)
 	This:C1470.value:=$value
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	//=== === === === === === === === === === === === === === === === === === ===
-Function clear->$this : cs:C1710.widget
+Function clear : cs:C1710.widget
 	
 	var $type : Integer
 	$type:=Value type:C1509(OBJECT Get value:C1743(This:C1470.name))
@@ -340,10 +342,10 @@ Function clear->$this : cs:C1710.widget
 			//______________________________________________________
 	End case 
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 	//=== === === === === === === === === === === === === === === === === === ===
-Function touch()->$this : cs:C1710.widget
+Function touch() : cs:C1710.widget
 	
 	var $value
 	$value:=OBJECT Get value:C1743(This:C1470.name)
@@ -354,7 +356,7 @@ Function touch()->$this : cs:C1710.widget
 		
 	End if 
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 /*══════════════════════════
 .on(e;callback) -> bool
@@ -402,51 +404,50 @@ Function on
 /*══════════════════════════
 .catch(e) -> bool
 ══════════════════════════*/
-Function catch
+Function catch($widget; $event) : Boolean
 	
-	C_BOOLEAN:C305($0)
-	C_VARIANT:C1683($1)
-	C_VARIANT:C1683($2)
+	var $catch : Boolean
 	
 	If (Asserted:C1132(This:C1470.type#-1; "Does not apply to a group"))
 		
 		If (Count parameters:C259=0)
 			
-			$0:=(This:C1470.name=FORM Event:C1606.objectName)
+			$catch:=(This:C1470.name=FORM Event:C1606.objectName)
 			
 		Else 
 			
-			If (Value type:C1509($1)=Is object:K8:27)
+			If (Value type:C1509($widget)=Is object:K8:27)
 				
 				If (Count parameters:C259>=2)
 					
-					If ((This:C1470.name=String:C10($1.objectName)))
+					If ((This:C1470.name=String:C10($widget.objectName)))
 						
-						If (Value type:C1509($2)=Is collection:K8:32)
+						If (Value type:C1509($event)=Is collection:K8:32)
 							
-							$0:=($2.indexOf($1.code)#-1)
+							$catch:=($event.indexOf($widget.code)#-1)
 							
 						Else 
 							
-							$0:=($1.code=Num:C11($2))
+							$catch:=($widget.code=Num:C11($event))
 							
 						End if 
 					End if 
 					
 				Else 
 					
-					$0:=(This:C1470.name=String:C10($1.objectName))
+					$catch:=(This:C1470.name=String:C10($widget.objectName))
 					
 				End if 
+				
 			Else 
 				
-				$0:=(This:C1470.name=String:C10($1))
+				$catch:=(This:C1470.name=String:C10($widget))
 				
 			End if 
 		End if 
 	End if 
 	
-	If ($0)
+	If ($catch)
 		
 		If (This:C1470.callback#Null:C1517)
 			
@@ -455,11 +456,13 @@ Function catch
 		End if 
 	End if 
 	
+	return ($catch)
+	
 /*══════════════════════════
 .setCallback(formula) -> This
 .setCallback(text) -> This
 ══════════════════════════*/
-Function setCallback($formula)->$this : cs:C1710.widget
+Function setCallback($formula) : cs:C1710.widget
 	
 	If (Value type:C1509($formula)=Is object:K8:27)
 		
@@ -471,7 +474,7 @@ Function setCallback($formula)->$this : cs:C1710.widget
 		
 	End if 
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 /*══════════════════════════
 .execute()
@@ -496,7 +499,7 @@ Function getHelpTip
 /*══════════════════════════
 .setHelpTip(text| resname) -> This
 ══════════════════════════*/
-Function setHelpTip($helpTip : Text)->$this : cs:C1710.widget
+Function setHelpTip($helpTip : Text) : cs:C1710.widget
 	var $t : Text
 	
 	If (Count parameters:C259>=1)
@@ -520,35 +523,36 @@ Function setHelpTip($helpTip : Text)->$this : cs:C1710.widget
 	
 	OBJECT SET HELP TIP:C1181(*; This:C1470.name; $t)
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 /*══════════════════════════
 .removeHelpTip() -> This
 ══════════════════════════*/
-Function removeHelpTip()->$this : cs:C1710.widget
+Function removeHelpTip() : cs:C1710.widget
 	
-	$this:=This:C1470.setHelpTip()
+	OBJECT SET HELP TIP:C1181(*; This:C1470.name; "")
+	
+	return (This:C1470)
 	
 /*══════════════════════════
 .getShortcut() -> object
   {"key";text;"modifier";int)
 ══════════════════════════*/
-Function getShortcut
+Function getShortcut : Object
 	
-	C_OBJECT:C1216($0)
 	C_TEXT:C284($t)
 	C_LONGINT:C283($l)
 	
 	OBJECT GET SHORTCUT:C1186(*; This:C1470.name; $t; $l)
 	
-	$0:=New object:C1471(\
+	return (New object:C1471(\
 		"key"; $t; \
-		"modifier"; $l)
+		"modifier"; $l))
 	
 /*══════════════════════════
 .setShortcut(text{;int} ) -> This
 ══════════════════════════*/
-Function setShortcut($key : Text; $modifier : Integer)->$this : cs:C1710.widget
+Function setShortcut($key : Text; $modifier : Integer) : cs:C1710.widget
 	
 	If (Count parameters:C259>=2)
 		
@@ -560,22 +564,26 @@ Function setShortcut($key : Text; $modifier : Integer)->$this : cs:C1710.widget
 		
 	End if 
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 /*══════════════════════════
 .focus() -> This
 ══════════════════════════*/
-Function focus
+Function focus() : cs:C1710.widget
 	
 	GOTO OBJECT:C206(*; This:C1470.name)
 	
-	C_OBJECT:C1216($0)
-	$0:=This:C1470
+	return (This:C1470)
+	
+/*═════════════════════════*/
+Function isFocused() : Boolean
+	
+	return (OBJECT Get name:C1087(Object with focus:K67:3)=This:C1470.name)
 	
 /*════════════════════════════════════════════════════
 .addEvent(collection | longint))-> This
 */
-Function addEvent($event)->$this : cs:C1710.widget
+Function addEvent($event) : cs:C1710.widget
 	
 	ARRAY LONGINT:C221($eventArray; 0x0000)
 	
@@ -600,12 +608,12 @@ Function addEvent($event)->$this : cs:C1710.widget
 			//______________________________________________________
 	End case 
 	
-	$this:=This:C1470
+	return (This:C1470)
 	
 /*════════════════════════════════════════════════════
 .removeEvent(collection | longint) -> This
 */
-Function removeEvent($event)->$this : cs:C1710.widget
+Function removeEvent($event) : cs:C1710.widget
 	
 	ARRAY LONGINT:C221($eventArray; 0x0000)
 	
@@ -630,4 +638,4 @@ Function removeEvent($event)->$this : cs:C1710.widget
 			//______________________________________________________
 	End case 
 	
-	$this:=This:C1470
+	return (This:C1470)
