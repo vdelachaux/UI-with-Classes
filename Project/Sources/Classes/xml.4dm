@@ -1414,10 +1414,10 @@ Function _close($keepOpened : Boolean)
 	End if 
 	
 	// —————————————————————————————————————————————————————————————————————————————————
-Function _pushError($desription : Text)
+Function _pushError($description : Text)
 	
 	This:C1470.success:=False:C215
-	This:C1470.errors.push(Get call chain:C1662[1].name+" - "+$desription)
+	This:C1470.errors.push(Get call chain:C1662[1].name+" - "+$description)
 	
 	//———————————————————————————————————————————————————————————
 Function _reset

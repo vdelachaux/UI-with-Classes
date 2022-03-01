@@ -57,9 +57,9 @@ This class will be augmented according to my needs but you are strongly encourag
 |.**y** ( y : `Real` {; applyTo } ) → `cs.svg` | Sets the y
 |.**width** ( width : `Real` {; applyTo } ) → `cs.svg` | Sets the width
 |.**height** ( height : `Real` {; applyTo } ) → `cs.svg` | Sets the height
-|.**translate** (x : `Real`; y : `Real` {; applyTo } ) →` cs.svg` | Apply a translation
-|.**scale** ( x : `Real` {; applyTo } ) → `cs.svg` | Apply scaling
-|.**rotate** ( angle : `Integer` {; cx : `Real` ; cy : `Real`} {; applyTo } ) → `cs.svg` | Apply rotation
+|.**translate** (tx : `Real` {; ty : `Real`} {; applyTo } ) →` cs.svg` | Specifies a translation by `tx` and `ty`. If the `ty` value is not provided, it is assumed to be zero
+|.**scale** ( sx : `Real` {; sy : `Real` } {; applyTo } ) → `cs.svg` | Specifies a scaling operation by `sx` and `sy`. If the value `sy` is not provided, it is assumed to be equal to `sx`
+|.**rotate** ( angle : `Integer` {; cx : `Real` ; cy : `Real`} {; applyTo } ) → `cs.svg` | Specifies a rotation of the `angle` value in degrees of a given point ;<br> • If the optional parameters `cx` and `cy` are not supplied, the rotation is performed with respect to the origin of the current user coordinate system.<br> • If the optional parameters `cx` and `cy` are supplied, the rotation is performed with respect to the point (`cx`,`cy`).
 |.**fillColor** ( color : `Text` {; applyTo } ) → `cs.svg` | Sets the fill color
 |.**fillOpacity** ( opacity : `Real` {; applyTo } ) → `cs.svg` | Sets the fill opacity
 |.**strokeColor** ( color : `Text` {; applyTo } ) → `cs.svg` | Sets the stroke color

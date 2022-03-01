@@ -1608,6 +1608,7 @@ Function cy($cy : Real; $applyTo) : cs:C1710.svg
 	//———————————————————————————————————————————————————————————
 Function width($width : Real; $applyTo) : cs:C1710.svg
 	
+	//FIXME:Target specific treatment
 	If (This:C1470._requiredParams(Count parameters:C259; 1))
 		
 		If (Count parameters:C259>=2)
@@ -1642,7 +1643,7 @@ Function height($height : Real; $applyTo) : cs:C1710.svg
 	return (This:C1470)
 	
 	//———————————————————————————————————————————————————————————
-Function translate($x : Real; $y : Real; $applyTo) : cs:C1710.svg
+Function translate($tx : Real; $ty; $applyTo) : cs:C1710.svg
 	
 	var $node; $t; $transform : Text
 	var $c : Collection
@@ -1650,17 +1651,35 @@ Function translate($x : Real; $y : Real; $applyTo) : cs:C1710.svg
 	
 	$paramNumber:=Count parameters:C259
 	
-	If (This:C1470._requiredParams($paramNumber; 2))
+	If (This:C1470._requiredParams($paramNumber; 1))
 		
-		$transform:="translate("+String:C10($x; "&xml")+","+String:C10($y; "&xml")+")"
-		
-		If ($paramNumber>=3)
+		If ($paramNumber>=2)
 			
-			$node:=This:C1470._getTarget($applyTo)
+			If (Value type:C1509($ty)=Is real:K8:4)\
+				 | (Value type:C1509($ty)=Is longint:K8:6)
+				
+				$transform:="translate("+String:C10($tx; "&xml")+","+String:C10($ty; "&xml")+")"
+				
+				If ($paramNumber>=3)
+					
+					$node:=This:C1470._getTarget($applyTo)
+					
+				Else 
+					
+					$node:=This:C1470._getTarget()
+					
+				End if 
+				
+			Else 
+				
+				$transform:="translate("+String:C10($tx; "&xml")+")"
+				$node:=This:C1470._getTarget($applyTo)
+				
+			End if 
 			
 		Else 
 			
-			// Auto
+			$transform:="translate("+String:C10($tx; "&xml")+")"
 			$node:=This:C1470._getTarget()
 			
 		End if 
@@ -1788,7 +1807,7 @@ Function rotate($angle : Integer; $cx : Variant; $cy : Real; $applyTo) : cs:C171
 	return (This:C1470)
 	
 	//———————————————————————————————————————————————————————————
-Function scale($x : Real; $applyTo) : cs:C1710.svg
+Function scale($sx : Real; $sy; $applyTo) : cs:C1710.svg
 	
 	var $node; $t; $transform : Text
 	var $c : Collection
@@ -1798,15 +1817,33 @@ Function scale($x : Real; $applyTo) : cs:C1710.svg
 	
 	If (This:C1470._requiredParams($paramNumber; 1))
 		
-		$transform:="scale("+String:C10($x; "&xml")+")"
-		
 		If ($paramNumber>=2)
 			
-			$node:=This:C1470._getTarget($applyTo)
+			If (Value type:C1509($sy)=Is real:K8:4)\
+				 | (Value type:C1509($sy)=Is longint:K8:6)
+				
+				$transform:="scale("+String:C10($sx; "&xml")+" "+String:C10($sy; "&xml")+")"
+				
+				If ($paramNumber>=3)
+					
+					$node:=This:C1470._getTarget($applyTo)
+					
+				Else 
+					
+					$node:=This:C1470._getTarget()
+					
+				End if 
+				
+			Else 
+				
+				$transform:="scale("+String:C10($sx; "&xml")+")"
+				$node:=This:C1470._getTarget($applyTo)
+				
+			End if 
 			
 		Else 
 			
-			// Auto
+			$transform:="scale("+String:C10($sx; "&xml")+")"
 			$node:=This:C1470._getTarget()
 			
 		End if 
@@ -2279,16 +2316,20 @@ Function layer($name : Text) : cs:C1710.svg
 	
 	//———————————————————————————————————————————————————————————
 	//  Define an element for the next operations
-Function with($name : Text)->$ok : Boolean
+Function with($name : Text) : Boolean
 	
 	var $o : Object
 	
 	$o:=This:C1470.store.query("id=:1"; $name).pop()
-	$ok:=$o#Null:C1517
 	
-	If ($ok)
+	If ($o#Null:C1517)
 		
 		This:C1470.latest:=$o.dom
+		return (True:C214)
+		
+	Else 
+		
+		This:C1470._pushError("Element not found: "+$name)
 		
 	End if 
 	
@@ -2878,30 +2919,54 @@ Function size($width : Real; $height : Real; $unit : Text) : cs:C1710.svg
 				: (Count parameters:C259>=3)
 					
 					Super:C1706.setAttributes($node; New object:C1471(\
-						"width"; Choose:C955($width=0; "auto"; String:C10($width; "&xml")+String:C10($unit)); \
-						"height"; Choose:C955($height=0; "auto"; String:C10($height; "&xml")+String:C10($unit))))
+						"width"; $width=0 ? "auto" : String:C10($width; "&xml")+String:C10($unit); \
+						"height"; $height=0 ? "auto" : String:C10($height; "&xml")+String:C10($unit)))
 					
 					//……………………………………………………………………………………………………
 				: (Count parameters:C259>=2)
 					
 					Super:C1706.setAttributes($node; New object:C1471(\
-						"width"; Choose:C955($width=0; "auto"; String:C10($width; "&xml")); \
-						"height"; Choose:C955($height=0; "auto"; String:C10($height; "&xml"))))
+						"width"; $width=0 ? "auto" : String:C10($width; "&xml"); \
+						"height"; $height=0 ? "auto" : String:C10($height; "&xml")))
 					
 					//……………………………………………………………………………………………………
 				: (Count parameters:C259>=1)
 					
-					Super:C1706.setAttribute($node; "width"; Choose:C955($width=0; "auto"; String:C10($width; "&xml")))
+					Super:C1706.setAttribute($node; "width"; $width=0 ? "auto" : String:C10($width; "&xml"))
 					
 					//……………………………………………………………………………………………………
 			End case 
 			
 			//______________________________________________________
-		: ($element="line")\
-			 | ($element="circle")\
+		: ($element="line")
+			
+			Case of 
+					
+					//……………………………………………………………………………………………………
+				: (Count parameters:C259>=3)
+					
+					Super:C1706.setAttribute($node; "y2"; String:C10(Num:C11(Super:C1706.getAttribute($node; "y1"))+$width; "&xml")+String:C10($unit))
+					Super:C1706.setAttribute($node; "x2"; String:C10(Num:C11(Super:C1706.getAttribute($node; "x1"))+$height; "&xml")+String:C10($unit))
+					
+					//……………………………………………………………………………………………………
+				: (Count parameters:C259>=2)  // Length & offset
+					
+					Super:C1706.setAttribute($node; "y2"; String:C10(Num:C11(Super:C1706.getAttribute($node; "y1"))+$width; "&xml"))
+					Super:C1706.setAttribute($node; "x2"; String:C10(Num:C11(Super:C1706.getAttribute($node; "x1"))+$height; "&xml"))
+					
+					//……………………………………………………………………………………………………
+				: (Count parameters:C259>=1)  // Length
+					
+					Super:C1706.setAttribute($node; "y2"; String:C10(Num:C11(Super:C1706.getAttribute($node; "y1"))+$width; "&xml"))
+					
+					//……………………………………………………………………………………………………
+			End case 
+			
+			//______________________________________________________
+		: ($element="circle")\
 			 | ($element="ellipse")
 			
-			//FIXME:TO_DO
+			//FIXME:TO_DO?
 			
 			//______________________________________________________
 		Else 
