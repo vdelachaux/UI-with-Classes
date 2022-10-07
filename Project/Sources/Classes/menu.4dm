@@ -110,7 +110,7 @@ Function release()
 	
 	// ===============================================
 	// Adds a new item to the menu
-Function append($item : Variant; $param : Variant; $mark : Boolean)->$this : cs:C1710.menu
+Function append($item; $param; $mark : Boolean) : cs:C1710.menu
 	
 	var $t : Text
 	var $o : Object
@@ -124,7 +124,6 @@ Function append($item : Variant; $param : Variant; $mark : Boolean)->$this : cs:
 			
 			//______________________________________________________
 		: (Value type:C1509($item)=Is text:K8:3)
-			
 			
 			Case of 
 					//______________________________________________________
@@ -142,7 +141,7 @@ Function append($item : Variant; $param : Variant; $mark : Boolean)->$this : cs:
 				: ($item[[1]]=Char:C90(1))
 					//%W+533.1
 					
-					// 🤬 4D does not like at all
+					// 🤬 The "Get localized string" command does not like it at all.
 					
 					//______________________________________________________
 				: (Not:C34(This:C1470.localize))
@@ -153,7 +152,7 @@ Function append($item : Variant; $param : Variant; $mark : Boolean)->$this : cs:
 				Else 
 					
 					$t:=Get localized string:C991($item)
-					$t:=Choose:C955(Length:C16($t)>0; $t; $item)  // Revert if no localization
+					$t:=Length:C16($t)>0 ? $t : $item  // Revert if no localization
 					
 					//ASSERT(Length($t)>0; "⚠️ An empty item will not be displayed")
 					
@@ -168,31 +167,35 @@ Function append($item : Variant; $param : Variant; $mark : Boolean)->$this : cs:
 					
 					If (Asserted:C1132(OB Instance of:C1731($param; cs:C1710.menu)))
 						
-						If (This:C1470.metacharacters)
+						If ($param.itemCount()>0)  // Don't do it if there are no items in the sub-menu
 							
-							APPEND MENU ITEM:C411(This:C1470.ref; $t; $param.ref)
+							If (This:C1470.metacharacters)
+								
+								APPEND MENU ITEM:C411(This:C1470.ref; $t; $param.ref)
+								
+							Else 
+								
+								APPEND MENU ITEM:C411(This:C1470.ref; $t; $param.ref; *)
+								
+							End if 
 							
-						Else 
+							// Keep the sub-menu structure
+							This:C1470.submenus.push($param)
 							
-							APPEND MENU ITEM:C411(This:C1470.ref; $t; $param.ref; *)
-							
+							// Keep datas, if any
+							For each ($o; $param.data)
+								
+								This:C1470.data.push($o)
+								
+							End for each 
 						End if 
-						
-						// Keep the sub-menu structure
-						This:C1470.submenus.push($param)
-						
-						// Keep datas, if any
-						For each ($o; $param.data)
-							
-							This:C1470.data.push($o)
-							
-						End for each 
 						
 						If ($param.autoRelease)
 							
 							RELEASE MENU:C978($param.ref)
 							
 						End if 
+						
 					End if 
 					
 				Else 
@@ -294,26 +297,24 @@ Function append($item : Variant; $param : Variant; $mark : Boolean)->$this : cs:
 			//______________________________________________________
 	End case 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 Function add($ref : Text; $text : Text; $param : Variant; $mark : Boolean)
 	
 	// TODO: wip
 	
-	
-	
 	// ===============================================
 	// Adds a line to the menu
-Function line()->$this : cs:C1710.menu
+Function line() : cs:C1710.menu
 	
 	APPEND MENU ITEM:C411(This:C1470.ref; "-(")
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Defines the project method associated with a menu item
-Function method($method : Text; $index : Integer)->$this : cs:C1710.menu
+Function method($method : Text; $index : Integer) : cs:C1710.menu
 	
 	If (Count parameters:C259>1)
 		
@@ -326,11 +327,11 @@ Function method($method : Text; $index : Integer)->$this : cs:C1710.menu
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Delete an item or the last added item
-Function delete($index : Integer)->$this : cs:C1710.menu
+Function delete($index : Integer) : cs:C1710.menu
 	
 	If (Count parameters:C259=0)
 		
@@ -342,11 +343,11 @@ Function delete($index : Integer)->$this : cs:C1710.menu
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Defines the activated status of a menu item
-Function enable($enabled : Boolean; $index : Integer)->$this : cs:C1710.menu
+Function enable($enabled : Boolean; $index : Integer) : cs:C1710.menu
 	
 	Case of 
 			
@@ -384,11 +385,11 @@ Function enable($enabled : Boolean; $index : Integer)->$this : cs:C1710.menu
 			//______________________________________________________
 	End case 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Disable a menu item
-Function disable($index : Integer)->$this : cs:C1710.menu
+Function disable($index : Integer) : cs:C1710.menu
 	
 	If (Count parameters:C259=0)
 		
@@ -400,11 +401,11 @@ Function disable($index : Integer)->$this : cs:C1710.menu
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Associate a standard action with a menu item
-Function action($action : Variant; $index : Integer)->$this : cs:C1710.menu
+Function action($action : Variant; $index : Integer) : cs:C1710.menu
 	
 	If (Count parameters:C259=1)
 		
@@ -416,11 +417,11 @@ Function action($action : Variant; $index : Integer)->$this : cs:C1710.menu
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Associates a custom parameter to a menu item
-Function parameter($param : Text; $index : Integer)->$this : cs:C1710.menu
+Function parameter($param : Text; $index : Integer) : cs:C1710.menu
 	
 	If (Count parameters:C259=0)
 		
@@ -432,7 +433,7 @@ Function parameter($param : Text; $index : Integer)->$this : cs:C1710.menu
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Associates a property to a menu item
@@ -440,7 +441,7 @@ Function parameter($param : Text; $index : Integer)->$this : cs:C1710.menu
 ⚠️ ONE CAN SET A PROPERTY FOR ALL MENU TYPE (MENU BAR OR POPUP)
    BUT  UNIQUELY RETRIEVE IT FOR THE MENU BAR ITEMS
 */
-Function property($property : Text; $value : Variant; $index : Integer)->$this : cs:C1710.menu
+Function property($property : Text; $value : Variant; $index : Integer) : cs:C1710.menu
 	
 	If (Count parameters:C259>=3)
 		
@@ -452,7 +453,7 @@ Function property($property : Text; $value : Variant; $index : Integer)->$this :
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Returns a property of a menu item
@@ -462,7 +463,7 @@ Function getProperty($property : Text; $index : Integer)->$value
 	
 	// ===============================================
 	// Associates data to a menu item
-Function setData($name : Text; $value : Variant; $index : Integer)->$this : cs:C1710.menu
+Function setData($name : Text; $value : Variant; $index : Integer) : cs:C1710.menu
 	
 	var $ref : Text
 	var $o : Object
@@ -503,7 +504,7 @@ Function setData($name : Text; $value : Variant; $index : Integer)->$this : cs:C
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Retrieve data associated to selected menu item
@@ -532,7 +533,7 @@ Function getData($name : Text; $ref : Text)->$value
 	
 	// ===============================================
 	// Sets the check mark of a menu item
-Function mark($checked : Boolean; $index : Integer)->$this : cs:C1710.menu
+Function mark($checked : Boolean; $index : Integer) : cs:C1710.menu
 	
 	Case of 
 			
@@ -554,11 +555,11 @@ Function mark($checked : Boolean; $index : Integer)->$this : cs:C1710.menu
 			//______________________________________________________
 	End case 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Replaces the shortcut key associated with the menu item
-Function shortcut($key; $modifier : Integer; $index : Integer)->$this : cs:C1710.menu
+Function shortcut($key; $modifier : Integer; $index : Integer) : cs:C1710.menu
 	
 	$index:=($index=0) ? -1 : $index
 	
@@ -587,11 +588,11 @@ Function shortcut($key; $modifier : Integer; $index : Integer)->$this : cs:C1710
 		End if 
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Modifies the icon associated with a menu item
-Function icon($icon : Text; $index : Integer)->$this : cs:C1710.menu
+Function icon($icon : Text; $index : Integer) : cs:C1710.menu
 	
 	var $path : Text
 	
@@ -624,11 +625,11 @@ Function icon($icon : Text; $index : Integer)->$this : cs:C1710.menu
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Changes the font style of the menu item
-Function setStyle($tyle : Integer; $index : Integer)->$this : cs:C1710.menu
+Function setStyle($tyle : Integer; $index : Integer) : cs:C1710.menu
 	
 	If (Count parameters:C259>1)
 		
@@ -640,7 +641,7 @@ Function setStyle($tyle : Integer; $index : Integer)->$this : cs:C1710.menu
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Replaces the current menu bar with the current menu
@@ -658,7 +659,7 @@ Function setBar()
 	
 	// ===============================================
 	// Display the current menu as a pop-up menu
-Function popup($where : Variant; $x : Variant; $y : Integer)->$this : cs:C1710.menu
+Function popup($where : Variant; $x : Variant; $y : Integer) : cs:C1710.menu
 	
 	This:C1470._cleanup()
 	
@@ -723,7 +724,7 @@ Function popup($where : Variant; $x : Variant; $y : Integer)->$this : cs:C1710.m
 		
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Returns the number of menu items present in the menu
@@ -746,15 +747,15 @@ Function menuSelected()->$selected : Object
 	
 	// ===============================================
 	// Default File menu
-Function file()->$this : cs:C1710.menu
+Function file() : cs:C1710.menu
 	
 	This:C1470.append(":xliff:CommonMenuItemQuit").action(ak quit:K76:61).shortcut("Q")
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Standard Edit menu
-Function edit()->$this : cs:C1710.menu
+Function edit() : cs:C1710.menu
 	
 	This:C1470.append(":xliff:CommonMenuItemUndo").action(ak undo:K76:51).shortcut("Z")
 	This:C1470.append(":xliff:CommonMenuRedo").action(ak redo:K76:52).shortcut("Z"; 512)
@@ -767,11 +768,11 @@ Function edit()->$this : cs:C1710.menu
 	This:C1470.line()
 	This:C1470.append(":xliff:CommonMenuItemShowClipboard").action(ak show clipboard:K76:58)
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Fonts menu with or without styles
-Function fonts($withStyle : Boolean)->$this : cs:C1710.menu
+Function fonts($withStyle : Boolean) : cs:C1710.menu
 	
 	var $menuStyles : Text
 	var $styled : Boolean
@@ -834,11 +835,11 @@ Function fonts($withStyle : Boolean)->$this : cs:C1710.menu
 		End for 
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Windows menu
-Function windows()->$this : cs:C1710.menu
+Function windows() : cs:C1710.menu
 	
 	var $name : Text
 	var $current; $frontmostWindow; $i : Integer
@@ -886,16 +887,16 @@ Function windows()->$this : cs:C1710.menu
 		End for each 
 	End if 
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Create a default minimal menu bar
-Function defaultMinimalMenuBar()->$this : cs:C1710.menu
+Function defaultMinimalMenuBar() : cs:C1710.menu
 	
 	This:C1470.append(":xliff:CommonMenuFile"; cs:C1710.menu.new().file())
 	This:C1470.append(":xliff:CommonMenuEdit"; cs:C1710.menu.new().edit())
 	
-	$this:=This:C1470
+	return This:C1470
 	
 	// ===============================================
 	// Returns a menu item from its title or index
