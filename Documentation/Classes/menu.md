@@ -9,7 +9,7 @@ $m:=cs.menu.new()                                // Create a main menu
 $m.append("Line 1";"fisrtLine")                  // Append a first item
 $m.line()                                        // Append a line
 $m.append("Line 3";"thirdLine";True)             // Append a second item with check mark
-$s:=menu                                         // Create a sub menu
+$s:=cs.menu.new()                                // Create a sub menu
 $s.append("Sub menu line 1";"subFisrtLine")      // Append a first item
 $s.append("Sub menu line 2";"subSecondLine")     // Append a second item
 $m.line()                                        // Add a line (will be automatically deleted because this is the last item)
