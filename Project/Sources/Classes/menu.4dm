@@ -1016,7 +1016,7 @@ Function isSeparatorItem($item : Integer)->$isSeparator : Boolean
 		Else 
 			
 			GET MENU ITEM PROPERTY:C972(This:C1470.ref; $item; "4D_separator"; $value)
-			$isSeparator:=($value#0)
+			$isSeparator:=(Num:C11($value)#0)
 			
 			//________________________________________
 	End case 

@@ -32,7 +32,7 @@ Case of
 		Else 
 			
 			// Use index
-			$0:="Processing item #"+String:C10($indx); 
+			$0:="Processing item #"+String:C10($indx)
 			
 		End if 
 		
