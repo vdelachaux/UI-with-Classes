@@ -2,6 +2,8 @@ Class constructor($options)
 	
 	var $c : Collection
 	
+	This:C1470.__CLASS__:=OB Class:C1730(This:C1470)
+	
 	This:C1470.ref:=Null:C1517
 	This:C1470.autoRelease:=True:C214
 	This:C1470.localize:=True:C214
@@ -97,7 +99,7 @@ Class constructor($options)
 		
 	End if 
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Removes the menu from memory
 Function release()
 	
@@ -108,7 +110,7 @@ Function release()
 		
 	End if 
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Adds a new item to the menu
 Function append($item; $param; $mark : Boolean) : cs:C1710.menu
 	
@@ -148,18 +150,20 @@ Function append($item; $param; $mark : Boolean) : cs:C1710.menu
 					
 					// Don't try to localize
 					
+					// TODO: TO TEST : Replace the hyphen by the unicode 2013
+					//$item:=Replace string($item; "-"; "–")
+					
 					//______________________________________________________
 				Else 
 					
 					$t:=Get localized string:C991($item)
-					$t:=Length:C16($t)>0 ? $t : $item  // Revert if no localization
-					
-					//ASSERT(Length($t)>0; "⚠️ An empty item will not be displayed")
 					
 					//______________________________________________________
 			End case 
 			
-			$t:=Choose:C955(Length:C16($t)>0; $t; $item)
+			
+			
+			$t:=$t || $item
 			
 			If (Count parameters:C259>=2)
 				
@@ -167,28 +171,29 @@ Function append($item; $param; $mark : Boolean) : cs:C1710.menu
 					
 					If (Asserted:C1132(OB Instance of:C1731($param; cs:C1710.menu)))
 						
-						If ($param.itemCount()>0)  // Don't do it if there are no items in the sub-menu
+						//FIXME:Remove empty submenu in the cleanup phase
+						//If ($param.itemCount()>0)  // Don't do it if there are no items in the sub-menu
+						
+						If (This:C1470.metacharacters)
 							
-							If (This:C1470.metacharacters)
-								
-								APPEND MENU ITEM:C411(This:C1470.ref; $t; $param.ref)
-								
-							Else 
-								
-								APPEND MENU ITEM:C411(This:C1470.ref; $t; $param.ref; *)
-								
-							End if 
+							APPEND MENU ITEM:C411(This:C1470.ref; $t; $param.ref)
 							
-							// Keep the sub-menu structure
-							This:C1470.submenus.push($param)
+						Else 
 							
-							// Keep datas, if any
-							For each ($o; $param.data)
-								
-								This:C1470.data.push($o)
-								
-							End for each 
+							APPEND MENU ITEM:C411(This:C1470.ref; $t; $param.ref; *)
+							
 						End if 
+						
+						// Keep the sub-menu structure
+						This:C1470.submenus.push($param)
+						
+						// Keep datas, if any
+						For each ($o; $param.data)
+							
+							This:C1470.data.push($o)
+							
+						End for each 
+						//End if 
 						
 						If ($param.autoRelease)
 							
@@ -299,12 +304,12 @@ Function append($item; $param; $mark : Boolean) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function add($ref : Text; $text : Text; $param : Variant; $mark : Boolean)
 	
 	// TODO: wip
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Adds a line to the menu
 Function line() : cs:C1710.menu
 	
@@ -312,7 +317,7 @@ Function line() : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Defines the project method associated with a menu item
 Function method($method : Text; $index : Integer) : cs:C1710.menu
 	
@@ -329,7 +334,7 @@ Function method($method : Text; $index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Delete an item or the last added item
 Function delete($index : Integer) : cs:C1710.menu
 	
@@ -345,7 +350,7 @@ Function delete($index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Defines the activated status of a menu item
 Function enable($enabled : Boolean; $index : Integer) : cs:C1710.menu
 	
@@ -387,7 +392,30 @@ Function enable($enabled : Boolean; $index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
+Function indent($index : Integer; $number : Integer) : cs:C1710.menu
+	
+	If (Count parameters:C259=0)
+		
+		// Special tag for indent on windows
+		SET MENU ITEM PROPERTY:C973(This:C1470.ref; -1; "_4D_PictureForIndent"; 1)
+		
+	Else 
+		
+		If (Count parameters:C259=1)
+			
+			SET MENU ITEM PROPERTY:C973(This:C1470.ref; $index; "_4D_PictureForIndent"; 1)
+			
+		Else 
+			
+			SET MENU ITEM PROPERTY:C973(This:C1470.ref; $index; "_4D_PictureForIndent"; $number)
+			
+		End if 
+	End if 
+	
+	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Disable a menu item
 Function disable($index : Integer) : cs:C1710.menu
 	
@@ -403,7 +431,7 @@ Function disable($index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Associate a standard action with a menu item
 Function action($action : Variant; $index : Integer) : cs:C1710.menu
 	
@@ -419,7 +447,7 @@ Function action($action : Variant; $index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Associates a custom parameter to a menu item
 Function parameter($param : Text; $index : Integer) : cs:C1710.menu
 	
@@ -435,7 +463,7 @@ Function parameter($param : Text; $index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Associates a property to a menu item
 /*
 ⚠️ ONE CAN SET A PROPERTY FOR ALL MENU TYPE (MENU BAR OR POPUP)
@@ -455,13 +483,13 @@ Function property($property : Text; $value : Variant; $index : Integer) : cs:C17
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Returns a property of a menu item
 Function getProperty($property : Text; $index : Integer)->$value
 	
 	GET MENU ITEM PROPERTY:C972(This:C1470.ref; $index; $property; $value)
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Associates data to a menu item
 Function setData($name : Text; $value : Variant; $index : Integer) : cs:C1710.menu
 	
@@ -506,7 +534,7 @@ Function setData($name : Text; $value : Variant; $index : Integer) : cs:C1710.me
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Retrieve data associated to selected menu item
 Function getData($name : Text; $ref : Text)->$value
 	
@@ -531,7 +559,7 @@ Function getData($name : Text; $ref : Text)->$value
 		End if 
 	End if 
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Sets the check mark of a menu item
 Function mark($checked : Boolean; $index : Integer) : cs:C1710.menu
 	
@@ -557,7 +585,7 @@ Function mark($checked : Boolean; $index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Replaces the shortcut key associated with the menu item
 Function shortcut($key; $modifier : Integer; $index : Integer) : cs:C1710.menu
 	
@@ -590,7 +618,7 @@ Function shortcut($key; $modifier : Integer; $index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Modifies the icon associated with a menu item
 Function icon($icon : Text; $index : Integer) : cs:C1710.menu
 	
@@ -627,7 +655,7 @@ Function icon($icon : Text; $index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Changes the font style of the menu item
 Function setStyle($tyle : Integer; $index : Integer) : cs:C1710.menu
 	
@@ -643,7 +671,7 @@ Function setStyle($tyle : Integer; $index : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Replaces the current menu bar with the current menu
 Function setBar()
 	
@@ -657,7 +685,7 @@ Function setBar()
 		
 	End if 
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Display the current menu as a pop-up menu
 Function popup($where : Variant; $x : Variant; $y : Integer) : cs:C1710.menu
 	
@@ -726,13 +754,13 @@ Function popup($where : Variant; $x : Variant; $y : Integer) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Returns the number of menu items present in the menu
 Function itemCount()->$number : Integer
 	
 	$number:=Count menu items:C405(This:C1470.ref)
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function menuSelected()->$selected : Object
 	
 	var $menuSelected : Integer
@@ -745,7 +773,7 @@ Function menuSelected()->$selected : Object
 		"menu"; $menuSelected\65536; \
 		"item"; $menuSelected%65536)
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Default File menu
 Function file() : cs:C1710.menu
 	
@@ -753,7 +781,7 @@ Function file() : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Standard Edit menu
 Function edit() : cs:C1710.menu
 	
@@ -770,7 +798,7 @@ Function edit() : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Fonts menu with or without styles
 Function fonts($withStyle : Boolean) : cs:C1710.menu
 	
@@ -837,7 +865,7 @@ Function fonts($withStyle : Boolean) : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Windows menu
 Function windows() : cs:C1710.menu
 	
@@ -889,7 +917,7 @@ Function windows() : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Create a default minimal menu bar
 Function defaultMinimalMenuBar() : cs:C1710.menu
 	
@@ -898,7 +926,7 @@ Function defaultMinimalMenuBar() : cs:C1710.menu
 	
 	return This:C1470
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Returns a menu item from its title or index
 Function item($item; $ref : Text)->$menuItem : Object
 	
@@ -964,7 +992,7 @@ Function item($item; $ref : Text)->$menuItem : Object
 		
 	End if 
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Returns a collection of the first level menu items
 Function items()->$items : Collection
 	
@@ -978,7 +1006,7 @@ Function items()->$items : Collection
 		
 	End for 
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function itemSubMenuRef($withTitle : Text)->$reference : Text
 	
 	var $indx : Integer
@@ -995,7 +1023,7 @@ Function itemSubMenuRef($withTitle : Text)->$reference : Text
 		
 	End if 
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function isSeparatorItem($item : Integer)->$isSeparator : Boolean
 	
 	var $value
@@ -1016,12 +1044,12 @@ Function isSeparatorItem($item : Integer)->$isSeparator : Boolean
 		Else 
 			
 			GET MENU ITEM PROPERTY:C972(This:C1470.ref; $item; "4D_separator"; $value)
-			$isSeparator:=(Num:C11($value)#0)
+			$isSeparator:=($value#0)
 			
 			//________________________________________
 	End case 
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Remove duplicates (lines or items)
 Function _cleanup()
 	
@@ -1083,7 +1111,7 @@ Function _cleanup()
 		End if 
 	End for 
 	
-	// ===============================================
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function _isMenu()->$isMenu : Boolean
 	
 	If (Asserted:C1132(This:C1470.ref#Null:C1517; Current method name:C684+": The menu reference is null"))
