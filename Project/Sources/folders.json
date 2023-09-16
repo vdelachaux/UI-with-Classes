@@ -1,66 +1,100 @@
 {
-	"(HDI_WIDGETS_CLASSES)": {},
-	"classes": {
-		"groups": [
-			"form"
+	"# 🚧 DEV": {
+		"methods": [
+			"COMPILER_DEV",
+			"Method18",
+			"Method19"
+		],
+		"forms": [
+			"Form1"
 		],
 		"classes": [
-			"menu",
-			"progress",
+			"tips"
+		]
+	},
+	"♻️ LIBRAIRIES": {
+		"groups": [
+			"👩‍💻 UI"
+		],
+		"classes": [
+			"_classCore",
 			"svg",
-			"tips",
 			"xml"
 		]
 	},
-	"DEMO_FORM": {
+	"👩‍💻 UI": {
 		"methods": [
-			"HDI_FORM",
-			"HDI_FORM_CALLBACK"
-		],
-		"forms": [
-			"HDI_FORM"
-		],
-		"classes": [
-			"HDI_FORM"
-		]
-	},
-	"DEMO_PROGRESS": {
-		"methods": [
-			"DEMO_progress",
-			"demoProgressDoSomething"
-		]
-	},
-	"DEMO_WIDGETS": {
-		"methods": [
-			"HDI_LOAD_PAGE"
-		],
-		"forms": [
-			"HDI_WIDGET_CLASSES"
-		]
-	},
-	"form": {
-		"methods": [
-			"form_spreadToSubforms"
+			"COMPILER_UI",
+			"dropableWidgetMethod",
+			"form_spreadToSubforms",
+			"formCallBack",
+			"formGetInstance",
+			"formMenuHandle",
+			"formMethod",
+			"subformWidgetMethod"
 		],
 		"classes": [
-			"button",
-			"form",
-			"formObject",
-			"group",
-			"input",
-			"listbox",
-			"picture",
-			"scrollable",
-			"stepper",
-			"subform",
-			"thermometer",
-			"webArea",
-			"widget"
+			"buttonDelegate",
+			"colour",
+			"comboBoxDelegate",
+			"coord",
+			"dim",
+			"dropDownDelegate",
+			"evt",
+			"formDelegate",
+			"groupDelegate",
+			"hListDelegate",
+			"inputDelegate",
+			"listboxDelegate",
+			"menu",
+			"menuBar",
+			"pictureDelegate",
+			"scrollableDelegate",
+			"selectorDelegate",
+			"staticDelegate",
+			"stepperDelegate",
+			"subformDelegate",
+			"thermometerDelegate",
+			"webAreaDelegate",
+			"widgetDelegate",
+			"windowDelegate"
 		]
 	},
-	"trash": {
+	"DEMO_1": {
+		"forms": [
+			"DEMO_1"
+		],
+		"classes": [
+			"_DEMO_1_Controller"
+		]
+	},
+	"DEMO_menus": {
+		"forms": [
+			"DEMO_menus"
+		],
+		"classes": [
+			"_DEMO_menus_Controller"
+		]
+	},
+	"DEMO_webArea": {
+		"forms": [
+			"DEMO_webArea"
+		],
+		"classes": [
+			"_DEMO_webArea_Controller"
+		]
+	},
+	"DEMOS": {
 		"groups": [
-			"(HDI_WIDGETS_CLASSES)"
+			"DEMO_1",
+			"DEMO_menus",
+			"DEMO_webArea"
+		],
+		"methods": [
+			"DEMO_1",
+			"DEMO_menus",
+			"DEMO_webArea"
 		]
-	}
+	},
+	"trash": {}
 }

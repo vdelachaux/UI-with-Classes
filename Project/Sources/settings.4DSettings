@@ -1,8 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="3">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="5">
 	<com.4d>
-		<general execute_host_database_event="true"/>
+		<general component_classStore_name="ui" execute_host_database_event="true"/>
 		<interface>
-			<user color_scheme="light"/>
+			<user/>
+			<shortcuts>
+				<accept_input_form alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+				<cancel_input_form alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+				<add_subform alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+			</shortcuts>
 		</interface>
+		<compiler>
+			<options compilation_path="3" syntax_file="true"/>
+			<typage default_for_button="2"/>
+			<method_suffix arrays="" interprocess_arrays="" interprocess_variables="" methods="" variables=""/>
+		</compiler>
+		<database>
+			<cache/>
+			<misc mac_use_lf="true" no_bom="true" prefer_null_than_blank_values="false" standard_xpath="true" use_ast_interpreter="false"/>
+		</database>
+		<server>
+			<network>
+				<options publish_at_startup="false"/>
+			</network>
+		</server>
 	</com.4d>
 </preferences>

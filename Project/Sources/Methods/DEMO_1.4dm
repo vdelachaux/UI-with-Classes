@@ -1,12 +1,17 @@
 //%attributes = {}
+var $password : Text
+var $winRef : Integer
 var $data : Object
 
-// Create and install a minimal menu bar
-cs:C1710.menu.new().defaultMinimalMenuBar().setBar()
+$winRef:=Open form window:C675("DEMO_1"; Plain form window:K39:10; Horizontally centered:K39:1; Vertically centered:K39:4)
 
-$data:=New object:C1471(\
-"window"; Open form window:C675("HDI_WIDGET_CLASSES"; Plain form window:K39:10; Horizontally centered:K39:1; At the top:K39:5; *))
+$data:={pwd: ""}
 
-DIALOG:C40("HDI_WIDGET_CLASSES"; $data)
+DIALOG:C40("DEMO_1"; $data)
+CLOSE WINDOW:C154($winRef)
 
-CLOSE WINDOW:C154($data.window)
+If (Bool:C1537(OK))
+	
+	$password:=$data.pwd
+	
+End if 

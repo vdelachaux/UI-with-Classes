@@ -20,9 +20,9 @@ If (Not:C34(Is compiled mode:C492))
 		EXECUTE METHOD:C1007("quickOpenPushAction"; *; $o)
 		
 		$o:=New object:C1471(\
-			"name"; " Demo 2"; \
+			"name"; " Demo 1"; \
 			"icon"; $icon; \
-			"formula"; Formula:C1597(DEMO_2))
+			"formula"; Formula:C1597(DEMO_1))
 		
 		EXECUTE METHOD:C1007("quickOpenPushAction"; *; $o)
 		

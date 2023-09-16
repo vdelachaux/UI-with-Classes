@@ -1,0 +1,71 @@
+{
+  "url": "https://github.com/vdelachaux/UI-with-Classes",
+  "content": {
+    "Classes": [
+      "_classCore.4dm",
+      "colour.4dm",
+      "coord.4dm",
+      "dim.4dm",
+      "evt.4dm",
+      "formDelegate.4dm",
+      "buttonDelegate.4dm",
+      "comboBoxDelegate.4dm",
+      "dropDownDelegate.4dm",
+      "groupDelegate.4dm",
+      "hListDelegate.4dm",
+      "inputDelegate.4dm",
+      "listboxDelegate.4dm",
+      "pictureDelegate.4dm",
+      "scrollableDelegate.4dm",
+      "selectorDelegate.4dm",
+      "staticDelegate.4dm",
+      "stepperDelegate.4dm",
+      "subformDelegate.4dm",
+      "thermometerDelegate.4dm",
+      "widgetDelegate.4dm",
+      "webAreaDelegate.4dm",
+      "windowDelegate.4dm",
+      "menu.4dm",
+      "menuBar.4dm"
+    ],
+    "Methods": [
+      "COMPILER_UI.4dm",
+      "formMethod.4dm",
+      "formCallBack.4dm",
+      "formGetInstance.4dm",
+      "formMenuHandle.4dm",
+      "dropableWidgetMethod.4dm",
+      "subformWidgetMethod.4dm",
+      "form_spreadToSubforms.4dm"
+    ],
+    "Documentation": {
+      "Classes": [
+        "_classCore.md",
+        "colour.md",
+        "coord.md",
+        "dim.md",
+        "evt.md",
+        "formDelegate.md",
+        "buttonDelegate.md",
+        "comboBoxDelegate.md",
+        "dropDownDelegate.md",
+        "groupDelegate.md",
+        "hListDelegate.md",
+        "inputDelegate.md",
+        "listboxDelegate.md",
+        "pictureDelegate.md",
+        "scrollableDelegate.md",
+        "selectorDelegate.md",
+        "staticDelegate.md",
+        "stepperDelegate.md",
+        "subformDelegate.md",
+        "thermometerDelegate.md",
+        "widgetDelegate.md",
+        "webAreaDelegate.md",
+        "windowDelegate.md",
+        "menu.md",
+        "menuBar.md"
+      ]
+    }
+  }
+}

@@ -15,6 +15,8 @@ a duplicate.
 * Describe steps to reproduce
 * Full error message if any
 * Your code if relevant
+ 
+Of course you could propose a fix using pull request
 
 ### Feature request
 
@@ -31,13 +33,21 @@ a duplicate.
 * Open a single pull request for each subject.
 * Prefer to develop in a topic [branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches), not master (feature/name)
 * Update documentation where applicable.
+* If any bug related, add `#<id>` in commit message or pull request
+* Test your code
 * The project is organized into folders on the Explorer home page. Please respect this.
 * The project must be compilable with the "All variable are typed" setting and please don't generate typing!
-* When it is necessary, create a `Compiler_xxx` inside each folders for compilation declarations
+ 
+### Method properties
+ 
+* Methods must be private ie. set invisible by default, if not documented and not to be acceded from outside.
+* Method must be set preemptive if possible.
 
 ### Naming rules
 
 * Try to be compliant with the existing namimg.
+* Create a folder by category
+* When it is necessary, create a `Compiler_categoryName` inside each folders for compilation declarations
 * Note that all the generic classe names are camelCase
 
 ### Only touch relevant files
