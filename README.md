@@ -70,8 +70,12 @@ What's more, if a 4D command evolves, a simple update to a class function immedi
 1. I suggest you first look at ***DEMO_1***, which is a simple case, to understand the design. Then you can run and explore the other demos that introduce more complicated or specific uses, I'm trying to show use cases like menu bar management or contextual menus.  Other demonstrations will follow (I need to enrich this part), as it's also instructive for optimizing and enriching commands. 
 1. See the [Documentation](Documentation/Classes/) folder. I suggest you begin with the [`formDelegate` class documentation](Documentation/Classes/formDelegate.md).
 
-> Please note that not all documentation is available/updated yet.    
-> *As always, writing documentation is a time-consuming but instructive task, because in a number of cases it leads to changes, since what isn't simply described isn't a good implementation.*
+> Please note that not all documentation is available/updated yet.   *As always, writing documentation is a time-consuming but instructive task, because in a number of cases it leads to changes, since what isn't simply described isn't a good implementation.*
+
+### And in real life see:
+
+* [4DPop Git](https://github.com/vdelachaux/4DPop-Git)
+* [4DPop XLIFF Pro](https://github.com/vdelachaux/4DPop-XLIFF-Pro)
 
 ## <a name="how">How does it work</a>
 
