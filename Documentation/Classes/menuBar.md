@@ -13,7 +13,11 @@ To define & install a menu bar with:
 
 
 ```4d
-// Create the menu Filevar $menuFile : cs.menu$menuFile:=cs.menu.new()\  .append("Close").shortcut("W").action(ak cancel)\  .line()\  .append("MSC").shortcut("M"; Option key mask).action(ak msc)\  .line()\  .append("Settings"; "settings").method(Formula(formMenuHandle).source)// Get a standard edit menuvar $menuEdit : cs.menu$menuEdit:=cs.menu.new().edit()// Populate & install the menu barcs.menuBar.new([\  ":xliff:CommonMenuFile"; $menuFile; \  ":xliff:CommonMenuEdit"; $menuEdit; \  "Windows"; cs.menu.new()\]).set()```
+// Create the menu Filevar $menuFile : cs.menu$menuFile:=cs.menu.new()\  .append("Close").shortcut("W").action(ak cancel)\  .line()\  .append("MSC").shortcut("M"; Option key mask).action(ak msc)\  .line()\  .append("Settings"; "settings").method(Formula(formMenuHandle).source)// Get a standard edit menuvar $menuEdit : cs.menu$menuEdit:=cs.menu.new().edit()
+
+// Create an empty menu for the widowsvar $menuWindows : cs.menu
+$menuWindows:= cs.menu.new()// Populate & install the menu barcs.menuBar.new([\  ":xliff:CommonMenuFile"; $menuFile; \  ":xliff:CommonMenuEdit"; $menuEdit; \  "Windows"; $menuWindows\
+  ]).set()```
 
 # Summary
 
@@ -58,4 +62,4 @@ To define & install a menu bar with:
 
 |Function|Action|
 |:--------|:------|    
-|.**defaultMinimalMenuBar** () → `cs.menuBar` | Returns a precnfigured menu bar with the default "File" menu & a menu "Edit"
+|.**defaultMinimalMenuBar** () → `cs.menuBar` | Returns a preconfigured menu bar with the default "File" menu & a menu "Edit"
