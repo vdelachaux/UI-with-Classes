@@ -165,12 +165,12 @@ Class constructor($param)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function init()
 	
-	This:C1470._standardSuite(Split string:C1554(Current method name:C684; ".").last())
+	This:C1470._standardSuite(Current method name:C684)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function handleEvents()
 	
-	This:C1470._standardSuite(Split string:C1554(Current method name:C684; ".").last())
+	This:C1470._standardSuite(Current method name:C684)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function onLoad()
@@ -238,7 +238,7 @@ Function onLoad()
 		End if 
 	End if 
 	
-	This:C1470._standardSuite(Split string:C1554(Current method name:C684; ".").last())
+	This:C1470._standardSuite(Current method name:C684)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function update($stopTimer : Boolean)
@@ -249,14 +249,14 @@ Function update($stopTimer : Boolean)
 		
 	End if 
 	
-	This:C1470._standardSuite(Split string:C1554(Current method name:C684; ".").last())
+	This:C1470._standardSuite(Current method name:C684)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function onBoundVariableChange()
 	
 	If (Asserted:C1132(This:C1470.isSubform; "Warning: This form is not declared as a subform"))
 		
-		This:C1470._standardSuite(Split string:C1554(Current method name:C684; ".").last())
+		This:C1470._standardSuite(Current method name:C684)
 		
 	End if 
 	
@@ -264,21 +264,23 @@ Function onBoundVariableChange()
 Function saveContext()
 	
 	// TODO:Generic?
-	This:C1470._standardSuite(Split string:C1554(Current method name:C684; ".").last())
+	This:C1470._standardSuite(Current method name:C684)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function restoreContext()
 	
 	// TODO:Generic?
-	This:C1470._standardSuite(Split string:C1554(Current method name:C684; ".").last())
+	This:C1470._standardSuite(Current method name:C684)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function onOutsideCall()
 	
-	This:C1470._standardSuite(Split string:C1554(Current method name:C684; ".").last())
+	This:C1470._standardSuite(Current method name:C684)
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _standardSuite($name : Text)
+	
+	$name:=Split string:C1554($name; ".").last()
 	
 	If (Asserted:C1132(This:C1470.__SUPER__#Null:C1517; "👀 "+$name+"() must be overriden by the subclass!"))\
 		 & (Asserted:C1132(OB Instance of:C1731(This:C1470.__SUPER__[$name]; 4D:C1709.Function); "The function "+$name+"() is not define into the class "+This:C1470.__SUPER__.__CLASS__.name))
