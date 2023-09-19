@@ -106,7 +106,6 @@ Function release()
 	If (This:C1470._isMenu())
 		
 		RELEASE MENU:C978(This:C1470.ref)
-		This:C1470.ref:=Null:C1517
 		
 	End if 
 	
