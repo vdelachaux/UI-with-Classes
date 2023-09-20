@@ -114,6 +114,9 @@ Class constructor($param)
 	This:C1470.window:=cs:C1710.windowDelegate.new(This:C1470)
 	This:C1470.__DELEGATES__.push(This:C1470.window)
 	
+	This:C1470.constraints:=cs:C1710.constraintsDelegate.new()
+	This:C1470.__DELEGATES__.push(This:C1470.constraints)
+	
 	This:C1470._instantiableWidgets:=[\
 		This:C1470.static; \
 		This:C1470.button; \

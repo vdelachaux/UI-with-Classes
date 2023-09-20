@@ -37,6 +37,7 @@
 			"buttonDelegate",
 			"colour",
 			"comboBoxDelegate",
+			"constraintsDelegate",
 			"coord",
 			"dim",
 			"dropDownDelegate",
@@ -68,6 +69,14 @@
 			"_DEMO_1_Controller"
 		]
 	},
+	"DEMO_constraints": {
+		"forms": [
+			"DEMO_constraints"
+		],
+		"classes": [
+			"_DEMO_constraints_Controller"
+		]
+	},
 	"DEMO_menus": {
 		"forms": [
 			"DEMO_menus"
@@ -87,11 +96,13 @@
 	"DEMOS": {
 		"groups": [
 			"DEMO_1",
+			"DEMO_constraints",
 			"DEMO_menus",
 			"DEMO_webArea"
 		],
 		"methods": [
 			"DEMO_1",
+			"DEMO_constraints",
 			"DEMO_menus",
 			"DEMO_webArea"
 		]

@@ -328,7 +328,7 @@ Function bestSize($alignment; $minWidth : Integer; $maxWidth : Integer) : cs:C17
 				If (Num:C11($o.alignment)=Align left:K42:2)
 					
 					// Add 10 pixels
-					$width:=$width+10
+					//$width:=$width+10
 					
 				End if 
 				
