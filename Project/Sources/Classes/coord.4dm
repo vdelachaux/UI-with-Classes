@@ -1,4 +1,9 @@
+property name : Text
+property left; top; right; bottom : Integer
+
 Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
+	
+	This:C1470.name:=Null:C1517
 	
 	Case of 
 			
@@ -20,6 +25,7 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 		: (Value type:C1509($left)=Is text:K8:3)  // Object name
 			
 			This:C1470.name:=$left
+			
 			OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
 			
 			//______________________________________________________
@@ -30,7 +36,7 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 	This:C1470.right:=$right
 	This:C1470.bottom:=$bottom
 	
-	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get windowCoordinates() : Object
 	
 	var $bottom; $left; $right; $top : Integer
@@ -50,7 +56,7 @@ Function get windowCoordinates() : Object
 		bottom: $bottom\
 		}
 	
-	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get screenCoordinates() : Object
 	
 	var $bottom; $left; $right; $top : Integer
@@ -70,17 +76,17 @@ Function get screenCoordinates() : Object
 		bottom: $bottom\
 		}
 	
-	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get width() : Integer
 	
 	return This:C1470.right-This:C1470.left
 	
-	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get height() : Integer
 	
 	return This:C1470.bottom-This:C1470.top
 	
-	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get dimensions() : Object
 	
 	return {\
@@ -88,13 +94,10 @@ Function get dimensions() : Object
 		height: This:C1470.height\
 		}
 	
-	// === === === === === === === === === === === === === === === === === === === === === === === ===
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function apply($name : Text)
 	
 	$name:=$name || This:C1470.name
+	ASSERT:C1129($name#Null:C1517; "Missing target name!")
+	
 	OBJECT SET COORDINATES:C1248(*; $name; This:C1470.left; This:C1470.top; This:C1470.right; This:C1470.bottom)
-	
-	// === === === === === === === === === === === === === === === === === === === === === === === ===
-Function applyToWindow($winRef : Integer)
-	
-	SET WINDOW RECT:C444(This:C1470.left; This:C1470.top; This:C1470.right; This:C1470.bottom; $winRef)

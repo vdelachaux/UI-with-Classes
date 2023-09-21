@@ -8,6 +8,7 @@ Class constructor($metrics : Object)
 	This:C1470.marginV:=$metrics.marginV || Is macOS:C1572 ? 2 : 2
 	This:C1470.marginH:=$metrics.marginH || Is macOS:C1572 ? 20 : 20
 	
+	This:C1470.labelMargin:=5
 	This:C1470.offset:=2
 	
 	This:C1470._matrix:=Not:C34(Is compiled mode:C492)  // True if Dev mode
@@ -20,27 +21,15 @@ Function add($rule : Object) : cs:C1710.constraintsDelegate
 	
 	If ($rule.set#Null:C1517)
 		
-		If (Value type:C1509($rule.target)=Is object:K8:27)\
-			 && ($rule.target.name#Null:C1517)
-			
-			$name:=$rule.target.name
-			
-		Else 
-			
-			$name:=String:C10($rule.target)
-			
-		End if 
+		$name:=This:C1470._getName($rule.target)
 		
 		For each ($o; $rule.set)
 			
 			$o.target:=$name
 			
-			If ($o.reference#Null:C1517)\
-				 && (Value type:C1509($o.reference)=Is object:K8:27)\
-				 && ($o.reference.name#Null:C1517)
+			If ($o.reference#Null:C1517)
 				
-				
-				$o.reference:=$o.reference.name
+				$o.reference:=This:C1470._getName($o.reference)
 				
 			End if 
 			
@@ -50,21 +39,13 @@ Function add($rule : Object) : cs:C1710.constraintsDelegate
 		
 	Else 
 		
-		If (Value type:C1509($rule.target)=Is object:K8:27)\
-			 && ($rule.target.name#Null:C1517)
+		$rule.target:=This:C1470._getName($rule.target)
+		
+		If ($rule.reference#Null:C1517)
 			
-			$rule.target:=$rule.target.name
+			$rule.reference:=This:C1470._getName($rule.reference)
 			
 		End if 
-		
-		If ($rule.reference#Null:C1517)\
-			 && (Value type:C1509($rule.reference)=Is object:K8:27)\
-			 && ($rule.reference.name#Null:C1517)
-			
-			$rule.reference:=$rule.reference.name
-			
-		End if 
-		
 		
 		This:C1470.rules.push($rule)
 		
@@ -99,6 +80,12 @@ Function apply()
 		End if 
 		
 		Case of 
+				
+				//______________________________________________________
+			: (Value type:C1509($rule.target)=Is object:K8:27)\
+				 && ($rule.target.name#Null:C1517)  // widget
+				
+				$targets:=[$rule.target.name]
 				
 				//______________________________________________________
 			: (Value type:C1509($rule.target)=Is collection:K8:32)
@@ -201,6 +188,54 @@ Function apply()
 					
 					$cur.apply()
 					
+					This:C1470._adjustLabel($name; $rule; $cur)
+					
+					//______________________________________________________
+					// Defines the left edge of an element as a percentage of the reference or the form width
+				: ($rule.type="left")  // Set the left edge in percent of the reference
+					
+					// MARK:left
+					$width:=$cur.width
+					$cur.left:=$ref.width*($rule.value<1 ? $rule.value : $rule.value/100)
+					
+					Case of 
+							
+							//……………………………………………………………………………………………………………
+						: ($type=Object type text input:K79:4)
+							
+							// The scrollbar is outside
+							OBJECT GET SCROLLBAR:C1076(*; $name; $horizontal; $vertical)
+							
+							If ($vertical)
+								
+								$cur.left-=This:C1470.scrollBarWidth
+								
+							End if 
+							
+							//……………………………………………………………………………………………………………
+						: ($type=Object type picture input:K79:5)
+							
+							$cur.left+=This:C1470.offset
+							
+							//……………………………………………………………………………………………………………
+						: ($type=Object type rectangle:K79:32)
+							
+							$cur.left+=(This:C1470.offset*2)
+							
+							//……………………………………………………………………………………………………………
+						: ($type=Object type popup dropdown list:K79:13)
+							
+							$cur.left+=5
+							
+							//……………………………………………………………………………………………………………
+					End case 
+					
+					$cur.right:=$cur.left+$width
+					
+					$cur.apply()
+					
+					This:C1470._adjustLabel($name; $rule; $cur)
+					
 					//______________________________________________________
 				: ($rule.type="minimum-width")  // Minimum object width
 					
@@ -292,6 +327,8 @@ Function apply()
 					
 					$cur.apply()
 					
+					This:C1470._adjustLabel($name; $rule; $cur)
+					
 					//______________________________________________________
 				: ($rule.type="horizontal-alignment")
 					
@@ -325,6 +362,8 @@ Function apply()
 					End case 
 					
 					$cur.apply()
+					
+					This:C1470._adjustLabel($name; $rule; $cur)
 					
 					//______________________________________________________
 				: ($rule.type="vertical-alignment")
@@ -364,6 +403,8 @@ Function apply()
 					End case 
 					
 					$cur.apply()
+					
+					This:C1470._adjustLabel($name; $rule; $cur)
 					
 					//______________________________________________________
 				: ($rule.type="inline")
@@ -434,6 +475,8 @@ Function apply()
 					
 					$cur.apply()
 					
+					This:C1470._adjustLabel($name; $rule; $cur)
+					
 					//______________________________________________________
 				Else 
 					
@@ -454,3 +497,46 @@ Function apply()
 	
 	// Delete one-shot rules
 	This:C1470.rules:=This:C1470.rules.filter(Formula:C1597($1.result:=Bool:C1537($1.value.toDelete)=False:C215))
+	
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Function _adjustLabel($name : Text; $rule : Object; $cur : cs:C1710.coord)
+	
+	var $label : cs:C1710.coord
+	var $width : Integer
+	
+	Case of 
+			//______________________________________________________
+		: ($rule.label#Null:C1517)
+			
+			$label:=cs:C1710.coord.new($rule.label)
+			
+			//______________________________________________________
+		: (OBJECT Get type:C1300(*; $name+".label")#Object type unknown:K79:1)
+			
+			$label:=cs:C1710.coord.new($name+".label")
+			
+			//______________________________________________________
+	End case 
+	
+	If ($label#Null:C1517)
+		
+		$width:=$label.width
+		$label.right:=$cur.left-This:C1470.labelMargin
+		$label.left:=$label.right-$width
+		$label.apply()
+		
+	End if 
+	
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Function _getName($target) : Text
+	
+	If (Value type:C1509($target)=Is object:K8:27)\
+		 && ($target.name#Null:C1517)  // Widget
+		
+		return $target.name
+		
+	Else 
+		
+		return String:C10($target)
+		
+	End if 
