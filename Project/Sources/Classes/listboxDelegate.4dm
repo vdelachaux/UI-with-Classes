@@ -463,7 +463,7 @@ Function cellPosition($e : cs:C1710.evt) : Object
 	
 	var $button; $column; $row; $x; $y : Integer
 	
-	$e:=$e || FORM Event:C1606
+	$e:=$e || cs:C1710.evt.new()
 	
 	If ($e.code=On Clicked:K2:4)\
 		 | ($e.code=On Double Clicked:K2:5)\

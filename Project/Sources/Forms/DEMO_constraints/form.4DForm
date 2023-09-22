@@ -260,7 +260,7 @@
 				},
 				"Text8": {
 					"type": "text",
-					"text": "anchor-center on rect",
+					"text": "center on column 1",
 					"top": 308,
 					"left": 21,
 					"width": 80,
@@ -354,11 +354,40 @@
 					"left": 213,
 					"width": 91,
 					"height": 16
+				},
+				"Input": {
+					"type": "input",
+					"left": 145,
+					"top": 456,
+					"width": 50,
+					"height": 17
+				},
+				"Input.label": {
+					"type": "text",
+					"text": "Label",
+					"top": 456,
+					"left": 32,
+					"width": 96,
+					"height": 16,
+					"textAlign": "right"
+				},
+				"Text11": {
+					"type": "text",
+					"text": "the label is automatically anchored to the input",
+					"top": 424,
+					"left": 99,
+					"width": 137,
+					"height": 24,
+					"borderStyle": "none",
+					"fontStyle": "italic",
+					"stroke": "#0000cd",
+					"textAlign": "center",
+					"fontSize": 10
 				}
 			}
 		}
 	],
-	"geometryStamp": 862,
+	"geometryStamp": 899,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",

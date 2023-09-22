@@ -8,7 +8,7 @@ Class constructor($metrics : Object)
 	This:C1470.marginV:=$metrics.marginV || Is macOS:C1572 ? 2 : 2
 	This:C1470.marginH:=$metrics.marginH || Is macOS:C1572 ? 20 : 20
 	
-	This:C1470.labelMargin:=5
+	This:C1470.labelMargin:=Is macOS:C1572 ? 10 : 10
 	This:C1470.offset:=2
 	
 	This:C1470._matrix:=Not:C34(Is compiled mode:C492)  // True if Dev mode
@@ -64,6 +64,13 @@ Function apply()
 	var $rule : Object
 	var $targets : Collection
 	var $cur; $ref; $viewport : cs:C1710.coord
+	
+	If (This:C1470.rules.length=0)
+		
+		// <NOTHING MORE TO DO>
+		return 
+		
+	End if 
 	
 	// Get the viewport
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
@@ -516,16 +523,17 @@ Function _adjustLabel($name : Text; $rule : Object; $cur : cs:C1710.coord)
 			$label:=cs:C1710.coord.new($name+".label")
 			
 			//______________________________________________________
+		Else 
+			
+			return 
+			
+			//______________________________________________________
 	End case 
 	
-	If ($label#Null:C1517)
-		
-		$width:=$label.width
-		$label.right:=$cur.left-This:C1470.labelMargin
-		$label.left:=$label.right-$width
-		$label.apply()
-		
-	End if 
+	$width:=$label.width
+	$label.right:=$cur.left-This:C1470.labelMargin
+	$label.left:=$label.right-$width
+	$label.apply()
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _getName($target) : Text

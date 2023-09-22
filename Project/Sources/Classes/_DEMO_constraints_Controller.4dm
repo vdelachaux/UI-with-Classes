@@ -28,6 +28,8 @@ Function init()
 	This:C1470.header2:=This:C1470.form.static.new("label1")
 	
 	// Mark: Define the constraints
+	// 📌 Constraint rules can be loaded from a json file.
+	
 	// The vertical center line must always be centered
 	This:C1470.form.constraints.add({\
 		target: "middleLine"; \
@@ -120,7 +122,7 @@ Function init()
 		reference: This:C1470.header2\
 		})
 	
-	// The colored rectangle is centered on column 2
+	// The colored rectangle is centered on column 1
 	This:C1470.form.constraints.add({\
 		target: "rectangle"; \
 		type: "horizontal-alignment"; \
@@ -136,6 +138,13 @@ Function init()
 		reference: "rectangle"\
 		})
 	
+	// The "input" box & the associated comment are centered in the dialog box.
+	// 📌 The "input.label" is automatically attached to the input box.
+	This:C1470.form.constraints.add({\
+		target: "input,Text11"; \
+		type: "horizontal-alignment"; \
+		alignment: "center"\
+		})
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 Function handleEvents($e : cs:C1710.evt)

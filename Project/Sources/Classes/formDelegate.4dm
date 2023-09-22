@@ -171,9 +171,9 @@ Function init()
 	This:C1470._standardSuite(Current method name:C684)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function handleEvents()
+Function handleEvents($e : cs:C1710.evt)
 	
-	This:C1470._standardSuite(Current method name:C684)
+	This:C1470._standardSuite(Current method name:C684; $e)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function onLoad()
@@ -246,7 +246,7 @@ Function onLoad()
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function update($stopTimer : Boolean)
 	
-	If (Count parameters:C259=0 ? True:C214 : $stopTimer)
+	If (Count parameters:C259>=1 ? $stopTimer : True:C214)
 		
 		SET TIMER:C645(0)
 		
@@ -281,15 +281,22 @@ Function onOutsideCall()
 	This:C1470._standardSuite(Current method name:C684)
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
-Function _standardSuite($name : Text)
+Function _standardSuite($name : Text; $e : cs:C1710.evt)
 	
 	$name:=Split string:C1554($name; ".").last()
 	
 	If (Asserted:C1132(This:C1470.__SUPER__#Null:C1517; "👀 "+$name+"() must be overriden by the subclass!"))\
 		 & (Asserted:C1132(OB Instance of:C1731(This:C1470.__SUPER__[$name]; 4D:C1709.Function); "The function "+$name+"() is not define into the class "+This:C1470.__SUPER__.__CLASS__.name))
 		
-		This:C1470.__SUPER__[$name]()
-		
+		If ($name="handleEvents")
+			
+			This:C1470.__SUPER__[$name]($e)
+			
+		Else 
+			
+			This:C1470.__SUPER__[$name]()
+			
+		End if 
 	End if 
 	
 	// MARK:-[Focus]
