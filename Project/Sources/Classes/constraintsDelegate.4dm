@@ -4,14 +4,37 @@ Class constructor($metrics : Object)
 	
 	This:C1470.rules:=[]
 	
+	If (OB Instance of:C1731($metrics; 4D:C1709.File))
+		
+		This:C1470.load($metrics)
+		
+	Else 
+		
+		This:C1470.setMetrics($metrics)
+		
+	End if 
+	
+	This:C1470._matrix:=Not:C34(Is compiled mode:C492)  // True if Dev mode
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
+Function load($file : 4D:C1709.File)
+	
+	var $metrics; $o : Object
+	
+	$o:=JSON Parse:C1218($metrics.getText().rules)
+	This:C1470.rules:=$o.rules || []
+	
+	This:C1470.setMetrics($o)
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === ===
+Function setMetrics($metrics : Object)
+	
+	// TODO: Adjusting default values for Windows
 	This:C1470.scrollBarWidth:=$metrics.scrollBarWidth || Is macOS:C1572 ? 15 : 15
 	This:C1470.marginV:=$metrics.marginV || Is macOS:C1572 ? 2 : 2
 	This:C1470.marginH:=$metrics.marginH || Is macOS:C1572 ? 20 : 20
-	
-	This:C1470.labelMargin:=Is macOS:C1572 ? 10 : 10
-	This:C1470.offset:=2
-	
-	This:C1470._matrix:=Not:C34(Is compiled mode:C492)  // True if Dev mode
+	This:C1470.labelMargin:=$metrics.labelMargin || Is macOS:C1572 ? 10 : 10
+	This:C1470.offset:=$metrics.offset || Is macOS:C1572 ? 2 : 2
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function add($rule : Object) : cs:C1710.constraintsDelegate
@@ -78,10 +101,18 @@ Function apply()
 	
 	For each ($rule; This:C1470.rules)
 		
-		If ($rule.formula#Null:C1517)\
-			 && (OB Instance of:C1731($rule.formula; 4D:C1709.Function))
+		If ($rule.formula#Null:C1517)
 			
-			$rule.formula.call(Null:C1517)
+			If (OB Instance of:C1731($rule.formula; 4D:C1709.Function))
+				
+				$rule.formula()
+				
+			Else 
+				
+				Formula from string:C1601(String:C10($rule.formula)).call(Null:C1517)
+				
+			End if 
+			
 			continue
 			
 		End if 
@@ -434,7 +465,9 @@ Function apply()
 					
 					// MARK:tile
 					// Calculate proportional width
-					$width:=Int:C8(($ref.width)*Num:C11($rule.value))
+					$width:=Int:C8(($ref.width)*($rule.value<1 ? $rule.value : $rule.value/100))
+					
+					//$width:=$ref.width*($rule.value<1 ? $rule.value : $rule.value/100)
 					
 					If ($rule.parent#Null:C1517)
 						

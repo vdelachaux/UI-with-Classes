@@ -2480,6 +2480,17 @@
 			"Params": [],
 			"Summary": ""
 		},
+		"load()": {
+			"Syntax": "**.load**( *file* : 4D.File )",
+			"Params": [
+				[
+					"file",
+					"4D.File",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"add()": {
 			"Syntax": "**.add**( *rule* : Object ) : cs.ui.constraintsDelegate",
 			"Params": [
@@ -2492,6 +2503,17 @@
 					"",
 					"cs.ui.constraintsDelegate",
 					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setMetrics()": {
+			"Syntax": "**.setMetrics**( *metrics* : Object )",
+			"Params": [
+				[
+					"metrics",
+					"Object",
+					"->"
 				]
 			],
 			"Summary": ""
@@ -5169,6 +5191,9 @@
 			"Params": [],
 			"Summary": ""
 		},
+		"window": {
+			"Syntax": "window : cs.ui.windowDelegate"
+		},
 		"entryOrder": {
 			"Syntax": "entryOrder : Collection"
 		},
@@ -5177,6 +5202,9 @@
 		},
 		"toBeInitialized": {
 			"Syntax": "toBeInitialized : Boolean"
+		},
+		"constraints": {
+			"Syntax": "constraints : cs.ui.constraintsDelegate"
 		},
 		"isSubform": {
 			"Syntax": "isSubform : Boolean"

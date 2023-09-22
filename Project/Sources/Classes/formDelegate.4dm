@@ -2,6 +2,9 @@ property isSubform; toBeInitialized : Boolean
 property pages : Object
 property entryOrder; _instantiableWidgets; _mapEvents : Collection
 
+property window : cs:C1710.windowDelegate
+property constraints : cs:C1710.constraintsDelegate
+
 property __CLASS__ : Object
 property __DELEGATES__ : Collection
 

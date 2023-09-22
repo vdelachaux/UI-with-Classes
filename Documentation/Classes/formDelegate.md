@@ -43,6 +43,7 @@ Function update()
 |**.isSubform** | Is the form used as a subform * |`Boolean`|**False**|<font color="green">X</font>
 |**.toBeInitialized** | Has the form been initialized *  |`Boolean`|**True**|<font color="green">X</font>
 |**.window** | Current form window class object |`cs.windowDelegate`
+|**.constraints** | The constraints manager |`cs.constraintsDelegate`
 
 > *  To be set up by the dialog form class
 

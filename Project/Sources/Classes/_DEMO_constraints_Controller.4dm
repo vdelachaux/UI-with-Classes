@@ -40,8 +40,8 @@ Function init()
 	// The left panel should always be 50% of the window width
 	This:C1470.form.constraints.add({\
 		target: "left"; \
-		type: "right"; \
-		value: 50\
+		type: "tile"; \
+		value: 0.5\
 		})
 	
 	// The right edge of the first hello world must be in the middle (50%),
