@@ -464,19 +464,15 @@ Function apply()
 				: ($rule.type="tile")  // Set width as percent of the reference
 					
 					// MARK:tile
-					// Calculate proportional width
-					$width:=Int:C8(($ref.width)*($rule.value<1 ? $rule.value : $rule.value/100))
-					
-					//$width:=$ref.width*($rule.value<1 ? $rule.value : $rule.value/100)
-					
-					If ($rule.parent#Null:C1517)
+					If ($rule.left#Null:C1517)
 						
-						// Left is the parent right
-						$ref:=cs:C1710.coord.new($rule.parent)
-						$cur.left:=$ref.right+Num:C11(OBJECT Get type:C1300(*; $name+".border")#Object type unknown:K79:1)
+						// Place the left edge
+						$cur.left:=$ref.width*($rule.left<1 ? $rule.left : $rule.left/100)
 						
 					End if 
 					
+					// Calculate proportional width
+					$width:=$ref.width*($rule.value<1 ? $rule.value : $rule.value/100)
 					$cur.right:=$cur.left+$width
 					$cur.apply()
 					
