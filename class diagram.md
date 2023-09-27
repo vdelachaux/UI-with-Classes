@@ -1,0 +1,509 @@
+```mermaid
+classDiagram
+    direction LR
+    _FORM_Controller --* formDelegate
+    formDelegate --* staticDelegate
+    formDelegate --* widgetDelegate
+    formDelegate --* buttonDelegate
+    formDelegate --* dropDownDelegate
+    formDelegate --* stepperDelegate
+    formDelegate --* thermometerDelegate
+    formDelegate --* selectorDelegate
+    formDelegate --* inputDelegate
+    formDelegate --* webAreaDelegate
+    formDelegate --* comboBoxDelegate
+    formDelegate --* pictureDelegate
+    formDelegate --* listboxDelegate
+    formDelegate --* hListDelegate
+    formDelegate --* subformDelegate
+    formDelegate --* windowDelegate
+    formDelegate --* constraintsDelegate
+    staticDelegate<|-- widgetDelegate
+    widgetDelegate <|-- buttonDelegate
+    widgetDelegate <|-- dropDownDelegate
+    widgetDelegate <|-- stepperDelegate
+    widgetDelegate <|-- scrollableDelegate
+    widgetDelegate <|-- thermometerDelegate
+    widgetDelegate <|-- selectorDelegate
+    widgetDelegate <|-- inputDelegate
+    widgetDelegate <|-- webAreaDelegate
+    dropDownDelegate <|-- comboBoxDelegate
+    scrollableDelegate <|-- pictureDelegate
+    scrollableDelegate <|-- listboxDelegate
+    scrollableDelegate <|-- hListDelegate
+    scrollableDelegate <|-- subformDelegate
+    staticDelegate <.. colour
+    class _FORM_Controller["_&lt; FORM&gt; _Controller"]{
+        +cs.formDelegate : form
+        +handleEvents(e : cs.evt)
+    }
+    namespace UI Classes {
+		class formDelegate["cs.formDelegate"] {
+			+cs.staticDelegate static
+			+cs.widgetDelegate widget
+			+cs.buttonDelegate button
+			+cs.pictureDelegate picture
+			+cs.dropDownDelegate dropDown
+			+cs.stepperDelegate stepper
+			+cs.thermometerDelegate thermometer
+			+cs.selectorDelegate selector
+			+cs.comboBoxDelegate comboBox
+			+cs.listboxDelegate listbox
+			+cs.hListDelegate hList
+			+cs.subformDelegate subform
+			+cs.webAreaDelegate webArea
+			+cs.windowDelegate window
+			+cs.constraintsDelegate constraints
+			+init()
+			+handleEvents(e : cs.evt)
+			+onLoad()
+			+update()
+			+onBoundVariableChange()
+			+saveContext()
+			+restoreContext()
+			+onOutsideCall()
+			+focused : Text
+			+highlight : Text
+			+darkScheme : Boolean
+			+lightScheme : Boolean
+			+resourceScheme : Text
+			+darkSuffix : Text
+			+worker : Variant
+			+containerName : Text
+			+container : Object
+			+containerInstance : Object
+			+containerValue : Variant
+			+events : Collection
+			+callback : Text
+			+page : Integer
+			+formObjects : Collection
+			+staticTexts : Collection
+			+staticPictures : Collection
+			+statics : Collection
+			+subforms : Collection
+			+instantiatedWidgets : Collection
+			+instantiatedSubforms : Collection
+			+dimensions : Dim
+			+horizontallyResizable : Boolean
+			+minWidth : Integer
+			+maxWidth : Integer
+			+verticallyResizable : Boolean
+			+minHeight : Integer
+			+maxHeight : Integer
+			+removeFocus()
+			+focusNext()
+			+focusPrevious()
+			+setEntryOrder()
+			+resourceFromScheme()
+			+refresh(tick : Integer)
+			+setTimer(tick : Integer)
+			+stopTimer()
+			+callWorker(method : Text; param 1-N)
+			+getContainerValue()
+			+setEvents(events)
+			+appendEvents(events)
+			+removeEvents(events)
+			+postKeyDown(key : Integer; modifier : Integer)
+			+callMeBack(param 1-N)
+			+callMe(method : Text; param 1-N)
+			+callChild(subform : Text; method : Text; param 1-N)
+			+callParent(event : Integer)
+			+setPageNames(names : Collection)
+			+goToPage(page : Variant; parent : Boolean)
+			+firstPage(parent : Boolean)
+			+lastPage(parent : Boolean)
+			+nextPage(parent : Boolean)
+			+previousPage(parent : Boolean)
+			+setCursor(cursor : Variant)
+			+releaseCursor(cursor : Variant)
+			+beginDrag(uri : Text; data : Variant; icon : Picture)
+			+getPasteboard(uri : Text) : Variant
+			+getSubformInstance(name : Text) : Object
+			+setHorizontalResising(resize : Boolean; min : Integer; max : Integer)
+			+setVerticalResising(resize : Boolean; min : Integer; max : Integer)
+		}
+		class windowDelegate["cs.windowDelegate"]{
+			+winRef ref
+			+Integer type
+			+Integer process
+			+winRef next
+			+Boolean isFrontmost
+			+Integer width
+			+Integer height
+			+Integer left
+			+Integer top
+			+Integer right
+			+Integer bottom
+			+Text title
+			+Object coordinates
+			+Object dimensions
+			+bringToFront()
+			+close()
+			+erase()
+			+hide()
+			+maximise()
+			+minimise()
+			+redraw()
+			+resize(width: Integer; height: Integer)
+			+setDimensions(width: Integer; height: Integer)
+			+show()
+			+vibrate(count: Integer)
+		}
+		class constraintsDelegate["cs.constraintsDelegate"]{
+			+rules : Collection
+			+load(file : 4D.File)
+			+setMetrics(metrics : Object)
+			+add(rule : Object)
+			+apply()
+		}
+		class staticDelegate["cs.staticDelegate"] {
+			+Text name
+			+Integer type
+			+Text title
+			+setTitle(title : Text) : cs.staticDelegate
+			+Integer width
+			+setWidth(width : Integer) : cs.staticDelegate
+			+Integer height
+			+setHeight(height : Integer) : cs.staticDelegate
+			+Object dimensions
+			+setDimensions(width : Integer; height : Integer) : cs.staticDelegate
+			+Object coordinates
+			+setsetCoordinates(left : Variant; top : Integer; right : Integer; bottom : Integer) : cs.staticDelegate
+			+bestSize(alignment : Variant; minWidth : Integer; maxWidth : Integer) : cs.staticDelegate
+			+moveHorizontally(offset : Integer) : cs.staticDelegate
+			+resizeHorizontally(offset : Integer) : cs.staticDelegate
+			+moveAndResizeHorizontally(offset : Integer; size : Integer) : cs.staticDelegate
+			+moveHorizontally(offset : Integer) : cs.staticDelegate
+			+resizeVertically(offset : Integer) : cs.staticDelegate
+			+moveAndResizeVertically(offset : Integer; size : Integer) : cs.staticDelegate
+			+updateCoordinates(left : Integer; top : Integer; right : Integer; bottom : Integer) : cs.staticDelegate
+			+backupCoordinates() : cs.staticDelegate
+			+restorePosition()
+			+Object windowCoordinates
+			+Boolean enabled
+			+enable(enabled : Boolean)
+			+Boolean disabled
+			+disable()
+			+Boolean visible
+			+show(visible : Boolean)
+			+Boolean hidden
+			+hide()
+			+cs.colour colors
+			+Variant foregroundColor
+			+Variant backgroundColor
+			+Variant altBackgroundColor
+			+setColors(foreground : Variant; background : Variant; altBackground : Variant) : cs.staticDelegate
+			+Integer horizontalAlignment
+			+alignLeft(): cs.staticDelegate
+			+alignRight(): cs.staticDelegate
+			+Integer verticalAlignment
+			+alignTop(): cs.staticDelegate
+			+alignBottom(): cs.staticDelegate
+			+alignCenter(vertical : Boolean): cs.staticDelegate
+			+Text font
+			+setFont(font : Text): cs.staticDelegate
+			+Integer fontStyle
+			+setFontStyle(style : Integer): cs.staticDelegate
+			+Integer fontSize
+			+addToGroup(group : cs.groupDelegate) : cs.staticDelegate
+			+hiddenFromView() : cs.staticDelegate
+		}	
+		class widgetDelegate["cs.widgetDelegate"]{
+			+Text action
+			+Boolean assignable
+			+Pointer pointer
+			+Variant value
+			+getValue() : Variant
+			+setValue(value : Variant) : cs.widgetDelegate
+			+Boolean isEmpty
+			+Boolean isNotEmpty
+			+Boolean enterable
+			+setEnterable(enterable : Boolean) : cs.widgetDelegate
+			+notEnterable() : cs.widgetDelegate
+			+setShortcut(key : Text; modifier : Integer) : cs.widgetDelegate
+			+notEnterable() : cs.widgetDelegate
+			+Text helpTip
+			+getHelpTip() : Text
+			+setHelpTip(helpTip : Text) : cs.widgetDelegate
+			+removeHelpTip() : cs.widgetDelegate
+			+Collection events
+			+addEvent(events) : cs.widgetDelegate
+			+removeEvent(events) : cs.widgetDelegate
+			+setEvents(events) : cs.widgetDelegate
+			+catch($e; events) : Boolean
+			+Variant data
+			+Text uri
+			+Boolean draggable 
+			+setDraggable(enabled : Boolean; automatic : Boolean) : cs.widgetDelegate
+			+setNotDraggable() : cs.widgetDelegate
+			+Boolean droppable 
+			+setDroppable(enabled : Boolean; automatic : Boolean) : cs.widgetDelegate
+			+setNotDroppable() : cs.widgetDelegate
+			+setDatasource(datasource) : cs.widgetDelegate
+			+touch() : cs.widgetDelegate
+			+setCallback(formula) : cs.widgetDelegate
+			+execute()
+			+setFormat(format : Text) : cs.widgetDelegate
+			+setPicture(proxy : Text) : cs.widgetDelegate
+			+focus() : cs.widgetDelegate
+			+isFocused() : Boolean
+		}
+	  class buttonDelegate["cs.buttonDelegate"]{
+			+Boolean linkedPopupMenu
+			+Picture picture
+			+Integer numStates
+			+Integer style
+			+Text styleName
+			+Integer horizontalMargin
+			+setLinkedPopupMenu() : cs.buttonDelegate
+			+setSeparatePopupMenu() : cs.buttonDelegate
+			+setNoPopupMenu() : cs.buttonDelegate
+			+setPicture(proxy : Text) : cs.buttonDelegate
+			+setBackgroundPicture(proxy : Text) : cs.buttonDelegate
+			+setNumStates(state : Integer) : cs.buttonDelegate
+			+setStyle(style : Integer) : cs.buttonDelegate
+			+is3DButton() : Boolean
+			+highlightShortcut() : cs.buttonDelegate
+		}
+		class webAreaDelegate["cs.webAreaDelegate"]{    
+			+Text url 
+			+open(data)     
+			+Text content
+			+setContent(content : Text; base : Text)
+			+Boolean loaded 
+			+isLoaded() : Boolean
+			+Text title
+			+Boolean canForwards 
+			+forward()
+			+forwardMenu() 
+			+Boolean canBackwards 
+			+back()
+			+backMenu() 
+			+Boolean success
+			+Collection errors
+			+Text lastError
+			+Collection filterdURLs
+			+Text lastFilteredURL
+			+load(file : 4D.File)
+			+stop()
+			+refresh()
+			+evaluateJS(code : Text; type : Integer) : Variant
+			+allow(data; allow : Boolean)
+			+deny(data)
+			+inspector()
+			+zoomIn()
+			+zoomOut()
+			+zoom(in : Boolean)
+			+getWebEngine() : Object
+		}
+		class scrollableDelegate["cs.scrollableDelegate"]{
+			+Object scrollbars 
+			+setScrollbars(horizontal; vertical) : cs.scrollableDelegate
+			+setHorizontalScrollbar(display) : cs.scrollableDelegate
+			+setVerticalScrollbar(display) : cs.scrollableDelegate
+			+Variant scroll
+			+getScrollPosition() : Variant
+			+setScrollPosition(vertical; horizontal) : cs.scrollableDelegate
+		}
+		class inputDelegate["cs.inputDelegate"]{
+			+Boolean asPasword
+			+Text filter  
+			+getFilter() : Text 
+			+setFilter(filter; separator : Text) : cs.inputDelegate
+			+Text placeholder
+			+setPlaceholder(placeholder : Text) : cs.inputDelegate
+			+backup(value) : cs.inputDelegate
+			+Boolean modified 
+			+highlighted() : Object
+			+highlight(startSel : Integer; endSel : Integer) : cs.inputDelegate
+			+highlightLastToEnd() : cs.inputDelegate
+			+highlightingStart() : Integer
+			+highlightingEnd() : Integer
+		}
+		class dropDownDelegate["cs.dropDownDelegate"]{
+			+Object data  
+			+Text placeholder
+			+Integer index
+			+Variant currentValue
+			+Collection values
+			+clear() : cs.dropDownDelegate
+		}
+		class comboBoxDelegate["cs.comboBoxDelegate"]{
+			+Boolean automaticExpand
+			+Text filter
+			+expand()
+			+automaticInsertion(ordered : Boolean)
+		}
+		class selectorDelegate["cs.selectorDelegate"]{
+			+Object data
+			+Integer index
+			+Text current
+			+Collection values  
+			+Collection binding 
+			+select(element) : cs.selectorDelegate
+		}
+		class stepperDelegate["cs.stepperDelegate"]{   
+			+start()
+			+stop()
+			+isRunning() : Boolean
+		}
+		class thermometerDelegate["cs.thermometerDelegate"]{ 
+			+asynchronous() : cs.thermometerDelegate
+			+isAsynchronous() : Boolean
+			+barber() : cs.thermometerDelegate
+			+isBarber() : Boolean
+			+progress() : cs.thermometerDelegate
+			+isProgress() : Boolean
+			+setIndicatorType(type : Integer) : cs.thermometerDelegate
+			+getIndicatorType() : Integer  
+			+start()
+			+stop()
+		}
+		class pictureDelegate["cs.pictureDelegate"]{
+			+Picture value
+			+Text fileName
+			+Integer size 
+			+getDimensions() : Object
+			+read(file : 4D.File) : cs.pictureDelegate
+			+thumbnail(width : Integer; height : Integer; mode : Integer) : cs.pictureDelegate
+			+getThumbnail(width : Integer; height : Integer; mode : Integer) : Picture
+			+horizontalConcatenation(file : 4D.File) : cs.pictureDelegate
+			+verticalConcatenation(file : 4D.File) : cs.pictureDelegate
+			+superImposition(file : 4D.File; horOffset : Integer; vertOffset : Integer) : cs.pictureDelegate
+			+findByCoordinates() : Text
+			+getAttribute(id : Text; attribute : Text; type : Integer) : Variant
+			+setAttributes(id : Text; attributes : Collection)
+			+setAttribute(id : Text; name : Text; value)
+		}
+		class listboxDelegate["cs.listboxDelegate"]{  
+			+Object item
+			+Integer itemPosition
+			+Collection items
+			+Integer columnsNumber
+			+Integer rowsNumber
+			+Integer movableLines
+			+setMovableLines(enabled : Boolean) : cs.listboxDelegate
+			+setNotMovableLines() : cs.listboxDelegate
+			+Boolean selectable
+			+setSelectable(enabled : Boolean; mode : Integer) : cs.listboxDelegate
+			+setNotSelectable() : cs.listboxDelegate
+			+Boolean singleSelection
+			+setSingleSelectable() : cs.listboxDelegate
+			+Boolean multipleSelection
+			+setMultipleSelectable() : cs.listboxDelegate
+			+selected() : Integer
+			+selectAll(): cs.listboxDelegate
+			+select(row : Integer) : cs.listboxDelegate
+			+unselect(row : Integer) : cs.listboxDelegate
+			+selectFirstRow() : cs.listboxDelegate
+			+selectLastRow() : cs.listboxDelegate
+			+autoSelect()
+			+doSafeSelect(row : Integer) : cs.listboxDelegate
+			+Boolean sortable
+			+setSortable(enabled : Boolean) : cs.listboxDelegate
+			+setNotSortable() : cs.listboxDelegate
+			+Boolean selectionHighlight
+			+withSelectionHighlight(enabled : Boolean) : cs.listboxDelegate
+			+withoutSelectionHighlight() : cs.listboxDelegate
+			+Text dataSourceType
+			+Object properties
+			+getProperties(column : Text) : Object
+			+setProperty(property : Integer; value) : cs.listboxDelegate
+			+saveProperties()
+			+restoreProperties()
+			+setRowsHeight(height : Integer; unit : Integer) : cs.listboxDelegate
+			+isCollection() : Boolean
+			+isEntitySelection() : Boolean
+			+isArray() : Boolean
+			+isHierarchical() : Boolean
+			+selectBreak(row : Integer; column : Integer) : cs.listboxDelegate
+			+collapse(row : Integer; selector : Integer; recursive : Boolean) : cs.listboxDelegate
+			+collapseAll() : cs.listboxDelegate
+			+expand(row : Integer; selector : Integer; recursive : Boolean) : cs.listboxDelegate
+			+expandAll() : cs.listboxDelegate
+			+columnPtr(name : Text) : Pointer
+			+columnNumber(name : Text) : Integer
+			+getColumnName(columnNumber : Integer) : Text
+			+getHeaderName(columnNumber : Integer) : Text
+			+getFooterName(columnNumber : Integer) : Text
+			+setRowForegroundColor(row : Integer; color; target)
+			+resetForegroundColor(target)
+			+setRowFontStyle(row : Integer; style : Integer)
+			+cellPosition($e : evt) : Object
+			+cellCoordinates(column : Integer; row : Integer) : Object
+			+rowCoordinates(row : Integer) : Object
+			+edit(target; item : Integer)
+			+reveal(row : Integer) : cs.listboxDelegate
+			+updateDefinition() : cs.listboxDelegate
+			+updateCell() : cs.listboxDelegate
+			+popup(menu : cs.menu; default : Text) : cs.menu
+			+showColumn(column; visible : Boolean) : cs.listboxDelegate
+			+hideColumn(column) : cs.listboxDelegate
+			+clear() : cs.listboxDelegate
+			+deleteRows(row : Integer) : cs.listboxDelegate
+			+setSystemFormat()
+		}
+		class subformDelegate["cs.subformDelegate"]{
+			+Object parent
+			+Object forms
+			+setSubform(detail : Text; list : Text; table : Pointer) : cs.subformDelegate
+			+cs.formDelegate : form
+			+setPrivateEvents(events : Object)
+			+refresh(delay : Integer)
+			+stopTimer()
+			+focus(widget : Text)
+			+removeFocus()
+			+enable(widget : Text)
+			+disable(widget : Text)
+			+getParentDimensions() : cs.dim
+			+alignHorizontally(alignment : Integer; reference)
+		}
+		class hListDelegate["cs.hListDelegate"]{
+			+Boolean isList
+			+Integer itemCount   
+			+Integer visibleItemCount
+			+Object properties
+			+Collection selected
+			+Collection selectedReferences
+			+Boolean collapsable
+			+Boolean expandable
+			+Text itemValue
+			+Integer itemRef
+			+Integer itemSublist
+			+Boolean itemExpanded
+			+Picture itemIcon
+			+Integer itemPosition
+			+Integer parent
+			+Collection selectedItemIndexes
+			+Collection selectedItemReferences
+			+Collection parameters
+		}	
+		class groupDelegate["cs.groupDelegate"]{
+			+Collection members
+			+add(member) : cs.groupDelegate
+			+belongsTo(widget) : Boolean
+			+Variant data
+			+show(visible : Boolean) : cs.groupDelegate
+			+hide() : cs.groupDelegate
+			+enable(enabled : Boolean) : cs.groupDelegate
+			+disable() : cs.groupDelegate
+			+enclosingRect(gap : Integer) : cs.coord
+			+moveVertically(offset : Integer)
+			+hiddenFromView()
+			+moveHorizontally(offset : Integer)
+			+distributeLeftToRight(params : Object) : cs.groupDelegate
+			+distributeRigthToLeft(params : Object) : cs.groupDelegate
+			+center(horizontally : Boolean; vertically : Boolean)
+			+centerVertically(reference : Text) : cs.groupDelegate
+			+alignLeft(reference : Text) : cs.groupDelegate
+			+alignRight(reference : Text) : cs.groupDelegate
+			+setFontStyle(style : Integer) : cs.groupDelegate
+		}		
+		class colour["cs.colour"]{
+			+Text foreground
+			+Text background
+			+Text altBackground
+		}	
+    }
+```
+
