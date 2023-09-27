@@ -7,18 +7,29 @@ The `formDelegate` class is intended to be called as a delegate by a `form contr
 
 ```4d
 // Class _myDialog_Controller
-Class constructor		This.isSubform:=False	This.toBeInitialized:=False		// Instantiate the formDelegate	This.form:=cs.formDelegate.new(This)
+Class constructor
+	
+	This.isSubform:=False
+	This.toBeInitialized:=False
+	
+	// Instantiate the formDelegate
+	This.form:=cs.formDelegate.new(This)
 	
 	...
 	
 	This.form.init()
 	
 Function init()
-	// Instantiate the widgets we want to manipulate.	This.box:=This.form.input.new("Input")	This.ok:=This.form.button.new("Button")	This.cancel:=This.form.button.new("Button1")
+	// Instantiate the widgets we want to manipulate.
+	This.box:=This.form.input.new("Input")
+	This.ok:=This.form.button.new("Button")
+	This.cancel:=This.form.button.new("Button1")
 	
 	// Resize the window
 	This.form.window.setDimensions(400; 600)
-	// Set window title	This.form.window.title:="Passkey"
+
+	// Set window title
+	This.form.window.title:="Passkey"
 	
 	...
 	
@@ -51,8 +62,6 @@ Function update()
 **Other properties are described below in the section devoted to them.**
 
 ## <a name="objects">Form objects instantiation functions</a>
-
-<img src="mermaid-controller.svg">
 
 In the `form controller class`, you instantiate the form objects you wish to manipulate (i.e. activate, deactivate, move, set a value, color, etc.) using the `<class>.new(<name>)` instantiation functions listed in the table below. See the [code sample](#sample) above, lines 16 to 18.
 
@@ -210,14 +219,14 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***DE
 
 ## Subforms
 
-|Properties|Description|Type|default|Writable|
+|Properties\*|Description|Type|default|Writable|
 |:----------|:-----------|:-----------|:-----------|:-----------:| 
 |**.container** | The container class object|`Object`
 |**.containerName** | The name of the container |`Text`
 |**.containerValue** | Value of the container |`Variant`||<font color="green">X</font>
 |**.containerInstance** | The container instance|`Object`
 
-> |*  Reading these properties when `isSubform` = **False**, generates an error.
+> \*  Reading these properties when `isSubform` = **False**, generates an error.
 
 | Functions* | Action |
 |:-------- |:------ | 
@@ -225,14 +234,14 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***DE
 |.**getContainerValue** () → `Variant` | Returns the container value|
 |.**callParent** (eventCode: `Integer`) | Sends an event to the subform container|
 
-> \*  These functions when `isSubform` = **False**, generates an error.
+> \*  Calling these functions when `isSubform` = **False**, generates an error.
  
 ## Drag & Drop
 
 | Functions | Action |
 |:-------- |:------ |  
 |.**beginDrag** (uri: `Text`; data: `Variant` {; icon: `Picture`})| Appends `data` to the pasteboard under the data type specified in `uri`.<br>Also sets the drag icon if passed|
-|.**getPasteboard** (uri: `Text`) → `Variant`| Returns the `data` present and whose type you pass in `uri`|
+|.**getPasteboard** (uri: `Text`) → `Variant`| Returns the `data` from the pasteboard and whose type you pass in `uri`|
 
 ## Cursor
 
@@ -243,8 +252,8 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***DE
 
 ## Form definition access
 
-|Properties|Description|Type|default|Writable|
-|:----------|:-----------|:-----------|:-----------|:-----------:| 
+|Properties|Description|Type|
+|:----------|:-----------|:-----------|
 |**.formObjects** | All form objects names | `Collection` 
 |**.staticTexts** | All static text names | `Collection` 
 |**.staticPictures** | All static pictures names | `Collection` 
