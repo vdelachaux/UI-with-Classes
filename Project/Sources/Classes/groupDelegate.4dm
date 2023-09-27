@@ -591,7 +591,7 @@ Function show($visible : Boolean) : cs:C1710.groupDelegate
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function hide : cs:C1710.groupDelegate
+Function hide() : cs:C1710.groupDelegate
 	
 	var $o : cs:C1710.staticDelegate
 	
@@ -634,7 +634,7 @@ Function enable($enabled : Boolean) : cs:C1710.groupDelegate
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function disable : cs:C1710.groupDelegate
+Function disable() : cs:C1710.groupDelegate
 	
 	var $o : cs:C1710.staticDelegate
 	

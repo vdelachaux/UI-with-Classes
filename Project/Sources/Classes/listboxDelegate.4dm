@@ -107,7 +107,7 @@ Function get selectionHighlight() : Boolean
 	return Bool:C1537(LISTBOX Get property:C917(*; This:C1470.name; lk hide selection highlight:K53:41))
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
-Function set selectionHighlight($on : Boolean) : cs:C1710.listboxDelegate
+Function set selectionHighlight($on : Boolean)
 	
 	LISTBOX SET PROPERTY:C1440(*; This:C1470.name; lk hide selection highlight:K53:41; $on ? lk yes:K53:69 : lk no:K53:68)
 	
@@ -446,13 +446,13 @@ Function resetForegroundColor($target)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function setRowFontStyle($row : Integer; $tyle : Integer)
+Function setRowFontStyle($row : Integer; $style : Integer)
 	
 	If (This:C1470.isArray(Current method name:C684))
 		
 		// Default is plain
-		$tyle:=Count parameters:C259>=2 ? $tyle : Plain:K14:1
-		LISTBOX SET ROW FONT STYLE:C1268(*; This:C1470.name; $row; $tyle)
+		$style:=Count parameters:C259>=2 ? $style : Plain:K14:1
+		LISTBOX SET ROW FONT STYLE:C1268(*; This:C1470.name; $row; $style)
 		
 	End if 
 	
@@ -497,11 +497,11 @@ Function cellPosition($e : cs:C1710.evt) : Object
 		}
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-	// ⚠️ 
+	// ⚠️
 Function getCoordinates() : Object
 	
 	This:C1470.getScrollPosition()
-	This:C1470.getScrollbars()
+	This:C1470._getScrollbars()
 	This:C1470.updateDefinition()
 	This:C1470.updateCell()
 	
@@ -720,7 +720,7 @@ Function selectAll() : cs:C1710.listboxDelegate
 	
 	return This:C1470.select()
 	
-	// MARK: - 
+	// MARK: -
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function edit($target; $item : Integer)
 	
@@ -852,7 +852,7 @@ Function updateDefinition() : cs:C1710.listboxDelegate
 		End for each 
 	End for 
 	
-	This:C1470.getScrollbars()
+	This:C1470._getScrollbars()
 	
 	return This:C1470
 	

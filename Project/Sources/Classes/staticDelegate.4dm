@@ -2,6 +2,10 @@
 This class is the parent class of all form objects classes
 */
 
+property name : Text
+property type : Integer
+property _coordinates : cs:C1710.coord
+
 Class constructor($name : Text)
 	
 	This:C1470.__CLASS__:=OB Class:C1730(This:C1470)
@@ -57,9 +61,7 @@ Function setTitle($title : Text) : cs:C1710.staticDelegate
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get width() : Integer
 	
-	var $bottom; $left; $right; $top : Integer
-	OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
-	return $right-$left
+	return cs:C1710.coord.new(This:C1470.name).width
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set width($width : Integer)
@@ -82,9 +84,7 @@ Function setWidth($width : Integer) : cs:C1710.staticDelegate
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get height() : Integer
 	
-	var $bottom; $left; $right; $top : Integer
-	OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
-	return $bottom-$top
+	return cs:C1710.coord.new(This:C1470.name).height
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set height($height : Integer)
@@ -518,11 +518,13 @@ Function updateCoordinates($left : Integer; $top : Integer; $right : Integer; $b
 		
 	End if 
 	
-	This:C1470._coordinates:={\
-		left: $left; \
-		top: $top; \
-		right: $right; \
-		bottom: $bottom}
+	//This._coordinates:={\
+				left: $left; \
+				top: $top; \
+				right: $right; \
+				bottom: $bottom}
+	
+	This:C1470._coordinates:=cs:C1710.coord.new($left; $top; $right; $bottom)
 	
 	// Keep the position defined in structure
 	This:C1470.initialPosition:=This:C1470.initialPosition || This:C1470._coordinates
@@ -610,7 +612,7 @@ Function hide() : cs:C1710.staticDelegate
 	
 	// MARK:-[Colors]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get colors() : Object
+Function get colors() : cs:C1710.colour
 	
 	var $altBackground; $background; $foreground : Text
 	

@@ -4,6 +4,25 @@ Class constructor($name : Text)
 	
 	Super:C1705($name)
 	
+	This:C1470[""]:={}
+	
+	This:C1470[""].styleNames:=[\
+		/*00*/"None"; \
+		/*01*/"Background offset"; \
+		/*02*/"Push button"; \
+		/*03*/"Toolbar button"; \
+		/*04*/"Custom"; \
+		/*05*/"Circle"; \
+		/*06*/"Small system square"; \
+		/*07*/"Office XP"; \
+		/*08*/"Bevel"; \
+		/*09*/"Rounded bevel"; \
+		/*10*/"Collapse/Expand"; \
+		/*11*/"Help"; \
+		/*12*/"OS X Textured"; \
+		/*13*/"OS X Gradient"\
+		]
+	
 	//MARK:-[Text & Picture]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get linkedPopupMenu() : Boolean
@@ -175,6 +194,13 @@ Function _proxy($proxy : Text) : Text
 			//______________________________________________________
 	End case 
 	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get numStates() : Integer
+	
+	var $c : Collection
+	$c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
+	return $c.length>=13 ? Num:C11($c[12]) : 4
+	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set numStates($states : Integer)
 	
@@ -198,31 +224,26 @@ Function setNumStates($states : Integer) : cs:C1710.buttonDelegate
 	
 	return This:C1470
 	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get style() : Integer
+	
+	var $c : Collection
+	$c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
+	return $c.length>=7 ? Num:C11($c[6]) : 0/*default*/
+	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set style($style : Integer)
 	
 	This:C1470.setStyle($style)
 	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get styleName() : Text
+	
+	return This:C1470[""].styleNames[This:C1470.style]
+	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Button style
 Function setStyle($style : Integer) : cs:C1710.buttonDelegate
-	
-/**
-style = 0: None (default)
-style = 1: Background offset
-style = 2: Push button
-style = 3: Toolbar button
-style = 4: Custom
-style = 5: Circle
-style = 6: Small system square
-style = 7: Office XP
-style = 8: Bevel
-style = 9: Rounded bevel
-style = 10: Collapse/Expand
-style = 11: Help
-style = 12: OS X Textured
-style = 13: OS X Gradient
-**/
 	
 	This:C1470.setFormat(";;;;;;"+String:C10($style))
 	

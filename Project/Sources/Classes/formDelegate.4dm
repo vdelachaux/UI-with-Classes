@@ -186,7 +186,6 @@ Function onLoad()
 	var $events; $widgets : Collection
 	var $widget : cs:C1710.widgetDelegate
 	
-	
 	// Defines the container reference in subform instances
 	For each ($o; This:C1470.instantiatedSubforms)
 		
@@ -196,7 +195,6 @@ Function onLoad()
 	
 	// Add the widgets events that we cannot select in the form properties 😇
 	// ⚠️ OBJECT GET EVENTS return an empty array if no object method, so we analyze the json form
-	
 	$widgets:=This:C1470._getInstantiated()
 	
 	If ($widgets.length>0)
@@ -479,7 +477,7 @@ Function stopTimer()
 	/// Gets the associated worker
 Function get worker() : Variant
 	
-	return String:C10(This:C1470._worker)
+	return This:C1470._worker#Null:C1517 ? This:C1470._worker : ""
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 	/// Sets the associated worker

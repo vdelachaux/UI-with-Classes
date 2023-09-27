@@ -1,8 +1,35 @@
 # staticDelegate
 
-The `staticDelegate` class is the parent class of all form objects classes<img src="static.png">
+The `staticDelegate` class is the parent class of all form objects classes.
 
-> 📌 The `group` class can also refer to this class even if it's not inheritance
+#### This class is available via the [`formDelegate`](formDelegate.md#objects) class as `static` interface.
+
+```4d
+
+This.form:=cs.formDelegate.new(This)
+
+...
+
+This.myObject:=This.form.static.new("myObject")
+
+...
+
+This.myObject.hide()
+
+```
+
+#### This class can also be instantiated on its own.
+
+```4d
+Form.myObject:=cs.staticDelegate.new("myObject")
+
+...
+
+Form.myObject.hide()
+
+```
+
+**Note**: 📌 The `group` class can also refer to this class even if it's not inheritance
 	
 ## Properties
 

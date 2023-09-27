@@ -2,7 +2,7 @@
 
 The `button` class is intended to manage button widgets.  
 
-> #### 📌 This class inherit from the [`widget`](widget.md) class
+> #### 📌 This class inherit from the [`widgetDelegate`](widgetDelegate.md) class
 
 ## Properties
 

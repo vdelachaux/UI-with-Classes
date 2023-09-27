@@ -1,8 +1,9 @@
 # formDelegate
 
-The `formDelegate` class is intended to be called as a delegate by a dialog form class, as in the code example below line 8.
+The `formDelegate` class is intended to be called as a delegate by a `form controller class`, as in the code example below line 8.
 
-### <a name="sample">Code sample for a dialog form class</a>
+
+### <a name="sample">Code sample for a `form controller class`</a>
 
 ```4d
 // Class _myDialog_Controller
@@ -45,17 +46,19 @@ Function update()
 |**.window** | Current form window class object |`cs.windowDelegate`
 |**.constraints** | The constraints manager |`cs.constraintsDelegate`
 
-> *  To be set up by the dialog form class
+> *  To be set up by the `form controller class`
 
 **Other properties are described below in the section devoted to them.**
 
-## Form objects instantiation functions
+## <a name="objects">Form objects instantiation functions</a>
 
-In the dialog form class, you instantiate the form objects you wish to manipulate (i.e. activate, deactivate, move, set a value, color, etc.) using the `<class>.new(<name>)` instantiation functions listed in the table below. See the [code sample](#sample) above, lines 16 to 18.
+<img src="mermaid-controller.svg">
+
+In the `form controller class`, you instantiate the form objects you wish to manipulate (i.e. activate, deactivate, move, set a value, color, etc.) using the `<class>.new(<name>)` instantiation functions listed in the table below. See the [code sample](#sample) above, lines 16 to 18.
 
 | Functions | |
 |:-------- |:------ |  
-|.**static**.*new* (name: `Text`) → `cs.staticDelegate` | for a [static](fstaticDelegate.md) element like a line, a rectangle…|
+|.**static**.*new* (name: `Text`) → `cs.staticDelegate` | for a [static](staticDelegate.md) element like a line, a rectangle…|
 |.**widget**.*new* (name: `Text`) → `cs.widgetDelegate` | for a [generic widget](widgetDelegate.md) ie. not a static element|
 |.**button**.*new* (name: `Text`) → `cs.buttonDelegate` | for a [button widget](buttonDelegate.md)|
 |.**comboBox**.*new* (name: `Text`) → `cs.buttonDelegate` | for a [comboBox widget](comboBoxDelegate.md)|
@@ -77,7 +80,7 @@ Each instantiated form object inherits all the properties and functions of its c
 
 ## Standard suite functions
 
-The functions listed in the table below represent the standard suite. **They must be defined in the dialog form class if you need them**, otherwise an alert will be raised. 
+The functions listed in the table below represent the standard suite. **They must be defined in the `form controller class` if you need them**, otherwise an alert will be raised. 
 
 In the [code sample](#sample) above, line 12, the `This.form.init()` call explicitly describes that we want to initialize the form, but the initialization code is specific to the form and must therefore be in the class that drives it. This is the role of the `Function init()` function at line 14.
 
@@ -238,9 +241,6 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***DE
 |.**setCursor** (cursor: `Integer`\|`Text`)| Sets the mouse cursor to the <a href="https://github.com/vdelachaux/tip-and-tricks/blob/master/docs/Don't%20forget%20the%20cursor.md">cursor type</a> specified in `cursor` by its number or name.|
 |.**releaseCursor** ()| Restores the standard mouse cursor| 
 
-
-
-
 ## Form definition access
 
 |Properties|Description|Type|default|Writable|
@@ -252,6 +252,3 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***DE
 |**.subforms** | All subform form object names | `Collection` 
 |**.instantiatedWidgets** | All instantiated widgets objects | `Collection` 
 |**.instantiatedSubforms** | All instantiated subforms objects | `Collection`
-
-
-
