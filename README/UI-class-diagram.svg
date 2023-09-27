@@ -1,0 +1,2889 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-roledescription="classDiagram" role="graphics-document document" viewBox="-8 -8 3508.34375 9984" width="100%" id="graph-div" height="100%">
+  <style>@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");'</style>
+  <style>#graph-div{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#graph-div .error-icon{fill:#552222;}#graph-div .error-text{fill:#552222;stroke:#552222;}#graph-div .edge-thickness-normal{stroke-width:2px;}#graph-div .edge-thickness-thick{stroke-width:3.5px;}#graph-div .edge-pattern-solid{stroke-dasharray:0;}#graph-div .edge-pattern-dashed{stroke-dasharray:3;}#graph-div .edge-pattern-dotted{stroke-dasharray:2;}#graph-div .marker{fill:#333333;stroke:#333333;}#graph-div .marker.cross{stroke:#333333;}#graph-div svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#graph-div g.classGroup text{fill:#9370DB;fill:#131300;stroke:none;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:10px;}#graph-div g.classGroup text .title{font-weight:bolder;}#graph-div .nodeLabel,#graph-div .edgeLabel{color:#131300;}#graph-div .edgeLabel .label rect{fill:#ECECFF;}#graph-div .label text{fill:#131300;}#graph-div .edgeLabel .label span{background:#ECECFF;}#graph-div .classTitle{font-weight:bolder;}#graph-div .node rect,#graph-div .node circle,#graph-div .node ellipse,#graph-div .node polygon,#graph-div .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#graph-div .divider{stroke:#9370DB;stroke-width:1;}#graph-div g.clickable{cursor:pointer;}#graph-div g.classGroup rect{fill:#ECECFF;stroke:#9370DB;}#graph-div g.classGroup line{stroke:#9370DB;stroke-width:1;}#graph-div .classLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#graph-div .classLabel .label{fill:#9370DB;font-size:10px;}#graph-div .relation{stroke:#333333;stroke-width:1;fill:none;}#graph-div .dashed-line{stroke-dasharray:3;}#graph-div .dotted-line{stroke-dasharray:1 2;}#graph-div #compositionStart,#graph-div .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#graph-div #compositionEnd,#graph-div .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#graph-div #dependencyStart,#graph-div .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#graph-div #dependencyStart,#graph-div .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#graph-div #extensionStart,#graph-div .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#graph-div #extensionEnd,#graph-div .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#graph-div #aggregationStart,#graph-div .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#graph-div #aggregationEnd,#graph-div .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#graph-div #lollipopStart,#graph-div .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#graph-div #lollipopEnd,#graph-div .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#graph-div .edgeTerminals{font-size:11px;}#graph-div .classTitleText{text-anchor:middle;font-size:18px;fill:#333;}#graph-div :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
+  <g>
+    <defs>
+      <marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker aggregation classDiagram" id="classDiagram-aggregationStart">
+        <path d="M 18,7 L9,13 L1,7 L9,1 Z"/>
+      </marker>
+    </defs>
+    <defs>
+      <marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker aggregation classDiagram" id="classDiagram-aggregationEnd">
+        <path d="M 18,7 L9,13 L1,7 L9,1 Z"/>
+      </marker>
+    </defs>
+    <defs>
+      <marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker extension classDiagram" id="classDiagram-extensionStart">
+        <path d="M 1,7 L18,13 V 1 Z"/>
+      </marker>
+    </defs>
+    <defs>
+      <marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker extension classDiagram" id="classDiagram-extensionEnd">
+        <path d="M 1,1 V 13 L18,7 Z"/>
+      </marker>
+    </defs>
+    <defs>
+      <marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker composition classDiagram" id="classDiagram-compositionStart">
+        <path d="M 18,7 L9,13 L1,7 L9,1 Z"/>
+      </marker>
+    </defs>
+    <defs>
+      <marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker composition classDiagram" id="classDiagram-compositionEnd">
+        <path d="M 18,7 L9,13 L1,7 L9,1 Z"/>
+      </marker>
+    </defs>
+    <defs>
+      <marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker dependency classDiagram" id="classDiagram-dependencyStart">
+        <path d="M 5,7 L9,13 L1,7 L9,1 Z"/>
+      </marker>
+    </defs>
+    <defs>
+      <marker orient="auto" markerHeight="28" markerWidth="20" refY="7" refX="19" class="marker dependency classDiagram" id="classDiagram-dependencyEnd">
+        <path d="M 18,7 L9,13 L14,7 L9,1 Z"/>
+      </marker>
+    </defs>
+    <defs>
+      <marker orient="auto" markerHeight="240" markerWidth="190" refY="7" refX="0" class="marker lollipop classDiagram" id="classDiagram-lollipopStart">
+        <circle r="6" cy="7" cx="6" fill="white" stroke="black"/>
+      </marker>
+    </defs>
+    <g class="root">
+      <g class="clusters">
+        <g id="UIClasses" class="cluster">
+          <rect height="9960" width="3236.828125" y="8" x="255.515625" style="fill: none; stroke: black"/>
+          <g transform="translate(1841.0859375, 8)" class="cluster-label">
+            <foreignObject height="24" width="65.6875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">UIClasses</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+      </g>
+      <g class="edgePaths">
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id1" d="M205.516,4058L209.682,4058C213.849,4058,222.182,4058,230.516,4058C238.849,4058,247.182,4058,255.516,4058C263.849,4058,272.182,4058,276.349,4058L280.516,4058"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id2" d="M794.156,3168.58L798.323,3154.15C802.49,3139.72,810.823,3110.86,819.156,3096.43C827.49,3082,835.823,3082,839.99,3082L844.156,3082"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id3" d="M794.156,4330.704L798.323,4335.128C802.49,4339.553,810.823,4348.401,881.18,4352.826C951.536,4357.25,1083.917,4357.25,1216.297,4357.25C1348.677,4357.25,1481.057,4357.25,1551.414,4361.184C1621.771,4365.117,1630.104,4372.984,1634.271,4376.918L1638.438,4380.851"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id4" d="M649.484,2878.5L677.763,2581.083C706.041,2283.667,762.599,1688.833,857.068,1391.417C951.536,1094,1083.917,1094,1216.297,1094C1348.677,1094,1481.057,1094,1598.313,1094C1715.568,1094,1817.698,1094,1919.828,1094C2021.958,1094,2124.089,1094,2183.953,1094.663C2243.818,1095.326,2261.417,1096.652,2270.216,1097.315L2279.016,1097.978"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id5" d="M794.156,4048.887L798.323,4048.739C802.49,4048.591,810.823,4048.296,881.18,4048.148C951.536,4048,1083.917,4048,1216.297,4048C1348.677,4048,1481.057,4048,1598.313,4048C1715.568,4048,1817.698,4048,1919.828,4048C2021.958,4048,2124.089,4048,2207.754,4101.917C2291.419,4155.833,2356.62,4263.667,2389.22,4317.583L2421.82,4371.5"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id6" d="M787.926,5237.5L793.131,5262C798.336,5286.5,808.746,5335.5,880.141,5360C951.536,5384.5,1083.917,5384.5,1216.297,5384.5C1348.677,5384.5,1481.057,5384.5,1598.313,5384.5C1715.568,5384.5,1817.698,5384.5,1919.828,5384.5C2021.958,5384.5,2124.089,5384.5,2204.777,5396.721C2285.466,5408.941,2344.714,5433.382,2374.337,5445.603L2403.961,5457.823"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id7" d="M745.938,5237.5L758.141,5306.5C770.344,5375.5,794.75,5513.5,873.143,5582.5C951.536,5651.5,1083.917,5651.5,1216.297,5651.5C1348.677,5651.5,1481.057,5651.5,1598.313,5651.5C1715.568,5651.5,1817.698,5651.5,1919.828,5651.5C2021.958,5651.5,2124.089,5651.5,2181.996,5655.044C2239.904,5658.589,2253.589,5665.678,2260.431,5669.222L2267.273,5672.767"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id8" d="M794.156,5139.702L798.323,5157.252C802.49,5174.802,810.823,5209.901,881.18,5227.45C951.536,5245,1083.917,5245,1216.297,5245C1348.677,5245,1481.057,5245,1598.313,5245C1715.568,5245,1817.698,5245,1919.828,5245C2021.958,5245,2124.089,5245,2194.866,5245.743C2265.643,5246.485,2305.068,5247.971,2324.78,5248.713L2344.492,5249.456"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id9" d="M794.156,3867.085L798.323,3863.987C802.49,3860.89,810.823,3854.695,881.18,3851.597C951.536,3848.5,1083.917,3848.5,1216.297,3848.5C1348.677,3848.5,1481.057,3848.5,1598.313,3848.5C1715.568,3848.5,1817.698,3848.5,1919.828,3848.5C2021.958,3848.5,2124.089,3848.5,2179.32,3848.814C2234.552,3849.128,2242.885,3849.756,2247.052,3850.07L2251.219,3850.384"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id10" d="M670.779,2878.5L695.509,2659.917C720.238,2441.333,769.697,2004.167,860.617,1785.583C951.536,1567,1083.917,1567,1216.297,1567C1348.677,1567,1481.057,1567,1598.313,1567C1715.568,1567,1817.698,1567,1919.828,1567C2021.958,1567,2124.089,1567,2188.449,1580.825C2252.81,1594.649,2279.401,1622.299,2292.697,1636.123L2305.992,1649.948"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id11" d="M728.1,2878.5L743.276,2784.667C758.452,2690.833,788.804,2503.167,870.17,2409.333C951.536,2315.5,1083.917,2315.5,1216.297,2315.5C1348.677,2315.5,1481.057,2315.5,1598.313,2315.5C1715.568,2315.5,1817.698,2315.5,1919.828,2315.5C2021.958,2315.5,2124.089,2315.5,2219.393,2315.5C2314.698,2315.5,2403.177,2315.5,2491.656,2315.5C2580.135,2315.5,2668.615,2315.5,2770.49,2546.708C2872.365,2777.917,2987.636,3240.333,3045.271,3471.542L3102.907,3702.75"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id12" d="M708.901,5237.5L727.277,5363.833C745.653,5490.167,782.404,5742.833,866.97,5869.167C951.536,5995.5,1083.917,5995.5,1216.297,5995.5C1348.677,5995.5,1481.057,5995.5,1598.313,5995.5C1715.568,5995.5,1817.698,5995.5,1919.828,5995.5C2021.958,5995.5,2124.089,5995.5,2219.393,5995.5C2314.698,5995.5,2403.177,5995.5,2491.656,5995.5C2580.135,5995.5,2668.615,5995.5,2717.021,5995.613C2765.427,5995.727,2773.76,5995.953,2777.927,5996.067L2782.094,5996.18"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id13" d="M666.476,5237.5L691.923,5469.917C717.37,5702.333,768.263,6167.167,859.9,6399.583C951.536,6632,1083.917,6632,1216.297,6632C1348.677,6632,1481.057,6632,1598.313,6632C1715.568,6632,1817.698,6632,1919.828,6632C2021.958,6632,2124.089,6632,2219.393,6632C2314.698,6632,2403.177,6632,2491.656,6632C2580.135,6632,2668.615,6632,2722.658,6648.173C2776.701,6664.347,2796.307,6696.694,2806.111,6712.867L2815.914,6729.041"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id14" d="M608.318,5237.5L643.457,5821.417C678.597,6405.333,748.877,7573.167,850.207,8157.083C951.536,8741,1083.917,8741,1216.297,8741C1348.677,8741,1481.057,8741,1598.313,8741C1715.568,8741,1817.698,8741,1919.828,8741C2021.958,8741,2124.089,8741,2219.393,8741C2314.698,8741,2403.177,8741,2491.656,8741C2580.135,8741,2668.615,8741,2751.329,8768.578C2834.044,8796.155,2910.995,8851.311,2949.47,8878.888L2987.945,8906.466"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id15" d="M623.179,5237.5L655.842,5686.292C688.505,6135.083,753.831,7032.667,852.684,7481.458C951.536,7930.25,1083.917,7930.25,1216.297,7930.25C1348.677,7930.25,1481.057,7930.25,1598.313,7930.25C1715.568,7930.25,1817.698,7930.25,1919.828,7930.25C2021.958,7930.25,2124.089,7930.25,2219.393,7930.25C2314.698,7930.25,2403.177,7930.25,2491.656,7930.25C2580.135,7930.25,2668.615,7930.25,2749.315,7982.542C2830.014,8034.833,2902.935,8139.417,2939.396,8191.708L2975.856,8244"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id16" d="M628.82,2878.5L660.543,2469.5C692.265,2060.5,755.711,1242.5,823.887,833.5C892.063,424.5,964.969,424.5,1001.422,424.5L1037.875,424.5"/>
+        <path marker-end="url(#classDiagram-compositionEnd)" style="fill:none" class="edge-pattern-solid relation" id="id17" d="M644.547,2878.5L673.648,2558.333C702.75,2238.167,760.953,1597.833,837.421,1277.667C913.888,957.5,1008.62,957.5,1055.986,957.5L1103.352,957.5"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id18" d="M1373.011,3813.5L1413.082,4000.542C1453.153,4187.583,1533.295,4561.667,1577.533,4744.775C1621.771,4927.883,1630.104,4920.016,1634.271,4916.082L1638.438,4912.149"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id19" d="M1973.985,4083L2016.024,3645.583C2058.063,3208.167,2142.141,2333.333,2197.407,1878.75C2252.673,1424.167,2279.126,1389.833,2292.353,1372.667L2305.58,1355.5"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id20" d="M2201.219,4646.5L2205.385,4646.5C2209.552,4646.5,2217.885,4646.5,2246.117,4632.039C2274.349,4617.579,2322.479,4588.658,2346.544,4574.197L2370.609,4559.736"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id21" d="M2095.108,5210L2116.96,5280.25C2138.812,5350.5,2182.515,5491,2233.991,5545.905C2285.466,5600.809,2344.714,5570.118,2374.337,5554.773L2403.961,5539.427"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id22" d="M1975.178,5210L2017.018,5635.958C2058.858,6061.917,2142.539,6913.833,2190.289,7339.792C2238.039,7765.75,2249.859,7765.75,2255.77,7765.75L2261.68,7765.75"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id23" d="M2059.542,5210L2087.321,5322.042C2115.101,5434.083,2170.66,5658.167,2205.282,5767.805C2239.904,5877.442,2253.589,5872.635,2260.431,5870.231L2267.273,5867.827"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id24" d="M2160.289,5210L2171.278,5235.75C2182.266,5261.5,2204.242,5313,2234.943,5330.618C2265.643,5348.236,2305.068,5331.973,2324.78,5323.841L2344.492,5315.709"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id25" d="M2198.973,4083L2203.514,4073.833C2208.055,4064.667,2217.137,4046.333,2225.844,4034.663C2234.552,4022.993,2242.885,4017.985,2247.052,4015.481L2251.219,4012.978"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id26" d="M1986.56,4083L2026.503,3745.708C2066.446,3408.417,2146.332,2733.833,2199.571,2385.71C2252.81,2037.586,2279.401,2015.923,2292.697,2005.091L2305.992,1994.259"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id27" d="M2612.703,4487L2636.768,4487C2660.833,4487,2708.964,4487,2786.605,4385.458C2864.246,4283.917,2971.399,4080.833,3024.975,3979.292L3078.551,3877.75"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id28" d="M2521.45,7636.25L2560.724,7465.542C2599.998,7294.833,2678.546,6953.417,2756.108,6719.542C2833.67,6485.667,2910.246,6359.333,2948.534,6296.167L2986.821,6233"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id29" d="M2721.633,7765.75L2727.543,7765.75C2733.453,7765.75,2745.273,7765.75,2760.987,7751.69C2776.701,7737.63,2796.307,7709.51,2806.111,7695.45L2815.914,7681.39"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id30" d="M2511.752,7895.25L2552.642,8158.75C2593.533,8422.25,2675.313,8949.25,2754.679,9163.377C2834.044,9377.504,2910.995,9278.758,2949.47,9229.386L2987.945,9180.013"/>
+        <path marker-start="url(#classDiagram-extensionStart)" style="fill:none" class="edge-pattern-solid relation" id="id31" d="M2527.641,7895.25L2565.883,8032.875C2604.125,8170.5,2680.609,8445.75,2733.529,8572.855C2786.448,8699.96,2815.802,8678.92,2830.479,8668.4L2845.156,8657.88"/>
+        <path marker-start="url(#classDiagram-dependencyStart)" style="fill:none" class="edge-pattern-dashed relation" id="id32" d="M1395.236,2350.5L1431.603,2201.833C1467.97,2053.167,1540.704,1755.833,1614.573,1607.167C1688.443,1458.5,1763.448,1458.5,1800.951,1458.5L1838.453,1458.5"/>
+      </g>
+      <g class="edgeLabels">
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="edgeLabel"/>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+      </g>
+      <g class="nodes">
+        <g transform="translate(537.3359375, 4058)" id="classId-formDelegate-55428" class="node default">
+          <rect height="2359" width="513.640625" y="-1179.5" x="-256.8203125" class="outer title-state"/>
+          <line y2="-1143.5" y1="-1143.5" x2="256.8203125" x1="-256.8203125" class="divider"/>
+          <line y2="76.5" y1="76.5" x2="256.8203125" x1="-256.8203125" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -61, -1172)" height="24" width="122" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.formDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -1132)" height="24" width="177.09375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.staticDelegate static</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -1104)" height="24" width="193.953125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.widgetDelegate widget</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -1076)" height="24" width="192.328125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.buttonDelegate button</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -1048)" height="24" width="199.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.pictureDelegate picture</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -1020)" height="24" width="240.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.dropDownDelegate dropDown</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -992)" height="24" width="205.625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.stepperDelegate stepper</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -964)" height="24" width="287.375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.thermometerDelegate thermometer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -936)" height="24" width="212.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.selectorDelegate selector</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -908)" height="24" width="242.875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.comboBoxDelegate comboBox</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -880)" height="24" width="192.21875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.listboxDelegate listbox</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -852)" height="24" width="165.4375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.hListDelegate hList</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -824)" height="24" width="213.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.subformDelegate subform</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -796)" height="24" width="221.65625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.webAreaDelegate webArea</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -768)" height="24" width="185.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+windowDelegate window</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -740)" height="24" width="234.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+constraintsDelegate constraints</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -712)" height="24" width="111.5625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+focused : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -684)" height="24" width="118.765625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+highlight : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -656)" height="24" width="167.4375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+darkScheme : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -628)" height="24" width="168.21875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+lightScheme : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -600)" height="24" width="173">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+resourceScheme : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -572)" height="24" width="128.734375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+darkSuffix : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -544)" height="24" width="125.71875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+worker : Variant</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -516)" height="24" width="165.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+containerName : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -488)" height="24" width="140.71875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+container : Object</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -460)" height="24" width="200.53125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+containerInstance : Object</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -432)" height="24" width="184.234375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+containerValue : Variant</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -404)" height="24" width="143.234375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+events : Collection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -376)" height="24" width="115.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+callback : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -348)" height="24" width="109.234375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+page : Integer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -320)" height="24" width="185.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+formObjects : Collection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -292)" height="24" width="175.296875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+staticTexts : Collection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -264)" height="24" width="194.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+staticPictures : Collection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -236)" height="24" width="142.921875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+statics : Collection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -208)" height="24" width="161">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+subforms : Collection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -180)" height="24" width="239.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+instantiatedWidgets : Collection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -152)" height="24" width="248.78125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+instantiatedSubforms : Collection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -124)" height="24" width="130.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+dimensions : Dim</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -96)" height="24" width="233.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+horizontallyResizable : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -68)" height="24" width="143.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+minWidth : Integer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -40)" height="24" width="147.046875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+maxWidth : Integer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, -12)" height="24" width="215.515625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+verticallyResizable : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 16)" height="24" width="148.609375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+minHeight : Integer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 44)" height="24" width="151.734375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+maxHeight : Integer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 84)" height="24" width="44.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+init()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 112)" height="24" width="182.515625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+handleEvents(e : cs.evt)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 140)" height="24" width="71.484375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+onLoad()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 168)" height="24" width="70.1875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+update()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 196)" height="24" width="193.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+onBoundVariableChange()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 224)" height="24" width="107.921875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+saveContext()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 252)" height="24" width="127.765625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+restoreContext()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 280)" height="24" width="119.4375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+onOutsideCall()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 308)" height="24" width="113.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+removeFocus()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 336)" height="24" width="91.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+focusNext()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 364)" height="24" width="117.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+focusPrevious()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 392)" height="24" width="120.3125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setEntryOrder()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 420)" height="24" width="173.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+resourceFromScheme()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 448)" height="24" width="164.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+refresh(tick : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 476)" height="24" width="177.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setTimer(tick : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 504)" height="24" width="92.546875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+stopTimer()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 532)" height="24" width="285.0625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+callWorker(method : Text; param 1-N)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 560)" height="24" width="153.140625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getContainerValue()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 588)" height="24" width="135.234375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setEvents(events)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 616)" height="24" width="166.3125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+appendEvents(events)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 644)" height="24" width="167.0625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+removeEvents(events)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 672)" height="24" width="345">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+postKeyDown(key : Integer; modifier : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 700)" height="24" width="173.96875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+callMeBack(param 1-N)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 728)" height="24" width="253.6875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+callMe(method : Text; param 1-N)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 756)" height="24" width="386.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+callChild(subform : Text; method : Text; param 1-N)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 784)" height="24" width="200.40625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+callParent(event : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 812)" height="24" width="256.5">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setPageNames(names : Collection)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 840)" height="24" width="320.78125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+goToPage(page : Variant; parent : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 868)" height="24" width="203.4375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+firstPage(parent : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 896)" height="24" width="199.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+lastPage(parent : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 924)" height="24" width="205.75">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+nextPage(parent : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 952)" height="24" width="233.984375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+previousPage(parent : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 980)" height="24" width="199.265625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setCursor(cursor : Variant)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 1008)" height="24" width="229.71875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+releaseCursor(cursor : Variant)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 1036)" height="24" width="376.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+beginDrag(uri : Text; data : Variant; icon : Picture)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 1064)" height="24" width="258.171875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getPasteboard(uri : Text) : Variant</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 1092)" height="24" width="313.53125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getSubformInstance(name : Text) : Object</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 1120)" height="24" width="498.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setHorizontalResising(resize : Boolean; min : Integer; max : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -249.3203125, 1148)" height="24" width="480.71875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setVerticalResising(resize : Boolean; min : Integer; max : Integer)</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(1216.296875, 424.5)" id="classId-windowDelegate-55443" class="node default">
+          <rect height="763" width="356.84375" y="-381.5" x="-178.421875" class="outer title-state"/>
+          <line y2="-345.5" y1="-345.5" x2="178.421875" x1="-178.421875" class="divider"/>
+          <line y2="62.5" y1="62.5" x2="178.421875" x1="-178.421875" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -72.0390625, -374)" height="24" width="144.078125" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.windowDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -334)" height="24" width="83.234375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+winRef ref</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -306)" height="24" width="96.328125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer type</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -278)" height="24" width="117.78125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer process</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -250)" height="24" width="94.203125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+winRef next</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -222)" height="24" width="154.046875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean isFrontmost</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -194)" height="24" width="104.921875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer width</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -166)" height="24" width="109.609375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer height</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -138)" height="24" width="90.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer left</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -110)" height="24" width="88.296875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer top</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -82)" height="24" width="98.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer right</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -54)" height="24" width="116.515625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer bottom</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, -26)" height="24" width="76.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text title</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 2)" height="24" width="145.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object coordinates</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 30)" height="24" width="140.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object dimensions</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 70)" height="24" width="112.78125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+bringToFront()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 98)" height="24" width="56.578125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+close()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 126)" height="24" width="58.703125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+erase()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 154)" height="24" width="51.09375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+hide()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 182)" height="24" width="87.453125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+maximise()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 210)" height="24" width="84.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+minimise()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 238)" height="24" width="70.53125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+redraw()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 266)" height="24" width="282.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+resize(width: Integer; height: Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 294)" height="24" width="341.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setDimensions(width: Integer; height: Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 322)" height="24" width="55.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+show()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -170.921875, 350)" height="24" width="173.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+vibrate(count: Integer)</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(1216.296875, 957.5)" id="classId-constraintsDelegate-55444" class="node default">
+          <rect height="203" width="225.890625" y="-101.5" x="-112.9453125" class="outer title-state"/>
+          <line y2="-65.5" y1="-65.5" x2="112.9453125" x1="-112.9453125" class="divider"/>
+          <line y2="-21.5" y1="-21.5" x2="112.9453125" x1="-112.9453125" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -84.5859375, -94)" height="24" width="169.171875" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.constraintsDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -105.4453125, -54)" height="24" width="131.265625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+rules : Collection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -105.4453125, -14)" height="24" width="140.6875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+load(file : 4D.File)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -105.4453125, 14)" height="24" width="210.890625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setMetrics(metrics : Object)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -105.4453125, 42)" height="24" width="138.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+add(rule : Object)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -105.4453125, 70)" height="24" width="58.984375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+apply()</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(1216.296875, 3082)" id="classId-staticDelegate-55429" class="node default">
+          <rect height="1463" width="744.28125" y="-731.5" x="-372.140625" class="outer title-state"/>
+          <line y2="-695.5" y1="-695.5" x2="372.140625" x1="-372.140625" class="divider"/>
+          <line y2="-91.5" y1="-91.5" x2="372.140625" x1="-372.140625" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -63.75, -724)" height="24" width="127.5" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -684)" height="24" width="84.75">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text name</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -656)" height="24" width="96.328125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer type</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -628)" height="24" width="76.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text title</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -600)" height="24" width="104.921875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer width</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -572)" height="24" width="109.609375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer height</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -544)" height="24" width="140.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object dimensions</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -516)" height="24" width="145.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object coordinates</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -488)" height="24" width="201.515625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object windowCoordinates</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -460)" height="24" width="127.1875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean enabled</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -432)" height="24" width="129.671875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean disabled</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -404)" height="24" width="115.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean visible</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -376)" height="24" width="118.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean hidden</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -348)" height="24" width="120.765625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.colour colors</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -320)" height="24" width="181.65625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Variant foregroundColor</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -292)" height="24" width="185.515625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Variant backgroundColor</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -264)" height="24" width="205.125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Variant altBackgroundColor</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -236)" height="24" width="209.546875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer horizontalAlignment</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -208)" height="24" width="191.78125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer verticalAlignment</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -180)" height="24" width="75.171875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text font</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -152)" height="24" width="129.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer fontStyle</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -124)" height="24" width="122.625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer fontSize</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -84)" height="24" width="293.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setTitle(title : Text) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -56)" height="24" width="330.453125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setWidth(width : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, -28)" height="24" width="339.8125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setHeight(height : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 0)" height="24" width="490.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setDimensions(width : Integer; height : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 28)" height="24" width="723.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setsetCoordinates(left : Variant; top : Integer; right : Integer; bottom : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 56)" height="24" width="653.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+bestSize(alignment : Variant; minWidth : Integer; maxWidth : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 84)" height="24" width="393.46875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+moveHorizontally(offset : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 112)" height="24" width="397.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+resizeHorizontally(offset : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 140)" height="24" width="570.765625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+moveAndResizeHorizontally(offset : Integer; size : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 168)" height="24" width="393.46875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+moveHorizontally(offset : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 196)" height="24" width="379.40625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+resizeVertically(offset : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 224)" height="24" width="552.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+moveAndResizeVertically(offset : Integer; size : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 252)" height="24" width="729.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+updateCoordinates(left : Integer; top : Integer; right : Integer; bottom : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 280)" height="24" width="295.578125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+backupCoordinates() : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 308)" height="24" width="128.21875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+restorePosition()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 336)" height="24" width="197.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+enable(enabled : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 364)" height="24" width="70.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+disable()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 392)" height="24" width="173.984375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+show(visible : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 420)" height="24" width="51.09375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+hide()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 448)" height="24" width="712.734375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setColors(foreground : Variant; background : Variant; altBackground : Variant) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 476)" height="24" width="223.03125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+alignLeft() : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 504)" height="24" width="230.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+alignRight() : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 532)" height="24" width="220.734375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+alignTop() : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 560)" height="24" width="246.140625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+alignBottom() : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 588)" height="24" width="369.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+alignCenter(vertical : Boolean) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 616)" height="24" width="290.578125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setFont(font : Text) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 644)" height="24" width="349.390625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setFontStyle(style : Integer) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 672)" height="24" width="427.140625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+addToGroup(group : cs.groupDelegate) : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -364.640625, 700)" height="24" width="279.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+hiddenFromView() : cs.staticDelegate</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(1919.828125, 4646.5)" id="classId-widgetDelegate-55430" class="node default">
+          <rect height="1127" width="562.78125" y="-563.5" x="-281.390625" class="outer title-state"/>
+          <line y2="-527.5" y1="-527.5" x2="281.390625" x1="-281.390625" class="divider"/>
+          <line y2="-147.5" y1="-147.5" x2="281.390625" x1="-281.390625" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -68.3046875, -556)" height="24" width="136.609375" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -516)" height="24" width="90.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text action</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -488)" height="24" width="143.5">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean assignable</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -460)" height="24" width="117.40625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Pointer pointer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -432)" height="24" width="103.71875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Variant value</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -404)" height="24" width="126.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean isEmpty</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -376)" height="24" width="151.21875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean isNotEmpty</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -348)" height="24" width="139.5625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean enterable</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -320)" height="24" width="99.453125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text helpTip</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -292)" height="24" width="132.546875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection events</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -264)" height="24" width="97.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Variant data</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -236)" height="24" width="65.109375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text uri</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -208)" height="24" width="140.40625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean draggable</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -180)" height="24" width="142.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean droppable</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -140)" height="24" width="150.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getValue() : Variant</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -112)" height="24" width="335.46875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setValue(value : Variant) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -84)" height="24" width="400.6875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setEnterable(enterable : Boolean) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -56)" height="24" width="260.953125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+notEnterable() : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, -28)" height="24" width="460.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setShortcut(key : Text; modifier : Integer) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 0)" height="24" width="260.953125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+notEnterable() : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 28)" height="24" width="146.734375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getHelpTip() : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 56)" height="24" width="346.8125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setHelpTip(helpTip : Text) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 84)" height="24" width="276.875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+removeHelpTip() : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 112)" height="24" width="281.21875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+addEvent(events) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 140)" height="24" width="308.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+removeEvent(events) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 168)" height="24" width="283">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setEvents(events) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 196)" height="24" width="206.484375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+catch($e; events) : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 224)" height="24" width="545.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setDraggable(enabled : Boolean; automatic : Boolean) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 252)" height="24" width="285.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setNotDraggable() : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 280)" height="24" width="547.78125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setDroppable(enabled : Boolean; automatic : Boolean) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 308)" height="24" width="287.8125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setNotDroppable() : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 336)" height="24" width="347.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setDatasource(datasource) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 364)" height="24" width="208.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+touch() : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 392)" height="24" width="306.046875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setCallback(formula) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 420)" height="24" width="77.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+execute()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 448)" height="24" width="337.328125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setFormat(format : Text) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 476)" height="24" width="328.40625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setPicture(proxy : Text) : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 504)" height="24" width="205.546875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+focus() : cs.widgetDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -273.890625, 532)" height="24" width="161.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isFocused() : Boolean</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(2491.65625, 1114)" id="classId-buttonDelegate-55431" class="node default">
+          <rect height="483" width="425.28125" y="-241.5" x="-212.640625" class="outer title-state"/>
+          <line y2="-205.5" y1="-205.5" x2="212.640625" x1="-212.640625" class="divider"/>
+          <line y2="-21.5" y1="-21.5" x2="212.640625" x1="-212.640625" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -68.1953125, -234)" height="24" width="136.390625" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.buttonDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, -194)" height="24" width="195.40625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean linkedPopupMenu</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, -166)" height="24" width="116.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Picture picture</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, -138)" height="24" width="139.21875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer numStates</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, -110)" height="24" width="98.609375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer style</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, -82)" height="24" width="120.375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text styleName</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, -54)" height="24" width="184.265625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer horizontalMargin</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, -14)" height="24" width="317.40625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setLinkedPopupMenu() : cs.buttonDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, 14)" height="24" width="333.71875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setSeparatePopupMenu() : cs.buttonDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, 42)" height="24" width="289.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setNoPopupMenu() : cs.buttonDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, 70)" height="24" width="327.59375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setPicture(proxy : Text) : cs.buttonDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, 98)" height="24" width="410.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setBackgroundPicture(proxy : Text) : cs.buttonDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, 126)" height="24" width="367.921875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setNumStates(state : Integer) : cs.buttonDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, 154)" height="24" width="324.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setStyle(style : Integer) : cs.buttonDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, 182)" height="24" width="169.53125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+is3DButton() : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -205.140625, 210)" height="24" width="290.171875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+highlightShortcut() : cs.buttonDelegate</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(2491.65625, 1843)" id="classId-webAreaDelegate-55437" class="node default">
+          <rect height="875" width="371.328125" y="-437.5" x="-185.6640625" class="outer title-state"/>
+          <line y2="-401.5" y1="-401.5" x2="185.6640625" x1="-185.6640625" class="divider"/>
+          <line y2="-77.5" y1="-77.5" x2="185.6640625" x1="-185.6640625" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -76.0859375, -430)" height="24" width="152.171875" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.webAreaDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -390)" height="24" width="65.265625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text url</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -362)" height="24" width="101">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text content</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -334)" height="24" width="118.296875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean loaded</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -306)" height="24" width="76.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text title</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -278)" height="24" width="160.234375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean canForwards</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -250)" height="24" width="170.484375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean canBackwards</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -222)" height="24" width="122.78125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean success</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -194)" height="24" width="128.140625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection errors</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -166)" height="24" width="107.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text lastError</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -138)" height="24" width="165.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection filterdURLs</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -110)" height="24" width="155.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text lastFilteredURL</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -70)" height="24" width="87.1875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+open(data)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -42)" height="24" width="293.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setContent(content : Text; base : Text)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, -14)" height="24" width="155.171875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isLoaded() : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 14)" height="24" width="76.3125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+forward()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 42)" height="24" width="113.875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+forwardMenu()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 70)" height="24" width="53.453125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+back()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 98)" height="24" width="91.015625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+backMenu()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 126)" height="24" width="140.6875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+load(file : 4D.File)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 154)" height="24" width="50.46875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+stop()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 182)" height="24" width="71.171875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+refresh()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 210)" height="24" width="356.328125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+evaluateJS(code : Text; type : Integer) : Variant</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 238)" height="24" width="211.921875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+allow(data; allow : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 266)" height="24" width="86.484375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+deny(data)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 294)" height="24" width="86.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+inspector()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 322)" height="24" width="71.390625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+zoomIn()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 350)" height="24" width="84.0625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+zoomOut()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 378)" height="24" width="143.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+zoom(in : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -178.1640625, 406)" height="24" width="185.96875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getWebEngine() : Object</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(2491.65625, 7765.75)" id="classId-scrollableDelegate-55445" class="node default">
+          <rect height="259" width="459.953125" y="-129.5" x="-229.9765625" class="outer title-state"/>
+          <line y2="-93.5" y1="-93.5" x2="229.9765625" x1="-229.9765625" class="divider"/>
+          <line y2="-21.5" y1="-21.5" x2="229.9765625" x1="-229.9765625" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -79.296875, -122)" height="24" width="158.59375" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.scrollableDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -222.4765625, -82)" height="24" width="130.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object scrollbars</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -222.4765625, -54)" height="24" width="103.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Variant scroll</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -222.4765625, -14)" height="24" width="418.1875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setScrollbars(horizontal; vertical) : cs.scrollableDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -222.4765625, 14)" height="24" width="397.890625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setHorizontalScrollbar(display) : cs.scrollableDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -222.4765625, 42)" height="24" width="379.953125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setVerticalScrollbar(display) : cs.scrollableDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -222.4765625, 70)" height="24" width="207.484375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getScrollPosition() : Variant</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -222.4765625, 98)" height="24" width="444.953125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setScrollPosition(vertical; horizontal) : cs.scrollableDelegate</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(2491.65625, 3868.5)" id="classId-inputDelegate-55436" class="node default">
+          <rect height="427" width="480.875" y="-213.5" x="-240.4375" class="outer title-state"/>
+          <line y2="-177.5" y1="-177.5" x2="240.4375" x1="-240.4375" class="divider"/>
+          <line y2="-49.5" y1="-49.5" x2="240.4375" x1="-240.4375" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -62.890625, -206)" height="24" width="125.78125" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.inputDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, -166)" height="24" width="144.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean asPasword</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, -138)" height="24" width="82.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text filter</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, -110)" height="24" width="130.1875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text placeholder</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, -82)" height="24" width="133.5">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean modified</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, -42)" height="24" width="130.109375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getFilter() : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, -14)" height="24" width="380.609375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setFilter(filter; separator : Text) : cs.inputDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, 14)" height="24" width="395.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setPlaceholder(placeholder : Text) : cs.inputDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, 42)" height="24" width="246.125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+backup(value) : cs.inputDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, 70)" height="24" width="164.328125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+highlighted() : Object</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, 98)" height="24" width="465.875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+highlight(startSel : Integer; endSel : Integer) : cs.inputDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, 126)" height="24" width="292.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+highlightLastToEnd() : cs.inputDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, 154)" height="24" width="205.71875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+highlightingStart() : Integer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -232.9375, 182)" height="24" width="196.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+highlightingEnd() : Integer</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(2491.65625, 4487)" id="classId-dropDownDelegate-55432" class="node default">
+          <rect height="231" width="242.09375" y="-115.5" x="-121.046875" class="outer title-state"/>
+          <line y2="-79.5" y1="-79.5" x2="121.046875" x1="-121.046875" class="divider"/>
+          <line y2="76.5" y1="76.5" x2="121.046875" x1="-121.046875" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -81.1328125, -108)" height="24" width="162.265625" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.dropDownDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -113.546875, -68)" height="24" width="93.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object data</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -113.546875, -40)" height="24" width="130.1875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text placeholder</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -113.546875, -12)" height="24" width="103.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer index</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -113.546875, 16)" height="24" width="158.203125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Variant currentValue</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -113.546875, 44)" height="24" width="130.59375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection values</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -113.546875, 84)" height="24" width="227.09375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+clear() : cs.dropDownDelegate</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(3124.71875, 3790.25)" id="classId-comboBoxDelegate-55438" class="node default">
+          <rect height="175" width="299.234375" y="-87.5" x="-149.6171875" class="outer title-state"/>
+          <line y2="-51.5" y1="-51.5" x2="149.6171875" x1="-149.6171875" class="divider"/>
+          <line y2="20.5" y1="20.5" x2="149.6171875" x1="-149.6171875" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -81.6015625, -80)" height="24" width="163.203125" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.comboBoxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -142.1171875, -40)" height="24" width="194.1875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean automaticExpand</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -142.1171875, -12)" height="24" width="82.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text filter</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -142.1171875, 28)" height="24" width="71.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+expand()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -142.1171875, 56)" height="24" width="284.234375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+automaticInsertion(ordered : Boolean)</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(2491.65625, 5255)" id="classId-selectorDelegate-55435" class="node default">
+          <rect height="231" width="294.328125" y="-115.5" x="-147.1640625" class="outer title-state"/>
+          <line y2="-79.5" y1="-79.5" x2="147.1640625" x1="-147.1640625" class="divider"/>
+          <line y2="76.5" y1="76.5" x2="147.1640625" x1="-147.1640625" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -73.4296875, -108)" height="24" width="146.859375" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.selectorDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -139.6640625, -68)" height="24" width="93.84375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object data</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -139.6640625, -40)" height="24" width="103.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer index</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -139.6640625, -12)" height="24" width="98.5">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text current</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -139.6640625, 16)" height="24" width="130.59375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection values</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -139.6640625, 44)" height="24" width="138.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection binding</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -139.6640625, 84)" height="24" width="279.328125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+select(element) : cs.selectorDelegate</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(2491.65625, 5494)" id="classId-stepperDelegate-55433" class="node default">
+          <rect height="147" width="175.390625" y="-73.5" x="-87.6953125" class="outer title-state"/>
+          <line y2="-37.5" y1="-37.5" x2="87.6953125" x1="-87.6953125" class="divider"/>
+          <line y2="-21.5" y1="-21.5" x2="87.6953125" x1="-87.6953125" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -71.7734375, -66)" height="24" width="143.546875" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.stepperDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -80.1953125, -14)" height="24" width="53.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+start()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -80.1953125, 14)" height="24" width="50.46875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+stop()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -80.1953125, 42)" height="24" width="160.390625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isRunning() : Boolean</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(2491.65625, 5789)" id="classId-thermometerDelegate-55434" class="node default">
+          <rect height="343" width="448.765625" y="-171.5" x="-224.3828125" class="outer title-state"/>
+          <line y2="-135.5" y1="-135.5" x2="224.3828125" x1="-224.3828125" class="divider"/>
+          <line y2="-119.5" y1="-119.5" x2="224.3828125" x1="-224.3828125" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -93.2109375, -164)" height="24" width="186.421875" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.thermometerDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, -112)" height="24" width="310.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+asynchronous() : cs.thermometerDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, -84)" height="24" width="200.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isAsynchronous() : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, -56)" height="24" width="262.015625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+barber() : cs.thermometerDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, -28)" height="24" width="151.0625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isBarber() : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, 0)" height="24" width="274.265625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+progress() : cs.thermometerDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, 28)" height="24" width="163.171875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isProgress() : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, 56)" height="24" width="433.765625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setIndicatorType(type : Integer) : cs.thermometerDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, 84)" height="24" width="208.96875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getIndicatorType() : Integer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, 112)" height="24" width="53.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+start()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -216.8828125, 140)" height="24" width="50.46875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+stop()</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(3124.71875, 6005.5)" id="classId-pictureDelegate-55439" class="node default">
+          <rect height="455" width="685.25" y="-227.5" x="-342.625" class="outer title-state"/>
+          <line y2="-191.5" y1="-191.5" x2="342.625" x1="-342.625" class="divider"/>
+          <line y2="-91.5" y1="-91.5" x2="342.625" x1="-342.625" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -70.2734375, -220)" height="24" width="140.546875" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.pictureDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, -180)" height="24" width="103.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Picture value</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, -152)" height="24" width="110.140625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text fileName</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, -124)" height="24" width="91.8125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer size</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, -84)" height="24" width="187.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getDimensions() : Object</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, -56)" height="24" width="293.046875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+read(file : 4D.File) : cs.pictureDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, -28)" height="24" width="590.09375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+thumbnail(width : Integer; height : Integer; mode : Integer) : cs.pictureDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, 0)" height="24" width="532.390625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getThumbnail(width : Integer; height : Integer; mode : Integer) : Picture</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, 28)" height="24" width="436.953125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+horizontalConcatenation(file : 4D.File) : cs.pictureDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, 56)" height="24" width="419.1875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+verticalConcatenation(file : 4D.File) : cs.pictureDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, 84)" height="24" width="670.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+superImposition(file : 4D.File; horOffset : Integer; vertOffset : Integer) : cs.pictureDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, 112)" height="24" width="198.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+findByCoordinates() : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, 140)" height="24" width="470.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getAttribute(id : Text; attribute : Text; type : Integer) : Variant</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, 168)" height="24" width="344.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setAttributes(id : Text; attributes : Collection)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -335.125, 196)" height="24" width="315.5625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setAttribute(id : Text; name : Text; value)</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(3124.71875, 7238.5)" id="classId-listboxDelegate-55440" class="node default">
+          <rect height="1911" width="617.609375" y="-955.5" x="-308.8046875" class="outer title-state"/>
+          <line y2="-919.5" y1="-919.5" x2="308.8046875" x1="-308.8046875" class="divider"/>
+          <line y2="-539.5" y1="-539.5" x2="308.8046875" x1="-308.8046875" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -68.1796875, -948)" height="24" width="136.359375" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -908)" height="24" width="94.6875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object item</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -880)" height="24" width="154.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer itemPosition</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -852)" height="24" width="125.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection items</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -824)" height="24" width="179.015625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer columnsNumber</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -796)" height="24" width="153.734375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer rowsNumber</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -768)" height="24" width="161.53125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer movableLines</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -740)" height="24" width="143.71875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean selectable</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -712)" height="24" width="177.3125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean singleSelection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -684)" height="24" width="196.0625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean multipleSelection</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -656)" height="24" width="128.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean sortable</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -628)" height="24" width="199.046875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean selectionHighlight</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -600)" height="24" width="160.375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text dataSourceType</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -572)" height="24" width="135.453125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object properties</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -532)" height="24" width="413.21875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setMovableLines(enabled : Boolean) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -504)" height="24" width="308.875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setNotMovableLines() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -476)" height="24" width="509.9375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setSelectable(enabled : Boolean; mode : Integer) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -448)" height="24" width="288.625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setNotSelectable() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -420)" height="24" width="305.96875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setSingleSelectable() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -392)" height="24" width="321.5625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setMultipleSelectable() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -364)" height="24" width="147.453125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+selected() : Integer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -336)" height="24" width="228.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+selectAll() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -308)" height="24" width="303.421875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+select(row : Integer) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -280)" height="24" width="320.90625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+unselect(row : Integer) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -252)" height="24" width="271.765625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+selectFirstRow() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -224)" height="24" width="269.09375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+selectLastRow() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -196)" height="24" width="96.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+autoSelect()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -168)" height="24" width="352.890625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+doSafeSelect(row : Integer) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -140)" height="24" width="377.6875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setSortable(enabled : Boolean) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -112)" height="24" width="273.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setNotSortable() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -84)" height="24" width="458.3125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+withSelectionHighlight(enabled : Boolean) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -56)" height="24" width="352.5">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+withoutSelectionHighlight() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, -28)" height="24" width="280.890625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getProperties(column : Text) : Object</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 0)" height="24" width="428.109375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setProperty(property : Integer; value) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 28)" height="24" width="125.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+saveProperties()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 56)" height="24" width="145.140625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+restoreProperties()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 84)" height="24" width="489.5">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setRowsHeight(height : Integer; unit : Integer) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 112)" height="24" width="176">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isCollection() : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 140)" height="24" width="212">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isEntitySelection() : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 168)" height="24" width="141.6875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isArray() : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 196)" height="24" width="190.390625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+isHierarchical() : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 224)" height="24" width="473.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+selectBreak(row : Integer; column : Integer) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 252)" height="24" width="602.609375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+collapse(row : Integer; selector : Integer; recursive : Boolean) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 280)" height="24" width="244.390625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+collapseAll() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 308)" height="24" width="595.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+expand(row : Integer; selector : Integer; recursive : Boolean) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 336)" height="24" width="237.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+expandAll() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 364)" height="24" width="248.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+columnPtr(name : Text) : Pointer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 392)" height="24" width="282.03125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+columnNumber(name : Text) : Integer</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 420)" height="24" width="360.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getColumnName(columnNumber : Integer) : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 448)" height="24" width="358.0625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getHeaderName(columnNumber : Integer) : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 476)" height="24" width="353.46875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getFooterName(columnNumber : Integer) : Text</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 504)" height="24" width="385.296875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setRowForegroundColor(row : Integer; color; target)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 532)" height="24" width="219.546875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+resetForegroundColor(target)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 560)" height="24" width="344.015625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setRowFontStyle(row : Integer; style : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 588)" height="24" width="222.625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cellPosition($e : evt) : Object</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 616)" height="24" width="418.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cellCoordinates(column : Integer; row : Integer) : Object</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 644)" height="24" width="289.53125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+rowCoordinates(row : Integer) : Object</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 672)" height="24" width="203.125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+edit(target; item : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 700)" height="24" width="305.140625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+reveal(row : Integer) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 728)" height="24" width="287.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+updateDefinition() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 756)" height="24" width="244.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+updateCell() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 784)" height="24" width="364.625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+popup(menu : cs.menu; default : Text) : cs.menu</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 812)" height="24" width="437.21875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+showColumn(column; visible : Boolean) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 840)" height="24" width="303.625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+hideColumn(column) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 868)" height="24" width="203.03125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+clear() : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 896)" height="24" width="342.953125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+deleteRows(row : Integer) : cs.listboxDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -301.3046875, 924)" height="24" width="143.34375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setSystemFormat()</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(3124.71875, 8457.5)" id="classId-subformDelegate-55442" class="node default">
+          <rect height="427" width="559.125" y="-213.5" x="-279.5625" class="outer title-state"/>
+          <line y2="-177.5" y1="-177.5" x2="279.5625" x1="-279.5625" class="divider"/>
+          <line y2="-77.5" y1="-77.5" x2="279.5625" x1="-279.5625" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -73.8203125, -206)" height="24" width="147.640625" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.subformDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, -166)" height="24" width="109.125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object parent</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, -138)" height="24" width="102.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object forms</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, -110)" height="24" width="175.671875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.formDelegate : form</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, -70)" height="24" width="544.125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setSubform(detail : Text; list : Text; table : Pointer) : cs.subformDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, -42)" height="24" width="250.328125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setPrivateEvents(events : Object)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, -14)" height="24" width="176.578125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+refresh(delay : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, 14)" height="24" width="92.546875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+stopTimer()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, 42)" height="24" width="154.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+focus(widget : Text)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, 70)" height="24" width="113.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+removeFocus()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, 98)" height="24" width="164.75">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+enable(widget : Text)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, 126)" height="24" width="167.234375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+disable(widget : Text)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, 154)" height="24" width="233.125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+getParentDimensions() : cs.dim</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -272.0625, 182)" height="24" width="360.375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+alignHorizontally(alignment : Integer; reference)</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(3124.71875, 9004.5)" id="classId-hListDelegate-55441" class="node default">
+          <rect height="567" width="273.546875" y="-283.5" x="-136.7734375" class="outer title-state"/>
+          <line y2="-247.5" y1="-247.5" x2="136.7734375" x1="-136.7734375" class="divider"/>
+          <line y2="272.5" y1="272.5" x2="136.7734375" x1="-136.7734375" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -61.390625, -276)" height="24" width="122.78125" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.hListDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, -236)" height="24" width="106.5625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean isList</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, -208)" height="24" width="139.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer itemCount</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, -180)" height="24" width="185.046875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer visibleItemCount</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, -152)" height="24" width="135.453125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Object properties</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, -124)" height="24" width="146.25">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection selected</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, -96)" height="24" width="225.734375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection selectedReferences</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, -68)" height="24" width="150.546875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean collapsable</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, -40)" height="24" width="152.515625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean expandable</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, -12)" height="24" width="118.5">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text itemValue</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, 16)" height="24" width="121.328125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer itemRef</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, 44)" height="24" width="144.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer itemSublist</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, 72)" height="24" width="172.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Boolean itemExpanded</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, 100)" height="24" width="127.265625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Picture itemIcon</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, 128)" height="24" width="154.15625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer itemPosition</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, 156)" height="24" width="111.8125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Integer parent</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, 184)" height="24" width="233.109375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection selectedItemIndexes</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, 212)" height="24" width="258.546875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection selectedItemReferences</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -129.2734375, 240)" height="24" width="167.40625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection parameters</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(3124.71875, 9635.5)" id="classId-groupDelegate-55447" class="node default">
+          <rect height="595" width="444.453125" y="-297.5" x="-222.2265625" class="outer title-state"/>
+          <line y2="-261.5" y1="-261.5" x2="222.2265625" x1="-222.2265625" class="divider"/>
+          <line y2="-189.5" y1="-189.5" x2="222.2265625" x1="-222.2265625" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -64.5703125, -290)" height="24" width="129.140625" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, -250)" height="24" width="151.3125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Collection members</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, -222)" height="24" width="97.359375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Variant data</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, -182)" height="24" width="245.296875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+add(member) : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, -154)" height="24" width="213.03125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+belongsTo(widget) : Boolean</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, -126)" height="24" width="313.765625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+show(visible : Boolean) : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, -98)" height="24" width="190.859375">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+hide() : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, -70)" height="24" width="337.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+enable(enabled : Boolean) : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, -42)" height="24" width="210.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+disable() : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, -14)" height="24" width="287.078125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+enclosingRect(gap : Integer) : cs.coord</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 14)" height="24" width="236.203125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+moveVertically(offset : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 42)" height="24" width="139.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+hiddenFromView()</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 70)" height="24" width="254.125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+moveHorizontally(offset : Integer)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 98)" height="24" width="429.453125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+distributeLeftToRight(params : Object) : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 126)" height="24" width="429.453125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+distributeRigthToLeft(params : Object) : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 154)" height="24" width="374.640625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+center(horizontally : Boolean; vertically : Boolean)</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 182)" height="24" width="393.3125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+centerVertically(reference : Text) : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 210)" height="24" width="341.28125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+alignLeft(reference : Text) : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 238)" height="24" width="349.1875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+alignRight(reference : Text) : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -214.7265625, 266)" height="24" width="349.828125">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+setFontStyle(style : Integer) : cs.groupDelegate</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(1919.828125, 1458.5)" id="classId-colour-55446" class="node default">
+          <rect height="147" width="162.75" y="-73.5" x="-81.375" class="outer title-state"/>
+          <line y2="-37.5" y1="-37.5" x2="81.375" x1="-81.375" class="divider"/>
+          <line y2="62.5" y1="62.5" x2="81.375" x1="-81.375" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -34.1328125, -66)" height="24" width="68.265625" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">cs.colour</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -73.875, -26)" height="24" width="124.265625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text foreground</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -73.875, 2)" height="24" width="128.140625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text background</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -73.875, 30)" height="24" width="147.75">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+Text altBackground</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+        <g transform="translate(106.7578125, 4058)" id="classId-_FORM_Controller-55427" class="node default">
+          <rect height="119" width="197.515625" y="-59.5" x="-98.7578125" class="outer title-state"/>
+          <line y2="-23.5" y1="-23.5" x2="98.7578125" x1="-98.7578125" class="divider"/>
+          <line y2="20.5" y1="20.5" x2="98.7578125" x1="-98.7578125" class="divider"/>
+          <g class="label">
+            <foreignObject height="0" width="0">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel"/>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -82.7109375, -52)" height="24" width="165.421875" class="classTitle">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">_&lt; FORM&gt; _Controller</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -91.2578125, -12)" height="24" width="175.671875">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+cs.formDelegate : form</span>
+              </div>
+            </foreignObject>
+            <foreignObject transform="translate( -91.2578125, 28)" height="24" width="182.515625">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">
+                <span class="nodeLabel">+handleEvents(e : cs.evt)</span>
+              </div>
+            </foreignObject>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
