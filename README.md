@@ -102,6 +102,8 @@ Class constructor		This.isSubform:=False	This.toBeInitialized:=False		// 2ï
 
 ## Class diagram (the hidden face of the iceberg)
 
+Note: For a complete view of the diagram, open the file [Classes-diagram.svg](Classes-diagram.svg) with the Opera browser (the best rendering engine for SVG), which lets you zoom in comfortably.
+
 ![diagram](Classes-diagram.svg)
 
 ## Collaborate
