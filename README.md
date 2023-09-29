@@ -203,7 +203,7 @@ Function onLoad()
 ## Class diagram (the hidden face of the iceberg)
 
 Note: For a complete view of the diagram:
-* Right-click on the image & select Open Image on a new tab
+* Right-click on the image & select "Open Image in a new tab"
 * Or open the file [Classes-diagram.svg](Classes-diagram.svg) with the Opera browser (the best rendering engine for SVG), which lets you zoom in comfortably.
 
 ![diagram](Classes-diagram.svg)
