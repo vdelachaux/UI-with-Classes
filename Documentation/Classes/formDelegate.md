@@ -261,3 +261,94 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***DE
 |**.subforms** | All subform form object names | `Collection` 
 |**.instantiatedWidgets** | All instantiated widgets objects | `Collection` 
 |**.instantiatedSubforms** | All instantiated subforms objects | `Collection`
+
+## Class diagram
+
+```mermaid
+classDiagram
+class formDelegate["cs.formDelegate"] {
+			+cs.staticDelegate static
+			+cs.widgetDelegate widget
+			+cs.buttonDelegate button
+			+cs.pictureDelegate picture
+			+cs.dropDownDelegate dropDown
+			+cs.stepperDelegate stepper
+			+cs.thermometerDelegate thermometer
+			+cs.selectorDelegate selector
+			+cs.comboBoxDelegate comboBox
+			+cs.listboxDelegate listbox
+			+cs.hListDelegate hList
+			+cs.subformDelegate subform
+			+cs.webAreaDelegate webArea
+			+cs.windowDelegate window
+			+cs.constraintsDelegate constraints
+			+init()
+			+handleEvents(e : cs.evt)
+			+onLoad()
+			+update()
+			+onBoundVariableChange()
+			+saveContext()
+			+restoreContext()
+			+onOutsideCall()
+			+focused : Text
+			+highlight : Text
+			+darkScheme : Boolean
+			+lightScheme : Boolean
+			+resourceScheme : Text
+			+darkSuffix : Text
+			+worker : Variant
+			+containerName : Text
+			+container : Object
+			+containerInstance : Object
+			+containerValue : Variant
+			+events : Collection
+			+callback : Text
+			+page : Integer
+			+formObjects : Collection
+			+staticTexts : Collection
+			+staticPictures : Collection
+			+statics : Collection
+			+subforms : Collection
+			+instantiatedWidgets : Collection
+			+instantiatedSubforms : Collection
+			+dimensions : Dim
+			+horizontallyResizable : Boolean
+			+minWidth : Integer
+			+maxWidth : Integer
+			+verticallyResizable : Boolean
+			+minHeight : Integer
+			+maxHeight : Integer
+			+removeFocus()
+			+focusNext()
+			+focusPrevious()
+			+setEntryOrder()
+			+resourceFromScheme()
+			+refresh(tick : Integer)
+			+setTimer(tick : Integer)
+			+stopTimer()
+			+callWorker(method : Text; param 1-N)
+			+getContainerValue()
+			+setEvents(events)
+			+appendEvents(events)
+			+removeEvents(events)
+			+postKeyDown(key : Integer; modifier : Integer)
+			+callMeBack(param 1-N)
+			+callMe(method : Text; param 1-N)
+			+callChild(subform : Text; method : Text; param 1-N)
+			+callParent(event : Integer)
+			+setPageNames(names : Collection)
+			+goToPage(page : Variant; parent : Boolean)
+			+firstPage(parent : Boolean)
+			+lastPage(parent : Boolean)
+			+nextPage(parent : Boolean)
+			+previousPage(parent : Boolean)
+			+setCursor(cursor : Variant)
+			+releaseCursor(cursor : Variant)
+			+beginDrag(uri : Text; data : Variant; icon : Picture)
+			+getPasteboard(uri : Text) Variant
+			+getSubformInstance(name : Text) Object
+			+setHorizontalResising(resize : Boolean; min : Integer; max : Integer)
+			+setVerticalResising(resize : Boolean; min : Integer; max : Integer)
+		}
+```
+	

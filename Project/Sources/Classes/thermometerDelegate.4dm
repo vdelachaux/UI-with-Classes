@@ -7,7 +7,7 @@ Class constructor($name : Text)  //; $datasource : Variant)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function asynchronous() : cs:C1710.thermometerDelegate
 	
-	return This:C1470.indicatorType(Asynchronous progress bar:K42:36)
+	return This:C1470.setIndicatorType(Asynchronous progress bar:K42:36)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function isAsynchronous() : Boolean
@@ -21,7 +21,7 @@ Function isAsynchronous() : Boolean
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function barber() : cs:C1710.thermometerDelegate
 	
-	return This:C1470.indicatorType(Barber shop:K42:35)
+	return This:C1470.setIndicatorType(Barber shop:K42:35)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function isBarber() : Boolean
@@ -31,7 +31,7 @@ Function isBarber() : Boolean
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function progress() : cs:C1710.thermometerDelegate
 	
-	return This:C1470.indicatorType(Progress bar:K42:34)
+	return This:C1470.setIndicatorType(Progress bar:K42:34)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function isProgress() : Boolean

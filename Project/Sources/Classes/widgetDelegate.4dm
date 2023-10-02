@@ -21,6 +21,19 @@ The .data property is used to get or set this data.
 	This:C1470._setEvents()
 	
 	//MARK:-[Object]
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get datasource() : Variant
+	
+	var $ptr : Pointer
+	
+	$ptr:=OBJECT Get data source:C1265(*; This:C1470.name)
+	
+	If (Not:C34(Is nil pointer:C315($ptr)))
+		
+		return $Ptr->
+		
+	End if 
+	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set datasource($datasource)
 	
@@ -130,6 +143,21 @@ Function get isEmpty() : Boolean
 		: ($type=Is picture:K8:10)
 			
 			return Picture size:C356($value)=0
+			
+			//______________________________________________________
+		: ($type=Is object:K8:27)
+			
+			return OB Is empty:C1297($value)
+			
+			//______________________________________________________
+		: ($type=Is collection:K8:32)
+			
+			return $value.length=0
+			
+			//______________________________________________________
+		: ($type=Is boolean:K8:9)
+			
+			return Not:C34($value)
 			
 			//______________________________________________________
 		Else 
@@ -489,6 +517,12 @@ Function set uri($uri : Text)
 	This:C1470._uri:=$uri
 	
 	//mark:-[Actions]
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set action($action : Text)
+	
+	OBJECT SET ACTION:C1259(*; This:C1470.name; $action)
+	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get draggable() : Boolean
 	
@@ -535,25 +569,20 @@ Function setDraggable($enabled : Boolean; $automatic : Boolean) : cs:C1710.widge
 			//______________________________________________________
 		: (Count parameters:C259>=2)
 			
-			$draggable:=$enabled
-			$automaticDrag:=$automatic
+			OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; $enabled; $automatic; $droppable; $automaticDrop)
 			
 			//______________________________________________________
 		: (Count parameters:C259>=1)
 			
-			$draggable:=$enabled
-			$automaticDrag:=False:C215
+			OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; $enabled; False:C215; $droppable; $automaticDrop)
 			
 			//______________________________________________________
 		Else 
 			
-			$draggable:=True:C214
-			$automaticDrag:=False:C215
+			OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; True:C214; False:C215; $droppable; $automaticDrop)
 			
 			//______________________________________________________
 	End case 
-	
-	OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; $draggable; $automaticDrag; $droppable; $automaticDrop)
 	
 	return This:C1470
 	

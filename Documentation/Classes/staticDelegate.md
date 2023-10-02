@@ -29,7 +29,7 @@ Form.myObject.hide()
 
 ```
 
-**Note**: 📌 The `group` class can also refer to this class even if it's not inheritance
+**Note**: 📌 The `groupDelegate` class can also refer to this class even if it's not inheritance
 	
 ## Properties
 
