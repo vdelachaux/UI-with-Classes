@@ -77,8 +77,37 @@ Function set filter($filter)
 		
 	Else 
 		
-		OBJECT SET FILTER:C235(*; This:C1470.name; String:C10($filter))
+		$filter:=String:C10($filter)
 		
+		Case of 
+				
+				//______________________________________________________
+			: ($filter="email")
+				
+				OBJECT SET FILTER:C235(*; This:C1470.name; "&\"a-z;0-9;@;.;-;_\"")
+				
+				//______________________________________________________
+			: ($filter="url")
+				
+				OBJECT SET FILTER:C235(*; This:C1470.name; "&\"a-z;0-9;@;.;-;_;:;#;%;/;?;=\"")
+				
+				//______________________________________________________
+			: ($filter="noSpaceNorCr")
+				
+				OBJECT SET FILTER:C235(*; This:C1470.name; "&\"!-ÿ\"")
+				
+				//______________________________________________________
+			: ($filter="noCr")
+				
+				OBJECT SET FILTER:C235(*; This:C1470.name; "&\" -ÿ\"")
+				
+				//______________________________________________________
+			Else 
+				
+				OBJECT SET FILTER:C235(*; This:C1470.name; $filter)
+				
+				//______________________________________________________
+		End case 
 	End if 
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
