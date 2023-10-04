@@ -1,8 +1,8 @@
-# input
+# inputDelegate
 
 The `inputDelegate` class is intended to handle input widget.  
 
-📌 This class inherit from the [`widgetDelegate`](widgetDelegate.md) class   
+♻️ This class inherit from the [`widgetDelegate`](widgetDelegate.md) class   
 
 #### This class is available via the [`formDelegate`](formDelegate.md#objects) class as `input` interface.    
 
@@ -13,7 +13,7 @@ This.form.input.new("formObjectName")
 #### This class can also be instantiated on its own.
 
 ```4D
-cs. inputDelegate.new({"formObjectName"})
+cs.inputDelegate.new({"formObjectName"})
 ```
 If the `formObjectName` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv18R6/4D/18-R6/OBJECT-Get-name.301-5198296.en.html)** ( _Object current_ )
 
@@ -29,6 +29,30 @@ All the properties of the extended class, plus:
 |**.filter** | The entry filter | `Integer`\* \| `Text`\* | - | <font color="green">X</font>
 |**.placeholder** | The placeholder text | `Text`\*\* | - | <font color="green">X</font>
 |**.modified** | Modified state of the field after calling the `backup()` function| `Boolean` | **False** 
+|**.autoSpellcheck** | Auto spellcheck option for the widget| `Boolean` | - | <font color="green">X</font> 
+|**.dictionary** | Current dictionary \*| `Object` | - | 
+
+\* When you read the dictionary property is an object 
+
+```4d
+Form.input:=cs.inputDelegate.new({"input"})
+$dictionary:=Form.input.dictionary
+```
+```json
+{
+  id: (Integer), 
+  code: (Text), 
+  name: (Text)
+}
+```
+
+When you write, you pass the `id` or the `code` or the `name`
+
+```4d
+Form.input.dictionary:="fr"
+```
+
+If the dictionary is not installed, an assert is triggered.
 
 ## Functions
 
@@ -44,8 +68,9 @@ All the functions of the extended class, plus:
 |.**highlighted** () → `Object` | Returns the selection status of the field as a [selection object](#selectionObject).
 |.**highlightingStart** () → `Integer` | Returns the start position of currently selected text 
 |.**highlightingEnd** () → `Integer` | Returns the end position of currently selected text 
-|**.backup ()** | Stores the current input value.
+|**.backup ()** | Stores the current input value\*
 
+\* If the input is instantiated by the `input` interface of the `formDelegate` class, a backup is automatically made during execution of the form.onload() handler.
 
 #### <a name="selectionObject">Selection object</a>
 

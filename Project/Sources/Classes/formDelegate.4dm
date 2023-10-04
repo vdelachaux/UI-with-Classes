@@ -209,11 +209,19 @@ Function onLoad()
 					
 					$widget:=$widgets.query("name = :1"; $key).first()
 					
-					
 					If ($widget=Null:C1517)\
 						 || ($page.objects[$key].events=Null:C1517)
 						
 						continue
+						
+					End if 
+					
+					// Saving initial value
+					If (OB Instance of:C1731($widget; cs:C1710.inputDelegate))
+						
+						//%W-550.2
+						$widget.backup()
+						//%W+550.2
 						
 					End if 
 					
