@@ -15,9 +15,7 @@ in this case, all named objects are initialized with widget class
 
 property members : Collection
 
-Class constructor($members : Variant)
-	
-	C_OBJECT:C1216(${2})
+Class constructor($members : Variant;  ... )
 	
 	C_LONGINT:C283($i)
 	C_TEXT:C284($t)

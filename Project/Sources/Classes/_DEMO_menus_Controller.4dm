@@ -115,12 +115,12 @@ Function handleEvents($e : cs:C1710.evt)
 				//==============================================
 			: (This:C1470.fonts.catch($e))
 				
-				This:C1470._fontsManager($e)
+				This:C1470._fontsManager()
 				
 				//==============================================
 			: (This:C1470.windows.catch($e))
 				
-				This:C1470._windowsManager($e)
+				This:C1470._windowsManager()
 				
 				//==============================================
 			: (This:C1470.attachMenu.catch($e))

@@ -505,7 +505,7 @@ Function set worker($worker)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Assigns a task to the associated worker
-Function callWorker($method; $param; $param1; $paramN)
+Function callWorker($method; $param;  ... )
 	
 /**
 .callWorker ( method : Text )
@@ -519,8 +519,6 @@ Function callWorker($method; $param; $param1; $paramN)
 	// .callWorker ( process : Integer ; method : Text ; param : Collection )
 	// .callWorker ( process : Integer ; method : Text ; param1, param2, …, paramN )
 	// ---------------------------------------------------------------------------------
-	
-	C_VARIANT:C1683(${2})
 	
 	var $code : Text
 	var $i : Integer
@@ -749,15 +747,13 @@ Function callMeBack($param; $param1; $paramN)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Generates a callback of the current form with the given method
-Function callMe($method : Text; $param; $param1; $paramN)
+Function callMe($method : Text; $param;  ... )
 	
 /*
 .callMe ( method : Text )
 .callMe ( method : Text ; param : Collection )
 .callMe ( method : Text ; param1, param2, …, paramN )
 */
-	
-	C_VARIANT:C1683(${2})
 	
 	var $code : Text
 	var $i : Integer
@@ -798,15 +794,13 @@ Function callMe($method : Text; $param; $param1; $paramN)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Executes a project method in the context of a subform (without returned value)
-Function callChild($subform; $method : Text; $param; $param1; $paramN)
+Function callChild($subform; $method : Text; $param;  ... )
 	
 	// .executeInSubform ( subform : Object | Text ; method : Text )
 	// .executeInSubform ( subform : Object | Text ; method : Text ; param : Collection )
 	// .executeInSubform ( subform : Object | Text ; method : Text ; param1, param2, …, paramN )
 	
 	// TODO:Returned value
-	
-	C_VARIANT:C1683(${3})
 	
 	var $code; $target : Text
 	var $i : Integer

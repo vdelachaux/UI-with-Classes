@@ -2299,8 +2299,7 @@ Function clone($source : Text; $attachTo) : cs:C1710.svg
 	
 	//———————————————————————————————————————————————————————————
 	// Create one or more layer at the root of the SVG structure
-Function layer($name : Text) : cs:C1710.svg
-	var ${2} : Text
+Function layer($name : Text;  ...  : Text) : cs:C1710.svg
 	
 	var $i : Integer
 	
