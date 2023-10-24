@@ -36,7 +36,7 @@ Members can then be added with the function of this class **.addMember()** or th
 | -------- | ------ |  
 |.**addMember** (members`:Collection`\|`cs.group`\|`cs.widget`\|`Text`) →`cs.group` | Adds one or more widgets to the group. (same syntax as the constructor)| 
 |.**belongsTo** (objectName`:Text`) →`:Boolean`<br/>.**belongsTo** (widget`:Object`) →`:Boolean` | Returns True if the passed object or object name is part of the group| 
-|.**enclosingRect** () → coordinates`:Object`| Returns the coordinates of the enclosing rect as an object {"left":`Integer`,"top":`Integer`,"right":`Integer`,"bottom":`Integer`}| 
+|.**enclosingRect** () → coordinates`:Object`| Returns the [coordinates](#coord) of the enclosing rect| 
 |.**moveVertically** (offset`:Integer`) | Moves all members vertically| 
 |.**moveHorizontally** (offset`:Integer`) | Moves all members horizontally| 
 |.**distributeLeftToRight** ({params`:Object`}) →`cs.group` | Performs a horizontal distribution, from left to right, of the elements according to their best size\*| 
@@ -56,3 +56,14 @@ Members can then be added with the function of this class **.addMember()** or th
 * The spacing in pixels to respect between the elements ("spacing":`Integer`)
 * The minimum width to respect in pixels ("minWidth":`Integer`)
 * The maximum width to respect in pixels ("maxWidth":`Integer`)
+
+### <a name="coord">Coordinate object</a>
+
+```json
+{
+  left: integer, 
+  top: integer,
+  right: integer,
+  bottom: integer
+}
+```
