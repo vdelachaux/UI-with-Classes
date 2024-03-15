@@ -45,7 +45,7 @@ Function init()
 	
 /*
 	
-📌 Note that a third empty "Windows" is added and will be filled in later.
+📌 Note that a third empty menu "Windows" is added and will be filled in later.
 	
 */
 	
@@ -147,7 +147,7 @@ Function onLoad()
 	This:C1470.windows.setLinkedPopupMenu()
 	
 	// Mark: Distribute according to labels
-	cs:C1710.groupDelegate.new(This:C1470.fonts; This:C1470.withFamilies).distributeLeftToRight()
+	cs:C1710.groupDelegate.new([This:C1470.fonts; This:C1470.withFamilies]).distributeLeftToRight()
 	This:C1470.windows.alignCenter()
 	
 	// Mark: Hide font sample

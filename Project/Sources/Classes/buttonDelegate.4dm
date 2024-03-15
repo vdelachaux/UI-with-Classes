@@ -189,7 +189,8 @@ Function _proxy($proxy : Text) : Text
 			//______________________________________________________
 		Else 
 			
-			return "path:/RESOURCES/"+$proxy
+			// Relative to the form.4DForm
+			return "path:/FORM/"+$proxy
 			
 			//______________________________________________________
 	End case 
@@ -244,6 +245,23 @@ Function get styleName() : Text
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Button style
 Function setStyle($style : Integer) : cs:C1710.buttonDelegate
+	
+/**
+style = 0: None (default)
+style = 1: Background offset
+style = 2: Push button
+style = 3: Toolbar button
+style = 4: Custom
+style = 5: Circle
+style = 6: Small system square
+style = 7: Office XP
+style = 8: Bevel
+style = 9: Rounded bevel
+style = 10: Collapse/Expand
+style = 11: Help
+style = 12: OS X Textured
+style = 13: OS X Gradient
+**/
 	
 	This:C1470.setFormat(";;;;;;"+String:C10($style))
 	

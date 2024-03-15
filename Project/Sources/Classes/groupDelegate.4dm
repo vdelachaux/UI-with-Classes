@@ -15,7 +15,7 @@ in this case, all named objects are initialized with widget class
 
 property members : Collection
 
-Class constructor($members : Variant;  ... )
+Class constructor($members : Variant;  ...  : Object)
 	
 	C_LONGINT:C283($i)
 	C_TEXT:C284($t)
@@ -589,7 +589,7 @@ Function show($visible : Boolean) : cs:C1710.groupDelegate
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function hide() : cs:C1710.groupDelegate
+Function hide : cs:C1710.groupDelegate
 	
 	var $o : cs:C1710.staticDelegate
 	

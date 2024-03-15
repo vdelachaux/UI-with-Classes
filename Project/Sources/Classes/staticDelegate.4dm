@@ -59,6 +59,21 @@ Function setTitle($title : Text) : cs:C1710.staticDelegate
 	
 	//MARK:-[Coordinates & Sizing]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get resizingOptions() : Object
+	
+	var $horizontal; $vertical : Integer
+	
+	OBJECT GET RESIZING OPTIONS:C1176(*; This:C1470.name; $horizontal; $vertical)
+	
+	return {horizontal: $horizontal; vertical: $vertical}
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function setResizingOptions($horizontal : Integer; $vertical : Integer)
+	
+	$vertical:=Count parameters:C259<2 ? This:C1470.resizingOptions.vertical : $vertical
+	OBJECT SET RESIZING OPTIONS:C1175(*; This:C1470.name; $horizontal; $vertical)
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get width() : Integer
 	
 	return cs:C1710.coord.new(This:C1470.name).width
@@ -103,6 +118,74 @@ Function setHeight($height : Integer) : cs:C1710.staticDelegate
 	This:C1470.updateCoordinates($o.left; $o.top; $o.right; $o.bottom)
 	
 	return This:C1470
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get left() : Integer
+	
+	return This:C1470.getCoordinates().left
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set left($left : Integer)
+	
+	var $width : Integer
+	var $o : cs:C1710.coord
+	
+	This:C1470.getCoordinates()
+	$o:=This:C1470._coordinates
+	$width:=$o.width
+	$o.left:=$left
+	$o.right:=$o.left+$width
+	This:C1470.setCoordinates($o)
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get top() : Integer
+	
+	return This:C1470.getCoordinates().top
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set top($top : Integer)
+	
+	var $height : Integer
+	var $o : cs:C1710.coord
+	
+	This:C1470.getCoordinates()
+	$o:=This:C1470._coordinates
+	$height:=$o.height
+	$o.top:=$top
+	$o.bottom:=$o.top+$height
+	This:C1470.setCoordinates($o)
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get right() : Integer
+	
+	return This:C1470.getCoordinates().right
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set right($right : Integer)
+	
+	var $width : Integer
+	var $o : cs:C1710.coord
+	
+	This:C1470.getCoordinates()
+	$o:=This:C1470._coordinates
+	$o.right:=$right
+	This:C1470.setCoordinates($o)
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get bottom() : Integer
+	
+	return This:C1470.getCoordinates().bottom
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set bottom($bottom : Integer)
+	
+	var $width : Integer
+	var $o : cs:C1710.coord
+	
+	This:C1470.getCoordinates()
+	$o:=This:C1470._coordinates
+	$o.bottom:=$bottom
+	This:C1470.setCoordinates($o)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get dimensions() : Object
@@ -517,12 +600,6 @@ Function updateCoordinates($left : Integer; $top : Integer; $right : Integer; $b
 		OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
 		
 	End if 
-	
-	//This._coordinates:={\
-				left: $left; \
-				top: $top; \
-				right: $right; \
-				bottom: $bottom}
 	
 	This:C1470._coordinates:=cs:C1710.coord.new($left; $top; $right; $bottom)
 	

@@ -105,6 +105,9 @@ Class constructor($param)
 	This:C1470.subform:=cs:C1710.subformDelegate
 	This:C1470.__DELEGATES__.push(This:C1470.subform)
 	
+	This:C1470.tabControl:=cs:C1710.tabControlDelegate
+	This:C1470.__DELEGATES__.push(This:C1470.tabControl)
+	
 	This:C1470.thermometer:=cs:C1710.thermometerDelegate
 	This:C1470.__DELEGATES__.push(This:C1470.thermometer)
 	
@@ -132,6 +135,7 @@ Class constructor($param)
 		This:C1470.selector; \
 		This:C1470.stepper; \
 		This:C1470.subform; \
+		This:C1470.tabControl; \
 		This:C1470.thermometer; \
 		This:C1470.webArea; \
 		This:C1470.widget]
@@ -187,7 +191,9 @@ Function onLoad()
 	var $widget : cs:C1710.widgetDelegate
 	
 	// Defines the container reference in subform instances
-	For each ($o; This:C1470.instantiatedSubforms)
+	$widgets:=This:C1470._getInstantiated(cs:C1710.subformDelegate)
+	
+	For each ($o; $widgets)
 		
 		$o._execute(Formula:C1597(Form:C1466.__DIALOG__.__CONTAINER__:=$o))
 		
@@ -195,6 +201,7 @@ Function onLoad()
 	
 	// Add the widgets events that we cannot select in the form properties 😇
 	// ⚠️ OBJECT GET EVENTS return an empty array if no object method, so we analyze the json form
+	
 	$widgets:=This:C1470._getInstantiated()
 	
 	If ($widgets.length>0)
@@ -266,7 +273,7 @@ Function update($stopTimer : Boolean)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function onBoundVariableChange()
 	
-	If (Asserted:C1132(This:C1470.isSubform; "Warning: This form is not declared as a subform"))
+	If (Asserted:C1132(This:C1470.isSubform; "⚠️ This form is not declared as a sub-form."))
 		
 		This:C1470._standardSuite(Current method name:C684)
 		
@@ -485,7 +492,7 @@ Function stopTimer()
 	/// Gets the associated worker
 Function get worker() : Variant
 	
-	return This:C1470._worker#Null:C1517 ? This:C1470._worker : ""
+	return String:C10(This:C1470._worker)
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 	/// Sets the associated worker
@@ -574,11 +581,11 @@ Function get containerName() : Text
 	
 	If (This:C1470._isDebugWindow())
 		
-		return This:C1470.isSubform ? This:C1470.__SUPER__.__CONTAINER__.parent.container : ""
+		return This:C1470.__SUPER__.__CONTAINER__ ? This:C1470.__SUPER__.__CONTAINER__.parent.container : ""
 		
 	Else 
 		
-		If (Asserted:C1132(Bool:C1537(This:C1470.isSubform); "Warning: This form is not declared as a subform"))
+		If (Asserted:C1132(Bool:C1537(This:C1470.isSubform); "⚠️ This form is not declared as a sub-form."))
 			
 			return This:C1470.__SUPER__.__CONTAINER__.parent.container
 			
@@ -590,11 +597,11 @@ Function get container() : Object
 	
 	If (This:C1470._isDebugWindow())
 		
-		return This:C1470.isSubform ? This:C1470.__SUPER__.__CONTAINER__.__SUPER__ : Null:C1517
+		return This:C1470.__SUPER__.__CONTAINER__ ? This:C1470.__SUPER__.__CONTAINER__.__SUPER__ : Null:C1517
 		
 	Else 
 		
-		If (Asserted:C1132(Bool:C1537(This:C1470.isSubform); "Warning: This form is not declared as a subform"))
+		If (Asserted:C1132(Bool:C1537(This:C1470.isSubform); "⚠️ This form is not declared as a sub-form."))
 			
 			return This:C1470.__SUPER__.__CONTAINER__.__SUPER__
 			
@@ -606,13 +613,13 @@ Function get containerInstance() : Object
 	
 	If (This:C1470._isDebugWindow())
 		
-		return This:C1470.isSubform ? This:C1470.container[This:C1470.containerName] : Null:C1517
+		return This:C1470.__SUPER__.__CONTAINER__m ? This:C1470.container[This:C1470.containerName] : Null:C1517
 		
 	Else 
 		
-		If (Asserted:C1132(Bool:C1537(This:C1470.isSubform); "Warning: This form is not declared as a subform"))
+		If (Asserted:C1132(Bool:C1537(This:C1470.isSubform); "⚠️ This form is not declared as a sub-form."))
 			
-			return This:C1470.container[This:C1470.containerName]
+			return Try(This:C1470.container[This:C1470.containerName])
 			
 		End if 
 	End if 
@@ -631,7 +638,7 @@ Function set getContainerValue($value)
 	// Sets the container value
 Function setContainerValue($value)
 	
-	If (Asserted:C1132(This:C1470.isSubform; "Warning: This form is not declared as a subform"))
+	If (Asserted:C1132(This:C1470.isSubform; "⚠️ This form is not declared as a sub-form."))
 		
 		OBJECT SET SUBFORM CONTAINER VALUE:C1784($value)
 		
@@ -646,7 +653,7 @@ Function getContainerValue() : Variant
 		
 	Else 
 		
-		If (Asserted:C1132(This:C1470.isSubform; "Warning: This form is not declared as a subform"))
+		If (Asserted:C1132(This:C1470.isSubform; "⚠️ This form is not declared as a sub-form."))
 			
 			return OBJECT Get subform container value:C1785
 			
@@ -747,7 +754,7 @@ Function callMeBack($param; $param1; $paramN)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Generates a callback of the current form with the given method
-Function callMe($method : Text; $param;  ... )
+Function callMe($method : Text;  ... )
 	
 /*
 .callMe ( method : Text )
@@ -765,10 +772,11 @@ Function callMe($method : Text; $param;  ... )
 	Else 
 		
 		$code:="CALL FORM:C1391("+String:C10(This:C1470.window.ref)+"; \""+$method+"\""
+		var $param : Collection
 		
-		If (Value type:C1509($param)=Is collection:K8:32)
-			
-			For ($i; 0; $param.length-1; 1)
+		If (Value type:C1509($2)=Is collection:K8:32)
+			$param:=${2}
+			For ($i; 0; $2.length-1; 1)
 				
 				$code:=$code+"; $1["+String:C10($i)+"]"
 				
@@ -777,7 +785,6 @@ Function callMe($method : Text; $param;  ... )
 		Else 
 			
 			$param:=[]
-			
 			For ($i; 2; Count parameters:C259; 1)
 				
 				$param.push(${$i})
@@ -794,7 +801,7 @@ Function callMe($method : Text; $param;  ... )
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Executes a project method in the context of a subform (without returned value)
-Function callChild($subform; $method : Text; $param;  ... )
+Function callChild($subform; $method : Text;  ... )
 	
 	// .executeInSubform ( subform : Object | Text ; method : Text )
 	// .executeInSubform ( subform : Object | Text ; method : Text ; param : Collection )
@@ -819,6 +826,7 @@ Function callChild($subform; $method : Text; $param;  ... )
 	
 	ARRAY TEXT:C222($widgets; 0)
 	FORM GET OBJECTS:C898($widgets; Form all pages:K67:7)
+	var $param : Collection
 	
 	If (Find in array:C230($widgets; $target)>0)
 		
@@ -1468,6 +1476,11 @@ Function set maxHeight($height : Integer)
 	FORM SET VERTICAL RESIZING:C893($resize; $min; $height)
 	
 	// MARK:-
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Function _isSubform() : Boolean
+	
+	return Value type:C1509(OBJECT Get subform container value:C1785)#Is undefined:K8:13
+	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _isDebugWindow() : Boolean
 	

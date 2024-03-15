@@ -331,6 +331,21 @@ Function erase()
 	ERASE WINDOW:C160(This:C1470.ref)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function drag()
+	
+	DRAG WINDOW:C452
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function reduce()
+	
+	REDUCE RESTORE WINDOW:C1829(This:C1470.ref)
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function restore()
+	
+	REDUCE RESTORE WINDOW:C1829(This:C1470.ref)
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function maximize()
 	
 	MAXIMIZE WINDOW:C453(This:C1470.ref)

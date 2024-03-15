@@ -40,17 +40,17 @@ Function clear($keepSubLists : Boolean)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Returns a copy of the current list
-Function copy() : Integer
+Function copy() : cs:C1710.hListDelegate
 	
 	If (Asserted:C1132(This:C1470.isList; "No list to duplicate"))
 		
-		return Copy list:C626(This:C1470.ref)
+		return cs:C1710.hListDelegate.new(This:C1470.name; Copy list:C626(This:C1470.ref))
 		
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Alias of copy()
-Function clone() : Integer
+Function clone() : cs:C1710.hListDelegate
 	
 	return This:C1470.copy()
 	

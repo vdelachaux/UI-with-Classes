@@ -63,7 +63,7 @@ Function setDatasource($datasource) : cs:C1710.widgetDelegate
 			//______________________________________________________
 		Else 
 			
-			ASSERT:C1129(False:C215; "datasource must be a formula or a text formula")
+			//ASSERT(False; "datasource must be a formula or a text formula")
 			
 			//______________________________________________________
 	End case 
@@ -569,20 +569,25 @@ Function setDraggable($enabled : Boolean; $automatic : Boolean) : cs:C1710.widge
 			//______________________________________________________
 		: (Count parameters:C259>=2)
 			
-			OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; $enabled; $automatic; $droppable; $automaticDrop)
+			$draggable:=$enabled
+			$automaticDrag:=$automatic
 			
 			//______________________________________________________
 		: (Count parameters:C259>=1)
 			
-			OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; $enabled; False:C215; $droppable; $automaticDrop)
+			$draggable:=$enabled
+			$automaticDrag:=False:C215
 			
 			//______________________________________________________
 		Else 
 			
-			OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; True:C214; False:C215; $droppable; $automaticDrop)
+			$draggable:=True:C214
+			$automaticDrag:=False:C215
 			
 			//______________________________________________________
 	End case 
+	
+	OBJECT SET DRAG AND DROP OPTIONS:C1183(*; This:C1470.name; $draggable; $automaticDrag; $droppable; $automaticDrop)
 	
 	return This:C1470
 	

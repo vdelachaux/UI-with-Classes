@@ -55,6 +55,7 @@
 			"staticDelegate",
 			"stepperDelegate",
 			"subformDelegate",
+			"tabControlDelegate",
 			"thermometerDelegate",
 			"webAreaDelegate",
 			"widgetDelegate",
@@ -93,18 +94,41 @@
 			"_DEMO_webArea_Controller"
 		]
 	},
+	"DEMO_WINDOW_FRAME": {
+		"forms": [
+			"DEMO_WINDOW_FRAME"
+		],
+		"classes": [
+			"_DEMO_WINDOW_FRAME_Controller"
+		]
+	},
 	"DEMOS": {
 		"groups": [
 			"DEMO_1",
 			"DEMO_constraints",
 			"DEMO_menus",
-			"DEMO_webArea"
+			"DEMO_webArea",
+			"DEMO_WINDOW_FRAME"
 		],
 		"methods": [
 			"DEMO_1",
 			"DEMO_constraints",
 			"DEMO_menus",
-			"DEMO_webArea"
+			"DEMO_webArea",
+			"DEMO_windowFrame"
+		]
+	},
+	"Widgets": {
+		"groups": [
+			"WINDOW_FRAME"
+		]
+	},
+	"WINDOW_FRAME": {
+		"forms": [
+			"WINDOW_FRAME"
+		],
+		"classes": [
+			"_WINDOW_FRAME_Controller"
 		]
 	},
 	"trash": {}

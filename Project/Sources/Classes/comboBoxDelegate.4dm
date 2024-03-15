@@ -1,5 +1,7 @@
 Class extends dropDownDelegate
 
+property _ordered; automaticExpand : Boolean
+
 Class constructor($name : Text; $data : Object)
 	
 	Super:C1705($name; $data)
@@ -91,6 +93,7 @@ Function expand()
 	
 	If (Bool:C1537(This:C1470.data.automaticExpand))
 		
+		// Get the current widget window coordinates
 		$o:=This:C1470.windowCoordinates
 		POST CLICK:C466($o.right-10; $o.top+10; Current process:C322)
 		

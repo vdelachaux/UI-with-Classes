@@ -1,4 +1,3 @@
-
 Class extends scrollableDelegate
 
 // === === === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -8,10 +7,15 @@ Class constructor($name : Text)
 	
 	ASSERT:C1129(This:C1470.type=Object type listbox:K79:8)
 	
+	This:C1470.source:=Null:C1517  //  collection/entity selection
+	This:C1470.data:=Null:C1517
+	
 	// Predefined container for collection or selection listboxes
 	This:C1470.item:=Null:C1517
 	This:C1470.itemPosition:=0
 	This:C1470.items:=Null:C1517
+	
+	This:C1470.updateDefinition()
 	
 	// Backup design properties
 	This:C1470.saveProperties()
@@ -28,6 +32,27 @@ Function get columnsNumber() : Integer
 Function get rowsNumber() : Integer
 	
 	return LISTBOX Get number of rows:C915(*; This:C1470.name)
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+	//  return true when there is data
+Function get isReady : Boolean
+	
+	return (This:C1470.source#Null:C1517)
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get dataLength : Integer
+	
+	return This:C1470.data=Null:C1517 ? 0 : This:C1470.data.length
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get isSelected : Boolean
+	
+	return This:C1470.item#Null:C1517
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get index : Integer
+	
+	return This:C1470.itemPosition-1
 	
 	//mark:-[READ & WRITE]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
@@ -99,7 +124,10 @@ Function sort($column : Integer; $descendant : Boolean)
 	Else 
 		
 		LISTBOX SORT COLUMNS:C916(*; This:C1470.name; $column; >)
+		
 	End if 
+	
+	OBJECT SET VALUE:C1742(This:C1470.definition[$column-1].header; $descendant ? 2 : 1)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get selectionHighlight() : Boolean
@@ -107,7 +135,7 @@ Function get selectionHighlight() : Boolean
 	return Bool:C1537(LISTBOX Get property:C917(*; This:C1470.name; lk hide selection highlight:K53:41))
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
-Function set selectionHighlight($on : Boolean)
+Function set selectionHighlight($on : Boolean) : cs:C1710.listboxDelegate
 	
 	LISTBOX SET PROPERTY:C1440(*; This:C1470.name; lk hide selection highlight:K53:41; $on ? lk yes:K53:69 : lk no:K53:68)
 	
@@ -155,6 +183,50 @@ Function get dataSourceType() : Text
 		End case 
 	End if 
 	
+	
+	// MARK:-[SOURCE & DATA]
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Set the source data and determine it's kind
+Function setSource($source) : cs:C1710.listboxDelegate
+	
+	This:C1470._clearDatasources()
+	
+	var $type : Integer:=Value type:C1509($source)
+	
+	If ($type=Is collection:K8:32)
+		
+		This:C1470.source:=$source
+		This:C1470.kind:=$type
+		This:C1470.setData()
+		
+		return This:C1470
+		
+	End if 
+	
+	If ($type=Is object:K8:27) && (OB Instance of:C1731($source; 4D:C1709.EntitySelection))  //   entity selection
+		
+		This:C1470.source:=$source
+		This:C1470.kind:=$type
+		This:C1470.setData()
+		
+		return This:C1470
+		
+	End if 
+	
+	This:C1470.source:=Null:C1517
+	This:C1470.data:=Null:C1517
+	This:C1470.kind:=Null:C1517
+	
+	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function setData : cs:C1710.listboxDelegate
+	
+	This:C1470.data:=This:C1470.source
+	
+	return This:C1470
+	
+	// MARK:-
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function isCollection($caller : Text) : Boolean
 	
@@ -406,7 +478,7 @@ Function getFooterName($columnNumber : Integer) : Text
 	If (This:C1470.definition=Null:C1517)
 		
 		This:C1470.updateDefinition()
-	
+		
 	End if 
 	
 	return String:C10(This:C1470.definition[$columnNumber-1].footer)
@@ -502,7 +574,7 @@ Function cellPosition($e : cs:C1710.evt) : Object
 Function getCoordinates() : Object
 	
 	This:C1470.getScrollPosition()
-	This:C1470._getScrollbars()
+	This:C1470.getScrollbars()
 	This:C1470.updateDefinition()
 	This:C1470.updateCell()
 	
@@ -853,7 +925,7 @@ Function updateDefinition() : cs:C1710.listboxDelegate
 		End for each 
 	End for 
 	
-	This:C1470._getScrollbars()
+	This:C1470.getScrollbars()
 	
 	return This:C1470
 	
@@ -1221,3 +1293,10 @@ Function _commonProperties() : Object
 		truncate: {k: lk truncate:K53:37}\
 		}
 	
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+	//  clear the objects that are set by the listbox object
+Function _clearDatasources()
+	
+	This:C1470.item:=Null:C1517
+	This:C1470.itemPosition:=0
+	This:C1470.items:=Null:C1517

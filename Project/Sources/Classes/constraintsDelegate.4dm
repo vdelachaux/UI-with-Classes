@@ -19,12 +19,12 @@ Class constructor($metrics : Object)
 	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function load($file : 4D:C1709.File)
 	
-	var $metrics; $o : Object
+	var $metrics : Object
 	
-	$o:=JSON Parse:C1218($metrics.getText().rules)
-	This:C1470.rules:=$o.rules || []
+	$metrics:=JSON Parse:C1218($file.getText()).rules
+	This:C1470.rules:=$metrics.rules || []
 	
-	This:C1470.setMetrics($o)
+	This:C1470.setMetrics($metrics)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setMetrics($metrics : Object)
@@ -528,6 +528,9 @@ Function apply()
 				continue
 				
 			End if 
+			
+			// TODO:Adjust the border
+			
 		End for each 
 	End for each 
 	

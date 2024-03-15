@@ -862,6 +862,8 @@ Function popup($where : Variant; $x : Variant; $y : Integer) : cs:C1710.menu
 			//______________________________________________________
 		: (Value type:C1509($where)=Is object:K8:27)  // Widget reference {; default}
 			
+			Try($where.updateCoordinates())
+			
 			If (Count parameters:C259>1)
 				
 				This:C1470.choice:=Dynamic pop up menu:C1006(This:C1470.ref; String:C10($x); Num:C11($where.windowCoordinates.left); Num:C11($where.windowCoordinates.bottom))

@@ -9,6 +9,9 @@ Class constructor($name : Text; $events : Object; $super : Object)
 	
 	This:C1470.parent:=This:C1470._getParent($name)
 	
+	This:C1470.isSubform:=True:C214
+	
+	
 	// MARK:Delegates 📦
 	This:C1470.form:=cs:C1710.formDelegate.new(This:C1470)
 	

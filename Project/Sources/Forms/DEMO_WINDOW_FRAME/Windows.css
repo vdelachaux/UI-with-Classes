@@ -1,0 +1,25 @@
+.windowFrameBackground,
+.winListHeaderBackground {
+	fill: #F8F8F8;
+	stroke: transparent;
+	sizingX: "grow";
+}
+	@media (prefers-color-scheme: dark) {
+		.windowFrameBackground,
+		.listHeaderBackground  {
+			fill: rgb(46, 47, 51);
+		}
+	}
+
+.ListBackground {
+	fill: #FEFEFE;
+	stroke: transparent;
+	sizingY: "grow";
+
+}
+	@media (prefers-color-scheme: dark) {
+		.ListBackground {
+			fill: rgb(0, 0, 0);
+
+		}
+	}

@@ -52,3 +52,4 @@ Project/Trash
 Resources/php.ini
 Project/Sources/Methods/Method[0-9]*.4dm
 Project/Sources/Forms/Form[0-9]*
+Project/Sources/dependencies.json
