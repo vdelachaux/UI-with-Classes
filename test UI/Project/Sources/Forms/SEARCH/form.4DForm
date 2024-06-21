@@ -1,0 +1,136 @@
+{
+	"destination": "detailScreen",
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"markerBreak": 21,
+	"markerFooter": 21,
+	"events": [
+		"onLoad",
+		"onActivate",
+		"onGettingFocus",
+		"onTimer",
+		"onBoundVariableChange"
+	],
+	"pages": [
+		null,
+		{
+			"objects": {
+				"ring": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 193,
+					"height": 21,
+					"sizingX": "grow",
+					"borderRadius": 5,
+					"class": "border",
+					"strokeWidth": 2
+				},
+				"button": {
+					"type": "button",
+					"top": 0,
+					"left": 0,
+					"width": 193,
+					"height": 21,
+					"sizingX": "grow",
+					"display": false,
+					"events": [
+						"onClick"
+					],
+					"shortcutAccel": true,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "f"
+				},
+				"box": {
+					"type": "input",
+					"top": 2,
+					"left": 6,
+					"width": 184,
+					"height": 17,
+					"dragging": "none",
+					"events": [
+						"onLoad",
+						"onLosingFocus",
+						"onGettingFocus",
+						"onUnload",
+						"onAfterEdit"
+					],
+					"fill": "transparent",
+					"dataSource": "Form:C1466.value",
+					"hideFocusRing": true,
+					"borderStyle": "none"
+				},
+				"glass": {
+					"type": "picture",
+					"top": 2,
+					"left": 88,
+					"width": 16,
+					"height": 16,
+					"pictureFormat": "scaled"
+				},
+				"_poster": {
+					"type": "picture",
+					"top": 0,
+					"left": 0,
+					"width": 193,
+					"height": 21,
+					"picture": "Images/poster.png",
+					"pictureFormat": "scaled",
+					"visibility": "hidden"
+				},
+				"close": {
+					"type": "button",
+					"top": 1,
+					"left": 172,
+					"width": 20,
+					"height": 20,
+					"visibility": "hidden",
+					"sizingX": "move",
+					"style": "custom",
+					"events": [
+						"onClick"
+					],
+					"iconFrames": 4,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Esc]"
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"geometryStamp": 100,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"POSTER": {
+				"visible": false,
+				"objects": [
+					"_poster"
+				]
+			}
+		}
+	},
+	"method": "formMethod",
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"css": [
+		{
+			"path": "macOS.css",
+			"media": "mac"
+		},
+		{
+			"path": "Windows.css",
+			"media": "windows"
+		}
+	]
+}

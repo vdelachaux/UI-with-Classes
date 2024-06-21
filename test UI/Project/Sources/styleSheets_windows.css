@@ -1,0 +1,22 @@
+.mac {
+	visibility: "hidden";
+}
+
+.windowFrameBackground {
+	fill: #F8F8F8;
+	stroke: transparent;
+	sizingX: "grow";
+}
+	@media (prefers-color-scheme: dark) {
+		.windowFrameBackground {
+			fill: #1F2023;
+		}
+	}
+
+checkbox,
+radio,
+button,
+[type="dropdown"] {
+	focusable: true;
+}
+	

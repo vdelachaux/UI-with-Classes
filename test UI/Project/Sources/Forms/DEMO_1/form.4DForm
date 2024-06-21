@@ -1,0 +1,81 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad"
+	],
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"Input": {
+					"type": "input",
+					"left": 126,
+					"top": 39,
+					"width": 315,
+					"height": 17,
+					"events": [
+						"onAfterEdit"
+					],
+					"dataSource": "Form:C1466.pwd"
+				},
+				"Text": {
+					"type": "text",
+					"text": "Password:",
+					"top": 40,
+					"left": 30,
+					"width": 85,
+					"height": 16,
+					"textAlign": "right"
+				},
+				"Button": {
+					"type": "button",
+					"text": "OK",
+					"top": 82,
+					"left": 319,
+					"width": 122,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"defaultButton": true,
+					"focusable": false,
+					"action": ""
+				},
+				"Button1": {
+					"type": "button",
+					"text": "Cancel",
+					"top": 82,
+					"left": 145,
+					"width": 154,
+					"height": 22,
+					"events": [],
+					"action": "cancel",
+					"focusable": false
+				}
+			}
+		}
+	],
+	"geometryStamp": 47,
+	"method": "formMethod",
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
+}

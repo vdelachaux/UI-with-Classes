@@ -1,0 +1,92 @@
+{
+	"👩‍💻 UI": {
+		"methods": [
+			"formMethod",
+			"subformWidgetMethod"
+		]
+	},
+	"📦 Widgets": {
+		"groups": [
+			"SEARCH",
+			"WINDOW_FRAME"
+		]
+	},
+	"DEMO_1": {
+		"methods": [
+			"DEMO_1"
+		],
+		"forms": [
+			"DEMO_1"
+		],
+		"classes": [
+			"_DEMO_1_Controller"
+		]
+	},
+	"DEMO_constraints": {
+		"forms": [
+			"DEMO_constraints"
+		],
+		"classes": [
+			"_DEMO_constraints_Controller"
+		]
+	},
+	"DEMO_CSS": {
+		"forms": [
+			"HDI CSS"
+		]
+	},
+	"DEMO_Menus": {
+		"forms": [
+			"DEMO_Menus"
+		],
+		"classes": [
+			"_DEMO_Menus_Controller"
+		]
+	},
+	"DEMO_Search": {
+		"forms": [
+			"DEMO_SEARCH"
+		],
+		"classes": [
+			"_DEMO_SEARCH_Controller"
+		]
+	},
+	"HDIs": {
+		"groups": [
+			"DEMO_1",
+			"DEMO_constraints",
+			"DEMO_CSS",
+			"DEMO_Menus",
+			"DEMO_Search"
+		]
+	},
+	"MAIN": {
+		"methods": [
+			"_DEMO",
+			"HDI"
+		],
+		"forms": [
+			"HDI"
+		],
+		"classes": [
+			"_HDI_Controller"
+		]
+	},
+	"SEARCH": {
+		"forms": [
+			"SEARCH"
+		],
+		"classes": [
+			"_SEARCH_Controller"
+		]
+	},
+	"WINDOW_FRAME": {
+		"forms": [
+			"WINDOW_FRAME"
+		],
+		"classes": [
+			"_WINDOW_FRAME_Controller"
+		]
+	},
+	"trash": {}
+}

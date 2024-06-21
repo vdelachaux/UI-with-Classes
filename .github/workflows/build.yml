@@ -10,14 +10,19 @@ on:
 
 jobs:
   build:
-    name: "Build"
-    runs-on: windows-latest
+    name: "Build on ${{ matrix.os }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ macos-latest ]
+    runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Build
       uses: 4d/build4d-action@main
       with:
+        project: /Users/runner/work/UI-with-Classes/UI-with-Classes/UI/Project/UI.4DProject
         product-line: vcs
         version: vcs
         build: official

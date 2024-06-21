@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="38">
+	<com.4d>
+		<general execute_host_database_event="true"/>
+		<compiler>
+			<typage default_for_button="2"/>
+			<method_suffix arrays="" interprocess_arrays="" interprocess_variables="" methods="" variables=""/>
+			<options compilation_path="3" target="all"/>
+		</compiler>
+		<interface>
+			<shortcuts>
+				<accept_input_form alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+				<cancel_input_form alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+				<add_subform alt="false" command="false" ctrl="false" key_code="0" shift="false"/>
+			</shortcuts>
+		</interface>
+	</com.4d>
+</preferences>

@@ -1,0 +1,35 @@
+.win {
+	visibility: "hidden";
+}
+
+.sidebarBackground,
+.windowFrameBackground {
+	stroke: transparent;
+}
+
+.sidebarBackground{
+	fill: #E0E0DD;
+	sizingY: "grow";
+}
+	@media (prefers-color-scheme: dark) {
+		.sidebarBackground {
+			fill: #2F2F2A;
+		}
+	}
+
+.windowFrameBackground {
+	fill: #F3F3F0;
+	sizingX: "grow";
+}
+	@media (prefers-color-scheme: dark) {
+		.windowFrameBackground {
+			fill: #383834;
+		}
+	}
+	
+checkbox,
+radio,
+button,
+[type="dropdown"] {
+	focusable: false;
+}

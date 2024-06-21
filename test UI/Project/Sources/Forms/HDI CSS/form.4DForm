@@ -1,0 +1,638 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"names": {
+					"type": "groupBox",
+					"text": "Object names",
+					"top": 404,
+					"left": 426,
+					"width": 364,
+					"height": 195
+				},
+				"buttons": {
+					"type": "groupBox",
+					"text": "Object types",
+					"top": 22,
+					"left": 26,
+					"width": 180,
+					"height": 662
+				},
+				"styles": {
+					"type": "groupBox",
+					"text": "Classes",
+					"top": 22,
+					"left": 226,
+					"width": 180,
+					"height": 448
+				},
+				"checkbox": {
+					"type": "checkbox",
+					"text": "checkbox",
+					"top": 47,
+					"left": 56,
+					"width": 120,
+					"height": 18,
+					"events": [
+						"onClick"
+					]
+				},
+				"radioButton": {
+					"type": "radio",
+					"text": "radioButton",
+					"top": 73,
+					"left": 56,
+					"width": 120,
+					"height": 18,
+					"events": [
+						"onClick"
+					]
+				},
+				"mini": {
+					"type": "text",
+					"text": ".mini",
+					"top": 75,
+					"left": 256,
+					"width": 120,
+					"height": 15,
+					"class": "mini"
+				},
+				"default": {
+					"type": "text",
+					"text": "Default",
+					"top": 48,
+					"left": 256,
+					"width": 120,
+					"height": 17
+				},
+				"comment": {
+					"type": "text",
+					"text": ".comment",
+					"top": 132,
+					"left": 256,
+					"width": 120,
+					"height": 17,
+					"class": "comment"
+				},
+				"error": {
+					"type": "text",
+					"text": ".error",
+					"top": 190,
+					"left": 256,
+					"width": 120,
+					"height": 17,
+					"class": "error"
+				},
+				"warning": {
+					"type": "text",
+					"text": ".warning",
+					"top": 224,
+					"left": 256,
+					"width": 120,
+					"height": 17,
+					"class": "warning"
+				},
+				"Button": {
+					"type": "button",
+					"text": "Regular",
+					"top": 99,
+					"left": 56,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					]
+				},
+				"defaultButton": {
+					"type": "button",
+					"text": "Default Button",
+					"top": 129,
+					"left": 56,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"defaultButton": true
+				},
+				"bbCancel": {
+					"type": "button",
+					"text": "action = cancel",
+					"top": 159,
+					"left": 56,
+					"width": 120,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				},
+				"title": {
+					"type": "text",
+					"text": ".title",
+					"top": 258,
+					"left": 256,
+					"width": 120,
+					"height": 17,
+					"class": "title"
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 35,
+					"left": 426,
+					"width": 205,
+					"height": 37
+				},
+				"Line": {
+					"type": "line",
+					"top": 103,
+					"left": 426,
+					"width": 205,
+					"height": 1,
+					"startPoint": "topLeft"
+				},
+				"tabControl": {
+					"type": "tab",
+					"text": "Tab control",
+					"top": 115,
+					"left": 651,
+					"width": 139,
+					"height": 55,
+					"labels": [
+						"1",
+						"2",
+						"3"
+					]
+				},
+				"List Box": {
+					"type": "listbox",
+					"left": 426,
+					"top": 132,
+					"width": 205,
+					"height": 240,
+					"events": [],
+					"headerHeight": "2em",
+					"columns": [
+						{
+							"header": {
+								"text": "Header1",
+								"name": "Header1"
+							},
+							"name": "Column1",
+							"footer": {
+								"name": "Footer1"
+							},
+							"width": 91
+						},
+						{
+							"header": {
+								"name": "Header2",
+								"text": "Header2"
+							},
+							"name": "Column2",
+							"footer": {
+								"name": "Footer2"
+							}
+						}
+					]
+				},
+				"Group Box": {
+					"type": "groupBox",
+					"text": "groupBox",
+					"top": 188,
+					"left": 651,
+					"width": 139,
+					"height": 69
+				},
+				"comment - mini": {
+					"type": "text",
+					"text": ".comment .mini",
+					"top": 162,
+					"left": 256,
+					"width": 120,
+					"height": 17,
+					"class": "comment mini"
+				},
+				"hierarchicalList": {
+					"type": "list",
+					"left": 651,
+					"top": 276,
+					"width": 139,
+					"height": 96,
+					"events": [
+						"onSelectionChange"
+					],
+					"focusable": false
+				},
+				"bDev": {
+					"type": "button",
+					"top": 428,
+					"left": 256,
+					"width": 120,
+					"height": 22,
+					"text": ".dev",
+					"events": [
+						"onClick"
+					],
+					"class": "dev"
+				},
+				"tiny": {
+					"type": "text",
+					"text": ".tiny",
+					"top": 105,
+					"left": 256,
+					"width": 120,
+					"height": 11,
+					"class": "tiny"
+				},
+				"comboBox": {
+					"type": "combo",
+					"left": 651,
+					"top": 35,
+					"width": 139,
+					"height": 22,
+					"events": [
+						"onDataChange"
+					]
+				},
+				"dropdown": {
+					"type": "dropdown",
+					"left": 651,
+					"top": 75,
+					"width": 139,
+					"height": 22,
+					"events": [
+						"onDataChange"
+					]
+				},
+				"toolbarButton": {
+					"type": "button",
+					"text": "Toolbar Button",
+					"top": 208,
+					"left": 56,
+					"width": 120,
+					"height": 47,
+					"events": [
+						"onClick"
+					],
+					"style": "toolbar",
+					"icon": "Images/compiler.png"
+				},
+				"bHelp": {
+					"type": "button",
+					"top": 267,
+					"left": 56,
+					"width": 120,
+					"height": 47,
+					"events": [
+						"onClick"
+					],
+					"style": "help",
+					"icon": "/RESOURCES/images/toolbar/compiler.png"
+				},
+				"bRoundBevel": {
+					"type": "button",
+					"top": 394,
+					"left": 56,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"style": "roundedBevel",
+					"text": "Rounder Bevel"
+				},
+				"bFlat": {
+					"type": "button",
+					"top": 326,
+					"left": 56,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"style": "flat",
+					"text": "Flat"
+				},
+				"bBevel": {
+					"type": "button",
+					"top": 360,
+					"left": 56,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"style": "bevel",
+					"text": "Bevel"
+				},
+				"bXP": {
+					"type": "button",
+					"top": 496,
+					"left": 56,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"style": "office",
+					"text": "Office XP"
+				},
+				"bGradient": {
+					"type": "button",
+					"top": 428,
+					"left": 56,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"style": "gradientBevel",
+					"text": "OS X Gradient"
+				},
+				"bTextured": {
+					"type": "button",
+					"top": 462,
+					"left": 56,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"style": "texturedBevel",
+					"text": "OS X Textured"
+				},
+				"bCircle": {
+					"type": "button",
+					"top": 530,
+					"left": 56,
+					"width": 120,
+					"height": 24,
+					"events": [
+						"onClick"
+					],
+					"style": "circular",
+					"text": "Circle"
+				},
+				"bCustom": {
+					"type": "button",
+					"top": 566,
+					"left": 56,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"text": "Custom"
+				},
+				"Radio Button": {
+					"type": "radio",
+					"top": 608,
+					"left": 80,
+					"width": 31,
+					"height": 31,
+					"icon": "Images/alignLeft.png",
+					"events": [
+						"onClick"
+					],
+					"radioGroup": "radioGroup",
+					"style": "roundedBevel"
+				},
+				"Radio Button1": {
+					"type": "radio",
+					"top": 608,
+					"left": 121,
+					"width": 31,
+					"height": 31,
+					"icon": "Images/centerVertically.png",
+					"events": [
+						"onClick"
+					],
+					"radioGroup": "radioGroup",
+					"style": "roundedBevel"
+				},
+				"ok": {
+					"type": "button",
+					"top": 448,
+					"left": 650,
+					"width": 87,
+					"height": 22,
+					"events": [
+						"onClick"
+					]
+				},
+				"cancel": {
+					"type": "button",
+					"top": 448,
+					"left": 476,
+					"width": 87,
+					"height": 22,
+					"events": [
+						"onClick"
+					]
+				},
+				"help": {
+					"type": "button",
+					"top": 553,
+					"left": 476,
+					"width": 87,
+					"height": 22,
+					"events": [
+						"onClick"
+					]
+				},
+				"bOK": {
+					"type": "button",
+					"top": 477,
+					"left": 650,
+					"width": 87,
+					"height": 22,
+					"events": [
+						"onClick"
+					]
+				},
+				"bcancel": {
+					"type": "button",
+					"top": 477,
+					"left": 476,
+					"width": 87,
+					"height": 22,
+					"events": [
+						"onClick"
+					]
+				},
+				"Input": {
+					"type": "input",
+					"left": 577,
+					"top": 8,
+					"width": 213,
+					"height": 15,
+					"dataSource": "OBJECT Get name:C1087(Object with focus:K67:3)",
+					"class": "infos warning mini",
+					"textAlign": "right"
+				},
+				"infos": {
+					"type": "input",
+					"left": 256,
+					"top": 323,
+					"width": 120,
+					"height": 15,
+					"dataSource": "String:C10(\"input.infos\")",
+					"class": "infos"
+				},
+				"label": {
+					"type": "text",
+					"text": ".label",
+					"top": 282,
+					"left": 256,
+					"width": 120,
+					"height": 17,
+					"class": "label"
+				},
+				"blink": {
+					"type": "button",
+					"top": 394,
+					"left": 256,
+					"width": 120,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"text": ".link",
+					"class": "link"
+				},
+				"Line1": {
+					"type": "line",
+					"top": 374,
+					"left": 234,
+					"width": 159,
+					"height": 1
+				},
+				"Text": {
+					"type": "text",
+					"text": "cancel, bcancel",
+					"top": 428,
+					"left": 454,
+					"width": 131,
+					"height": 13,
+					"class": "mini comment",
+					"textAlign": "center"
+				},
+				"Text1": {
+					"type": "text",
+					"text": "ok, bok",
+					"top": 428,
+					"left": 628,
+					"width": 131,
+					"height": 13,
+					"class": "mini comment",
+					"textAlign": "center"
+				},
+				"Text2": {
+					"type": "text",
+					"text": "help, bhelp",
+					"top": 530,
+					"left": 454,
+					"width": 131,
+					"height": 13,
+					"class": "mini comment",
+					"textAlign": "center"
+				},
+				"infos1": {
+					"type": "input",
+					"left": 256,
+					"top": 350,
+					"width": 120,
+					"height": 15,
+					"dataSource": "String:C10(\"input.infos.error\")",
+					"class": "infos error"
+				},
+				"platform": {
+					"type": "groupBox",
+					"text": "Platform dependant",
+					"top": 477,
+					"left": 226,
+					"width": 180,
+					"height": 122
+				},
+				"Text3": {
+					"type": "text",
+					"text": "Only visible on macOS",
+					"top": 519,
+					"left": 235,
+					"width": 162,
+					"height": 16,
+					"class": "mac title",
+					"textAlign": "center"
+				},
+				"Text4": {
+					"type": "text",
+					"text": "Only visible on Windows",
+					"top": 553,
+					"left": 235,
+					"width": 162,
+					"height": 16,
+					"class": "win title warning",
+					"textAlign": "center"
+				}
+			},
+			"entryOrder": [
+				"checkbox",
+				"radioButton",
+				"Button",
+				"defaultButton",
+				"bbCancel",
+				"toolbarButton",
+				"bHelp",
+				"bFlat",
+				"bBevel",
+				"bRoundBevel",
+				"bGradient",
+				"bTextured",
+				"bXP",
+				"bCircle",
+				"bCustom",
+				"Radio Button",
+				"Radio Button1",
+				"infos",
+				"infos1",
+				"blink",
+				"bDev",
+				"Input",
+				"comboBox",
+				"dropdown",
+				"List Box",
+				"hierarchicalList",
+				"cancel",
+				"ok",
+				"bcancel",
+				"bOK",
+				"help"
+			]
+		}
+	],
+	"geometryStamp": 746,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "CSS"
+}

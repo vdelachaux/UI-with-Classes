@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
+  <file datatype="x-STR#" original="Undefined" source-language="en" target-language="fr">
+    <header>
+      <prop-group name="4DPop XLIFF Pro">
+        <prop prop-type="version">3.1</prop>
+      </prop-group>
+    </header>
+    <body>
+      <group resname="navigation">
+        <trans-unit id="VwXpnRc8gkElR8VvOMbVhw" resname="desc_1">
+          <source>A very simple dialogue to request a password.
+    - The dialog is displayed with a menu bar
+    - The text box uses the font "%password" to hide the input.
+    - The buttons are arranged according to their labels and may be inverted depending on the OS.
+    - The validation button is only activated if a password is entered
+    - Validation is only accepted if the password is correct (does not accept "1234" for the example)
+</source>
+          <target>Un dialogue très simple pour demander un mot de passe.
+    - La boîte de dialogue est affichée avec une barre de menu
+    - Le champ de saisie utilise la police "%password" pour masquer la saisie.
+    - Les boutons sont disposés en fonction de leurs étiquettes et peuvent être inversés selon le système d'exploitation.
+    - Le bouton de validation n'est activé que si un mot de passe est saisi
+    - La validation n'est acceptée que si le mot de passe est correct (n'accepte pas "1234" pour l'exemple)</target>
+        </trans-unit>
+        <trans-unit id="vlTa+HQuRWJ8iF0YhdshvA" resname="title_1">
+          <source>Simple dialog</source>
+          <target>Un dialogue simple</target>
+        </trans-unit>
+        <trans-unit id="WiZeo+hL85yKdUvzaGBa0Q" resname="title_2">
+          <source>Menus</source>
+          <target>Menus</target>
+        </trans-unit>
+        <trans-unit id="EBNWB4Y5RVwwe4CYFf95rw" resname="desc_2">
+          <source>This example shows how to use the menuBar and menu classes to
+    - Define, install and manage a menu bar
+    - Define, display and manage generic menus provided by the class (Fonts, Windows)
+    - Define, display and manage contextual menus to suit your needs</source>
+          <target>Cet exemple montre comment utiliser les classes menuBar et menu pour
+    - Définir, installer et gérer une barre de menu
+    - Définir, afficher et gérer des menus génériques fournis par la classe (Polices, Fenêtres)
+    - Définir, afficher et gérer des menu contextuels selon vos besoins</target>
+        </trans-unit>
+        <trans-unit id="lHtkRMgwzD5BkudimrN4rA" resname="title_3">
+          <source>Position and size constraints</source>
+          <target>Contraintes de position et de taille</target>
+        </trans-unit>
+        <trans-unit id="wtlcNiP+Sou7cZUJ2plVIg" resname="desc_3">
+          <source>You're familiar with the move and resize properties offered by the form editor for objects: Do nothing, move OR resize. Is that enough for you? Not for me.
+This dialog shows you how to use the "constraints" property of the "form" class to better manage the positioning and size of objects.
+    - Move AND resize ;-)
+    - Define a minimum or maximum width
+    - Keep objects aligned to the right, left or centred
+    - Apply complex constraints using formulas.
+
+In this dialog, the objects in red show the behaviour of the properties managed by 4D, the others are managed by the class.</source>
+          <target>Vous connaissez les propriétés de déplacement et de redimensionnement offertes par l'éditeur de formulaire pour les objets : Ne rien faire, déplacer OU redimensionner. Hum, est-ce suffisant pour vous ? Pas pour moi.
+Ce dialogue vous montre comment utiliser la propriété "constraints" de la classe "form" pour mieux gérer le positionnement et la taille des objets.
+    - Déplacer ET redimensionner ;-)
+    - Définir une largeur minimum ou maximum
+    - Garder des objets alignés à droite,  à gauche ou bien centrés
+    - Appliquer des contraintes complexes avec des formules.
+
+Dans ce dialogue, les objets en rouge montrent le comportement des propriétés gérées par 4D, les autres sont géré par la classe. </target>
+        </trans-unit>
+        <trans-unit id="e1Apz4qs_ueje_lAsJRPMQ" resname="title_4" translate="no">
+          <source>CSS</source>
+        </trans-unit>
+        <trans-unit id="9AiLLPgFQi9soE4CEtPxLA" resname="desc_4">
+          <source>No code here 😱
+Everything is done with CSS.
+
+Learn to adjust:
+          - Title, style and text
+          - Appearance and display
+          - Default action
+          - Input and text properties
+          - and more
+
+And all this from the "class" property of course, but also simply from the name of a widget, its associated action or another property</source>
+          <target>Pas de code ici 😱
+Tout est fait avec les CSS.
+
+Apprenez à ajuster:
+         - Titre, style et texte
+         - Apparence et affichage
+         - Action par défaut
+         - Propriétés d'entrée et de texte
+         - et plus
+
+Et tout cela à partir de la propriété "classe" bien sûr, mais aussi simplement à partir du nom d'un widget, de son action associée ou d'une autre propriété</target>
+        </trans-unit>
+        <trans-unit id="Ghc0d3RaqRNVnvs+Uu_OrQ" resname="desc_5">
+          <source>This dialog shows how to use the search widget.
+This is a sub-form which displays a search box with icons adapted to the platform and which recalls the host form when the user modifies their input.
+Some options allow you to adjust the behaviour.
+You can define :
+	- The placeholder text (default: none)
+	- The shortcut (and any associated modifier) to activate the search box (default: Ctrl/Cmd "f")
+	- The tooltip displayed by the widget (default: "⌘-f" on macOS &amp; "⌃-f" on Windows)
+	- The input type, which will define the correct input filter (default: text).
+	- The instant mode, in which user keystrokes are sent to the host form as they are entered, or all at once when the widget loses focus (default: True = instant).</source>
+          <target>Ce dialogue montre comment utiliser le widget de recherche.
+Il s'agit d'un sous-formulaire qui affiche une boîte de recherche avec des icônes adaptées à la plate-forme et qui rappelle le formulaire hôte lorsque l'utilisateur modifie sa saisie.
+Certaines options permettent d'ajuster le comportement.
+Vous pouvez définir :
+	 - Le  texte d’exemple (par défaut : aucun)
+	 - Le raccourci (et éventuellement le modificateur associé) pour activer la boîte de recherche (par défaut : Ctrl/Cmd "f")
+	 - L'info-bulle affichée par le widget (par défaut : "⌘-f" sur macOS &amp; "⌃-f" sur Windows)
+	- Le type d'entrée qui définira le filtre d'entrée correct (par défaut : texte).
+	- Le mode instantané, dans lequel les frappes de l'utilisateur sont envoyées au formulaire hôte au fur et à mesure de leur saisie, ou en une seule fois lorsque le widget perd le focus (par défaut : Vrai = instant).</target>
+        </trans-unit>
+        <trans-unit id="U2a3hrEyiF0lGc4U6OYBVA" resname="title_5">
+          <source>Search box</source>
+          <target>Boîte de recherche</target>
+        </trans-unit>
+      </group>
+      <group resname="dial">
+        <trans-unit id="FcZegetf3JLn0r1d0Z03OQ" resname="selectAnExample">
+          <source>Select an example...</source>
+          <target>Sélectionnez un exemple...</target>
+        </trans-unit>
+        <trans-unit id="C9aXULWXrQpYzHx4CWOLQA" resname="run">
+          <source>Run the demo</source>
+          <target>Exécuter la démo</target>
+        </trans-unit>
+      </group>
+      <group resname="samples">
+        <trans-unit id="wTCJoDvH55508WLNLxZr2A" resname="enterYourPassword">
+          <source>Enter your password</source>
+          <target>Saisissez votre mot de passe</target>
+        </trans-unit>
+        <trans-unit id="cmhbIEAwkRY8Man1lXN+sA" resname="clickHereToValidateYourNewPassword">
+          <source>Click here to validate your new password</source>
+          <target>Cliquez ici pour valider votre nouveau mot de passe</target>
+        </trans-unit>
+        <trans-unit id="hXWXSmwFTsww3vlWPsa6fQ" resname="theChoiceIsYours">
+          <source>The choice is yours:</source>
+          <target>À vous de choisir :</target>
+        </trans-unit>
+        <trans-unit id="yOuX1PiNg9nAih6ExP2e_Q" resname="fonts">
+          <source>Fonts</source>
+          <target>Polices</target>
+        </trans-unit>
+        <trans-unit id="Kc39dNe69JufQfuMeMkmFw" resname="groupedByFamily">
+          <source>Grouped by family</source>
+          <target>Regroupées par famille</target>
+        </trans-unit>
+        <trans-unit id="FTf4zpa2CY47MB9tVrZbXA" resname="showWindow">
+          <source>Show window…</source>
+          <target>Afficher la fenêtre...</target>
+        </trans-unit>
+        <trans-unit id="L5q2hGlzAegQzaypvODgSg" resname="addExtraMenuToTheMenuBar">
+          <source>Add the "Extra" menu to the menu bar</source>
+          <target>Ajouter le menu "Extra" à la barre de menu</target>
+        </trans-unit>
+        <trans-unit id="swonDKWLsXm7u98Lw15smg" resname="removeExtraMenuFromTheMenuBar">
+          <source>Remove the "Extra" menu from the menu bar</source>
+          <target>Supprimer le menu "Extra" de la barre de menu</target>
+        </trans-unit>
+        <trans-unit id="emuzbC8hewbLItsO_3hh3w" resname="language">
+          <source>Language…</source>
+          <target>Langue…</target>
+        </trans-unit>
+        <trans-unit id="V99rAI5AUg69yCzh+azKsw" resname="english">
+          <source>English</source>
+          <target>Anglais</target>
+        </trans-unit>
+        <trans-unit id="HHuZ1qnHlVYC9RSJGH+kvw" resname="french">
+          <source>Français</source>
+          <target>French</target>
+        </trans-unit>
+        <trans-unit id="Ad0v7TORSnTDQzFWO0HMeQ" resname="settings">
+          <source>Settings…</source>
+          <target>Paramètres…</target>
+        </trans-unit>
+        <trans-unit id="GemGcbM9+36zDpdhicoqCw" resname="close">
+          <source>Close</source>
+          <target>Fermer</target>
+        </trans-unit>
+        <trans-unit id="W+bVh1fg28nJJsM1Nq2wmg" resname="window">
+          <source>Window</source>
+          <target>Fenêtre</target>
+        </trans-unit>
+        <trans-unit id="YDTWwhs4OdxOksKWbKZsUg" resname="resizeMe">
+          <source>Resize me horizontally -&gt; </source>
+          <target>Redimensionnez-moi horizontalement -&gt; </target>
+        </trans-unit>
+      </group>
+      <group resname="CSS">
+        <trans-unit id="Myt4kvJ+Cn1otQHGNXG0nQ" resname="ok">
+          <source>OK</source>
+          <target>OK</target>
+        </trans-unit>
+        <trans-unit id="4FUQs_mWScP9tUDKxgNb7w" resname="cancel">
+          <source>Cancel</source>
+          <target>Annuler</target>
+        </trans-unit>
+        <trans-unit id="lMHW4GYYGekg5YAhjQ+JTg" resname="moreInformation">
+          <source>More informations…</source>
+          <target>En savoir plus…</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</xliff>

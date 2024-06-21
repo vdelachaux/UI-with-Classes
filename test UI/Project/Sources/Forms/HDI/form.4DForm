@@ -1,0 +1,236 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"events": [
+		"onLoad",
+		"onActivate",
+		"onDeactivate",
+		"onUnload",
+		"onTimer",
+		"onResize"
+	],
+	"pages": [
+		{
+			"objects": {
+				"titleBackground": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 940,
+					"height": 53,
+					"class": "windowFrameBackground"
+				},
+				"macOS_sidebarBackground": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 256,
+					"height": 872,
+					"bottom": 872,
+					"borderRadius": 4,
+					"class": "mac sidebarBackground"
+				},
+				"sidebar": {
+					"type": "listbox",
+					"left": 0,
+					"top": 54,
+					"width": 255,
+					"height": 818,
+					"events": [
+						"onSelectionChange"
+					],
+					"showHeaders": false,
+					"resizingMode": "legacy",
+					"bottom": 872,
+					"listboxType": "collection",
+					"sizingY": "grow",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"currentItemSource": "formGetInstance.sidebar.item",
+					"currentItemPositionSource": "formGetInstance.sidebar.itemPosition",
+					"selectedItemsSource": "formGetInstance.sidebar.items",
+					"dataSource": "formGetInstance.sidebar.data",
+					"horizontalPadding": 10,
+					"fontWeight": "bold",
+					"columns": [
+						{
+							"header": {
+								"text": "Header1",
+								"name": "demosHeader"
+							},
+							"name": "demos",
+							"footer": {
+								"name": "demosFooter"
+							},
+							"dataSource": "This:C1470.name",
+							"enterable": false
+						}
+					]
+				},
+				"common_background": {
+					"type": "rectangle",
+					"top": 55,
+					"left": 255,
+					"width": 685,
+					"height": 817,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"bottom": 872,
+					"stroke": "transparent",
+					"borderRadius": 4
+				},
+				"common_sidebarBorder": {
+					"type": "line",
+					"top": 53,
+					"left": 255,
+					"width": 0,
+					"height": 819,
+					"bottom": 872,
+					"sizingY": "grow"
+				},
+				"windowFrame": {
+					"type": "subform",
+					"left": 0,
+					"top": 0,
+					"width": 121,
+					"height": 53,
+					"detailForm": "WINDOW_FRAME",
+					"dataSourceTypeHint": "integer",
+					"method": "subformWidgetMethod",
+					"events": [
+						"onLoad"
+					],
+					"sizingX": "grow",
+					"hideFocusRing": true,
+					"focusable": false
+				},
+				"windowFrameBottom": {
+					"type": "line",
+					"top": 53,
+					"left": 0,
+					"width": 940,
+					"height": 0,
+					"sizingX": "grow",
+					"startPoint": "topLeft",
+					"class": "win"
+				},
+				"form": {
+					"type": "button",
+					"text": "Show Form",
+					"top": 8,
+					"left": 544,
+					"width": 62,
+					"height": 37,
+					"events": [
+						"onClick"
+					],
+					"style": "toolbar",
+					"icon": "/.PRODUCT_RESOURCES/Internal Components/development.4dbase/Resources/images/explorer/forms.png"
+				},
+				"class": {
+					"type": "button",
+					"text": "Show Class",
+					"top": 8,
+					"left": 606,
+					"width": 45,
+					"height": 37,
+					"events": [
+						"onClick"
+					],
+					"style": "toolbar",
+					"icon": "/.PRODUCT_RESOURCES/Internal Components/development.4dbase/Resources/images/explorer/methods.png"
+				},
+				"desc": {
+					"type": "text",
+					"text": "…",
+					"top": 73,
+					"left": 276,
+					"width": 642,
+					"height": 230,
+					"sizingX": "grow",
+					"fontSize": 14
+				},
+				"run": {
+					"type": "button",
+					"top": 311,
+					"left": 440,
+					"width": 288,
+					"height": 65,
+					"events": [
+						"onClick"
+					],
+					"fontWeight": "bold",
+					"icon": "/.PRODUCT_RESOURCES/Internal Components/development.4dbase/Resources/images/formEditor/run.png",
+					"iconFrames": 4,
+					"text": ":xliff:run"
+				},
+				"tip": {
+					"type": "text",
+					"text": ":xliff:selectAnExample",
+					"top": 73,
+					"left": 276,
+					"width": 642,
+					"height": 36,
+					"sizingX": "grow",
+					"fontSize": 30,
+					"stroke": "#c0c0c0",
+					"textAlign": "center"
+				},
+				"macOS_sidebarBorder": {
+					"type": "line",
+					"top": 0,
+					"left": 255,
+					"width": 0,
+					"height": 53,
+					"bottom": 53,
+					"class": "mac"
+				},
+				"macOS_windowFrameBottom": {
+					"type": "line",
+					"top": 53,
+					"left": 255,
+					"width": 685,
+					"height": 0,
+					"startPoint": "topLeft",
+					"class": "mac",
+					"sizingX": "grow"
+				}
+			}
+		},
+		{
+			"objects": {
+				"windowTitle": {
+					"type": "text",
+					"text": "How do I…",
+					"top": 20,
+					"left": 87,
+					"width": 163,
+					"height": 16,
+					"fontTheme": "main"
+				}
+			}
+		}
+	],
+	"method": "formMethod",
+	"geometryStamp": 335,
+	"editor": {
+		"groups": {
+			"Group": [
+				"form",
+				"class"
+			]
+		},
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"windowTitle": "How do I…",
+	"windowMinWidth": 660,
+	"width": 940,
+	"height": 872,
+	"windowMinHeight": 450
+}

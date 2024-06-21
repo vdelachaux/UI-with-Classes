@@ -1,0 +1,19 @@
+#close {
+	icon : url("Images/macOS/close.png");
+}
+	
+	@media (prefers-color-scheme: dark) {
+			#close {
+				icon: url("Images/macOS/close_dark.png");
+			}
+		}
+
+#glass {
+	picture: url("Images/macOS/glass.png");
+}
+	
+	@media (prefers-color-scheme: dark) {
+			#glass {
+				picture: url("Images/macOS/glass_dark.png");
+			}
+		}
