@@ -1,5 +1,4 @@
 Class extends scrollable
-
 property form : cs:C1710.form
 
 property parent : Object
@@ -35,6 +34,14 @@ Class constructor($name : Text; $events : Object; $super : Object; $form : Objec
 	This:C1470.isSubform:=True:C214
 	
 	// MARK:Delegates 📦
+	var $detailForm : Text:=String:C10(This:C1470.detailForm)
+	
+	If (Length:C16($detailForm)>0)
+		
+		$form:=$form || Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+$detailForm+"/form.4DForm").getText()))
+		
+	End if 
+	
 	This:C1470.form:=cs:C1710.form.new(This:C1470; $form)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -53,6 +60,10 @@ Function set data($data)
 	
 	// Force an update to take account of changes 
 	This:C1470.refresh()
+	
+Function execute($formula : 4D:C1709.Function)
+	
+	This:C1470._execute($formula)
 	
 	// MARK:-[Timer]
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -111,16 +122,36 @@ Function getParentDimensions() : cs:C1710.dim
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Returns  the names of the forms associated with the subform.
-Function getSubforms()
+Function getSubforms() : Object
 	
 	var $detail; $list : Text
 	var $ptr : Pointer
 	
 	OBJECT GET SUBFORM:C1139(*; This:C1470.name; $ptr; $detail; $list)
 	
-	This:C1470.forms:={\
+	return {\
 		detail: $detail; \
 		list: $list}
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get detailForm() : Text
+	
+	var $detail; $list : Text
+	var $ptr : Pointer
+	
+	OBJECT GET SUBFORM:C1139(*; This:C1470.name; $ptr; $detail; $list)
+	
+	return $detail
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get listForm() : Text
+	
+	var $detail; $list : Text
+	var $ptr : Pointer
+	
+	OBJECT GET SUBFORM:C1139(*; This:C1470.name; $ptr; $detail; $list)
+	
+	return $list
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Sets  the names of the forms associated with the subform.
@@ -218,3 +249,4 @@ Function _getWidget($widget : Text) : Text
 	
 	// Deal with the name of the form object or the name of an instance
 	return This:C1470.form[$widget].name || $widget
+	
