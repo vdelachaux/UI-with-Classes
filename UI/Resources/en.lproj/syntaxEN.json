@@ -2432,6 +2432,11 @@
 			],
 			"Summary": ""
 		},
+		"resetsAbout()": {
+			"Syntax": "**.resetsAbout**()",
+			"Params": [],
+			"Summary": ""
+		},
 		"set()": {
 			"Syntax": "**.set**() : cs.ui.menuBar",
 			"Params": [
@@ -5773,7 +5778,7 @@
 			"Summary": ""
 		},
 		"callChild()": {
-			"Syntax": "**.callChild**( *subform* : Variant; *method* : Text; *...* : Variant )",
+			"Syntax": "**.callChild**( *subform* : Variant; *method* : Variant; *...* : Variant )",
 			"Params": [
 				[
 					"subform",
@@ -5782,7 +5787,7 @@
 				],
 				[
 					"method",
-					"Text",
+					"Variant",
 					"->"
 				],
 				[

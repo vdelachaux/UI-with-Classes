@@ -9,7 +9,7 @@ Class constructor($data)
 	
 	This:C1470.__CLASS__:=OB Class:C1730(This:C1470)
 	
-	This:C1470.ref:=Null:C1517
+	This:C1470.ref:=""
 	This:C1470.autoRelease:=True:C214
 	This:C1470.released:=False:C215
 	This:C1470.localize:=True:C214
@@ -1146,7 +1146,7 @@ Function _cleanup()
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function _isMenu() : Boolean
 	
-	If (Asserted:C1132(This:C1470.ref#Null:C1517; Current method name:C684+": The menu reference is null"))
+	If (Asserted:C1132(Length:C16(This:C1470.ref)>0; Current method name:C684+": The menu reference is null"))
 		
 		return True:C214
 		
@@ -1169,6 +1169,11 @@ Function _proxy($proxy : Text) : Text
 		: (Position:C15("#"; $proxy)=1)  // Shortcut for Resources folder
 			
 			return "path:/RESOURCES/"+Delete string:C232($proxy; 1; 1)
+			
+			//______________________________________________________
+		: (Position:C15("§"; $proxy)=1)  // Shortcut for current form folder
+			
+			return "path:/FORM/"+Delete string:C232($proxy; 1; 1)
 			
 			//______________________________________________________
 		: ($proxy="|@")

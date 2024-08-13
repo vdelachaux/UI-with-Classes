@@ -3,7 +3,7 @@ property left; top; right; bottom : Integer
 
 Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 	
-	This:C1470.name:=Null:C1517
+	This:C1470.name:=""
 	
 	Case of 
 			
@@ -15,7 +15,7 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 			
 			If ($o#Null:C1517)  // Widget
 				
-				This:C1470.name:=$left.name
+				This:C1470.name:=String:C10($left.name)
 				
 			Else 
 				
@@ -85,12 +85,12 @@ Function get screenCoordinates() : Object
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get width() : Integer
 	
-	return This:C1470.right-This:C1470.left
+	return Try(This:C1470.right-This:C1470.left)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get height() : Integer
 	
-	return This:C1470.bottom-This:C1470.top
+	return Try(This:C1470.bottom-This:C1470.top)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get dimensions() : Object
@@ -104,6 +104,6 @@ Function get dimensions() : Object
 Function apply($name : Text)
 	
 	$name:=$name || This:C1470.name
-	ASSERT:C1129($name#Null:C1517; "Missing target name!")
+	ASSERT:C1129(Length:C16($name)>0; "Missing target name!")
 	
 	OBJECT SET COORDINATES:C1248(*; $name; This:C1470.left; This:C1470.top; This:C1470.right; This:C1470.bottom)

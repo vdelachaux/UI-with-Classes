@@ -4,7 +4,7 @@ property isSubform; isMatrix; toBeInitialized : Boolean
 property pages : Object
 property entryOrder : Collection
 
-property _callback; _worker; _darkExtension : Text
+property _callback; _darkExtension : Text
 property _definition; _cursorsHash : Object
 property _instantiableWidgets; _mapEvents : Collection
 
@@ -26,7 +26,6 @@ Class constructor($param; $form : Object)
 	This:C1470.isSubform:=False:C215
 	This:C1470.toBeInitialized:=True:C214
 	
-	This:C1470._worker:=Null:C1517
 	This:C1470._callback:=Formula:C1597(formCallBack).source
 	This:C1470._darkExtension:="_dark"
 	This:C1470.entryOrder:=[]
@@ -542,7 +541,7 @@ Function callWorker($method;  ...  : Variant)
 			
 		Else 
 			
-			$code:="CALL WORKER:C1389(\""+This:C1470._worker+"\"; \""+$method+"\""
+			$code:="CALL WORKER:C1389(\""+String:C10(This:C1470._worker)+"\"; \""+$method+"\""
 			
 			If (Value type:C1509($2)=Is collection:K8:32)
 				
@@ -808,7 +807,7 @@ Function callMe($method : Text;  ...  : Variant)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Executes a project method in the context of a subform (without returned value)
-Function callChild($subform; $method : Text;  ...  : Variant)
+Function callChild($subform; $method : Variant;  ...  : Variant)
 	
 	// .executeInSubform ( subform : Object | Text ; method : Text )
 	// .executeInSubform ( subform : Object | Text ; method : Text ; param : Collection )
