@@ -39,6 +39,76 @@ Class constructor($e : cs:C1710.evt)
 		End for each 
 	End if 
 	
+	This:C1470._descriptions:=[\
+		""; \
+		"on Load"; \
+		"on Mouse Up"; \
+		"on Validate"; \
+		"on Click"; \
+		"on Header"; \
+		"on Printing Break"; \
+		"on Printing Footer"; \
+		"on Display Detail"; \
+		"on VP Ready"; \
+		"on Outside Call"; \
+		"on Activate"; \
+		"on Deactivate"; \
+		"on Double Click"; \
+		"on Losing Focus"; \
+		"on Getting Focus"; \
+		"on Drop"; \
+		"on Before Keystroke"; \
+		"on Menu Select"; \
+		"on Plugin Area"; \
+		"on Data Change"; \
+		"on Drag Over"; \
+		"on Close Box"; \
+		"on Printing Detail"; \
+		"on Unload"; \
+		"on Open Detail"; \
+		"on Close Detail"; \
+		"on Timer"; \
+		"on After Keystroke"; \
+		"on Resize"; \
+		"on After Sort"; \
+		"on Selection Change"; \
+		"on Column Move"; \
+		"on Column Resize"; \
+		"on Row Move"; \
+		"on Mouse Enter"; \
+		"on Mouse Leave"; \
+		"on Mouse Move"; \
+		"on Alternate Click"; \
+		"on Long Click"; \
+		"on Load Record"; \
+		"on Before DataEntry"; \
+		"on Header Click"; \
+		"on Expand"; \
+		"on Collapse"; \
+		"on After Edit"; \
+		"on Begin Drag Over"; \
+		"on Begin URL Loading"; \
+		"on URL Resource Loading"; \
+		"on End URL Loading"; \
+		"on URL Loading Error"; \
+		"on URL Filtering"; \
+		"on Open External Link"; \
+		"on Window Opening Denied"; \
+		"on Bound Variable Change"; \
+		""; \
+		"on Page Change"; \
+		"on Footer Click"; \
+		"on Delete Action"; \
+		"on Scroll"; \
+		"on Row Resize"; \
+		"on VP Range Changed"\
+		]
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get _eventName() : Text
+	
+	return Try(This:C1470._descriptions[This:C1470.code])
+	
 	// MARK:-Form
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get form() : Boolean

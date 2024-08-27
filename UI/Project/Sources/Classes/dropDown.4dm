@@ -8,11 +8,10 @@ Class constructor($name : Text; $data : Object)
 	
 	This:C1470.data:=$data || {}
 	
-	If (This:C1470.data#Null:C1517) && (This:C1470.data.currentValue#Null:C1517)
+	If (This:C1470.data#Null:C1517)\
+		 && (This:C1470.data.currentValue#Null:C1517)
 		
-		This:C1470.data.placeholder:=This:C1470.data.placeholder=Null:C1517\
-			 ? This:C1470.data.currentValue\
-			 : This:C1470.data.placeholder
+		This:C1470.data.placeholder:=This:C1470.data.placeholder || This:C1470.data.currentValue
 		
 	End if 
 	
