@@ -59,6 +59,11 @@ Function init()
 		form: "DEMO_SEARCH"; \
 		comments: Get localized string:C991("desc_5")})
 	
+	This:C1470.demos.push({\
+		name: Get localized string:C991("title_6"); \
+		form: "DEMO_TAB_CONTROL"; \
+		comments: Get localized string:C991("desc_6")})
+	
 	This:C1470.sidebar:=This:C1470.form.listbox.new("sidebar")
 	
 	// Mark:Detail panel
@@ -226,7 +231,7 @@ Function _sidebarManager($e : cs:C1710.ui.evt)
 		This:C1470.editClass.enable(This:C1470.controllers.includes("[class]/_"+$o.form+"_Controller"))
 		
 		// Place the run button
-		This:C1470.run.moveVertically(This:C1470.desc.coordinates.top+This:C1470.desc.getBestHeight()+20-This:C1470.run.coordinates.top)
+		This:C1470.run.moveVertically(This:C1470.desc.coordinates.top+This:C1470.desc.getBestHeight()+100-This:C1470.run.coordinates.top)
 		
 	End if 
 	

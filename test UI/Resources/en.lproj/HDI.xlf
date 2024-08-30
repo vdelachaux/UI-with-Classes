@@ -115,6 +115,20 @@ You can define :
           <source>Search box</source>
           <target>Search box</target>
         </trans-unit>
+        <trans-unit id="axNAXKVy65R1KVotoMbqCQ" resname="title_6">
+          <source>Tab controls</source>
+          <target>Tab controls</target>
+        </trans-unit>
+        <trans-unit id="WBDCm4vgnuDqona+Y2cBdw" resname="desc_6">
+          <source>This dialog shows a very simple implementation of tabs. 
+          - The data source for the top tabs is an object. Operation is fully managed by 4D with an automatic action.
+          - The data source for the bottom tabs is a hierarchical list that can be used to display icons, which is not possible with an object. In this case, you must call the goToPage() function on click and don't forget to call the .clearList() function when the form is unloaded. 
+         - Note that the contructor of the tabControl class accepts a parameter to display a specific page at startup.</source>
+          <target>This dialog shows a very simple implementation of tabs. 
+          - The data source for the top tabs is an object. Operation is fully managed by 4D with an automatic action.
+          - The data source for the bottom tabs is a hierarchical list that can be used to display icons, which is not possible with an object. In this case, you must call the goToPage() function on click and don't forget to call the .clearList() function when the form is unloaded. 
+         - Note that the contructor of the tabControl class accepts a parameter to display a specific page at startup.</target>
+        </trans-unit>
       </group>
       <group resname="dial">
         <trans-unit id="FcZegetf3JLn0r1d0Z03OQ" resname="selectAnExample">
@@ -204,6 +218,7 @@ You can define :
       </group>
     </body>
   </file>
+
 
 
 

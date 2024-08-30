@@ -115,8 +115,11 @@ Function goToPage()
 	Else 
 		
 		$page:=This:C1470.pageNumber
+		//This.data.index:=$page-1
 		
 	End if 
+	
+	This:C1470.pageNumber:=$page
 	
 	If (Value type:C1509(OBJECT Get subform container value:C1785)#Is undefined:K8:13)
 		

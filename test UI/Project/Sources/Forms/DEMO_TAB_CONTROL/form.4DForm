@@ -1,0 +1,109 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onClick",
+		"onUnload",
+		"onPageChange"
+	],
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {
+				"tabControl": {
+					"type": "tab",
+					"text": "Tab control",
+					"top": 127,
+					"left": 17,
+					"width": 530,
+					"height": 118,
+					"dataSource": "formGetInstance.BOTTOM.dataSource",
+					"events": [
+						"onClick"
+					]
+				},
+				"ok": {
+					"type": "button",
+					"text": "OK",
+					"top": 265,
+					"left": 459,
+					"width": 88,
+					"height": 25,
+					"events": [
+						"onClick"
+					]
+				},
+				"cancel": {
+					"type": "button",
+					"text": "Cancel",
+					"top": 265,
+					"left": 351,
+					"width": 88,
+					"height": 25,
+					"events": [
+						"onClick"
+					],
+					"defaultButton": false
+				},
+				"tabControl1": {
+					"type": "tab",
+					"text": "Tab control",
+					"top": 15,
+					"left": 17,
+					"width": 530,
+					"height": 92,
+					"dataSource": "formGetInstance.TOP.dataSource",
+					"events": [],
+					"action": "gotoPage"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Static Picture2": {
+					"type": "picture",
+					"top": 155,
+					"left": 236,
+					"width": 90,
+					"height": 90,
+					"picture": "/RESOURCES/local.svg",
+					"pictureFormat": "scaled"
+				}
+			},
+			"entryOrder": []
+		},
+		{
+			"objects": {
+				"Static Picture3": {
+					"type": "picture",
+					"top": 155,
+					"left": 235,
+					"width": 90,
+					"height": 90,
+					"picture": "/RESOURCES/github.svg",
+					"pictureFormat": "scaled"
+				}
+			}
+		}
+	],
+	"geometryStamp": 662,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"method": "formMethod"
+}

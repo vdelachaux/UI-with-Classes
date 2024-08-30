@@ -224,11 +224,11 @@
 		},
 		"evt": {
 			"new()": {
-				"Syntax": "**.new**( *e* : cs.ui.evt )",
+				"Syntax": "**.new**( *e* : Object )",
 				"Params": [
 					[
 						"e",
-						"cs.ui.evt",
+						"Object",
 						"->"
 					]
 				],

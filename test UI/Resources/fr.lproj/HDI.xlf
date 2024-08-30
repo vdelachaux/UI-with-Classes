@@ -114,6 +114,20 @@ Vous pouvez définir :
           <source>Search box</source>
           <target>Boîte de recherche</target>
         </trans-unit>
+        <trans-unit id="axNAXKVy65R1KVotoMbqCQ" resname="title_6">
+          <source>Tab controls</source>
+          <target>Onglets</target>
+        </trans-unit>
+        <trans-unit id="WBDCm4vgnuDqona+Y2cBdw" resname="desc_6">
+          <source>This dialog shows a very simple implementation of tabs. 
+          - The data source for the top tabs is an object. Operation is fully managed by 4D with an automatic action.
+          - The data source for the bottom tabs is a hierarchical list that can be used to display icons, which is not possible with an object. In this case, you must call the goToPage() function on click and don't forget to call the .clearList() function when the form is unloaded. 
+         - Note that the contructor of the tabControl class accepts a parameter to display a specific page at startup.</source>
+          <target>Cette boîte de dialogue présente une implémentation très simple d'onglets. 
+          - La source de données pour les onglets du haut est un objet. Le fonctionnement est entièrement géré par 4D au moyen d'une action automatique.
+          - La source de données pour les onglets du bas est une liste hiérarchique  utilisée ici pour afficher des icônes, ce qui n'est pas possible avec un objet. Dans ce cas, il faut appeler la fonction goToPage() lors du clic et ne pas oublier d'appeler la fonction .clearList() lors du déchargement du formulaire. 
+         - Notez que le contructeur de la classe tabControl accepte un paramètre pour afficher une page spécifique au démarrage.</target>
+        </trans-unit>
       </group>
       <group resname="dial">
         <trans-unit id="FcZegetf3JLn0r1d0Z03OQ" resname="selectAnExample">
@@ -203,6 +217,7 @@ Vous pouvez définir :
       </group>
     </body>
   </file>
+
 
 
 
