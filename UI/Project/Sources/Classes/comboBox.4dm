@@ -87,7 +87,7 @@ Function set filter($filter)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Display the selection list (to use in the On getting focus event)
-Function expand()
+Function expand() : cs:C1710.comboBox
 	
 	var $o : Object
 	
@@ -98,6 +98,8 @@ Function expand()
 		POST CLICK:C466($o.right-10; $o.top+10; Current process:C322)
 		
 	End if 
+	
+	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Display the selection list (to use in the On Data change event)

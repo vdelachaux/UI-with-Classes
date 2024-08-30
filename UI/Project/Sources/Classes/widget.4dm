@@ -293,27 +293,7 @@ Function getHelpTip() : Text
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setHelpTip($helpTip : Text) : cs:C1710.widget
 	
-	var $t : Text
-	
-	//%W-533.1
-	If (Length:C16($helpTip)>0)\
-		 && (Length:C16($helpTip)<=255)\
-		 && ($helpTip[[1]]#Char:C90(1))
-		
-		$t:=Formula from string:C1601("Get localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $helpTip)
-		$helpTip:=Length:C16($t)>0 ? $t : $helpTip  // Revert if no localization
-		
-	End if 
-	//%W+533.1
-	
-	If (Length:C16($helpTip)>0)
-		
-		// Ensure that tips are activated
-		cs:C1710.tips.new().enable()
-		
-	End if 
-	
-	OBJECT SET HELP TIP:C1181(*; This:C1470.name; $helpTip)
+	OBJECT SET HELP TIP:C1181(*; This:C1470.name; This:C1470._getLocalizeString($helpTip))
 	
 	return This:C1470
 	
@@ -404,7 +384,7 @@ Function catch($e; $events) : Boolean
 	
 	return $catch
 	
-	// === === === === === === === === === === === === === === === === === === === === === === === === === === 
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function _setEvents($events; $mode : Integer)
 	
 	ARRAY LONGINT:C221($eventCodes; 0x0000)
@@ -443,8 +423,8 @@ Function _setEvents($events; $mode : Integer)
 	End case 
 	
 /* 📌 Update widget events
- The arrEvents array is returned empty if no object method is associated with the object
- or if no form method is associated with the form.
+The arrEvents array is returned empty if no object method is associated with the object
+or if no form method is associated with the form.
 */
 	OBJECT GET EVENTS:C1238(*; This:C1470.name; $eventCodes)
 	var $c : Collection
@@ -465,6 +445,18 @@ Function set data($data)
 	
 	This:C1470._data:=$data
 	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function setData($o : Object)
+	
+	var $t : Text
+	
+	This:C1470._data:=This:C1470._data || {}
+	
+	For each ($t; $o)
+		
+		This:C1470._data[$t]:=$o[$t]
+		
+	End for each 
 	//mark:-[Drag & drop]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 	// Defines the uri associated with the widget

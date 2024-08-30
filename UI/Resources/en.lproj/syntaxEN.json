@@ -16,17 +16,6 @@
 			],
 			"Summary": ""
 		},
-		"subformWidgetMethod": {
-			"Syntax": "**subformWidgetMethod**() : Variant",
-			"Params": [
-				[
-					"",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"formGetInstance": {
 			"Syntax": "**formGetInstance**() : Object",
 			"Params": [
@@ -132,7 +121,7 @@
 		},
 		"tabControl": {
 			"new()": {
-				"Syntax": "**.new**( *name* : Text; *data* : Object )",
+				"Syntax": "**.new**( *name* : Text; *data* : Variant; *page* : Variant )",
 				"Params": [
 					[
 						"name",
@@ -141,7 +130,12 @@
 					],
 					[
 						"data",
-						"Object",
+						"Variant",
+						"->"
+					],
+					[
+						"page",
+						"Variant",
 						"->"
 					]
 				],
@@ -718,6 +712,38 @@
 		}
 	},
 	"tabControl": {
+		"get isObject()": {
+			"Syntax": "**.get isObject**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"goToPage()": {
+			"Syntax": "**.goToPage**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"get isChoiceList()": {
+			"Syntax": "**.get isChoiceList**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"clearList()": {
+			"Syntax": "**.clearList**()",
+			"Params": [],
+			"Summary": ""
+		},
 		"set pageNumber()": {
 			"Syntax": "**.set pageNumber**( *page* : Integer )",
 			"Params": [
@@ -2123,33 +2149,6 @@
 			],
 			"Summary": ""
 		},
-		"get data()": {
-			"Syntax": "**.get data**() : Object",
-			"Params": [
-				[
-					"",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"hide()": {
-			"Syntax": "**.hide**( *widget* : Text )",
-			"Params": [
-				[
-					"widget",
-					"Text",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"accept()": {
-			"Syntax": "**.accept**()",
-			"Params": [],
-			"Summary": ""
-		},
 		"set data()": {
 			"Syntax": "**.set data**( *data* : Object )",
 			"Params": [
@@ -2159,6 +2158,11 @@
 					"->"
 				]
 			],
+			"Summary": ""
+		},
+		"accept()": {
+			"Syntax": "**.accept**()",
+			"Params": [],
 			"Summary": ""
 		},
 		"close()": {
@@ -2187,13 +2191,13 @@
 			"Params": [],
 			"Summary": ""
 		},
-		"get name()": {
-			"Syntax": "**.get name**() : Text",
+		"set me()": {
+			"Syntax": "**.set me**( *me* : cs.ui.onBoard )",
 			"Params": [
 				[
-					"",
-					"Text",
-					"<-"
+					"me",
+					"cs.ui.onBoard",
+					"->"
 				]
 			],
 			"Summary": ""
@@ -2209,12 +2213,56 @@
 			],
 			"Summary": ""
 		},
-		"set me()": {
-			"Syntax": "**.set me**( *me* : cs.ui.onBoard )",
+		"get name()": {
+			"Syntax": "**.get name**() : Text",
 			"Params": [
 				[
-					"me",
-					"cs.ui.onBoard",
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"hide()": {
+			"Syntax": "**.hide**( *widget* : Text )",
+			"Params": [
+				[
+					"widget",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get parent()": {
+			"Syntax": "**.get parent**() : Object",
+			"Params": [
+				[
+					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get data()": {
+			"Syntax": "**.get data**() : Object",
+			"Params": [
+				[
+					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set parent()": {
+			"Syntax": "**.set parent**( *parent* : Object )",
+			"Params": [
+				[
+					"parent",
+					"Object",
 					"->"
 				]
 			],
@@ -2621,28 +2669,6 @@
 			],
 			"Summary": ""
 		},
-		"get openDetail()": {
-			"Syntax": "**.get openDetail**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get rowMoved()": {
-			"Syntax": "**.get rowMoved**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"get openExternalLink()": {
 			"Syntax": "**.get openExternalLink**() : Boolean",
 			"Params": [
@@ -2995,6 +3021,28 @@
 			],
 			"Summary": ""
 		},
+		"get rowMoved()": {
+			"Syntax": "**.get rowMoved**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get openDetail()": {
+			"Syntax": "**.get openDetail**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"get click()": {
 			"Syntax": "**.get click**() : Boolean",
 			"Params": [
@@ -3050,17 +3098,6 @@
 			],
 			"Summary": ""
 		},
-		"get pageChange()": {
-			"Syntax": "**.get pageChange**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"get activate()": {
 			"Syntax": "**.get activate**() : Boolean",
 			"Params": [
@@ -3072,8 +3109,19 @@
 			],
 			"Summary": ""
 		},
-		"get losingFocus()": {
-			"Syntax": "**.get losingFocus**() : Boolean",
+		"get pageChange()": {
+			"Syntax": "**.get pageChange**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get resize()": {
+			"Syntax": "**.get resize**() : Boolean",
 			"Params": [
 				[
 					"",
@@ -3094,8 +3142,8 @@
 			],
 			"Summary": ""
 		},
-		"get resize()": {
-			"Syntax": "**.get resize**() : Boolean",
+		"get losingFocus()": {
+			"Syntax": "**.get losingFocus**() : Boolean",
 			"Params": [
 				[
 					"",
@@ -3138,8 +3186,8 @@
 			],
 			"Summary": ""
 		},
-		"get load()": {
-			"Syntax": "**.get load**() : Boolean",
+		"get gettingFocus()": {
+			"Syntax": "**.get gettingFocus**() : Boolean",
 			"Params": [
 				[
 					"",
@@ -3149,12 +3197,12 @@
 			],
 			"Summary": ""
 		},
-		"get gettingFocus()": {
-			"Syntax": "**.get gettingFocus**() : Boolean",
+		"get _eventName()": {
+			"Syntax": "**.get _eventName**() : Text",
 			"Params": [
 				[
 					"",
-					"Boolean",
+					"Text",
 					"<-"
 				]
 			],
@@ -3184,6 +3232,17 @@
 		},
 		"get form()": {
 			"Syntax": "**.get form**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get load()": {
+			"Syntax": "**.get load**() : Boolean",
 			"Params": [
 				[
 					"",
@@ -4045,6 +4104,17 @@
 			],
 			"Summary": ""
 		},
+		"setData()": {
+			"Syntax": "**.setData**( *o* : Object )",
+			"Params": [
+				[
+					"o",
+					"Object",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"focus()": {
 			"Syntax": "**.focus**() : cs.ui.widget",
 			"Params": [
@@ -4489,8 +4559,14 @@
 			"Summary": ""
 		},
 		"expand()": {
-			"Syntax": "**.expand**()",
-			"Params": [],
+			"Syntax": "**.expand**() : cs.ui.comboBox",
+			"Params": [
+				[
+					"",
+					"cs.ui.comboBox",
+					"<-"
+				]
+			],
 			"Summary": ""
 		},
 		"set filter()": {
@@ -7559,54 +7635,6 @@
 		}
 	},
 	"subform": {
-		"setPrivateEvents()": {
-			"Syntax": "**.setPrivateEvents**( *events* : Object )",
-			"Params": [
-				[
-					"events",
-					"Object",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"getParentDimensions()": {
-			"Syntax": "**.getParentDimensions**() : cs.ui.dim",
-			"Params": [
-				[
-					"",
-					"cs.ui.dim",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"getSubforms()": {
-			"Syntax": "**.getSubforms**()",
-			"Params": [],
-			"Summary": ""
-		},
-		"focus()": {
-			"Syntax": "**.focus**( *widget* : Text )",
-			"Params": [
-				[
-					"widget",
-					"Text",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"stopTimer()": {
-			"Syntax": "**.stopTimer**()",
-			"Params": [],
-			"Summary": ""
-		},
-		"removeFocus()": {
-			"Syntax": "**.removeFocus**()",
-			"Params": [],
-			"Summary": ""
-		},
 		"setSubform()": {
 			"Syntax": "**.setSubform**( *detail* : Text; *list* : Text; *table* : Pointer ) : cs.ui.subform",
 			"Params": [
@@ -7631,6 +7659,82 @@
 					"<-"
 				]
 			],
+			"Summary": ""
+		},
+		"get listForm()": {
+			"Syntax": "**.get listForm**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get detailForm()": {
+			"Syntax": "**.get detailForm**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setPrivateEvents()": {
+			"Syntax": "**.setPrivateEvents**( *events* : Object )",
+			"Params": [
+				[
+					"events",
+					"Object",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"getParentDimensions()": {
+			"Syntax": "**.getParentDimensions**() : cs.ui.dim",
+			"Params": [
+				[
+					"",
+					"cs.ui.dim",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"getSubforms()": {
+			"Syntax": "**.getSubforms**() : Object",
+			"Params": [
+				[
+					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"stopTimer()": {
+			"Syntax": "**.stopTimer**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"focus()": {
+			"Syntax": "**.focus**( *widget* : Text )",
+			"Params": [
+				[
+					"widget",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"removeFocus()": {
+			"Syntax": "**.removeFocus**()",
+			"Params": [],
 			"Summary": ""
 		},
 		"set data()": {
@@ -7688,6 +7792,17 @@
 				[
 					"delay",
 					"Integer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"execute()": {
+			"Syntax": "**.execute**( *formula* : 4D.Function )",
+			"Params": [
+				[
+					"formula",
+					"4D.Function",
 					"->"
 				]
 			],
@@ -7944,6 +8059,11 @@
 					"<-"
 				]
 			],
+			"Summary": ""
+		},
+		"swapDecimalSeparator()": {
+			"Syntax": "**.swapDecimalSeparator**()",
+			"Params": [],
 			"Summary": ""
 		},
 		"set asPassword()": {

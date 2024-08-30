@@ -33,7 +33,32 @@ Class constructor($widget : Text; $form : Text)
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set me($me : cs:C1710.onBoard)
 	
-	This:C1470.instances[0].data.me:=$me
+	If (This:C1470.instances#Null:C1517)\
+		 && (This:C1470.instances.length>0)
+		
+		This:C1470.instances[0].data.me:=$me
+		
+	End if 
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set parent($parent : Object)
+	
+	If (This:C1470.instances#Null:C1517)\
+		 && (This:C1470.instances.length>0)
+		
+		This:C1470.instances[0].parent:=$parent
+		
+	End if 
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function get parent() : Object
+	
+	If (This:C1470.instances#Null:C1517)\
+		 && (This:C1470.instances.length>0)
+		
+		return This:C1470.instances[0].parent
+		
+	End if 
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 	// Returns the name of the widget on the current page
@@ -268,7 +293,8 @@ Function onLoad()
 				//╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 			Else 
 				
-				// A "Case of" statement should never omit "Else"
+				OBJECT SET VALUE:C1742($key; Form:C1466[$key])
+				
 				//╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 		End case 
 	End for each 

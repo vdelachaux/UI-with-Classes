@@ -259,21 +259,7 @@ Function getFilter() : Text
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setPlaceholder($placeholder : Text) : cs:C1710.input
 	
-	var $t : Text
-	
-	//%W-533.1
-	If (Length:C16($placeholder)>0)\
-		 && (Length:C16($placeholder)<=255)\
-		 && ($placeholder[[1]]#Char:C90(1))
-		
-		
-		$t:=Formula from string:C1601("Get localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $placeholder)
-		$placeholder:=Length:C16($t)>0 ? $t : $placeholder  // Revert if no localization
-		
-	End if 
-	//%W+533.1
-	
-	OBJECT SET PLACEHOLDER:C1295(*; This:C1470.name; $placeholder)
+	OBJECT SET PLACEHOLDER:C1295(*; This:C1470.name; This:C1470._getLocalizeString($placeholder))
 	
 	return This:C1470
 	
@@ -315,3 +301,17 @@ Function setEnterable($enterable : Boolean; $focusable : Boolean) : cs:C1710.inp
 	End if 
 	
 	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Replace the point by the decimal parameter in a text box
+	// This function must be called during management of the "On Before Keystroke" event.
+Function swapDecimalSeparator()
+	
+	var $separator : Text
+	
+	If (Keystroke:C390=".")
+		
+		GET SYSTEM FORMAT:C994(Decimal separator:K60:1; $separator)
+		FILTER KEYSTROKE:C389($separator)
+		
+	End if 

@@ -29,20 +29,7 @@ Function set title($title : Text)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setTitle($title : Text) : cs:C1710.static
 	
-	var $t : Text
-	
-	//%W-533.1
-	If (Length:C16($title)>0)\
-		 && (Length:C16($title)<=255)\
-		 && ($title[[1]]#Char:C90(1))
-		
-		$t:=Formula from string:C1601("Get localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $title)
-		$title:=Length:C16($t)>0 ? $t : $title  // Revert if no localization
-		
-	End if 
-	//%W+533.1
-	
-	OBJECT SET TITLE:C194(*; This:C1470.name; $title)
+	OBJECT SET TITLE:C194(*; This:C1470.name; This:C1470._getLocalizeString($title))
 	
 	return This:C1470
 	
@@ -1073,3 +1060,63 @@ Function hiddenFromView() : cs:C1710.static
 	OBJECT SET COORDINATES:C1248(*; This:C1470.name; -100; -100; -100; -100)
 	
 	return This:C1470
+	
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Function _proxy($proxy : Text) : Text
+	
+	Case of 
+			
+			//______________________________________________________
+		: (Position:C15("path:"; $proxy)=1)\
+			 || (Position:C15("file:"; $proxy)=1)\
+			 || (Position:C15("var:"; $proxy)=1)\
+			 || (Position:C15("!"; $proxy)=1)
+			
+			return $proxy
+			
+			//______________________________________________________
+		: (Position:C15("#"; $proxy)=1)  // Shortcut for Resources folder
+			
+			return "path:/RESOURCES/"+Delete string:C232($proxy; 1; 1)
+			
+			//______________________________________________________
+		: ($proxy="|@")
+			
+			return "path:/.PRODUCT_RESOURCES/"+Delete string:C232($proxy; 1; 1)
+			
+			//______________________________________________________
+		: (Position:C15("/"; $proxy)=1)
+			
+			return "path:"+$proxy
+			
+			//______________________________________________________
+		Else 
+			
+			// Relative to the form.4DForm
+			return "path:/FORM/"+$proxy
+			
+			//______________________________________________________
+	End case 
+	
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Function _getLocalizeString($resname : Text) : Text
+	
+	var $t : Text
+	
+	If (Position:C15(":xliff:"; $resname)=1)
+		
+		$resname:=Delete string:C232($resname; 1; 7)
+		
+	End if 
+	
+	//%W-533.1
+	If (Length:C16($resname)>0)\
+		 && (Length:C16($resname)<=255)\
+		 && ($resname[[1]]#Char:C90(1))
+		
+		$t:=Formula from string:C1601("Get localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $resname)
+		
+	End if 
+	//%W+533.1
+	
+	return Length:C16($t)>0 ? $t : $resname  // Revert if no localization
