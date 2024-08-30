@@ -1,4 +1,4 @@
-Class constructor($e : cs:C1710.evt)
+Class constructor($e : Object)
 	
 	// MARK:Common properties
 	This:C1470.objectName:=Null:C1517

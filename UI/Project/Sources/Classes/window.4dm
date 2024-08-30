@@ -391,6 +391,12 @@ to be redrawn without any effect apparent for the user.
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function bringToFront()
 	
+	If (This:C1470.isFrontmost())
+		
+		return 
+		
+	End if 
+	
 	var $bottom; $left; $right; $top : Integer
 	
 	GET WINDOW RECT:C443($left; $top; $right; $bottom; This:C1470.ref)

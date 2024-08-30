@@ -160,7 +160,17 @@ Function show($data : Object) : Text
 	// Show
 	OBJECT SET VISIBLE:C603(*; $widget; True:C214)
 	
+	//& touch
+	GOTO OBJECT:C206(*; $widget)
+	
 	return $widget
+	
+	// === === === === === === === === === === === === === === === === === ===
+	// Hides widget
+Function hide($widget : Text)
+	
+	$widget:=$widget || This:C1470.name
+	OBJECT SET VISIBLE:C603(*; $widget; False:C215)
 	
 	// === === === === === === === === === === === === === === === === === ===
 Function close()
@@ -178,13 +188,6 @@ Function cancel()
 	
 	Form:C1466.CANCELLED:=True:C214
 	CALL SUBFORM CONTAINER:C1086(-1)
-	
-	// === === === === === === === === === === === === === === === === === ===
-	// Hides widget
-Function hide($widget : Text)
-	
-	$widget:=$widget || This:C1470.name
-	OBJECT SET VISIBLE:C603(*; $widget; False:C215)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 	// Returns the data of the widget on the current page

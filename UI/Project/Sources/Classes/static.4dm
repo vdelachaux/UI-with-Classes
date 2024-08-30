@@ -288,6 +288,9 @@ Function setCoordinates($left; $top : Integer; $right : Integer; $bottom : Integ
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get windowCoordinates() : Object
 	
+	
+	This:C1470.updateCoordinates()
+	
 	var $bottom; $left; $right; $top : Integer
 	
 	$left:=This:C1470._coordinates.left

@@ -91,7 +91,7 @@ Function expand() : cs:C1710.comboBox
 	
 	var $o : Object
 	
-	If (Bool:C1537(This:C1470.data.automaticExpand))
+	If (This:C1470.automaticExpand)
 		
 		// Get the current widget window coordinates
 		$o:=This:C1470.windowCoordinates
