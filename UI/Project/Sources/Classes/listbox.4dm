@@ -689,9 +689,22 @@ Function select($row : Integer) : cs:C1710.listbox
 	// Update selection
 	If (This:C1470.isCollection() || This:C1470.isEntitySelection())
 		
-		This:C1470.item:=This:C1470.getValue()[$row-1]
-		This:C1470.itemPosition:=$row-1
-		This:C1470.items:=[This:C1470.item]
+		var $c : Collection
+		$c:=This:C1470.getValue()
+		
+		If ($c.length>=$row)
+			
+			This:C1470.item:=$c[$row-1]
+			This:C1470.itemPosition:=$row-1
+			This:C1470.items:=[This:C1470.item]
+			
+		Else 
+			
+			This:C1470.item:=Null:C1517
+			This:C1470.itemPosition:=0
+			This:C1470.items:=[]
+			
+		End if 
 		
 	Else 
 		
