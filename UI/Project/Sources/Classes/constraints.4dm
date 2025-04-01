@@ -1,5 +1,8 @@
 property rules : Collection
 
+property scrollBarWidth; marginV; marginH; labelMargin; offset : Integer
+property _matrix : Boolean
+
 Class constructor($metrics : Object)
 	
 	This:C1470.rules:=[]

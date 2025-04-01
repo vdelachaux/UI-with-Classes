@@ -1,3 +1,4 @@
+property __CLASS__ : Object
 property data; submenus : Collection
 property choice; ref : Text
 property autoRelease; released; localize; metacharacters; selected : Boolean
@@ -200,7 +201,8 @@ Function append($item; $param; $mark; $afterItem : Integer) : cs:C1710.menu
 					//______________________________________________________
 				Else 
 					
-					$t:=Formula from string:C1601("Get localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $item)
+					$t:=Formula from string:C1601("Localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $item)\
+						 || Localized string:C991($item)
 					
 					//______________________________________________________
 			End case 
@@ -862,7 +864,8 @@ Function popup($where : Variant; $x : Variant; $y : Integer) : cs:C1710.menu
 	Case of 
 			
 			//______________________________________________________
-		: (Count parameters:C259=0)  // At the current location of the mouse
+		: (Count parameters:C259=0)\
+			 || ($where=Null:C1517)  // At the current location of the mouse
 			
 			This:C1470.choice:=Dynamic pop up menu:C1006(This:C1470.ref)
 			

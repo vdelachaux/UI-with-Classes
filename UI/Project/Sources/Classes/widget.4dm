@@ -1,10 +1,14 @@
 Class extends static
 
-property _events : Collection
+property name; action; _uri : Text
 
-Class constructor($name : Text)
+property _events : Collection
+property _data; dataSource
+property _callback : 4D:C1709.Function
+
+Class constructor($name : Text; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	This:C1470.action:=OBJECT Get action:C1457(*; This:C1470.name)
 	
@@ -222,6 +226,14 @@ Function touch() : cs:C1710.widget
 	
 	return This:C1470
 	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function postClick()
+	
+	This:C1470.updateCoordinates()
+	var $o:=This:C1470.coordinates
+	POST CLICK:C466(($o.left+$o.right)/2; ($o.top+$o.bottom)/2)
+	
+	
 	//MARK:-[Entry]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 	// Returns a pointer to the widget
@@ -258,8 +270,8 @@ Function notEnterable() : cs:C1710.widget
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function getShortcut : Object
 	
-	C_TEXT:C284($t)
-	C_LONGINT:C283($l)
+	var $t : Text
+	var $l : Integer
 	
 	OBJECT GET SHORTCUT:C1186(*; This:C1470.name; $t; $l)
 	
@@ -273,6 +285,16 @@ Function setShortcut($key : Text; $modifier : Integer) : cs:C1710.widget
 	OBJECT SET SHORTCUT:C1185(*; This:C1470.name; $key; $modifier)
 	
 	return This:C1470
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get contextMenu() : Boolean
+	
+	return OBJECT Get context menu:C1252(*; This:C1470.name)
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set contextMenu($on : Boolean)
+	
+	OBJECT SET CONTEXT MENU:C1251(*; This:C1470.name; $on)
 	
 	//MARK:-[Help]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==

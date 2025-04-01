@@ -1,13 +1,10 @@
-property _menus : Collection
+property _menus:=[]  // A collection of menu items that allows to extract one based on the value of its parameter
 
 Class extends menu
 
 Class constructor($menus : Collection)
 	
 	Super:C1705()
-	
-	// A collection of menu items that allows to extract one based on the value of its parameter
-	This:C1470._menus:=[]
 	
 	This:C1470.populate($menus)
 	
@@ -189,9 +186,7 @@ Function update($index : Integer; $menu : cs:C1710.menu) : cs:C1710.menuBar
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function enableItem($item : Text; $enabled : Boolean)
 	
-	var $o : Object
-	
-	$o:=This:C1470._menus.query("ref = :1"; $item).pop()
+	var $o : Object:=This:C1470._menus.query("ref = :1"; $item).first()
 	
 	If (Asserted:C1132($o#Null:C1517; "Item \""+$item+"\" not found"))
 		
@@ -211,9 +206,7 @@ Function enableItem($item : Text; $enabled : Boolean)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function disableItem($item : Text)
 	
-	var $o : Object
-	
-	$o:=This:C1470._menus.query("ref = :1"; $item).pop()
+	var $o : Object:=This:C1470._menus.query("ref = :1"; $item).first()
 	
 	If (Asserted:C1132($o#Null:C1517; "Item \""+$item+"\" not found"))
 		
@@ -221,14 +214,23 @@ Function disableItem($item : Text)
 		
 	End if 
 	
+	// MARK:-[HANDLING]
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function hide()
+	
+	HIDE MENU BAR:C432
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function show()
+	
+	SHOW MENU BAR:C431
+	
 	// MARK:-[INFORMATIONS]
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function menuSelected() : Object
 	
-	var $menuSelected : Integer
 	var $menuRef : Text
-	
-	$menuSelected:=Menu selected:C152($menuRef)
+	var $menuSelected:=Menu selected:C152($menuRef)
 	
 	return {\
 		ref: $menuRef; \
@@ -239,14 +241,32 @@ Function menuSelected() : Object
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function getMenuItemParameter($type : Integer) : Variant
 	
-	var $o : Object
-	$o:=This:C1470.menuSelected()
+	var $o:=This:C1470.menuSelected()
 	
 	return $type=Is longint:K8:6\
-		 ? Num:C11(This:C1470._menus.query("menu = :1 & item = :2"; $o.menu; $o.item).pop().ref)\
-		 : This:C1470._menus.query("menu = :1 & item = :2"; $o.menu; $o.item).pop().ref
+		 ? Num:C11(This:C1470._menus.query("menu = :1 & item = :2"; $o.menu; $o.item).first().ref)\
+		 : This:C1470._menus.query("menu = :1 & item = :2"; $o.menu; $o.item).first().ref
 	
 	// MARK:-[TOOLS]
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Load & set a toolbox menu bar
+Function setMenuBar($menu; $retain : Boolean)
+	
+	var $type:=Value type:C1509($menu)
+	
+	If (Asserted:C1132(($type=Is text:K8:3) || ($type=Is integer:K8:5) || ($type=Is real:K8:4); "The “menu” parameter must be text or numeric"))
+		
+		If ($retain)
+			
+			SET MENU BAR:C67($menu; *)
+			
+		Else 
+			
+			SET MENU BAR:C67($menu)
+			
+		End if 
+	End if 
+	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Create a default minimal menu bar
 Function defaultMinimalMenuBar() : cs:C1710.menuBar

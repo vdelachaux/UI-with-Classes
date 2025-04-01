@@ -1,15 +1,16 @@
 Class extends widget
 
 property data : Object
+property dataSource : Object
 
-Class constructor($name : Text; $data; $page)
+Class constructor($name : Text; $data; $page : Integer; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	This:C1470.dataSource:=$data
 /*
-💡 The widget "Variable or Expression" property mut be: 
-   "formGetInstance.<name>.dataSource"
+💡 The widget "Variable or Expression" property mut be:
+"formGetInstance.<name>.dataSource"
 */
 	
 	This:C1470.data:={}
@@ -71,6 +72,18 @@ Class constructor($name : Text; $data; $page)
 	This:C1470.pageNumber:=$page
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get pageRef() : Integer
+	
+	If (This:C1470.isChoiceList)
+		
+		var $itemeRef : Integer
+		var $itemeText : Text
+		GET LIST ITEM:C378(*; This:C1470.name; *; $itemeRef; $itemeText)
+		return $itemeRef
+		
+	End if 
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get pageNumber() : Integer
 	
 	return This:C1470.data.values.indexOf(This:C1470.data.currentValue)+1
@@ -115,11 +128,8 @@ Function goToPage()
 	Else 
 		
 		$page:=This:C1470.pageNumber
-		//This.data.index:=$page-1
 		
 	End if 
-	
-	This:C1470.pageNumber:=$page
 	
 	If (Value type:C1509(OBJECT Get subform container value:C1785)#Is undefined:K8:13)
 		

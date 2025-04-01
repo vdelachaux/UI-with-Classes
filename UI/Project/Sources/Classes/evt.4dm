@@ -1,30 +1,21 @@
+// MARK:Common properties
+property objectName : Text
+property code : Integer
+property description : Text
+
+// MARK:Internal
+property _descriptions : Collection
+
+// MARK:List boxes additional properties
+property area; areaName; columnName; footerName; headerName : Text
+property column; row : Integer
+property isRowSelected : Boolean
+property horizontalScroll; verticalScroll : Integer
+property newPosition; oldPosition : Integer
+
+property newSize; oldSize : Integer
+
 Class constructor($e : Object)
-	
-	// MARK:Common properties
-	This:C1470.objectName:=Null:C1517
-	This:C1470.code:=Null:C1517
-	This:C1470.description:=Null:C1517
-	
-	// MARK:List boxes additional properties
-	This:C1470.area:=Null:C1517
-	This:C1470.areaName:=Null:C1517
-	This:C1470.columnName:=Null:C1517
-	This:C1470.footerName:=Null:C1517
-	This:C1470.headerName:=Null:C1517
-	
-	This:C1470.column:=Null:C1517
-	
-	This:C1470.row:=Null:C1517
-	This:C1470.isRowSelected:=Null:C1517
-	
-	This:C1470.horizontalScroll:=Null:C1517
-	This:C1470.verticalScroll:=Null:C1517
-	
-	This:C1470.newPosition:=Null:C1517
-	This:C1470.oldPosition:=Null:C1517
-	
-	This:C1470.newSize:=Null:C1517
-	This:C1470.oldSize:=Null:C1517
 	
 	$e:=$e || FORM Event:C1606
 	

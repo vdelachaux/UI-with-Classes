@@ -1,27 +1,31 @@
 Class extends scrollable
 
-Class constructor($name : Text; $picture)
+property fileName : Text
+property size : Integer
+
+Class constructor($name : Text; $data; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	Case of 
 			
 			//______________________________________
-		: (Value type:C1509($picture)=Is picture:K8:10)
+		: (Value type:C1509($data)=Is picture:K8:10)
 			
-			This:C1470.value:=$picture
-			This:C1470.fileName:=Get picture file name:C1171($picture)
-			This:C1470.size:=Picture size:C356($picture)
+			This:C1470.value:=$data
+			This:C1470.fileName:=Get picture file name:C1171($data)
+			This:C1470.size:=Picture size:C356($data)
 			
 			//______________________________________
-		: (Value type:C1509($picture)=Is object:K8:27)  // 4D.File
+		: (Value type:C1509($data)=Is object:K8:27)\
+			 && (OB Instance of:C1731($data; 4D:C1709.File))
 			
-			This:C1470.read($picture)
+			This:C1470.read($data)
 			
 			//______________________________________
 		Else 
 			
-			This:C1470.value:=$picture
+			This:C1470.value:=$data
 			This:C1470.fileName:=""
 			This:C1470.size:=0
 			

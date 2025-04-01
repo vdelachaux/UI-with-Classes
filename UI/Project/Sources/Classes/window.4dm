@@ -1,3 +1,8 @@
+property ref
+
+property __CLASS__ : Object
+property __SUPER__ : Object
+
 Class constructor($param)
 	
 	Super:C1705()
@@ -243,15 +248,15 @@ Function get title() : Text
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set title($title : Text)
 	
-	var $t : Text
-	
 	//%W-533.1
 	If (Length:C16($title)>0)\
 		 && (Length:C16($title)<=255)\
 		 && ($title[[1]]#Char:C90(1))
 		
-		$t:=Formula from string:C1601("Get localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $title)
-		$title:=Length:C16($t)>0 ? $t : $title  // Revert if no localization
+		var $t : Text:=Formula from string:C1601("Localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $title)\
+			 || Localized string:C991($title)
+		
+		$title:=$t || $title  // Revert if no localization
 		
 	End if 
 	//%W+533.1
@@ -371,6 +376,13 @@ Function resize($width : Integer; $height : Integer)
 	RESIZE FORM WINDOW:C890($width; $height)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function resizeVertically($offset : Integer)
+	
+	var $coord : cs:C1710.coord:=This:C1470.coordinates
+	$coord.bottom+=$offset
+	This:C1470.setCoordinates($coord.left; $coord.top; $coord.right; $coord.bottom)
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function redraw()
 	
 	REDRAW WINDOW:C456(This:C1470.ref)
@@ -409,8 +421,6 @@ Function bringToFront()
 Function vibrate($count : Integer)
 	
 	var $i; $shift : Integer
-	var $o : Object
-	
 	
 	If (This:C1470.ref=Null:C1517)
 		
@@ -420,7 +430,14 @@ Function vibrate($count : Integer)
 	
 	$count:=$count=0 ? 6 : $count
 	
-	$o:=This:C1470.coordinates
+	// Must be an even number
+	If (($count%2)#0)
+		
+		$count:=$count+1
+		
+	End if 
+	
+	var $o:=This:C1470.coordinates
 	
 	For ($i; 1; $count; 1)
 		
@@ -429,4 +446,3 @@ Function vibrate($count : Integer)
 		DELAY PROCESS:C323(Current process:C322; 2)
 		
 	End for 
-	

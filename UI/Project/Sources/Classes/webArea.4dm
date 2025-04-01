@@ -1,10 +1,13 @@
-property errors; filterdURLs : Collection
-
 Class extends widget
 
-Class constructor($name : Text; $data)
+property errors; filterdURLs : Collection
+property success : Boolean
+
+property _url : Text
+
+Class constructor($name : Text; $data; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	This:C1470.success:=False:C215
 	This:C1470.errors:=[]

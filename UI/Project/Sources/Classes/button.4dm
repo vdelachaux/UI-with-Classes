@@ -1,8 +1,8 @@
 Class extends widget
 
-Class constructor($name : Text)
+Class constructor($name : Text; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	This:C1470[""]:={}
 	
@@ -22,6 +22,98 @@ Class constructor($name : Text)
 		/*12*/"OS X Textured"; \
 		/*13*/"OS X Gradient"\
 		]
+	
+	// Adjust height to suit system
+	var $height:=This:C1470.height
+	
+	Case of 
+			
+			//________________________________________________________________________________
+		: (This:C1470.type=Object type 3D button:K79:17)\
+			 && ([0; 2].includes(This:C1470.style))  // Push button
+			
+			If (Is Windows:C1573)
+				
+				Case of 
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+					: ($height>18)  // Regular
+						
+						This:C1470.height:=28
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+					Else 
+						
+						This:C1470.height:=19
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+				End case 
+				
+			Else 
+				
+				Case of 
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+					: ($height>18)  // Regular
+						
+						This:C1470.height:=21
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+					: ($height>=16)  // Small
+						
+						This:C1470.height:=17
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+					Else 
+						
+						This:C1470.height:=16  // Mini
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+				End case 
+			End if 
+			
+			//________________________________________________________________________________
+		: (This:C1470.type=Object type 3D checkbox:K79:27)\
+			 && ([0; 2].includes(This:C1470.style))  // Checkbox
+			
+			If (Is Windows:C1573)
+				
+				This:C1470.height:=13
+				
+			Else 
+				
+				$height:=This:C1470.height
+				
+				Case of 
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+					: ($height>=17)  // Regular
+						
+						This:C1470.height:=17
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+					: ($height>=16)  // Small
+						
+						This:C1470.height:=16
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+					Else 
+						
+						This:C1470.height:=15  // Mini
+						
+						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+				End case 
+			End if 
+			
+			//________________________________________________________________________________
+	End case 
+	
+	If (This:C1470.type=Object type 3D checkbox:K79:27)\
+		 || (This:C1470.type=Object type 3D radio button:K79:24)
+		
+		This:C1470.bestSize()
+		
+	End if 
 	
 	//MARK:-[Text & Picture]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
@@ -58,9 +150,9 @@ Function _setPopupMenu($value : Variant) : cs:C1710.button
 /**
 If no parameter is passed the pop menu is removed, if any.
 Otherwise, the possible values are :
-  - 0 or "none": No pop-up menu
-  - 1 or "linked": With linked pop-up menu
-  - 2 or "separate": With separate pop-up menu
+- 0 or "none": No pop-up menu
+- 1 or "linked": With linked pop-up menu
+- 2 or "separate": With separate pop-up menu
 **/
 	
 	If (This:C1470.type=Object type 3D button:K79:17)
@@ -157,43 +249,6 @@ Function setBackgroundPicture($proxy : Text) : cs:C1710.button
 	End if 
 	
 	return This:C1470
-	
-	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
-Function _proxy($proxy : Text) : Text
-	
-	Case of 
-			
-			//______________________________________________________
-		: (Position:C15("path:"; $proxy)=1)\
-			 || (Position:C15("file:"; $proxy)=1)\
-			 || (Position:C15("var:"; $proxy)=1)\
-			 || (Position:C15("!"; $proxy)=1)
-			
-			return $proxy
-			
-			//______________________________________________________
-		: (Position:C15("#"; $proxy)=1)  // Shortcut for Resources folder
-			
-			return "path:/RESOURCES/"+Delete string:C232($proxy; 1; 1)
-			
-			//______________________________________________________
-		: ($proxy="|@")
-			
-			return "path:/.PRODUCT_RESOURCES/"+Delete string:C232($proxy; 1; 1)
-			
-			//______________________________________________________
-		: (Position:C15("/"; $proxy)=1)
-			
-			return "path:"+$proxy
-			
-			//______________________________________________________
-		Else 
-			
-			// Relative to the form.4DForm
-			return "path:/FORM/"+$proxy
-			
-			//______________________________________________________
-	End case 
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get numStates() : Integer
@@ -299,7 +354,7 @@ Function is3DButton($message : Text) : Boolean
 	
 	// MARK:-[Miscellaneous]
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-	/// Tryes to underline the first capital letter or, 
+	/// Tryes to underline the first capital letter or,
 	/// if not found the first letter, corresponding to the associated key shortcut
 Function highlightShortcut() : cs:C1710.button
 	

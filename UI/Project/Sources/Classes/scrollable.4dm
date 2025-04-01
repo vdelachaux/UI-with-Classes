@@ -1,9 +1,12 @@
 Class extends widget
 
+property scroll
+property scrollbars : Object
+
 // === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Class constructor($name : Text)
+Class constructor($name : Text; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	ASSERT:C1129([\
 		Object type subform:K79:40; \
@@ -90,7 +93,7 @@ Function setHorizontalScrollbar($display) : cs:C1710.scrollable
 	
 	This:C1470.getScrollbars()
 	
-	OBJECT SET SCROLLBAR:C843(*; This:C1470.name; Num:C11($display); Num:C11(This:C1470.scrollbar.vertical))
+	OBJECT SET SCROLLBAR:C843(*; This:C1470.name; Num:C11($display); Num:C11(This:C1470.scrollbars.vertical))
 	
 	return This:C1470
 	
@@ -99,7 +102,7 @@ Function setVerticalScrollbar($display) : cs:C1710.scrollable
 	
 	This:C1470.getScrollbars()
 	
-	OBJECT SET SCROLLBAR:C843(*; This:C1470.name; Num:C11(This:C1470.scrollbar.horizontal); Num:C11($display))
+	OBJECT SET SCROLLBAR:C843(*; This:C1470.name; Num:C11(This:C1470.scrollbars.horizontal); Num:C11($display))
 	
 	return This:C1470
 	

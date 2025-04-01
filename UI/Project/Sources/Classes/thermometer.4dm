@@ -1,8 +1,8 @@
 Class extends widget
 
-Class constructor($name : Text)  //; $datasource : Variant)
+Class constructor($name : Text; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function asynchronous() : cs:C1710.thermometer

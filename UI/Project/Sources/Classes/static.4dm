@@ -2,14 +2,26 @@
 This class is the parent class of all form objects classes
 */
 
-Class constructor($name : Text)
+property name : Text
+property type : Integer
+
+property _coordinates; initialPosition : Object
+property _fonts : Collection
+
+property __CLASS__ : 4D:C1709.Class  // The widget's class definition
+property __PARENT__ : cs:C1710.form  // The form's class (xxx_controller)
+property __DEFINITION__ : Object  // The json form definition
+
+Class constructor($name : Text; $parent : Object)
 	
 	This:C1470.__CLASS__:=OB Class:C1730(This:C1470)
+	This:C1470.__PARENT__:=$parent
 	
 	This:C1470.name:=Length:C16($name)>0 ? $name : OBJECT Get name:C1087(Object current:K67:2)
 	This:C1470.type:=OBJECT Get type:C1300(*; This:C1470.name)
 	
-	If (Asserted:C1132(This:C1470.type#0; Current method name:C684+": No objects found named \""+This:C1470.name+"\""))
+	If (Asserted:C1132((This:C1470.type#Object type unknown:K79:1) || Try(Formula from string:C1601("authorizedUnknownObject").call(Null:C1517; This:C1470.name)); \
+		Current method name:C684+": No objects found named \""+This:C1470.name+"\""))
 		
 		This:C1470.updateCoordinates()
 		
@@ -33,14 +45,22 @@ Function setTitle($title : Text) : cs:C1710.static
 	
 	return This:C1470
 	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get class() : Text
+	
+	return Try(String:C10(This:C1470._jsonFormDefinition().class))
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function jsonFormDefinition() : Object
+	
+	return This:C1470._jsonFormDefinition()
+	
 	//MARK:-[Coordinates & Sizing]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get resizingOptions() : Object
 	
 	var $horizontal; $vertical : Integer
-	
 	OBJECT GET RESIZING OPTIONS:C1176(*; This:C1470.name; $horizontal; $vertical)
-	
 	return {horizontal: $horizontal; vertical: $vertical}
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -64,11 +84,8 @@ Function set width($width : Integer)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setWidth($width : Integer) : cs:C1710.static
 	
-	var $o : Object
-	
-	$o:=This:C1470.getCoordinates()
+	var $o:=This:C1470.getCoordinates()
 	$o.right:=$o.left+$width
-	
 	OBJECT SET COORDINATES:C1248(*; This:C1470.name; $o.left; $o.top; $o.right; $o.bottom)
 	This:C1470.updateCoordinates($o.left; $o.top; $o.right; $o.bottom)
 	
@@ -89,11 +106,8 @@ Function set height($height : Integer)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setHeight($height : Integer) : cs:C1710.static
 	
-	var $o : Object
-	
-	$o:=This:C1470.getCoordinates()
+	var $o:=This:C1470.getCoordinates()
 	$o.bottom:=$o.top+$height
-	
 	OBJECT SET COORDINATES:C1248(*; This:C1470.name; $o.left; $o.top; $o.right; $o.bottom)
 	This:C1470.updateCoordinates($o.left; $o.top; $o.right; $o.bottom)
 	
@@ -107,12 +121,9 @@ Function get left() : Integer
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set left($left : Integer)
 	
-	var $width : Integer
-	var $o : cs:C1710.coord
-	
 	This:C1470.getCoordinates()
-	$o:=This:C1470._coordinates
-	$width:=$o.width
+	var $o : cs:C1710.coord:=This:C1470._coordinates
+	var $width : Integer:=$o.right-$o.left
 	$o.left:=$left
 	$o.right:=$o.left+$width
 	This:C1470.setCoordinates($o)
@@ -125,12 +136,9 @@ Function get top() : Integer
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set top($top : Integer)
 	
-	var $height : Integer
-	var $o : cs:C1710.coord
-	
 	This:C1470.getCoordinates()
-	$o:=This:C1470._coordinates
-	$height:=$o.height
+	var $o : cs:C1710.coord:=This:C1470._coordinates
+	var $height : Integer:=$o.height
 	$o.top:=$top
 	$o.bottom:=$o.top+$height
 	This:C1470.setCoordinates($o)
@@ -143,11 +151,8 @@ Function get right() : Integer
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set right($right : Integer)
 	
-	var $width : Integer
-	var $o : cs:C1710.coord
-	
 	This:C1470.getCoordinates()
-	$o:=This:C1470._coordinates
+	var $o : cs:C1710.coord:=This:C1470._coordinates
 	$o.right:=$right
 	This:C1470.setCoordinates($o)
 	
@@ -159,19 +164,15 @@ Function get bottom() : Integer
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set bottom($bottom : Integer)
 	
-	var $width : Integer
-	var $o : cs:C1710.coord
-	
 	This:C1470.getCoordinates()
-	$o:=This:C1470._coordinates
+	var $o : cs:C1710.coord:=This:C1470._coordinates
 	$o.bottom:=$bottom
 	This:C1470.setCoordinates($o)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get dimensions() : Object
 	
-	var $o : Object
-	$o:=This:C1470.getCoordinates()
+	var $o : Object:=This:C1470.getCoordinates()
 	
 	return {\
 		width: $o.right-$o.left; \
@@ -180,9 +181,7 @@ Function get dimensions() : Object
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set dimensions($dimensions : Object)
 	
-	var $o : Object
-	$o:=This:C1470.getCoordinates()
-	
+	var $o:=This:C1470.getCoordinates()
 	If ($dimensions.width#Null:C1517)
 		
 		$o.right:=$o.left+Num:C11($dimensions.width)
@@ -201,9 +200,7 @@ Function set dimensions($dimensions : Object)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setDimensions($width : Integer; $height : Integer) : cs:C1710.static
 	
-	var $o : Object
-	
-	$o:=This:C1470.getCoordinates()
+	var $o:=This:C1470.getCoordinates()
 	$o.right:=$o.left+$width
 	
 	If (Count parameters:C259>=2)
@@ -218,17 +215,16 @@ Function setDimensions($width : Integer; $height : Integer) : cs:C1710.static
 	return This:C1470
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get coordinates() : Object  //cs.coord
+Function get coordinates() : cs:C1710.coord
 	
 	This:C1470.getCoordinates()
-	//return cs.coord.new(This._coordinates)
-	return This:C1470._coordinates
+	return cs:C1710.coord.new(This:C1470._coordinates)
+	//return This._coordinates
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function getCoordinates() : Object
 	
 	var $bottom; $left; $right; $top : Integer
-	
 	OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
 	This:C1470.updateCoordinates($left; $top; $right; $bottom)
 	
@@ -354,7 +350,7 @@ Function bestSize($alignment; $minWidth : Integer; $maxWidth : Integer) : cs:C17
 		: (This:C1470.type=Object type push button:K79:16)\
 			 || (This:C1470.type=Object type 3D button:K79:17)
 			
-			$o.minWidth:=60
+			$o.minWidth:=Is macOS:C1572 ? 80 : 60
 			
 			//______________________________________________________
 	End case 
@@ -403,8 +399,16 @@ Function bestSize($alignment; $minWidth : Integer; $maxWidth : Integer) : cs:C17
 			: (This:C1470.type=Object type push button:K79:16)\
 				 || (This:C1470.type=Object type 3D button:K79:17)
 				
-				// Add 10% for margins
-				$width:=Round:C94($width*1.1; 0)
+				If (Length:C16(OBJECT Get title:C1068(*; This:C1470.name))>0)
+					
+					// Add 10% for margins
+					$width:=Round:C94($width*1.1; 0)
+					
+				Else 
+					
+					OB REMOVE:C1226($o; "minWidth")
+					
+				End if 
 				
 				//______________________________
 			Else 
@@ -457,10 +461,32 @@ Function bestSize($alignment; $minWidth : Integer; $maxWidth : Integer) : cs:C17
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function getBestHeight() : Integer
+Function bestHeight($width : Integer) : Integer
+	
+	If (Count parameters:C259=0)
+		
+		$width:=This:C1470.coordinates.width
+		
+	End if 
+	
+	var $coord:=This:C1470.coordinates
+	var $height:=This:C1470.getBestHeight($width)
+	This:C1470.height:=$height
+	
+	return $height-$coord.height
+	
+	//var $coord:=This.coordinates
+	//OBJECT GET COORDINATES(*; "mess0"; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
+	//OBJECT GET BEST SIZE(*; "mess0"; $Lon_bestWidth; $Lon_bestHeight; $Lon_right-$Lon_left)
+	//OBJECT SET COORDINATES(*; "mess0"; $Lon_left; $Lon_top; $Lon_right; $Lon_top+$Lon_bestHeight)
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function getBestHeight($maxWidth : Integer) : Integer
 	
 	var $width; $height : Integer
-	OBJECT GET BEST SIZE:C717(*; This:C1470.name; $width; $height; This:C1470.dimensions.width)
+	
+	$maxWidth:=Count parameters:C259>=1 ? $maxWidth : This:C1470.dimensions.width
+	OBJECT GET BEST SIZE:C717(*; This:C1470.name; $width; $height; $maxWidth)
 	
 	return $height
 	
@@ -494,6 +520,16 @@ Function moveHorizontally($offset : Integer) : cs:C1710.static
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function moveLeft($offset : Integer) : cs:C1710.static
+	
+	return This:C1470.moveHorizontally(-Abs:C99($offset))
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function moveRight($offset : Integer) : cs:C1710.static
+	
+	return This:C1470.moveHorizontally(Abs:C99($offset))
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function moveVertically($offset : Integer) : cs:C1710.static
 	
 	var $bottom; $left; $right; $top : Integer
@@ -504,6 +540,16 @@ Function moveVertically($offset : Integer) : cs:C1710.static
 	This:C1470.setCoordinates($left; $top; $right; $bottom)
 	
 	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function moveUp($offset : Integer) : cs:C1710.static
+	
+	return This:C1470.moveVertically(-Abs:C99($offset))
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function moveDown($offset : Integer) : cs:C1710.static
+	
+	return This:C1470.moveVertically(Abs:C99($offset))
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function resizeHorizontally($offset : Integer) : cs:C1710.static
@@ -528,52 +574,30 @@ Function resizeVertically($offset : Integer) : cs:C1710.static
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function moveAndResizeHorizontally($offset : Integer; $resize : Integer) : cs:C1710.static
+Function resize($offset : Integer) : cs:C1710.static
 	
 	var $bottom; $left; $right; $top : Integer
-	
 	OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
 	
-	$left+=$offset
+	$right+=$offset
+	$bottom+=$offset
+	This:C1470.setCoordinates($left; $top; $right; $bottom)
 	
-	If (Count parameters:C259>=2)
-		
-		$right+=$resize
-		
-	Else 
-		
-		//$right+=$offset
-		
-	End if 
+	return This:C1470
 	
-	This:C1470.setCoordinates({\
-		left: $left; \
-		top: $top; \
-		right: $right; \
-		bottom: $bottom})
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function moveAndResizeHorizontally($offset : Integer; $resize : Integer) : cs:C1710.static
+	
+	This:C1470.moveHorizontally($offset)
+	This:C1470.resizeHorizontally(Count parameters:C259=1 ? -$offset : $resize)
 	
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function moveAndResizeVertically($offset : Integer; $resize : Integer) : cs:C1710.static
 	
-	var $bottom; $left; $right; $top : Integer
-	
-	OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
-	
-	$top:=$top+$offset
-	
-	If (Count parameters:C259>=2)
-		
-		$bottom:=$bottom+$resize
-		
-	End if 
-	
-	This:C1470.setCoordinates({\
-		left: $left; \
-		top: $top; \
-		right: $right; \
-		bottom: $bottom})
+	This:C1470.moveVertically($offset)
+	This:C1470.resizeVertically(Count parameters:C259=1 ? -$offset : $resize)
 	
 	return This:C1470
 	
@@ -633,7 +657,7 @@ Function get disabled() : Boolean
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set disabled($disabled : Boolean)
 	
-	OBJECT SET VISIBLE:C603(*; This:C1470.name; Not:C34($disabled))
+	OBJECT SET ENABLED:C1123(*; This:C1470.name; Not:C34($disabled))
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function disable() : cs:C1710.static
@@ -887,6 +911,21 @@ Function setColors($foreground : Variant; $background : Variant; $altBackground 
 	
 	return This:C1470
 	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function restoreForegroundColor()
+	
+	This:C1470.foregroundColor:=Foreground color:K23:1
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function restoreBackgroundColor()
+	
+	This:C1470.backgroundColor:=Background color:K23:2
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function removeBackgroundColor()
+	
+	This:C1470.backgroundColor:=Background color none:K23:10
+	
 	//MARK:-[Text]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get horizontalAlignment() : Integer
@@ -1064,6 +1103,19 @@ Function hiddenFromView() : cs:C1710.static
 	
 	return This:C1470
 	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Returns the json form object
+Function _jsonFormDefinition() : Object
+	
+	If (This:C1470.__DEFINITION__=Null:C1517)
+		
+		This:C1470.__DEFINITION__:=Try(This:C1470.__PARENT__._definition.pages.query("objects."+This:C1470.name+" != null").first().objects[This:C1470.name])
+		
+	End if 
+	
+	return This:C1470.__DEFINITION__
+	
+	// MARK:-
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _proxy($proxy : Text) : Text
 	
@@ -1104,8 +1156,6 @@ Function _proxy($proxy : Text) : Text
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _getLocalizeString($resname : Text) : Text
 	
-	var $t : Text
-	
 	If (Position:C15(":xliff:"; $resname)=1)
 		
 		$resname:=Delete string:C232($resname; 1; 7)
@@ -1117,9 +1167,16 @@ Function _getLocalizeString($resname : Text) : Text
 		 && (Length:C16($resname)<=255)\
 		 && ($resname[[1]]#Char:C90(1))
 		
-		$t:=Formula from string:C1601("Get localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $resname)
+		var $t : Text:=Formula from string:C1601("Localized string:C991($1)"; sk execute in host database:K88:5).call(Null:C1517; $resname)\
+			 || Localized string:C991($resname)
+		
+		return $t || $resname  // Revert if no localization
+		
+	Else 
+		
+		return $resname
 		
 	End if 
 	//%W+533.1
 	
-	return Length:C16($t)>0 ? $t : $resname  // Revert if no localization
+	

@@ -1,8 +1,11 @@
 Class extends widget
 
-Class constructor($name : Text)
+property _backup
+property _font : Text
+
+Class constructor($name : Text; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get asPassword() : Boolean
@@ -95,14 +98,14 @@ Function set placeholder($placeholder : Text)
 	// Keep current value
 Function backup($value) : cs:C1710.input
 	
-	This:C1470.$backup:=$value || This:C1470.getValue()
+	This:C1470._backup:=$value || This:C1470.getValue()
 	
 	return This:C1470
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get modified() : Boolean
 	
-	return This:C1470.$backup#This:C1470.getValue()
+	return This:C1470._backup#This:C1470.getValue()
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function highlight($startSel : Integer; $endSel : Integer) : cs:C1710.input
@@ -141,7 +144,7 @@ Function highlight($startSel : Integer; $endSel : Integer) : cs:C1710.input
 	// From the last character entered to the end
 Function highlightLastToEnd() : cs:C1710.input
 	
-	HIGHLIGHT TEXT:C210(*; This:C1470.name; This:C1470.highlightingStart()+1; MAXLONG:K35:2)
+	HIGHLIGHT TEXT:C210(*; This:C1470.name; This:C1470.highlightingStart(); MAXLONG:K35:2)
 	
 	return This:C1470
 	
@@ -315,3 +318,33 @@ Function swapDecimalSeparator()
 		FILTER KEYSTROKE:C389($separator)
 		
 	End if 
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Truncate with ellipsis
+Function truncateWithEllipsis($where : Integer; $target : Text; $char : Text)
+	
+	$where:=Count parameters:C259>=1 ? $where : Align center:K42:3
+	$target:=$target || This:C1470.value
+	$char:=$char || "…"
+	
+	var $bestHeight; $bestWidth; $pos : Integer
+	var $width : Integer:=This:C1470.dimensions.width
+	
+	This:C1470.value:=$target
+	
+	OBJECT GET BEST SIZE:C717(*; This:C1470.name; $bestWidth; $bestHeight)
+	
+	var $result:=$target
+	
+	While ($bestWidth>$width)
+		
+		$pos:=$where=Align left:K42:2 ? 1\
+			 : $where=Align center:K42:3 ? Length:C16($result)\2\
+			 : Length:C16($result)-1
+		
+		$result:=Insert string:C231(Delete string:C232($result; $pos; 2); $char; $pos)
+		
+		This:C1470.value:=$result
+		OBJECT GET BEST SIZE:C717(*; This:C1470.name; $bestWidth; $bestHeight)
+		
+	End while 

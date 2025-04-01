@@ -1,12 +1,20 @@
 Class extends scrollable
+
+// MARK: Default values ⚙️
+property isSubform : Boolean:=True:C214
+
+// MARK: Delegates 📦
 property form : cs:C1710.form
 
-property parent : Object
-property privateEvents : Object
+// MARK: Other 💾
+property privateEvents; parent : Object
 
-Class constructor($name : Text; $events : Object; $super : Object; $form : Object)
+// MARK: Constants 🔐
+property __SUPER__ : Object
+
+Class constructor($name : Text; $events : Object; $super : Object; $form : Object; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	Case of 
 			
@@ -28,21 +36,28 @@ Class constructor($name : Text; $events : Object; $super : Object; $form : Objec
 	End case 
 	
 	This:C1470.__SUPER__:=$super
+	
 	This:C1470.setPrivateEvents($events)
 	
 	This:C1470.parent:=This:C1470._getParent($name)
-	This:C1470.isSubform:=True:C214
 	
 	// MARK:Delegates 📦
-	var $detailForm : Text:=String:C10(This:C1470.detailForm)
+	This:C1470.form:=cs:C1710.form.new(This:C1470)
 	
-	If (Length:C16($detailForm)>0)
+	If ($form#Null:C1517)
 		
-		$form:=$form || Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+$detailForm+"/form.4DForm").getText()))
+		This:C1470.form.me($form)
 		
+	Else 
+		
+		var $detailForm:=String:C10(This:C1470.detailForm)
+		
+		If (Length:C16($detailForm)>0)
+			
+			This:C1470.form.me(Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+$detailForm+"/form.4DForm").getText())))
+			
+		End if 
 	End if 
-	
-	This:C1470.form:=cs:C1710.form.new(This:C1470; $form)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Sets the events codes triggered in the container method
@@ -232,7 +247,7 @@ Function _getParent($name : Text) : Object
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
 	
 	return {\
-		name: Current form name:C1298; \
+		name: This:C1470.form.name; \
 		dimensions: {\
 		width: $width; \
 		height: $height}; \

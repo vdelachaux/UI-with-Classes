@@ -1,9 +1,25 @@
 Class extends scrollable
 
+property source : Collection
+
+property item : Object
+property itemPosition : Integer:=0
+property items : Collection
+
+property kind : Integer
+property properties : Object
+property definition : Collection
+property columns : Object
+
+property previous : Object
+property cellBox : Object
+
+property dataSources : Object
+
 // === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Class constructor($name : Text)
+Class constructor($name : Text; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	ASSERT:C1129(This:C1470.type=Object type listbox:K79:8)
 	
@@ -19,6 +35,19 @@ Class constructor($name : Text)
 	
 	// Backup design properties
 	This:C1470.saveProperties()
+	
+	var $o:=This:C1470.jsonFormDefinition()
+	
+	If ($o#Null:C1517)
+		
+		This:C1470.dataSources:={\
+			data: Formula from string:C1601(String:C10($o.dataSource)); \
+			item: Formula from string:C1601(String:C10($o.currentItemSource)); \
+			itemPosition: Formula from string:C1601(String:C10($o.currentItemPositionSource)); \
+			selectedItems: Formula from string:C1601(String:C10($o.selectedItemsSource))\
+			}
+		
+	End if 
 	
 	//mark:-[READ ONLY]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
@@ -144,7 +173,6 @@ Function get dataSourceType() : Text
 	
 	var $name : Text
 	var $table : Integer
-	var $ptr : Pointer
 	
 	LISTBOX GET TABLE SOURCE:C1014(*; This:C1470.name; $table; $name)
 	
@@ -154,7 +182,7 @@ Function get dataSourceType() : Text
 		
 	Else 
 		
-		$ptr:=OBJECT Get pointer:C1124(Object named:K67:5; This:C1470.name)
+		var $ptr:=OBJECT Get pointer:C1124(Object named:K67:5; This:C1470.name)
 		
 		Case of 
 				
@@ -182,7 +210,6 @@ Function get dataSourceType() : Text
 				//–––––––––––––––––––––––––––––––––
 		End case 
 	End if 
-	
 	
 	// MARK:-[SOURCE & DATA]
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -215,7 +242,7 @@ Function setSource($source) : cs:C1710.listbox
 	
 	This:C1470.source:=Null:C1517
 	This:C1470.data:=Null:C1517
-	This:C1470.kind:=Null:C1517
+	This:C1470.kind:=0
 	
 	return This:C1470
 	
@@ -548,7 +575,7 @@ Function cellPosition($e : cs:C1710.evt) : Object
 		
 	Else 
 		
-		GET MOUSE:C468($x; $y; $button)
+		MOUSE POSITION:C468($x; $y; $button)
 		LISTBOX GET CELL POSITION:C971(*; This:C1470.name; $x; $y; $column; $row)
 		
 	End if 
@@ -569,7 +596,7 @@ Function cellPosition($e : cs:C1710.evt) : Object
 		}
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-	// ⚠️ 
+	// ⚠️
 Function getCoordinates() : Object
 	
 	This:C1470.getScrollPosition()
@@ -613,11 +640,10 @@ Function rowCoordinates($row : Integer) : Object
 Function cellCoordinates($column : Integer; $row : Integer) : Object
 	
 	var $bottom; $left; $right; $top : Integer
-	var $e : cs:C1710.evt
 	
 	If (Count parameters:C259=0)
 		
-		$e:=FORM Event:C1606
+		var $e:=FORM Event:C1606
 		
 		If ($e.column#Null:C1517)
 			
@@ -805,7 +831,16 @@ Function selectAll() : cs:C1710.listbox
 	
 	return This:C1470.select()
 	
-	// MARK: - 
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Select row(s)
+Function addToSelection($row : Integer) : cs:C1710.listbox
+	
+	//TODO: Accept a collection
+	LISTBOX SELECT ROW:C912(*; This:C1470.name; $row; lk add to selection:K53:2)
+	
+	return This:C1470
+	
+	// MARK: -
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function edit($target; $item : Integer)
 	

@@ -2,9 +2,9 @@ Class extends dropDown
 
 property _ordered; automaticExpand : Boolean
 
-Class constructor($name : Text; $data : Object)
+Class constructor($name : Text; $data : Object; $parent : Object)
 	
-	Super:C1705($name; $data)
+	Super:C1705($name; $data; $parent)
 	
 	This:C1470._ordered:=Bool:C1537($data.ordered)
 	This:C1470.automaticExpand:=Bool:C1537($data.automaticExpand)

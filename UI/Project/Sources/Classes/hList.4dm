@@ -1,13 +1,15 @@
 Class extends scrollable
 
-Class constructor($name : Text; $itemRef : Integer)
+property ref; latest : Integer
+
+Class constructor($name : Text; $ref : Integer; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	ASSERT:C1129(This:C1470.type=Object type hierarchical list:K79:7)
 	
-	This:C1470.ref:=$itemRef
-	This:C1470.latest:=Null:C1517
+	This:C1470.ref:=$ref
+	This:C1470.latest:=0
 	
 	This:C1470.datasource:=OBJECT Get data source:C1265(*; This:C1470.name)
 	
@@ -163,7 +165,7 @@ Function get selectedReferences() : Collection
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Appends a new item to the current list
-Function append($itemText : Text; $itemRef : Integer; $sublist : Integer; $expanded : Boolean)
+Function append($itemText : Text; $ref : Integer; $sublist : Integer; $expanded : Boolean)
 	
 	// ⚠️ APPEND TO LIST doesn't accept object name
 	
@@ -172,41 +174,41 @@ Function append($itemText : Text; $itemRef : Integer; $sublist : Integer; $expan
 			//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		: (Count parameters:C259=2) || ($sublist=0)
 			
-			INSERT IN LIST:C625(*; This:C1470.name; 0; $itemText; $itemRef)
+			INSERT IN LIST:C625(*; This:C1470.name; 0; $itemText; $ref)
 			
 			//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		: (Count parameters:C259=4)
 			
-			INSERT IN LIST:C625(*; This:C1470.name; 0; $itemText; $itemRef; $sublist; $expanded)
+			INSERT IN LIST:C625(*; This:C1470.name; 0; $itemText; $ref; $sublist; $expanded)
 			
 			//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	End case 
 	
-	This:C1470.latest:=$itemRef
+	This:C1470.latest:=$ref
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Inserts an item to the current list
-Function insert($itemText : Text; $itemRef : Integer; $sublist : Integer; $expanded : Boolean; $beforeItemRef : Integer)
+Function insert($itemText : Text; $ref : Integer; $sublist : Integer; $expanded : Boolean; $beforeItemRef : Integer)
 	
 	If ($beforeItemRef#0)
 		
 		If ($sublist=0)
 			
-			INSERT IN LIST:C625(*; This:C1470.name; $beforeItemRef; $itemText; $itemRef)
+			INSERT IN LIST:C625(*; This:C1470.name; $beforeItemRef; $itemText; $ref)
 			
 		Else 
 			
-			INSERT IN LIST:C625(*; This:C1470.name; $beforeItemRef; $itemText; $itemRef; $sublist; $expanded)
+			INSERT IN LIST:C625(*; This:C1470.name; $beforeItemRef; $itemText; $ref; $sublist; $expanded)
 			
 		End if 
 		
 	Else 
 		
-		INSERT IN LIST:C625(*; This:C1470.name; *; $itemText; $itemRef; $sublist; $expanded)
+		INSERT IN LIST:C625(*; This:C1470.name; *; $itemText; $ref; $sublist; $expanded)
 		
 	End if 
 	
-	This:C1470.latest:=$itemRef
+	This:C1470.latest:=$ref
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 	/// True if at least one element could be folded.
@@ -214,11 +216,11 @@ Function get collapsable() : Boolean
 	
 	var $itemText : Text
 	var $expanded : Boolean
-	var $i; $itemRef; $sublist : Integer
+	var $i; $ref; $sublist : Integer
 	
 	For ($i; 1; Count list items:C380(*; This:C1470.name); 1)
 		
-		GET LIST ITEM:C378(*; This:C1470.name; $i; $itemRef; $itemText; $sublist; $expanded)
+		GET LIST ITEM:C378(*; This:C1470.name; $i; $ref; $itemText; $sublist; $expanded)
 		
 		If ($sublist>0) && ($expanded)
 			
@@ -233,11 +235,11 @@ Function get expandable() : Boolean
 	
 	var $itemText : Text
 	var $expanded : Boolean
-	var $i; $itemRef; $sublist : Integer
+	var $i; $ref; $sublist : Integer
 	
 	For ($i; 1; Count list items:C380(*; This:C1470.name); 1)
 		
-		GET LIST ITEM:C378(*; This:C1470.name; $i; $itemRef; $itemText; $sublist; $expanded)
+		GET LIST ITEM:C378(*; This:C1470.name; $i; $ref; $itemText; $sublist; $expanded)
 		
 		If ($sublist>0)
 			
@@ -259,7 +261,7 @@ Function collapseAll($keep : Boolean)
 	
 	var $itemText : Text
 	var $expanded : Boolean
-	var $count; $current; $i; $itemRef; $subList : Integer
+	var $count; $current; $i; $ref; $subList : Integer
 	
 	$keep:=Count parameters:C259=0 ? This:C1470.itemSublist>0 : $keep
 	
@@ -273,12 +275,12 @@ Function collapseAll($keep : Boolean)
 		$i+=1
 		$expanded:=False:C215
 		
-		GET LIST ITEM:C378(*; This:C1470.name; $i; $itemRef; $itemText; $subList; $expanded)
+		GET LIST ITEM:C378(*; This:C1470.name; $i; $ref; $itemText; $subList; $expanded)
 		
 		If ($subList#0)\
 			 & ($expanded)
 			
-			SET LIST ITEM:C385(*; This:C1470.name; $itemRef; $itemText; $itemRef; $subList; False:C215)
+			SET LIST ITEM:C385(*; This:C1470.name; $ref; $itemText; $ref; $subList; False:C215)
 			$count-=Count list items:C380($subList; *)
 			
 		Else 
@@ -301,17 +303,17 @@ Function expandAll()
 	
 	var $itemText : Text
 	var $expanded : Boolean
-	var $count; $i; $itemRef; $subList : Integer
+	var $count; $i; $ref; $subList : Integer
 	
 	$count:=This:C1470.itemCount
 	
 	For ($i; 1; This:C1470.itemCount; 1)
 		
-		GET LIST ITEM:C378(*; This:C1470.name; $i; $itemRef; $itemText; $subList; $expanded)
+		GET LIST ITEM:C378(*; This:C1470.name; $i; $ref; $itemText; $subList; $expanded)
 		
 		If ($subList#0) && (Not:C34($expanded))
 			
-			SET LIST ITEM:C385(*; This:C1470.name; $itemRef; $itemText; $itemRef; $subList; True:C214)
+			SET LIST ITEM:C385(*; This:C1470.name; $ref; $itemText; $ref; $subList; True:C214)
 			$i+=Count list items:C380($subList)
 			
 		End if 
@@ -338,9 +340,9 @@ Function get itemRef() : Integer
 	return This:C1470._getItem("ref")
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
-Function set itemRef($îtemRef : Integer)
+Function set itemRef($ref : Integer)
 	
-	This:C1470._setItem("ref"; $îtemRef)
+	This:C1470._setItem("ref"; $ref)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 	/// The sub-list of the current element
@@ -464,14 +466,14 @@ Function collapse($itemPos : Integer)
 	
 	var $itemText : Text
 	var $isExpanded : Boolean
-	var $itemRef; $sublist : Integer
+	var $ref; $sublist : Integer
 	
-	GET LIST ITEM:C378(*; This:C1470.name; $itemPos; $itemRef; $itemText; $sublist; $isExpanded)
+	GET LIST ITEM:C378(*; This:C1470.name; $itemPos; $ref; $itemText; $sublist; $isExpanded)
 	
 	If ($sublist#0)\
 		 && ($isExpanded)
 		
-		SET LIST ITEM:C385(*; This:C1470.name; $itemRef; $itemText; $itemRef; $sublist; False:C215)
+		SET LIST ITEM:C385(*; This:C1470.name; $ref; $itemText; $ref; $sublist; False:C215)
 		
 	End if 
 	
@@ -481,22 +483,22 @@ Function expand($itemPos : Integer)
 	
 	var $itemText : Text
 	var $isExpanded : Boolean
-	var $itemRef; $sublist : Integer
+	var $ref; $sublist : Integer
 	
-	GET LIST ITEM:C378(*; This:C1470.name; $itemPos; $itemRef; $itemText; $sublist; $isExpanded)
+	GET LIST ITEM:C378(*; This:C1470.name; $itemPos; $ref; $itemText; $sublist; $isExpanded)
 	
 	If ($sublist#0)\
 		 && (Not:C34($isExpanded))
 		
-		SET LIST ITEM:C385(*; This:C1470.name; $itemRef; $itemText; $itemRef; $sublist; True:C214)
+		SET LIST ITEM:C385(*; This:C1470.name; $ref; $itemText; $ref; $sublist; True:C214)
 		
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Returns the itemRef position
-Function getItemPositionByRef($itemRef : Integer) : Integer
+Function getItemPositionByRef($ref : Integer) : Integer
 	
-	return List item position:C629(*; This:C1470.name; $itemRef)
+	return List item position:C629(*; This:C1470.name; $ref)
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 	/// Returns information about the element specified by itemPos or the current element if omitted
@@ -505,7 +507,7 @@ Function _getItem($request : Text; $itemPos : Integer) : Variant
 	var $itemText : Text
 	var $icon : Picture
 	var $expanded : Boolean
-	var $itemRef; $sublist : Integer
+	var $ref; $sublist : Integer
 	
 	If ($request="icon")
 		
@@ -525,11 +527,11 @@ Function _getItem($request : Text; $itemPos : Integer) : Variant
 		
 		If ($itemPos=0)
 			
-			GET LIST ITEM:C378(*; This:C1470.name; *; $itemRef; $itemText; $sublist; $expanded)
+			GET LIST ITEM:C378(*; This:C1470.name; *; $ref; $itemText; $sublist; $expanded)
 			
 		Else 
 			
-			GET LIST ITEM:C378(*; This:C1470.name; $itemPos; $itemRef; $itemText; $sublist; $expanded)
+			GET LIST ITEM:C378(*; This:C1470.name; $itemPos; $ref; $itemText; $sublist; $expanded)
 			
 		End if 
 		
@@ -545,7 +547,7 @@ Function _getItem($request : Text; $itemPos : Integer) : Variant
 			//______________________________________________________
 		: ($request="ref")
 			
-			return $itemRef
+			return $ref
 			
 			//______________________________________________________
 		: ($request="sublist")
@@ -582,11 +584,11 @@ Function _setItem($request : Text; $value; $itemPos : Integer)
 		
 		If ($itemPos=0)
 			
-			GET LIST ITEM:C378(*; This:C1470.name; *; $itemRef; $itemText; $sublist; $expanded)
+			GET LIST ITEM:C378(*; This:C1470.name; *; $ref; $itemText; $sublist; $expanded)
 			
 		Else 
 			
-			GET LIST ITEM:C378(*; This:C1470.name; $itemPos; $itemRef; $itemText; $sublist; $expanded)
+			GET LIST ITEM:C378(*; This:C1470.name; $itemPos; $ref; $itemText; $sublist; $expanded)
 			
 		End if 
 		
@@ -595,7 +597,7 @@ Function _setItem($request : Text; $value; $itemPos : Integer)
 				//______________________________________________________
 			: ($request="value")
 				
-				SET LIST ITEM:C385(*; This:C1470.name; *; $value; $itemRef; $sublist; $expanded)
+				SET LIST ITEM:C385(*; This:C1470.name; *; $value; $ref; $sublist; $expanded)
 				
 				//______________________________________________________
 			: ($request="ref")
@@ -605,12 +607,12 @@ Function _setItem($request : Text; $value; $itemPos : Integer)
 				//______________________________________________________
 			: ($request="sublist")
 				
-				SET LIST ITEM:C385(*; This:C1470.name; *; $itemText; $itemRef; $value; $expanded)
+				SET LIST ITEM:C385(*; This:C1470.name; *; $itemText; $ref; $value; $expanded)
 				
 				//______________________________________________________
 			: ($request="expanded")
 				
-				SET LIST ITEM:C385(*; This:C1470.name; *; $itemText; $itemRef; $sublist; $value)
+				SET LIST ITEM:C385(*; This:C1470.name; *; $itemText; $ref; $sublist; $value)
 				
 				//______________________________________________________
 		End case 
@@ -679,12 +681,12 @@ Function selectByPosition($itemPos : Integer)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Selects the item whose item reference is passed
-Function selectByReference($itemRef : Integer)
+Function selectByReference($ref : Integer)
 	
 	// TODO: Accept a collection of references
 	
 	// ⚠️ SELECT LIST ITEMS BY REFERENCE doesn't accept object name
-	This:C1470.selectByPosition(This:C1470.getItemPositionByRef($itemRef))
+	This:C1470.selectByPosition(This:C1470.getItemPositionByRef($ref))
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Deselect all items

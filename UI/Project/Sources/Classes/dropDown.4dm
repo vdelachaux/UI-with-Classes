@@ -2,9 +2,9 @@ Class extends widget
 
 property data : Object
 
-Class constructor($name : Text; $data : Object)
+Class constructor($name : Text; $data : Object; $parent : Object)
 	
-	Super:C1705($name)
+	Super:C1705($name; $parent)
 	
 	This:C1470.data:=$data || {}
 	
