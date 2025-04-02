@@ -2,13 +2,12 @@ property form : cs:C1710.ui.form
 property menuBar : cs:C1710.ui.menuBar
 property fonts; families; windows; withFamilies; attachMenu : cs:C1710.ui.button
 property choice; sample : cs:C1710.ui.input
+property windowsMenuIndex : Integer:=3
 
 Class constructor
 	
 	// MARK:Delegates 📦
-	var $form : Object
-	$form:=Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText()))
-	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; $form)
+	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText())))
 	
 	This:C1470.form.init()
 	
@@ -63,8 +62,6 @@ Function init()
 	
 */
 	
-	This:C1470.windowsMenuIndex:=3
-	
 /*
 Instantiate the widgets we need to manipulate.
 	
@@ -74,27 +71,27 @@ Instantiate the widgets we need to manipulate.
 	
 	// Mark: The choice is yours
 	// This text zone will trigger the display of a contextual menu when it gets the focus.
-	This:C1470.choice:=This:C1470.form.input.new("Input1")
+	This:C1470.choice:=This:C1470.form.Input("Input1")
 	This:C1470.choice.events:=[On Getting Focus:K2:7]
 	
 	// Mark: Fonts
 	// This button will display a font menu.
-	This:C1470.fonts:=This:C1470.form.button.new("Button")
+	This:C1470.fonts:=This:C1470.form.Button("Button")
 	
 	// This text box will display an example of the selected font.
-	This:C1470.sample:=This:C1470.form.input.new("Input")
+	This:C1470.sample:=This:C1470.form.Input("Input")
 	
 	// This check box allows you to choose whether or not fonts are grouped by family.
-	This:C1470.withFamilies:=This:C1470.form.button.new("Check Box")
+	This:C1470.withFamilies:=This:C1470.form.Button("Check Box")
 	This:C1470.withFamilies.value:=False:C215  // Without faily by default
 	
 	// Mark: Windows
 	// This button displays a menu of open windows.
-	This:C1470.windows:=This:C1470.form.button.new("Button1")
+	This:C1470.windows:=This:C1470.form.Button("Button1")
 	
 	// Mark: Add extra menu
 	// This button is used to install/remove an "Extra" menu from the menu bar.
-	This:C1470.attachMenu:=This:C1470.form.button.new("Button2")
+	This:C1470.attachMenu:=This:C1470.form.Button("Button2")
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 Function handleEvents($e : cs:C1710.ui.evt)

@@ -6,9 +6,7 @@ property bottomButtons : cs:C1710.ui.group
 Class constructor
 	
 	// MARK:Delegates 📦
-	var $form : Object
-	$form:=Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText()))
-	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; $form)
+	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText())))
 	
 	This:C1470.form.init()
 	
@@ -28,8 +26,8 @@ Instantiate the widgets we need to manipulate.
 	
 	// The bottom buttons are grouped together for correct positioning (see the onLoad function)
 	This:C1470.bottomButtons:=This:C1470.form.group.new()
-	This:C1470.ok:=This:C1470.form.button.new("Button").addToGroup(This:C1470.bottomButtons)
-	This:C1470.cancel:=This:C1470.form.button.new("Button1").addToGroup(This:C1470.bottomButtons)
+	This:C1470.ok:=This:C1470.form.Button("Button").addToGroup(This:C1470.bottomButtons)
+	This:C1470.cancel:=This:C1470.form.Button("Button1").addToGroup(This:C1470.bottomButtons)
 	
 	// 📌 Note: that the label is not instantiated, as we don't need to act on it.
 	

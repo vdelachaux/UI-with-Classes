@@ -4,6 +4,9 @@ The `form` class is intended to be called as a delegate by a `form controller cl
 
 > 📌 **Note**: to simplify the distinction between form objects and object type, this documentation uses the term “widget” for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…). 
 
+
+## <a name="Constructor"> Constructor </a>
+
 ### <a name="sample">Code sample for a `form controller class`</a>
 
 ```4d
@@ -72,7 +75,7 @@ This.form:=cs.form.new(This; Try(JSON Parse(File("/SOURCES/Forms/"+Current form 
 * [Miscellaneous](#Miscellaneous)
 * [Form definition access](#access)
 
-## <a name="Properties">Properties</a>
+## <a name="Properties">General Properties</a>
 
 > 📌 Other properties are described below in the section devoted to them.
 
@@ -87,7 +90,7 @@ This.form:=cs.form.new(This; Try(JSON Parse(File("/SOURCES/Forms/"+Current form 
 > *  To be set up by the `form controller class`    
 
 
-## <a name="objects">Form objects instantiation functions</a>
+## <a name="objects">Form widget instantiation functions</a>
 
 In the `form controller class`, you instantiate the widgets (form objects) you wish to manipulate (i.e. activate, deactivate, move, set a value, color, etc.) using the `form.<Type>(<name>)` instantiation functions listed in the table below. See the [code sample](#sample) above, lines 16 to 18.
 

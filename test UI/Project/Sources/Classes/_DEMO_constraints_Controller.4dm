@@ -1,4 +1,7 @@
 property form : cs:C1710.ui.form
+property helloWorld; bonjourLeMonde; header1; header2 : cs:C1710.ui.static
+property helloWidth : cs:C1710.ui.input
+property listbox : cs:C1710.ui.listbox
 
 Class constructor
 	
@@ -18,14 +21,14 @@ Function init()
 	
 	// Mark: Instantiate the widgets we want to manipulate.
 	
-	This:C1470.helloWorld:=This:C1470.form.static.new("helloWorld")
-	This:C1470.helloWidth:=This:C1470.form.input.new("coord")
+	This:C1470.helloWorld:=This:C1470.form.Static("helloWorld")
+	This:C1470.helloWidth:=This:C1470.form.Input("coord")
 	
-	This:C1470.bonjourLeMonde:=This:C1470.form.static.new("bonjourLeMonde")
+	This:C1470.bonjourLeMonde:=This:C1470.form.Static("bonjourLeMonde")
 	
-	This:C1470.listbox:=This:C1470.form.listbox.new("List Box")
-	This:C1470.header1:=This:C1470.form.static.new("label")
-	This:C1470.header2:=This:C1470.form.static.new("label1")
+	This:C1470.listbox:=This:C1470.form.Listbox("List Box")
+	This:C1470.header1:=This:C1470.form.Static("label")
+	This:C1470.header2:=This:C1470.form.Static("label1")
 	
 	// Mark: Define the constraints
 	
@@ -73,9 +76,7 @@ Function init()
 📌 You can pass a widget object as the target or the reference
 	
 */
-/*
-This.form.constraints.new(This.helloWidth).marginLeft(10).with(This.helloWorld)
-*/
+	
 	This:C1470.form.constraints.new(This:C1470.helloWidth).marginLeft(10).with(This:C1470.helloWorld)
 	
 /*
@@ -216,15 +217,14 @@ Function onLoad()
    Rules will be deleted after the call to apply()
 	
 */
-	This:C1470.form.static.new("lang").bestSize()
-	This:C1470.form.static.new("bonjour").bestSize()
+	This:C1470.form.Static("lang").bestSize()
+	This:C1470.form.Static("bonjour").bestSize()
 	
 	This:C1470.form.constraints.oneShot("bonjour").inline.with("lang")
 	This:C1470.form.constraints.oneShot("monde").inline.with("bonjour")
 	
-	
-	This:C1470.form.static.new("lang1").bestSize()
-	This:C1470.form.static.new("bonjour1").bestSize()
+	This:C1470.form.Static("lang1").bestSize()
+	This:C1470.form.Static("bonjour1").bestSize()
 	
 	This:C1470.form.constraints.oneShot("bonjour1").inline.with("lang1")
 	This:C1470.form.constraints.oneShot("monde1").inline.with("bonjour1")

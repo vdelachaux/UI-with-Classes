@@ -15,8 +15,8 @@ Class constructor
 	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function init()
 	
-	This:C1470.searchBox:=This:C1470.form.subform.new("search")
-	This:C1470.list:=This:C1470.form.listbox.new("list")
+	This:C1470.searchBox:=This:C1470.form.Subform("search")
+	This:C1470.list:=This:C1470.form.Listbox("list")
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function handleEvents($e : cs:C1710.ui.evt)
@@ -102,7 +102,9 @@ Function _searchManager($e : cs:C1710.ui.evt)
 			//______________________________________________________
 		: ($e.code=-1)  // Callback for search
 			
+			//%W-550.26
 			var $search : Text:=String:C10(This:C1470.searchBox.searchValue)
+			//%W+550.26
 			
 			If (Length:C16($search)>0)
 				

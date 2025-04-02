@@ -6,14 +6,13 @@ property titleButtons; detail : cs:C1710.ui.group
 property editForm; editClass; run : cs:C1710.ui.button
 property sidebar : cs:C1710.ui.listbox
 
-property demos : Collection
+property demos:=[]
+property controllers:=[]
 
 Class constructor
 	
 	// MARK:Delegates 📦
-	var $form : Object
-	$form:=Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText()))
-	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; $form)
+	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText())))
 	
 	This:C1470.form.init()
 	
@@ -22,56 +21,55 @@ Class constructor
 Function init()
 	
 	// Mark:Title bar
-	This:C1470.windowFrame:=This:C1470.form.subform.new("windowFrame")
+	This:C1470.windowFrame:=This:C1470.form.Subform("windowFrame")
 	
-	This:C1470.title:=This:C1470.form.static.new("windowTitle")
-	This:C1470.titleBackground:=This:C1470.form.static.new("titleBackground")
+	This:C1470.title:=This:C1470.form.Static("windowTitle")
+	This:C1470.titleBackground:=This:C1470.form.Static("titleBackground")
 	
 	// Edit buttons
-	This:C1470.titleButtons:=This:C1470.form.group.new()
-	This:C1470.editForm:=This:C1470.form.button.new("form").addToGroup(This:C1470.titleButtons)
-	This:C1470.editClass:=This:C1470.form.button.new("class").addToGroup(This:C1470.titleButtons)
+	This:C1470.titleButtons:=This:C1470.form.Group()
+	This:C1470.editForm:=This:C1470.form.Button("form").addToGroup(This:C1470.titleButtons)
+	This:C1470.editClass:=This:C1470.form.Button("class").addToGroup(This:C1470.titleButtons)
 	
 	// Mark:Sidebar
-	This:C1470.demos:=[]
 	This:C1470.demos.push({\
-		name: Get localized string:C991("title_1"); \
+		name: Localized string:C991("title_1"); \
 		form: "DEMO_1"; \
-		comments: Get localized string:C991("desc_1")})
+		comments: Localized string:C991("desc_1")})
 	
 	This:C1470.demos.push({\
-		name: Get localized string:C991("title_2"); \
+		name: Localized string:C991("title_2"); \
 		form: "DEMO_Menus"; \
-		comments: Get localized string:C991("desc_2")})
+		comments: Localized string:C991("desc_2")})
 	
 	This:C1470.demos.push({\
-		name: Get localized string:C991("title_3"); \
+		name: Localized string:C991("title_3"); \
 		form: "DEMO_constraints"; \
-		comments: Get localized string:C991("desc_3")})
+		comments: Localized string:C991("desc_3")})
 	
 	This:C1470.demos.push({\
 		name: "CSS"; \
 		form: "HDI CSS"; \
-		comments: Get localized string:C991("desc_4")})
+		comments: Localized string:C991("desc_4")})
 	
 	This:C1470.demos.push({\
-		name: Get localized string:C991("title_5"); \
+		name: Localized string:C991("title_5"); \
 		form: "DEMO_SEARCH"; \
-		comments: Get localized string:C991("desc_5")})
+		comments: Localized string:C991("desc_5")})
 	
 	This:C1470.demos.push({\
-		name: Get localized string:C991("title_6"); \
+		name: Localized string:C991("title_6"); \
 		form: "DEMO_TAB_CONTROL"; \
-		comments: Get localized string:C991("desc_6")})
+		comments: Localized string:C991("desc_6")})
 	
-	This:C1470.sidebar:=This:C1470.form.listbox.new("sidebar")
+	This:C1470.sidebar:=This:C1470.form.Listbox("sidebar")
 	
 	// Mark:Detail panel
-	This:C1470.detail:=This:C1470.form.group.new()
-	This:C1470.desc:=This:C1470.form.static.new("desc").addToGroup(This:C1470.detail)
-	This:C1470.run:=This:C1470.form.button.new("run").addToGroup(This:C1470.detail)
+	This:C1470.detail:=This:C1470.form.Group()
+	This:C1470.desc:=This:C1470.form.Static("desc").addToGroup(This:C1470.detail)
+	This:C1470.run:=This:C1470.form.Button("run").addToGroup(This:C1470.detail)
 	
-	This:C1470.tip:=This:C1470.form.static.new("tip")
+	This:C1470.tip:=This:C1470.form.Static("tip")
 	
 	// Mark:-[Constraints]
 	// -> The editing buttons must remain centred on the detail panel.
@@ -84,7 +82,6 @@ Function init()
 	
 	ARRAY TEXT:C222($classes; 0x0000)
 	METHOD GET PATHS:C1163(Path class:K72:19; $classes)
-	This:C1470.controllers:=[]
 	ARRAY TO COLLECTION:C1563(This:C1470.controllers; $classes)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === ===

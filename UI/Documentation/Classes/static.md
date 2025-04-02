@@ -1,8 +1,15 @@
 # static
 
-The `static` class is the parent class of all form objects classes.
+The `static` class is the parent class of all form widget classes.
 
-#### This class is available via the [`form`](form.md#objects) class as `static` interface.
+<hr>
+> 📌 **Conventions**: 
+<br>      1. to simplify the distinction between form objects and object type, this documentation uses the term “widget” for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…).
+<br>      2. All functions that return **cs**.static may include one call after another. 
+<br>
+<hr>
+
+#### This class is available via the [`form`](form.md#objects) class as `Static` interface.
 
 ```4d
 
@@ -10,79 +17,169 @@ This.form:=cs.form.new(This)
 
 ...
 
-This.myObject:=This.form.static.new("myObject")
+This.myWidget:=This.form.Static("form object")
 
 ...
 
-This.myObject.hide()
+This.myWidget.hide()
 
 ```
 
 #### This class can also be instantiated on its own.
 
 ```4d
-Form.myObject:=cs.static.new("myObject")
+Form.myWidget:=cs.static.new(form object")
 
 ...
 
-Form.myObject.hide()
+Form.myWidget.hide()
 
 ```
 
-**Note**: 📌 The `group` class can also refer to this class even if it's not inheritance
-	
-## Properties
+<br>**Note**: 📌 The `group` class can also refer to this class even if it's not inheritance
 
-|Properties|Description|Type||
-|----------|-----------|:--:|-------|
-|**.name** | The name of the form object| `Text`
-|**.type** | The type of the form object| `Integer` | Use the [Form object Types](https://doc.4d.com/4Dv18R6/4D/18-R6/Form-Object-Types.302-5199153.en.html) constant theme
-|**.coordinates** | The coordinates of the form object in the form| `Object` |{`left`,`top`,`right`,`bottom`}|
-|**.dimensions** | The dimensions of the form object| `Object` |{`width`,`height`}|
-|**.windowCoordinates** | The coordinates of the form object in the current window| `Object` |{`left`,`top`,`right`,`bottom`}|
+## <a name="Constructor"> Constructor </a>
 
-## 🔸 cs.formObject.new()
+The class constructor `cs.static.new({formObjectName {; parent }})` creates a new class instance.
 
-The class constructor `cs.formObject.new({formObjectName})` creates a new class instance.
+>📌 The optional `parent` parameter is the **cs**.form object containing the widget. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the cs.form class.
 
 If the `formObjectName` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
-> 📌 Omitting the object name can only be used if the constructor is called from the object method.
 
-## Summary
+> ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
 
-> 📌 All functions that return `cs.formObject` may include one call after another. 
+## <a name="Properties">General Properties</a>
 
-| Function | Action |
-| -------- | ------ |  
-|.**show** ({state`:Boolean`}) →`cs.formObject` | To make the object visible (no parameter) or invisible (`state` = **False**) | 
-|.**hide** () →`cs.formObject` | To hide the object |
-|.**enable** ({state`:Boolean`}) →`cs.formObject` | To enable (no parameter) or disable (`state` = **False**) the object |
-|.**disable** () →`cs.formObject` | To disable the object |
-|.**setCoordinates** (left`:Integer `; top`:Integer`; {right`:Integer`; bottom`:Integer`}}) →`cs.formObject` | To modifies the coordinates and, optionally, the size of the object \* |
-|.**setCoordinates** (coordinates`:Object`) →`cs.formObject` | "left", "top"{, "right", "bottom"}\*|
-|.**getCoordinates** () →`Object` | Returns the updated coordinates object\* |
-|.**bestSize** (alignement`:Integer`{ ; minWidth`:Integer`{ ; maxWidth`:Integer`}}) →`cs.formObject` | Set the size of the object to its best size according to its content (e.g. a localized string) \* |
-|.**bestSize** ({options`:Object`}) →`cs.formObject` |{"alignement"}{, "minWidth"}{, "maxWidth"}\*  |
-|.**moveHorizontally** (offset`:Integer`) →`cs.formObject` | To move the object horizontally \*  |
-|.**moveVertically** (offset`:Integer`) →`cs.formObject` | To move the object vertically \*  |
-|.**resizeHorizontally** (offset`:Integer`) →`cs.formObject` | To resize the object horizontally \*  |
-|.**resizeVertically** (offset`:Integer`) →`cs.formObject` | To resize the object vertically \*  |
-|.**moveAndResizeHorizontally** (offset`:Integer`;resize`:Integer`) →`cs.formObject` | To move and resize the object horizontally \*  |
-|.**moveAndResizeVertically** (offset`:Integer`;resize`:Integer`) →`cs.formObject` | To move and resize the object vertically \*  |
-|.**setDimension** (width`:Integer` ;{ height`:Integer`}) →`cs.formObject` | To modify the object width & height \*  |
-|.**setHeight** (height`:Integer`) →`cs.formObject` | To modify the object height \*  |
-|.**setWidth** (width`:Integer` ) →`cs.formObject` | To modify the object width \*  |
-|.**setTitle** (title`:Text`) →`cs.formObject` | To change the title of the object (if the title is a `resname`, the localization is performed) \** |
-|.**title** () →`Text` | Returns the title of the object \** |
-|.**setFont** (fontName`:Text`}) →`cs.formObject` | To set the font|
-|.**setFontStyle** ({style`:Integer`}) →`cs.formObject` | To set the style of the title (use the 4D constants _Bold_, _Italic_, _Plain_, _Underline_) Default = _Plain_ \** |
-|.**setColors** (foreground{; background{; altBackground }}) →`cs.formObject` | To set the object color(s)  |
-|.**getForegroundColor** () →`Text` | To get the foreground color of the object |
-|.**isVisible** () →`Boolean` | Returns **True** if the object is visible and **False** otherwise |
-|.**isHidden** () →`Boolean` | Returns **False** if the object is not visible and **False** otherwise |
-|.**isEnabled** () →`Boolean` | Returns **True** if the object is enabled and **False** otherwise |
-|.**updateCoordinates** (left`:Integer`; top`:Integer`; right`:Integer`; bottom`:Integer`)   →`cs.formObject` | To update `coordinates`, `dimensions` and `windowCoordinates` properties |
-|.**addToGroup** (group : cs.group) →`cs.formObject` | Adds the current widget to a [**`group`**](group.md) |
-    
-\* Automatically update the `coordinates`, `dimensions` and `windowCoordinates` properties.    
+> 📌 Other properties are described below in the section devoted to them.
+
+|Properties|Description|Type||Writable|
+|----------|-----------|:--:|-------|:-----------:|
+|**.name**                        | The name of the widget | `Text`||<font color="red">x</font>
+|**.type** | The type of the widget | `Integer` | Use the [Form object Types](https://doc.4d.com/4Dv18R6/4D/18-R6/Form-Object-Types.302-5199153.en.html) constant theme|<font color="red">x</font>
+|**.class** | List of space-separated words used as class selectors| `Text` | See [Style sheets documentation](https://developer.4d.com/docs/FormEditor/stylesheets)|<font color="red">x</font>
+|**.initialPosition**| The widget's coordinates on instantiation| `Object`||<font color="red">x</font>
+|<br><br>⚠️ <font color="darkgrey">**If relevant**</font>|
+|**.title** | The title of the widget \**  |`Text`||<font color="green">✓</font>
+
+
+| Functions | Action |
+|:-------- |:------ | 
+|.**setTitle** (title) → **cs**.static| To change the title of the widget (if the title is a `resname`, the localization is performed) \** |
+  
 \** Can be applied to a static text and will be avalaible for the inherited classes (buttons, check boxes, radio buttons, …)
+
+## <a name="Dimensions">Dimensions & resizing</a>
+
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**left**<br>.**top**<br>.**right**<br>.**bottom**| The coordinates of the widget |`Integer`|<font color="green">✓</font>
+|**.coordinates** | The coordinates of the widget in the form as a [**cs**.coord](coord.md) object|`Object`|<font color="green">✓</font>
+|.**windowCoordinates**| The coordinates of the widget in the current window <br>as an object {`left`,`top`,`right`,`bottom`} |`Object`|<font color="red">x</font>
+|.**width**<br>.**height**| The dimensions of the widget |`Integer`|<font color="green">✓</font>
+|.**dimensions**| The dimensions of the widget <br>as an object {`width`,`height`} |`Object`|<font color="green">✓</font>
+|**.resizingOptions** | The current resizing options for the widget<br>as an object {`horizontal`,`vertical`} |`Object`|<font color="red">x</font>
+|**.horizontallyResizable** | Can the widget be resized horizontally |`Boolean`|<font color="green">✓</font>
+|**.verticallyResizable** | Can the widget be resized vertically  |`Boolean`|<font color="green">✓</font>
+|**.horizontallyMovable** | Can the widget be moved horizontally |`Boolean`|<font color="green">✓</font>
+|**.verticallyMovable** | Can the widget be moved vertically  |`Boolean`|<font color="green">✓</font>
+
+| Functions | Action |
+|:-------- |:------ | 
+|.**setCoordinates** (left; top {; right; bottom}) → **cs**.static<br>.**setCoordinates** (coordinates`:Object`) → **cs**.static | To modifies the coordinates and, optionally, the size of the widget \* |
+|.**bestSize** (alignement {; minWidth {; maxWidth}}) → **cs**.static<br>.**bestSize** ({options`:Object`}) → **cs**.static  | Set the size of the widget to its best width according to its content (e.g. a localized string) \* |
+|.**bestHeight** ({ width}) → **cs**.static | Set the size of the widget to its best height according to its content (e.g. a localized string) \* |
+|.**getBestWidth** ({maxWidth}) → `Integer` | Returns the best width of the widget according to its content (e.g. a localized string) \* |
+|.**getBestHeight** ({maxWidth}) → `Integer` | Returns the best height of the widget according to its content (e.g. a localized string) \* |
+|.**moveHorizontally** (offset) → **cs**.static | To move the widget horizontally \*  |
+|.**moveLeft** (offset) → **cs**.static | To move the widget to the left \*  |
+|.**moveRight** (offset) → **cs**.static | To move the widget to the right \*  |
+|.**moveVertically** (offset) → **cs**.static | To move the widget vertically \*  |
+|.**moveUp** (offset) → **cs**.static | To move the widget up \*  |
+|.**moveDown** (offset) → **cs**.static | To move the widget down \*  |
+|.**resizeHorizontally** (offset) → **cs**.static | To resize the widget horizontally \*  |
+|.**resizeVertically** (offset) → **cs**.static | To resize the widget vertically \*  |
+|.**resize** (offset) → **cs**.static | To resize the widget horizontally & vertically \*  |
+|.**moveAndResizeHorizontally** (offset;resize) → **cs**.static | To move and resize the widget horizontally \*  |
+|.**moveAndResizeVertically** (offset;resize) → **cs**.static | To move and resize the widget vertically \*  |
+|.**setDimension** (width ;{ height}) → **cs**.static | To modify the widget width & height \*  |
+|.**restorePosition** () | Sets the widget coordinates with the contents of .**initialPosition** \*  |
+|.**backupCoordinates** () → **cs**.static | Updates .**initialPosition** with the widget's current coordinates \*  |
+|.**setHeight** (height) → **cs**.static | To modify the widget height \*  |
+|.**setWidth** (width ) → **cs**.static | To modify the widget width \*  |
+|.**setResizingOptions** (horizontal {; vertical})) → **cs**.static | Modifies the resizing options for the widget |
+|.**updateCoordinates** (left; top; right; bottom)   → **cs**.static | To force update of `coordinates`, `dimensions` & `windowCoordinates` properties. |
+|.**getCoordinates** () →`Object` | Returns the widget's updated coordinates \* |
+    
+\* Automatically update the `coordinates`, `dimensions` and `windowCoordinates` properties.  
+
+## <a name="Entry">Entry</a>
+
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**disabled**| Is the widget disabled |`Boolean `|<font color="green">✓</font>
+|.**enabled**| Is the widget enabled |`Boolean`|<font color="green">✓</font>
+
+| Functions | Action |
+|:-------- |:------ | 
+|.**disable** () → **cs**.static | To disable the widget |
+|.**enable** ({state}) → **cs**.static | To enable (no parameter) or disable (`state` = **False**) the widget |
+
+## <a name="Display">Display</a>
+
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**format**| The [display format](https://developer.4d.com/docs/commands/object-get-format) of the widget |`Text`|<font color="green">✓</font>
+|.**hidden**| Is the widget hidden |`Boolean `|<font color="green">✓</font>
+|.**visible**| Is the widget visible |`Boolean `|<font color="green">✓</font>
+
+| Functions | Action |
+|:-------- |:------ | 
+|.**hide** () → **cs**.static | Hides the widget |
+|.**show** ({state}) → **cs**.static | Makes the widget visible (no parameter) or invisible (`state` = **False**) | 
+|.**setFormat** (format) → **cs**.static | Sets the [display format](https://developer.4d.com/docs/commands/object-set-format) of the widget |
+|.**setPicture** (proxy) → **cs**.static | Defines the image associated with a 3D button, image button or list box header.<br>Clears the associated image if proxy is empty |
+
+## <a name="Colors">Colors</a>
+
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**altBackgroundColor**| The alternating background color of the widget|`Variant`|<font color="green">✓</font>
+|.**backgroundColor**| The backgound color of the widget |`Variant`|<font color="green">✓</font>
+|.**colors**| The colors of the widget as object <br> {foreground,background,altBackground} |`Object`|<font color="green">✓</font>
+|.**foregroundColor**| The foreground color of the widget |`Variant`|<font color="green">✓</font>
+
+| Functions | Action |
+|:-------- |:------ | 
+|.**removeBackgroundColor** ()  | Removes widget background color | 
+|.**restoreBackgroundColor** ()  | Restores the widget background color set in structure | 
+|.**restoreForegroundColor** ()  | Restores the widget foreground color set in structure | 
+|.**setColors** (foreground; background ; altBackground) → **cs**.static | Sets the widget's colors | 
+
+## <a name="Text">Text</a>
+
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**font**| The name of the character font used by the widget |`Text`|<font color="green">✓</font>
+|.**fontSize**| The font size used by the widget |`Integer`|<font color="green">✓</font>
+|.**fontStyle**| The font style used by the widget<br>Use the predefined constants, placed in the "Font Styles" theme |`Integer`|<font color="green">✓</font>
+|.**horizontalAlignment**| The type of horizontal alignment applied to the widget |`Integer`|<font color="green">✓</font>
+|.**verticalAlignment**| The type of vertical alignment applied to the widget |`Integer`|<font color="green">✓</font>
+
+| Functions | Action |
+|:-------- |:------ | 
+|.**alignLeft** () → **cs**.static | Sets horizontal alignment of widget to left | 
+|.**alignRight** () → **cs**.static | Sets horizontal alignment of widget to right | 
+|.**alignTop** () → **cs**.static | Sets vertical alignment of widget to top | 
+|.**alignBottom** () → **cs**.static | Sets vertical alignment of widget to bottom | 
+|.**alignCenter** (vertical) → **cs**.static | Sets the widget's horizontal or vertical alignment (if `vertical` = **True**) to centered. | 
+|.**setFont** (fontName) → **cs**.static | Defines the fonts used by the widget to display text.<br>If `fontName` is omitted, empty or equal to “default” or “system”, the default system font is used. | 
+|.**setFontStyle** (stryle) → **cs**.static | Defines the fonts style used by the widget to display text.<br>Use the predefined constants, placed in the "Font Styles" theme. | 
+
+## <a name="Miscellaneous">Miscellaneous</a>
+
+| Functions | Action |
+|:-------- |:------ | 
+|.**addToGroup** (**cs**.group) → **cs**.static | Adds this widget to a group. | 
+|.**hiddenFromView** () → **cs**.static | Sets the widget's coordinates so that it is outside the viewing window. | 
+|.**jsonFormDefinition** () → `Object` | Returns the json widget definition as defined in the structure.<br>⚠️ Only available if the `parent` parameter has been passed to the constructor.| 
+

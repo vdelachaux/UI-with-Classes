@@ -63,6 +63,46 @@ Function get resizingOptions() : Object
 	OBJECT GET RESIZING OPTIONS:C1176(*; This:C1470.name; $horizontal; $vertical)
 	return {horizontal: $horizontal; vertical: $vertical}
 	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get horizontallyResizable() : Boolean
+	
+	return This:C1470.resizingOptions.horizontal=1
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set horizontallyResizable($resizable)
+	
+	This:C1470.setResizingOptions(Num:C11($resizable))
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get verticallyResizable() : Boolean
+	
+	return This:C1470.resizingOptions.vertical=1
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set verticallyResizable($resizable)
+	
+	This:C1470.setResizingOptions(This:C1470.resizingOptions.horizontal; Num:C11($resizable))
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get horizontallyMovable() : Boolean
+	
+	return This:C1470.resizingOptions.horizontal=2
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set horizontallyMovable($movable : Boolean)
+	
+	This:C1470.setResizingOptions(2*Num:C11($movable))
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get verticallyMovable() : Boolean
+	
+	return This:C1470.resizingOptions.vertical=2
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set verticallyMovable($movable : Boolean)
+	
+	This:C1470.setResizingOptions(This:C1470.resizingOptions.horizontal; 2*Num:C11($movable))
+	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setResizingOptions($horizontal : Integer; $vertical : Integer)
 	
@@ -219,7 +259,11 @@ Function get coordinates() : cs:C1710.coord
 	
 	This:C1470.getCoordinates()
 	return cs:C1710.coord.new(This:C1470._coordinates)
-	//return This._coordinates
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function set coordinates($coordinates : Object)
+	
+	This:C1470.setCoordinates($coordinates)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function getCoordinates() : Object
@@ -461,7 +505,7 @@ Function bestSize($alignment; $minWidth : Integer; $maxWidth : Integer) : cs:C17
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function bestHeight($width : Integer) : Integer
+Function bestHeight($width : Integer) : cs:C1710.static
 	
 	If (Count parameters:C259=0)
 		
@@ -473,12 +517,7 @@ Function bestHeight($width : Integer) : Integer
 	var $height:=This:C1470.getBestHeight($width)
 	This:C1470.height:=$height
 	
-	return $height-$coord.height
-	
-	//var $coord:=This.coordinates
-	//OBJECT GET COORDINATES(*; "mess0"; $Lon_left; $Lon_top; $Lon_right; $Lon_bottom)
-	//OBJECT GET BEST SIZE(*; "mess0"; $Lon_bestWidth; $Lon_bestHeight; $Lon_right-$Lon_left)
-	//OBJECT SET COORDINATES(*; "mess0"; $Lon_left; $Lon_top; $Lon_right; $Lon_top+$Lon_bestHeight)
+	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function getBestHeight($maxWidth : Integer) : Integer
@@ -700,10 +739,15 @@ Function hide() : cs:C1710.static
 	
 	return This:C1470
 	
-	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get format() : Text
 	
 	return OBJECT Get format:C894(*; This:C1470.name)
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set format($format : Text)
+	
+	This:C1470.setFormat($format)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setFormat($format : Text) : cs:C1710.widget
