@@ -112,8 +112,8 @@ In the `form controller class`, you instantiate the widgets (form objects) you w
 |.**Stepper** (name: `Text`) → **cs**.stepper | for a  [Stepper](https://developer.4d.com/docs/FormObjects/stepper)|
 |.**Subform** (name: `Text`) → **cs**.subform | for a  [Subform](https://developer.4d.com/docs/FormObjects/subformOverview)|
 |.**TabControl** (name: `Text` {; data : `Object`}) → **cs**.tabControl | for a  [Tab Control](https://developer.4d.com/docs/FormObjects/tabControl)|
-|.**thermometer**.*new* (name: `Text`) → [**cs**.thermometer](thermometer.md) | for a [Progress Indicator](https://developer.4d.com/docs/FormObjects/progressIndicator) |
-|.**webArea**.*new* (name: `Text`) → **cs**.webArea | for a  [Web Area](https://developer.4d.com/docs/FormObjects/webAreaOverview) |
+|.**Thermometer** (name: `Text`) → [**cs**.thermometer](thermometer.md) | for a [Progress Indicator](https://developer.4d.com/docs/FormObjects/progressIndicator) |
+|.**WebArea** (name: `Text`) → **cs**.webArea | for a  [Web Area](https://developer.4d.com/docs/FormObjects/webAreaOverview) |
 
 In addition, other handler can be instantiated. For example: a `Group` allows you to manage several widgets at once, since groups created in design mode cannot be manipulated at runtime. 
 
