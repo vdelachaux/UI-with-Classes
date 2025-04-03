@@ -1,13 +1,13 @@
 property form : cs:C1710.ui.form
+property isSubform:=True:C214
+property toBeInitialized:=False:C215
+
 property drag; reduce; zoom; close : cs:C1710.ui.button
 property isModal : Boolean
 property options : Integer
 property actionOnDoubleClick : Text
 
 Class constructor
-	
-	This:C1470.isSubform:=True:C214
-	This:C1470.toBeInitialized:=False:C215
 	
 	// MARK:-Delegates 📦
 	var $form : Object
@@ -50,19 +50,19 @@ Class constructor
 	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function init()
 	
-	This:C1470.drag:=This:C1470.form.button.new("dragWindow")
+	This:C1470.drag:=This:C1470.form.Button("dragWindow")
 	
 	If (Is macOS:C1572)
 		
-		This:C1470.reduce:=This:C1470.form.button.new("minusMac")
-		This:C1470.zoom:=This:C1470.form.button.new("plusMac")
-		This:C1470.close:=This:C1470.form.button.new("closeMac")
+		This:C1470.reduce:=This:C1470.form.Button("minusMac")
+		This:C1470.zoom:=This:C1470.form.Button("plusMac")
+		This:C1470.close:=This:C1470.form.Button("closeMac")
 		
 	Else 
 		
-		This:C1470.reduce:=This:C1470.form.button.new("minusWin")
-		This:C1470.zoom:=This:C1470.form.button.new("plusWin")
-		This:C1470.close:=This:C1470.form.button.new("closeWin")
+		This:C1470.reduce:=This:C1470.form.Button("minusWin")
+		This:C1470.zoom:=This:C1470.form.Button("plusWin")
+		This:C1470.close:=This:C1470.form.Button("closeWin")
 		
 	End if 
 	

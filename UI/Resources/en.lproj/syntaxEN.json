@@ -54,17 +54,6 @@
 			],
 			"Summary": ""
 		},
-		"formMethod": {
-			"Syntax": "**formMethod**() : Variant",
-			"Params": [
-				[
-					"",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"dropableWidgetMethod": {
 			"Syntax": "**dropableWidgetMethod**() : Integer",
 			"Params": [
@@ -877,6 +866,22 @@
 			],
 			"Summary": ""
 		},
+		"addToGroup()": {
+			"Syntax": "**.addToGroup**( *group* : cs.ui.group ) : cs.ui.static",
+			"Params": [
+				[
+					"group",
+					"cs.ui.group",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"get fontSize()": {
 			"Syntax": "**.get fontSize**() : Integer",
 			"Params": [
@@ -915,6 +920,17 @@
 			],
 			"Summary": ""
 		},
+		"set bottom()": {
+			"Syntax": "**.set bottom**( *bottom* : Integer )",
+			"Params": [
+				[
+					"bottom",
+					"Integer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"set font()": {
 			"Syntax": "**.set font**( *font* : Text )",
 			"Params": [
@@ -933,17 +949,6 @@
 					"",
 					"Text",
 					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"set fontSize()": {
-			"Syntax": "**.set fontSize**( *size* : Integer )",
-			"Params": [
-				[
-					"size",
-					"Integer",
-					"->"
 				]
 			],
 			"Summary": ""
@@ -970,6 +975,43 @@
 			],
 			"Summary": ""
 		},
+		"bestSize()": {
+			"Syntax": "**.bestSize**( *alignment* : Variant; *minWidth* : Integer; *maxWidth* : Integer ) : cs.ui.static",
+			"Params": [
+				[
+					"alignment",
+					"Variant",
+					"->"
+				],
+				[
+					"minWidth",
+					"Integer",
+					"->"
+				],
+				[
+					"maxWidth",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set verticalAlignment()": {
+			"Syntax": "**.set verticalAlignment**( *alignment* : Integer )",
+			"Params": [
+				[
+					"alignment",
+					"Integer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"get horizontalAlignment()": {
 			"Syntax": "**.get horizontalAlignment**() : Integer",
 			"Params": [
@@ -981,8 +1023,35 @@
 			],
 			"Summary": ""
 		},
+		"alignBottom()": {
+			"Syntax": "**.alignBottom**() : cs.ui.static",
+			"Params": [
+				[
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get backgroundColor()": {
+			"Syntax": "**.get backgroundColor**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"restoreForegroundColor()": {
 			"Syntax": "**.restoreForegroundColor**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"restoreBackgroundColor()": {
+			"Syntax": "**.restoreBackgroundColor**()",
 			"Params": [],
 			"Summary": ""
 		},
@@ -1012,6 +1081,28 @@
 			],
 			"Summary": ""
 		},
+		"set colors()": {
+			"Syntax": "**.set colors**( *colors* : Object )",
+			"Params": [
+				[
+					"colors",
+					"Object",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"set enabled()": {
+			"Syntax": "**.set enabled**( *enabled* : Boolean )",
+			"Params": [
+				[
+					"enabled",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"set altBackgroundColor()": {
 			"Syntax": "**.set altBackgroundColor**( *color* : Variant )",
 			"Params": [
@@ -1019,6 +1110,17 @@
 					"color",
 					"Variant",
 					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get enabled()": {
+			"Syntax": "**.get enabled**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
 				]
 			],
 			"Summary": ""
@@ -1041,17 +1143,6 @@
 					"color",
 					"Variant",
 					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"get backgroundColor()": {
-			"Syntax": "**.get backgroundColor**() : Variant",
-			"Params": [
-				[
-					"",
-					"Variant",
-					"<-"
 				]
 			],
 			"Summary": ""
@@ -1088,6 +1179,38 @@
 			],
 			"Summary": ""
 		},
+		"moveHorizontally()": {
+			"Syntax": "**.moveHorizontally**( *offset* : Integer ) : cs.ui.static",
+			"Params": [
+				[
+					"offset",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"moveLeft()": {
+			"Syntax": "**.moveLeft**( *offset* : Integer ) : cs.ui.static",
+			"Params": [
+				[
+					"offset",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"get fontStyle()": {
 			"Syntax": "**.get fontStyle**() : Integer",
 			"Params": [
@@ -1099,12 +1222,71 @@
 			],
 			"Summary": ""
 		},
+		"show()": {
+			"Syntax": "**.show**( *state* : Boolean ) : cs.ui.static",
+			"Params": [
+				[
+					"state",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"get foregroundColor()": {
 			"Syntax": "**.get foregroundColor**() : Variant",
 			"Params": [
 				[
 					"",
 					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set format()": {
+			"Syntax": "**.set format**( *format* : Text )",
+			"Params": [
+				[
+					"format",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"moveUp()": {
+			"Syntax": "**.moveUp**( *offset* : Integer ) : cs.ui.static",
+			"Params": [
+				[
+					"offset",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"resizeVertically()": {
+			"Syntax": "**.resizeVertically**( *offset* : Integer ) : cs.ui.static",
+			"Params": [
+				[
+					"offset",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
 					"<-"
 				]
 			],
@@ -1132,6 +1314,17 @@
 			],
 			"Summary": ""
 		},
+		"get horizontallyMovable()": {
+			"Syntax": "**.get horizontallyMovable**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"hide()": {
 			"Syntax": "**.hide**() : cs.ui.static",
 			"Params": [
@@ -1139,17 +1332,6 @@
 					"",
 					"cs.ui.static",
 					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"set verticalAlignment()": {
-			"Syntax": "**.set verticalAlignment**( *alignment* : Integer )",
-			"Params": [
-				[
-					"alignment",
-					"Integer",
-					"->"
 				]
 			],
 			"Summary": ""
@@ -1170,6 +1352,17 @@
 			],
 			"Summary": ""
 		},
+		"set horizontallyResizable()": {
+			"Syntax": "**.set horizontallyResizable**( *resizable* : Variant )",
+			"Params": [
+				[
+					"resizable",
+					"Variant",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"get hidden()": {
 			"Syntax": "**.get hidden**() : Boolean",
 			"Params": [
@@ -1181,8 +1374,30 @@
 			],
 			"Summary": ""
 		},
+		"set verticallyMovable()": {
+			"Syntax": "**.set verticallyMovable**( *movable* : Boolean )",
+			"Params": [
+				[
+					"movable",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"get visible()": {
 			"Syntax": "**.get visible**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get horizontallyResizable()": {
+			"Syntax": "**.get horizontallyResizable**() : Boolean",
 			"Params": [
 				[
 					"",
@@ -1199,6 +1414,17 @@
 					"disabled",
 					"Boolean",
 					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get class()": {
+			"Syntax": "**.get class**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
 				]
 			],
 			"Summary": ""
@@ -1230,13 +1456,29 @@
 			],
 			"Summary": ""
 		},
-		"set enabled()": {
-			"Syntax": "**.set enabled**( *enabled* : Boolean )",
+		"backupCoordinates()": {
+			"Syntax": "**.backupCoordinates**() : cs.ui.static",
 			"Params": [
 				[
-					"enabled",
-					"Boolean",
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"resizeHorizontally()": {
+			"Syntax": "**.resizeHorizontally**( *offset* : Integer ) : cs.ui.static",
+			"Params": [
+				[
+					"offset",
+					"Integer",
 					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
 				]
 			],
 			"Summary": ""
@@ -1272,6 +1514,27 @@
 			],
 			"Summary": ""
 		},
+		"moveAndResizeHorizontally()": {
+			"Syntax": "**.moveAndResizeHorizontally**( *offset* : Integer; *resize* : Integer ) : cs.ui.static",
+			"Params": [
+				[
+					"offset",
+					"Integer",
+					"->"
+				],
+				[
+					"resize",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"moveAndResizeVertically()": {
 			"Syntax": "**.moveAndResizeVertically**( *offset* : Integer; *resize* : Integer ) : cs.ui.static",
 			"Params": [
@@ -1293,33 +1556,11 @@
 			],
 			"Summary": ""
 		},
-		"alignBottom()": {
-			"Syntax": "**.alignBottom**() : cs.ui.static",
+		"bestHeight()": {
+			"Syntax": "**.bestHeight**( *width* : Integer ) : cs.ui.static",
 			"Params": [
 				[
-					"",
-					"cs.ui.static",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"set right()": {
-			"Syntax": "**.set right**( *right* : Integer )",
-			"Params": [
-				[
-					"right",
-					"Integer",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"resize()": {
-			"Syntax": "**.resize**( *offset* : Integer ) : cs.ui.static",
-			"Params": [
-				[
-					"offset",
+					"width",
 					"Integer",
 					"->"
 				],
@@ -1331,18 +1572,13 @@
 			],
 			"Summary": ""
 		},
-		"resizeVertically()": {
-			"Syntax": "**.resizeVertically**( *offset* : Integer ) : cs.ui.static",
+		"set foregroundColor()": {
+			"Syntax": "**.set foregroundColor**( *color* : Variant )",
 			"Params": [
 				[
-					"offset",
-					"Integer",
+					"color",
+					"Variant",
 					"->"
-				],
-				[
-					"",
-					"cs.ui.static",
-					"<-"
 				]
 			],
 			"Summary": ""
@@ -1358,61 +1594,13 @@
 			],
 			"Summary": ""
 		},
-		"resizeHorizontally()": {
-			"Syntax": "**.resizeHorizontally**( *offset* : Integer ) : cs.ui.static",
+		"set fontSize()": {
+			"Syntax": "**.set fontSize**( *size* : Integer )",
 			"Params": [
 				[
-					"offset",
+					"size",
 					"Integer",
 					"->"
-				],
-				[
-					"",
-					"cs.ui.static",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"show()": {
-			"Syntax": "**.show**( *state* : Boolean ) : cs.ui.static",
-			"Params": [
-				[
-					"state",
-					"Boolean",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.static",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"backupCoordinates()": {
-			"Syntax": "**.backupCoordinates**() : cs.ui.static",
-			"Params": [
-				[
-					"",
-					"cs.ui.static",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"moveUp()": {
-			"Syntax": "**.moveUp**( *offset* : Integer ) : cs.ui.static",
-			"Params": [
-				[
-					"offset",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.static",
-					"<-"
 				]
 			],
 			"Summary": ""
@@ -1444,48 +1632,6 @@
 				[
 					"",
 					"Integer",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"moveLeft()": {
-			"Syntax": "**.moveLeft**( *offset* : Integer ) : cs.ui.static",
-			"Params": [
-				[
-					"offset",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.static",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"bestSize()": {
-			"Syntax": "**.bestSize**( *alignment* : Variant; *minWidth* : Integer; *maxWidth* : Integer ) : cs.ui.static",
-			"Params": [
-				[
-					"alignment",
-					"Variant",
-					"->"
-				],
-				[
-					"minWidth",
-					"Integer",
-					"->"
-				],
-				[
-					"maxWidth",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.static",
 					"<-"
 				]
 			],
@@ -1549,22 +1695,6 @@
 			],
 			"Summary": ""
 		},
-		"set width()": {
-			"Syntax": "**.set width**( *width* : Integer )",
-			"Params": [
-				[
-					"width",
-					"Integer",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"restorePosition()": {
-			"Syntax": "**.restorePosition**()",
-			"Params": [],
-			"Summary": ""
-		},
 		"getCoordinates()": {
 			"Syntax": "**.getCoordinates**() : Object",
 			"Params": [
@@ -1619,6 +1749,33 @@
 			],
 			"Summary": ""
 		},
+		"set coordinates()": {
+			"Syntax": "**.set coordinates**( *coordinates* : Object )",
+			"Params": [
+				[
+					"coordinates",
+					"Object",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"setFontStyle()": {
+			"Syntax": "**.setFontStyle**( *style* : Integer ) : cs.ui.static",
+			"Params": [
+				[
+					"style",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"setWidth()": {
 			"Syntax": "**.setWidth**( *width* : Integer ) : cs.ui.static",
 			"Params": [
@@ -1646,13 +1803,62 @@
 			],
 			"Summary": ""
 		},
-		"set colors()": {
-			"Syntax": "**.set colors**( *colors* : Object )",
+		"get verticallyMovable()": {
+			"Syntax": "**.get verticallyMovable**() : Boolean",
 			"Params": [
 				[
-					"colors",
-					"Object",
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set top()": {
+			"Syntax": "**.set top**( *top* : Integer )",
+			"Params": [
+				[
+					"top",
+					"Integer",
 					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get dimensions()": {
+			"Syntax": "**.get dimensions**() : Object",
+			"Params": [
+				[
+					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set horizontallyMovable()": {
+			"Syntax": "**.set horizontallyMovable**( *movable* : Boolean )",
+			"Params": [
+				[
+					"movable",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"moveDown()": {
+			"Syntax": "**.moveDown**( *offset* : Integer ) : cs.ui.static",
+			"Params": [
+				[
+					"offset",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.static",
+					"<-"
 				]
 			],
 			"Summary": ""
@@ -1711,65 +1917,11 @@
 			],
 			"Summary": ""
 		},
-		"bestHeight()": {
-			"Syntax": "**.bestHeight**( *width* : Integer ) : Integer",
-			"Params": [
-				[
-					"width",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"Integer",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"set top()": {
-			"Syntax": "**.set top**( *top* : Integer )",
-			"Params": [
-				[
-					"top",
-					"Integer",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"set bottom()": {
-			"Syntax": "**.set bottom**( *bottom* : Integer )",
-			"Params": [
-				[
-					"bottom",
-					"Integer",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"set foregroundColor()": {
-			"Syntax": "**.set foregroundColor**( *color* : Variant )",
-			"Params": [
-				[
-					"color",
-					"Variant",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"moveAndResizeHorizontally()": {
-			"Syntax": "**.moveAndResizeHorizontally**( *offset* : Integer; *resize* : Integer ) : cs.ui.static",
+		"resize()": {
+			"Syntax": "**.resize**( *offset* : Integer ) : cs.ui.static",
 			"Params": [
 				[
 					"offset",
-					"Integer",
-					"->"
-				],
-				[
-					"resize",
 					"Integer",
 					"->"
 				],
@@ -1814,49 +1966,6 @@
 			],
 			"Summary": ""
 		},
-		"setFontStyle()": {
-			"Syntax": "**.setFontStyle**( *style* : Integer ) : cs.ui.static",
-			"Params": [
-				[
-					"style",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.static",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get enabled()": {
-			"Syntax": "**.get enabled**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"restoreBackgroundColor()": {
-			"Syntax": "**.restoreBackgroundColor**()",
-			"Params": [],
-			"Summary": ""
-		},
-		"get resizingOptions()": {
-			"Syntax": "**.get resizingOptions**() : Object",
-			"Params": [
-				[
-					"",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"disable()": {
 			"Syntax": "**.disable**() : cs.ui.static",
 			"Params": [
@@ -1864,6 +1973,17 @@
 					"",
 					"cs.ui.static",
 					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set width()": {
+			"Syntax": "**.set width**( *width* : Integer )",
+			"Params": [
+				[
+					"width",
+					"Integer",
+					"->"
 				]
 			],
 			"Summary": ""
@@ -1884,17 +2004,6 @@
 			],
 			"Summary": ""
 		},
-		"get top()": {
-			"Syntax": "**.get top**() : Integer",
-			"Params": [
-				[
-					"",
-					"Integer",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"get right()": {
 			"Syntax": "**.get right**() : Integer",
 			"Params": [
@@ -1906,17 +2015,12 @@
 			],
 			"Summary": ""
 		},
-		"moveDown()": {
-			"Syntax": "**.moveDown**( *offset* : Integer ) : cs.ui.static",
+		"get top()": {
+			"Syntax": "**.get top**() : Integer",
 			"Params": [
 				[
-					"offset",
-					"Integer",
-					"->"
-				],
-				[
 					"",
-					"cs.ui.static",
+					"Integer",
 					"<-"
 				]
 			],
@@ -1966,22 +2070,6 @@
 			],
 			"Summary": ""
 		},
-		"moveHorizontally()": {
-			"Syntax": "**.moveHorizontally**( *offset* : Integer ) : cs.ui.static",
-			"Params": [
-				[
-					"offset",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.static",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"get title()": {
 			"Syntax": "**.get title**() : Text",
 			"Params": [
@@ -1993,40 +2081,30 @@
 			],
 			"Summary": ""
 		},
-		"addToGroup()": {
-			"Syntax": "**.addToGroup**( *group* : cs.ui.group ) : cs.ui.static",
+		"set verticallyResizable()": {
+			"Syntax": "**.set verticallyResizable**( *resizable* : Variant )",
 			"Params": [
 				[
-					"group",
-					"cs.ui.group",
+					"resizable",
+					"Variant",
 					"->"
-				],
+				]
+			],
+			"Summary": ""
+		},
+		"get verticallyResizable()": {
+			"Syntax": "**.get verticallyResizable**() : Boolean",
+			"Params": [
 				[
 					"",
-					"cs.ui.static",
+					"Boolean",
 					"<-"
 				]
 			],
 			"Summary": ""
 		},
-		"getBestWidth()": {
-			"Syntax": "**.getBestWidth**( *maxWidth* : Integer ) : Integer",
-			"Params": [
-				[
-					"maxWidth",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"Integer",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get dimensions()": {
-			"Syntax": "**.get dimensions**() : Object",
+		"jsonFormDefinition()": {
+			"Syntax": "**.jsonFormDefinition**() : Object",
 			"Params": [
 				[
 					"",
@@ -2034,6 +2112,33 @@
 					"<-"
 				]
 			],
+			"Summary": ""
+		},
+		"set right()": {
+			"Syntax": "**.set right**( *right* : Integer )",
+			"Params": [
+				[
+					"right",
+					"Integer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get resizingOptions()": {
+			"Syntax": "**.get resizingOptions**() : Object",
+			"Params": [
+				[
+					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"restorePosition()": {
+			"Syntax": "**.restorePosition**()",
+			"Params": [],
 			"Summary": ""
 		},
 		"setResizingOptions()": {
@@ -2052,23 +2157,17 @@
 			],
 			"Summary": ""
 		},
-		"jsonFormDefinition()": {
-			"Syntax": "**.jsonFormDefinition**() : Object",
+		"getBestWidth()": {
+			"Syntax": "**.getBestWidth**( *maxWidth* : Integer ) : Integer",
 			"Params": [
 				[
-					"",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get class()": {
-			"Syntax": "**.get class**() : Text",
-			"Params": [
+					"maxWidth",
+					"Integer",
+					"->"
+				],
 				[
 					"",
-					"Text",
+					"Integer",
 					"<-"
 				]
 			],
@@ -3115,6 +3214,17 @@
 			],
 			"Summary": ""
 		},
+		"get columnMoved()": {
+			"Syntax": "**.get columnMoved**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"get openExternalLink()": {
 			"Syntax": "**.get openExternalLink**() : Boolean",
 			"Params": [
@@ -3128,17 +3238,6 @@
 		},
 		"get closeDetail()": {
 			"Syntax": "**.get closeDetail**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get columnMoved()": {
-			"Syntax": "**.get columnMoved**() : Boolean",
 			"Params": [
 				[
 					"",
@@ -3337,6 +3436,17 @@
 		},
 		"get beforeKeystroke()": {
 			"Syntax": "**.get beforeKeystroke**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get gettingFocus()": {
+			"Syntax": "**.get gettingFocus**() : Boolean",
 			"Params": [
 				[
 					"",
@@ -3599,50 +3709,6 @@
 			],
 			"Summary": ""
 		},
-		"get mouseMove()": {
-			"Syntax": "**.get mouseMove**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get printingFooter()": {
-			"Syntax": "**.get printingFooter**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get unload()": {
-			"Syntax": "**.get unload**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get gettingFocus()": {
-			"Syntax": "**.get gettingFocus**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"get _eventName()": {
 			"Syntax": "**.get _eventName**() : Text",
 			"Params": [
@@ -3687,6 +3753,39 @@
 			],
 			"Summary": ""
 		},
+		"get mouseMove()": {
+			"Syntax": "**.get mouseMove**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get printingFooter()": {
+			"Syntax": "**.get printingFooter**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get unload()": {
+			"Syntax": "**.get unload**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"get load()": {
 			"Syntax": "**.get load**() : Boolean",
 			"Params": [
@@ -3703,6 +3802,9 @@
 		},
 		"isRowSelected": {
 			"Syntax": "isRowSelected : Boolean"
+		},
+		"row": {
+			"Syntax": "row : Integer"
 		},
 		"footerName": {
 			"Syntax": "footerName : Text"
@@ -3721,6 +3823,9 @@
 		},
 		"area": {
 			"Syntax": "area : Text"
+		},
+		"objectName": {
+			"Syntax": "objectName : Text"
 		},
 		"newPosition": {
 			"Syntax": "newPosition : Integer"
@@ -3742,12 +3847,6 @@
 		},
 		"code": {
 			"Syntax": "code : Integer"
-		},
-		"row": {
-			"Syntax": "row : Integer"
-		},
-		"objectName": {
-			"Syntax": "objectName : Text"
 		}
 	},
 	"hList": {
@@ -4491,23 +4590,28 @@
 		}
 	},
 	"widget": {
+		"get pointer()": {
+			"Syntax": "**.get pointer**() : Pointer",
+			"Params": [
+				[
+					"",
+					"Pointer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"postClick()": {
+			"Syntax": "**.postClick**()",
+			"Params": [],
+			"Summary": ""
+		},
 		"isFocused()": {
 			"Syntax": "**.isFocused**() : Boolean",
 			"Params": [
 				[
 					"",
 					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"focus()": {
-			"Syntax": "**.focus**() : cs.ui.widget",
-			"Params": [
-				[
-					"",
-					"cs.ui.widget",
 					"<-"
 				]
 			],
@@ -4593,13 +4697,45 @@
 			],
 			"Summary": ""
 		},
-		"get droppable()": {
-			"Syntax": "**.get droppable**() : Boolean",
+		"setData()": {
+			"Syntax": "**.setData**( *o* : Object )",
 			"Params": [
 				[
-					"",
+					"o",
+					"Object",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"setDraggable()": {
+			"Syntax": "**.setDraggable**( *enabled* : Boolean; *automatic* : Boolean ) : cs.ui.widget",
+			"Params": [
+				[
+					"enabled",
 					"Boolean",
+					"->"
+				],
+				[
+					"automatic",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.widget",
 					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set droppable()": {
+			"Syntax": "**.set droppable**( *on* : Boolean )",
+			"Params": [
+				[
+					"on",
+					"Boolean",
+					"->"
 				]
 			],
 			"Summary": ""
@@ -4631,6 +4767,39 @@
 			],
 			"Summary": ""
 		},
+		"get droppable()": {
+			"Syntax": "**.get droppable**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set action()": {
+			"Syntax": "**.set action**( *action* : Text )",
+			"Params": [
+				[
+					"action",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get action()": {
+			"Syntax": "**.get action**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"get uri()": {
 			"Syntax": "**.get uri**() : Text",
 			"Params": [
@@ -4642,34 +4811,13 @@
 			],
 			"Summary": ""
 		},
-		"setDraggable()": {
-			"Syntax": "**.setDraggable**( *enabled* : Boolean; *automatic* : Boolean ) : cs.ui.widget",
+		"focus()": {
+			"Syntax": "**.focus**() : cs.ui.widget",
 			"Params": [
-				[
-					"enabled",
-					"Boolean",
-					"->"
-				],
-				[
-					"automatic",
-					"Boolean",
-					"->"
-				],
 				[
 					"",
 					"cs.ui.widget",
 					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"setData()": {
-			"Syntax": "**.setData**( *o* : Object )",
-			"Params": [
-				[
-					"o",
-					"Object",
-					"->"
 				]
 			],
 			"Summary": ""
@@ -4734,6 +4882,28 @@
 			],
 			"Summary": ""
 		},
+		"notEnterable()": {
+			"Syntax": "**.notEnterable**() : cs.ui.widget",
+			"Params": [
+				[
+					"",
+					"cs.ui.widget",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"removeHelpTip()": {
+			"Syntax": "**.removeHelpTip**() : cs.ui.widget",
+			"Params": [
+				[
+					"",
+					"cs.ui.widget",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"set value()": {
 			"Syntax": "**.set value**( *value* : Variant )",
 			"Params": [
@@ -4763,17 +4933,6 @@
 					"datasource",
 					"Variant",
 					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"get pointer()": {
-			"Syntax": "**.get pointer**() : Pointer",
-			"Params": [
-				[
-					"",
-					"Pointer",
-					"<-"
 				]
 			],
 			"Summary": ""
@@ -4854,28 +5013,6 @@
 			],
 			"Summary": ""
 		},
-		"removeHelpTip()": {
-			"Syntax": "**.removeHelpTip**() : cs.ui.widget",
-			"Params": [
-				[
-					"",
-					"cs.ui.widget",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"notEnterable()": {
-			"Syntax": "**.notEnterable**() : cs.ui.widget",
-			"Params": [
-				[
-					"",
-					"cs.ui.widget",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"set enterable()": {
 			"Syntax": "**.set enterable**( *enterable* : Boolean )",
 			"Params": [
@@ -4933,38 +5070,6 @@
 					"<-"
 				]
 			],
-			"Summary": ""
-		},
-		"setDatasource()": {
-			"Syntax": "**.setDatasource**( *datasource* : Variant ) : cs.ui.widget",
-			"Params": [
-				[
-					"datasource",
-					"Variant",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.widget",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"set droppable()": {
-			"Syntax": "**.set droppable**( *on* : Boolean )",
-			"Params": [
-				[
-					"on",
-					"Boolean",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"postClick()": {
-			"Syntax": "**.postClick**()",
-			"Params": [],
 			"Summary": ""
 		},
 		"get enterable()": {
@@ -5071,6 +5176,22 @@
 				[
 					"",
 					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setDatasource()": {
+			"Syntax": "**.setDatasource**( *datasource* : Variant ) : cs.ui.widget",
+			"Params": [
+				[
+					"datasource",
+					"Variant",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.widget",
 					"<-"
 				]
 			],
@@ -7134,7 +7255,7 @@
 			"Syntax": "colorScheme : Text"
 		},
 		"constraints": {
-			"Syntax": "constraints : 4D.Class"
+			"Syntax": "constraints : cs.ui.constraints"
 		}
 	},
 	"menu": {

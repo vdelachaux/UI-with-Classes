@@ -35,6 +35,11 @@
 			"HDI CSS"
 		]
 	},
+	"DEMO_Group": {
+		"forms": [
+			"DEMO_Group_Distribute"
+		]
+	},
 	"DEMO_Menus": {
 		"forms": [
 			"DEMO_Menus"
@@ -64,6 +69,7 @@
 			"DEMO_1",
 			"DEMO_constraints",
 			"DEMO_CSS",
+			"DEMO_Group",
 			"DEMO_Menus",
 			"DEMO_Search",
 			"DEMO_Tab_Control"

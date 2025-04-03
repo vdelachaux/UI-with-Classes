@@ -10,9 +10,9 @@ property isMatrix : Boolean:=Structure file:C489=Structure file:C489(*)
 
 // MARK: Delegates 📦
 property window : cs:C1710.window
+property constraints:=cs:C1710.constraints.new()
 
 // MARK: Other 💾
-property constraints : 4D:C1709.Class
 property context : Collection
 property current
 property pages : Object
@@ -107,7 +107,6 @@ Class constructor($param; $me : Object)
 	
 	// MARK:Delegates 📦
 	This:C1470.window:=cs:C1710.window.new(This:C1470)
-	This:C1470.constraints:=cs:C1710.constraints.new()
 	
 	// MARK: -DEPRECATED ⚠️
 	This:C1470.button:=cs:C1710.button

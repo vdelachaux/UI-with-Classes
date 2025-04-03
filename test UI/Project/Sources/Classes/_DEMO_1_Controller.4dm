@@ -22,10 +22,10 @@ Instantiate the widgets we need to manipulate.
 */
 	
 	// The text box for entering password
-	This:C1470.pwd:=This:C1470.form.input.new("Input")
+	This:C1470.pwd:=This:C1470.form.Input("Input")
 	
 	// The bottom buttons are grouped together for correct positioning (see the onLoad function)
-	This:C1470.bottomButtons:=This:C1470.form.group.new()
+	This:C1470.bottomButtons:=This:C1470.form.Group()
 	This:C1470.ok:=This:C1470.form.Button("Button").addToGroup(This:C1470.bottomButtons)
 	This:C1470.cancel:=This:C1470.form.Button("Button1").addToGroup(This:C1470.bottomButtons)
 	

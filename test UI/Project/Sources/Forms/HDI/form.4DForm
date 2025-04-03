@@ -127,7 +127,7 @@
 						"onClick"
 					],
 					"style": "toolbar",
-					"icon": "/.PRODUCT_RESOURCES/Internal Components/development.4dbase/Resources/images/explorer/forms.png"
+					"icon": "/.PRODUCT_RESOURCES/Internal Components/development.4dbase/Contents/Resources/images/explorer/forms.png"
 				},
 				"class": {
 					"type": "button",
@@ -140,7 +140,7 @@
 						"onClick"
 					],
 					"style": "toolbar",
-					"icon": "/.PRODUCT_RESOURCES/Internal Components/development.4dbase/Resources/images/explorer/methods.png"
+					"icon": "/.PRODUCT_RESOURCES/Internal Components/development.4dbase/Contents/Resources/images/explorer/methods.png"
 				},
 				"desc": {
 					"type": "text",
@@ -214,7 +214,7 @@
 		}
 	],
 	"method": "formMethod",
-	"geometryStamp": 335,
+	"geometryStamp": 337,
 	"editor": {
 		"groups": {
 			"Group": [

@@ -4,7 +4,136 @@ property code : Integer
 property description : Text
 
 // MARK:Internal
-property _descriptions : Collection
+property _descriptions:=[\
+""; \
+"on Load"; \
+"on Mouse Up"; \
+"on Validate"; \
+"on Click"; \
+"on Header"; \
+"on Printing Break"; \
+"on Printing Footer"; \
+"on Display Detail"; \
+"on VP Ready"; \
+"on Outside Call"; \
+"on Activate"; \
+"on Deactivate"; \
+"on Double Click"; \
+"on Losing Focus"; \
+"on Getting Focus"; \
+"on Drop"; \
+"on Before Keystroke"; \
+"on Menu Select"; \
+"on Plugin Area"; \
+"on Data Change"; \
+"on Drag Over"; \
+"on Close Box"; \
+"on Printing Detail"; \
+"on Unload"; \
+"on Open Detail"; \
+"on Close Detail"; \
+"on Timer"; \
+"on After Keystroke"; \
+"on Resize"; \
+"on After Sort"; \
+"on Selection Change"; \
+"on Column Move"; \
+"on Column Resize"; \
+"on Row Move"; \
+"on Mouse Enter"; \
+"on Mouse Leave"; \
+"on Mouse Move"; \
+"on Alternate Click"; \
+"on Long Click"; \
+"on Load Record"; \
+"on Before DataEntry"; \
+"on Header Click"; \
+"on Expand"; \
+"on Collapse"; \
+"on After Edit"; \
+"on Begin Drag Over"; \
+"on Begin URL Loading"; \
+"on URL Resource Loading"; \
+"on End URL Loading"; \
+"on URL Loading Error"; \
+"on URL Filtering"; \
+"on Open External Link"; \
+"on Window Opening Denied"; \
+"on Bound Variable Change"; \
+""; \
+"on Page Change"; \
+"on Footer Click"; \
+"on Delete Action"; \
+"on Scroll"; \
+"on Row Resize"; \
+"on VP Range Changed"\
+]
+
+//
+property _formEvents:=[\
+""; \
+"onLoad"; \
+"onMouseUp"; \
+"onValidate"; \
+"onClick"; \
+"onHeader"; \
+"onPrintingBreak"; \
+"onPrintingFooter"; \
+"onDisplayDetail"; \
+"onVPReady"; \
+"onOutsideCall"; \
+"onActivate"; \
+"onDeactivate"; \
+"onDoubleClick"; \
+"onLosingFocus"; \
+"onGettingFocus"; \
+"onDrop"; \
+"onBeforeKeystroke"; \
+"onMenuSelect"; \
+"onPluginArea"; \
+"onDataChange"; \
+"onDragOver"; \
+"onCloseBox"; \
+"onPrintingDetail"; \
+"onUnload"; \
+"onOpenDetail"; \
+"onCloseDetail"; \
+"onTimer"; \
+"onAfterKeystroke"; \
+"onResize"; \
+"onAfterSort"; \
+"onSelectionChange"; \
+"onColumnMove"; \
+"onColumnResize"; \
+"onRowMove"; \
+"onMouseEnter"; \
+"onMouseLeave"; \
+"onMouseMove"; \
+"onAlternateClick"; \
+"onLongClick"; \
+"onLoadRecord"; \
+"onBeforeDataEntry"; \
+"onHeaderClick"; \
+"onExpand"; \
+"onCollapse"; \
+"onAfterEdit"; \
+"onBeginDragOver"; \
+"onBeginURLLoading"; \
+"onURLResourceLoading"; \
+"onEndURLLoading"; \
+"onURLLoadingError"; \
+"onURLFiltering"; \
+"onOpenExternalLink"; \
+"onWindowOpeningDenied"; \
+"onBoundVariableChange"; \
+""; \
+"onPageChange"; \
+"onFooterClick"; \
+"onDeleteAction"; \
+"onScroll"; \
+"onRowResize"; \
+"onVPRangeChanged"\
+]
 
 // MARK:List boxes additional properties
 property area; areaName; columnName; footerName; headerName : Text
@@ -30,75 +159,15 @@ Class constructor($e : Object)
 		End for each 
 	End if 
 	
-	This:C1470._descriptions:=[\
-		""; \
-		"on Load"; \
-		"on Mouse Up"; \
-		"on Validate"; \
-		"on Click"; \
-		"on Header"; \
-		"on Printing Break"; \
-		"on Printing Footer"; \
-		"on Display Detail"; \
-		"on VP Ready"; \
-		"on Outside Call"; \
-		"on Activate"; \
-		"on Deactivate"; \
-		"on Double Click"; \
-		"on Losing Focus"; \
-		"on Getting Focus"; \
-		"on Drop"; \
-		"on Before Keystroke"; \
-		"on Menu Select"; \
-		"on Plugin Area"; \
-		"on Data Change"; \
-		"on Drag Over"; \
-		"on Close Box"; \
-		"on Printing Detail"; \
-		"on Unload"; \
-		"on Open Detail"; \
-		"on Close Detail"; \
-		"on Timer"; \
-		"on After Keystroke"; \
-		"on Resize"; \
-		"on After Sort"; \
-		"on Selection Change"; \
-		"on Column Move"; \
-		"on Column Resize"; \
-		"on Row Move"; \
-		"on Mouse Enter"; \
-		"on Mouse Leave"; \
-		"on Mouse Move"; \
-		"on Alternate Click"; \
-		"on Long Click"; \
-		"on Load Record"; \
-		"on Before DataEntry"; \
-		"on Header Click"; \
-		"on Expand"; \
-		"on Collapse"; \
-		"on After Edit"; \
-		"on Begin Drag Over"; \
-		"on Begin URL Loading"; \
-		"on URL Resource Loading"; \
-		"on End URL Loading"; \
-		"on URL Loading Error"; \
-		"on URL Filtering"; \
-		"on Open External Link"; \
-		"on Window Opening Denied"; \
-		"on Bound Variable Change"; \
-		""; \
-		"on Page Change"; \
-		"on Footer Click"; \
-		"on Delete Action"; \
-		"on Scroll"; \
-		"on Row Resize"; \
-		"on VP Range Changed"\
-		]
-	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get _eventName() : Text
 	
 	return Try(This:C1470._descriptions[This:C1470.code])
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function _getEventCode($name : Text) : Integer
+	
+	return This:C1470._formEvents.indexOf($name)
 	
 	// MARK:-Form
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==

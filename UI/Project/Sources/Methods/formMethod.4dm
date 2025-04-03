@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":true}
+//%attributes = {"invisible":true}
 var $form : Text:="_"+Current form name:C1298+"_Controller"
 
 Form:C1466.__DIALOG__:=Form:C1466.__DIALOG__ || cs:C1710[$form].new()

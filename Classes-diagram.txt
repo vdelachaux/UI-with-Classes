@@ -1,58 +1,58 @@
 classDiagram
     direction LR
-    _FORM_Controller --* formDelegate
-    formDelegate --* staticDelegate
-    formDelegate --* widgetDelegate
-    formDelegate --* buttonDelegate
-    formDelegate --* dropDownDelegate
-    formDelegate --* stepperDelegate
-    formDelegate --* thermometerDelegate
-    formDelegate --* selectorDelegate
-    formDelegate --* inputDelegate
-    formDelegate --* webAreaDelegate
-    formDelegate --* comboBoxDelegate
-    formDelegate --* pictureDelegate
-    formDelegate --* listboxDelegate
-    formDelegate --* hListDelegate
-    formDelegate --* subformDelegate
-    formDelegate --* windowDelegate
-    formDelegate --* constraintsDelegate
-    staticDelegate<|-- widgetDelegate
-    widgetDelegate <|-- buttonDelegate
-    widgetDelegate <|-- dropDownDelegate
-    widgetDelegate <|-- stepperDelegate
-    widgetDelegate <|-- scrollableDelegate
-    widgetDelegate <|-- thermometerDelegate
-    widgetDelegate <|-- selectorDelegate
-    widgetDelegate <|-- inputDelegate
-    widgetDelegate <|-- webAreaDelegate
-    dropDownDelegate <|-- comboBoxDelegate
-    scrollableDelegate <|-- pictureDelegate
-    scrollableDelegate <|-- listboxDelegate
-    scrollableDelegate <|-- hListDelegate
-    scrollableDelegate <|-- subformDelegate
-    staticDelegate <.. colour
+    _FORM_Controller --* form
+    form --* static
+    form --* widget
+    form --* button
+    form --* dropDown
+    form --* stepper
+    form --* thermometer
+    form --* selector
+    form --* input
+    form --* webArea
+    form --* comboBox
+    form --* picture
+    form --* listbox
+    form --* hList
+    form --* subform
+    form --* window
+    form --* constraints
+    static<|-- widget
+    widget <|-- button
+    widget <|-- dropDown
+    widget <|-- stepper
+    widget <|-- scrollable
+    widget <|-- thermometer
+    widget <|-- selector
+    widget <|-- input
+    widget <|-- webArea
+    dropDown <|-- comboBox
+    scrollable <|-- picture
+    scrollable <|-- listbox
+    scrollable <|-- hList
+    scrollable <|-- subform
+    static <.. colour
     class _FORM_Controller["_&lt; FORM&gt; _Controller"]{
-        +cs.formDelegate : form
+        +cs.form : form
         +handleEvents(e : cs.evt)
     }
     namespace UI Classes {
-		class formDelegate["cs.formDelegate"] {
-			+cs.staticDelegate static
-			+cs.widgetDelegate widget
-			+cs.buttonDelegate button
-			+cs.pictureDelegate picture
-			+cs.dropDownDelegate dropDown
-			+cs.stepperDelegate stepper
-			+cs.thermometerDelegate thermometer
-			+cs.selectorDelegate selector
-			+cs.comboBoxDelegate comboBox
-			+cs.listboxDelegate listbox
-			+cs.hListDelegate hList
-			+cs.subformDelegate subform
-			+cs.webAreaDelegate webArea
-			+cs.windowDelegate window
-			+cs.constraintsDelegate constraints
+		class form["cs.form"] {
+			+cs.static static
+			+cs.widget widget
+			+cs.button button
+			+cs.picture picture
+			+cs.dropDown dropDown
+			+cs.stepper stepper
+			+cs.thermometer thermometer
+			+cs.selector selector
+			+cs.comboBox comboBox
+			+cs.listbox listbox
+			+cs.hList hList
+			+cs.subform subform
+			+cs.webArea webArea
+			+cs.window window
+			+cs.constraints constraints
 			+init()
 			+handleEvents(e : cs.evt)
 			+onLoad()
@@ -121,7 +121,7 @@ classDiagram
 			+setHorizontalResising(resize : Boolean; min : Integer; max : Integer)
 			+setVerticalResising(resize : Boolean; min : Integer; max : Integer)
 		}
-		class windowDelegate["cs.windowDelegate"]{
+		class window["cs.window"]{
 			+winRef ref
 			+Integer type
 			+Integer process
@@ -148,35 +148,35 @@ classDiagram
 			+show()
 			+vibrate(count: Integer)
 		}
-		class constraintsDelegate["cs.constraintsDelegate"]{
+		class constraints["cs.constraints"]{
 			+rules : Collection
 			+load(file : 4D.File)
 			+setMetrics(metrics : Object)
 			+add(rule : Object)
 			+apply()
 		}
-		class staticDelegate["cs.staticDelegate"] {
+		class static["cs.static"] {
 			+Text name
 			+Integer type
 			+Text title
-			+setTitle(title : Text) cs.staticDelegate
+			+setTitle(title : Text) cs.static
 			+Integer width
-			+setWidth(width : Integer) cs.staticDelegate
+			+setWidth(width : Integer) cs.static
 			+Integer height
-			+setHeight(height : Integer) cs.staticDelegate
+			+setHeight(height : Integer) cs.static
 			+Object dimensions
-			+setDimensions(width : Integer; height : Integer) cs.staticDelegate
+			+setDimensions(width : Integer; height : Integer) cs.static
 			+Object coordinates
-			+setsetCoordinates(left : Variant; top : Integer; right : Integer; bottom : Integer) cs.staticDelegate
-			+bestSize(alignment : Variant; minWidth : Integer; maxWidth : Integer) cs.staticDelegate
-			+moveHorizontally(offset : Integer) cs.staticDelegate
-			+resizeHorizontally(offset : Integer) cs.staticDelegate
-			+moveAndResizeHorizontally(offset : Integer; size : Integer) cs.staticDelegate
-			+moveHorizontally(offset : Integer) cs.staticDelegate
-			+resizeVertically(offset : Integer) cs.staticDelegate
-			+moveAndResizeVertically(offset : Integer; size : Integer) cs.staticDelegate
-			+updateCoordinates(left : Integer; top : Integer; right : Integer; bottom : Integer) cs.staticDelegate
-			+backupCoordinates() cs.staticDelegate
+			+setsetCoordinates(left : Variant; top : Integer; right : Integer; bottom : Integer) cs.static
+			+bestSize(alignment : Variant; minWidth : Integer; maxWidth : Integer) cs.static
+			+moveHorizontally(offset : Integer) cs.static
+			+resizeHorizontally(offset : Integer) cs.static
+			+moveAndResizeHorizontally(offset : Integer; size : Integer) cs.static
+			+moveHorizontally(offset : Integer) cs.static
+			+resizeVertically(offset : Integer) cs.static
+			+moveAndResizeVertically(offset : Integer; size : Integer) cs.static
+			+updateCoordinates(left : Integer; top : Integer; right : Integer; bottom : Integer) cs.static
+			+backupCoordinates() cs.static
 			+restorePosition()
 			+Object windowCoordinates
 			+Boolean enabled
@@ -191,80 +191,80 @@ classDiagram
 			+Variant foregroundColor
 			+Variant backgroundColor
 			+Variant altBackgroundColor
-			+setColors(foreground : Variant; background : Variant; altBackground : Variant) cs.staticDelegate
+			+setColors(foreground : Variant; background : Variant; altBackground : Variant) cs.static
 			+Integer horizontalAlignment
-			+alignLeft(): cs.staticDelegate
-			+alignRight(): cs.staticDelegate
+			+alignLeft(): cs.static
+			+alignRight(): cs.static
 			+Integer verticalAlignment
-			+alignTop(): cs.staticDelegate
-			+alignBottom(): cs.staticDelegate
-			+alignCenter(vertical : Boolean): cs.staticDelegate
+			+alignTop(): cs.static
+			+alignBottom(): cs.static
+			+alignCenter(vertical : Boolean): cs.static
 			+Text font
-			+setFont(font : Text): cs.staticDelegate
+			+setFont(font : Text): cs.static
 			+Integer fontStyle
-			+setFontStyle(style : Integer): cs.staticDelegate
+			+setFontStyle(style : Integer): cs.static
 			+Integer fontSize
-			+addToGroup(group cs.groupDelegate) cs.staticDelegate
-			+hiddenFromView() cs.staticDelegate
+			+addToGroup(group cs.group) cs.static
+			+hiddenFromView() cs.static
 		}	
-		class widgetDelegate["cs.widgetDelegate"]{
+		class widget["cs.widget"]{
 			+Text action
 			+Boolean assignable
 			+Pointer pointer
 			+Variant value
 			+getValue() Variant
-			+setValue(value : Variant) cs.widgetDelegate
+			+setValue(value : Variant) cs.widget
 			+Boolean isEmpty
 			+Boolean isNotEmpty
 			+Boolean enterable
-			+setEnterable(enterable : Boolean) cs.widgetDelegate
-			+notEnterable() cs.widgetDelegate
-			+setShortcut(key : Text; modifier : Integer) cs.widgetDelegate
-			+notEnterable() cs.widgetDelegate
+			+setEnterable(enterable : Boolean) cs.widget
+			+notEnterable() cs.widget
+			+setShortcut(key : Text; modifier : Integer) cs.widget
+			+notEnterable() cs.widget
 			+Text helpTip
 			+getHelpTip() Text
-			+setHelpTip(helpTip : Text) cs.widgetDelegate
-			+removeHelpTip() cs.widgetDelegate
+			+setHelpTip(helpTip : Text) cs.widget
+			+removeHelpTip() cs.widget
 			+Collection events
-			+addEvent(events) cs.widgetDelegate
-			+removeEvent(events) cs.widgetDelegate
-			+setEvents(events) cs.widgetDelegate
+			+addEvent(events) cs.widget
+			+removeEvent(events) cs.widget
+			+setEvents(events) cs.widget
 			+catch($e; events) Boolean
 			+Variant data
 			+Text uri
 			+Boolean draggable 
-			+setDraggable(enabled : Boolean; automatic : Boolean) cs.widgetDelegate
-			+setNotDraggable() cs.widgetDelegate
+			+setDraggable(enabled : Boolean; automatic : Boolean) cs.widget
+			+setNotDraggable() cs.widget
 			+Boolean droppable 
-			+setDroppable(enabled : Boolean; automatic : Boolean) cs.widgetDelegate
-			+setNotDroppable() cs.widgetDelegate
-			+setDatasource(datasource) cs.widgetDelegate
-			+touch() cs.widgetDelegate
-			+setCallback(formula) cs.widgetDelegate
+			+setDroppable(enabled : Boolean; automatic : Boolean) cs.widget
+			+setNotDroppable() cs.widget
+			+setDatasource(datasource) cs.widget
+			+touch() cs.widget
+			+setCallback(formula) cs.widget
 			+execute()
-			+setFormat(format : Text) cs.widgetDelegate
-			+setPicture(proxy : Text) cs.widgetDelegate
-			+focus() cs.widgetDelegate
+			+setFormat(format : Text) cs.widget
+			+setPicture(proxy : Text) cs.widget
+			+focus() cs.widget
 			+isFocused() Boolean
 		}
-	  class buttonDelegate["cs.buttonDelegate"]{
+	  class button["cs.button"]{
 			+Boolean linkedPopupMenu
 			+Picture picture
 			+Integer numStates
 			+Integer style
 			+Text styleName
 			+Integer horizontalMargin
-			+setLinkedPopupMenu() cs.buttonDelegate
-			+setSeparatePopupMenu() cs.buttonDelegate
-			+setNoPopupMenu() cs.buttonDelegate
-			+setPicture(proxy : Text) cs.buttonDelegate
-			+setBackgroundPicture(proxy : Text) cs.buttonDelegate
-			+setNumStates(state : Integer) cs.buttonDelegate
-			+setStyle(style : Integer) cs.buttonDelegate
+			+setLinkedPopupMenu() cs.button
+			+setSeparatePopupMenu() cs.button
+			+setNoPopupMenu() cs.button
+			+setPicture(proxy : Text) cs.button
+			+setBackgroundPicture(proxy : Text) cs.button
+			+setNumStates(state : Integer) cs.button
+			+setStyle(style : Integer) cs.button
 			+is3DButton() Boolean
-			+highlightShortcut() cs.buttonDelegate
+			+highlightShortcut() cs.button
 		}
-		class webAreaDelegate["cs.webAreaDelegate"]{    
+		class webArea["cs.webArea"]{    
 			+Text url 
 			+open(data)     
 			+Text content
@@ -295,131 +295,131 @@ classDiagram
 			+zoom(in : Boolean)
 			+getWebEngine() Object
 		}
-		class scrollableDelegate["cs.scrollableDelegate"]{
+		class scrollable["cs.scrollable"]{
 			+Object scrollbars 
-			+setScrollbars(horizontal; vertical) cs.scrollableDelegate
-			+setHorizontalScrollbar(display) cs.scrollableDelegate
-			+setVerticalScrollbar(display) cs.scrollableDelegate
+			+setScrollbars(horizontal; vertical) cs.scrollable
+			+setHorizontalScrollbar(display) cs.scrollable
+			+setVerticalScrollbar(display) cs.scrollable
 			+Variant scroll
 			+getScrollPosition() Variant
-			+setScrollPosition(vertical; horizontal) cs.scrollableDelegate
+			+setScrollPosition(vertical; horizontal) cs.scrollable
 		}
-		class inputDelegate["cs.inputDelegate"]{
+		class input["cs.input"]{
 			+Boolean asPasword
 			+Text filter  
 			+getFilter() Text 
-			+setFilter(filter; separator : Text) cs.inputDelegate
+			+setFilter(filter; separator : Text) cs.input
 			+Text placeholder
-			+setPlaceholder(placeholder : Text) cs.inputDelegate
-			+backup(value) cs.inputDelegate
+			+setPlaceholder(placeholder : Text) cs.input
+			+backup(value) cs.input
 			+Boolean modified 
 			+highlighted() Object
-			+highlight(startSel : Integer; endSel : Integer) cs.inputDelegate
-			+highlightLastToEnd() cs.inputDelegate
+			+highlight(startSel : Integer; endSel : Integer) cs.input
+			+highlightLastToEnd() cs.input
 			+highlightingStart() Integer
 			+highlightingEnd() Integer
 		}
-		class dropDownDelegate["cs.dropDownDelegate"]{
+		class dropDown["cs.dropDown"]{
 			+Object data  
 			+Text placeholder
 			+Integer index
 			+Variant currentValue
 			+Collection values
-			+clear() cs.dropDownDelegate
+			+clear() cs.dropDown
 		}
-		class comboBoxDelegate["cs.comboBoxDelegate"]{
+		class comboBox["cs.comboBox"]{
 			+Boolean automaticExpand
 			+Text filter
 			+expand()
 			+automaticInsertion(ordered : Boolean)
 		}
-		class selectorDelegate["cs.selectorDelegate"]{
+		class selector["cs.selector"]{
 			+Object data
 			+Integer index
 			+Text current
 			+Collection values  
 			+Collection binding 
-			+select(element) cs.selectorDelegate
+			+select(element) cs.selector
 		}
-		class stepperDelegate["cs.stepperDelegate"]{   
+		class stepper["cs.stepper"]{   
 			+start()
 			+stop()
 			+isRunning() Boolean
 		}
-		class thermometerDelegate["cs.thermometerDelegate"]{ 
-			+asynchronous() cs.thermometerDelegate
+		class thermometer["cs.thermometer"]{ 
+			+asynchronous() cs.thermometer
 			+isAsynchronous() Boolean
-			+barber() cs.thermometerDelegate
+			+barber() cs.thermometer
 			+isBarber() Boolean
-			+progress() cs.thermometerDelegate
+			+progress() cs.thermometer
 			+isProgress() Boolean
-			+setIndicatorType(type : Integer) cs.thermometerDelegate
+			+setIndicatorType(type : Integer) cs.thermometer
 			+getIndicatorType() Integer  
 			+start()
 			+stop()
 		}
-		class pictureDelegate["cs.pictureDelegate"]{
+		class picture["cs.picture"]{
 			+Picture value
 			+Text fileName
 			+Integer size 
 			+getDimensions() Object
-			+read(file : 4D.File) cs.pictureDelegate
-			+thumbnail(width : Integer; height : Integer; mode : Integer) cs.pictureDelegate
+			+read(file : 4D.File) cs.picture
+			+thumbnail(width : Integer; height : Integer; mode : Integer) cs.picture
 			+getThumbnail(width : Integer; height : Integer; mode : Integer) Picture
-			+horizontalConcatenation(file : 4D.File) cs.pictureDelegate
-			+verticalConcatenation(file : 4D.File) cs.pictureDelegate
-			+superImposition(file : 4D.File; horOffset : Integer; vertOffset : Integer) cs.pictureDelegate
+			+horizontalConcatenation(file : 4D.File) cs.picture
+			+verticalConcatenation(file : 4D.File) cs.picture
+			+superImposition(file : 4D.File; horOffset : Integer; vertOffset : Integer) cs.picture
 			+findByCoordinates() Text
 			+getAttribute(id : Text; attribute : Text; type : Integer) Variant
 			+setAttributes(id : Text; attributes : Collection)
 			+setAttribute(id : Text; name : Text; value)
 		}
-		class listboxDelegate["cs.listboxDelegate"]{  
+		class listbox["cs.listbox"]{  
 			+Object item
 			+Integer itemPosition
 			+Collection items
 			+Integer columnsNumber
 			+Integer rowsNumber
 			+Integer movableLines
-			+setMovableLines(enabled : Boolean) cs.listboxDelegate
-			+setNotMovableLines() cs.listboxDelegate
+			+setMovableLines(enabled : Boolean) cs.listbox
+			+setNotMovableLines() cs.listbox
 			+Boolean selectable
-			+setSelectable(enabled : Boolean; mode : Integer) cs.listboxDelegate
-			+setNotSelectable() cs.listboxDelegate
+			+setSelectable(enabled : Boolean; mode : Integer) cs.listbox
+			+setNotSelectable() cs.listbox
 			+Boolean singleSelection
-			+setSingleSelectable() cs.listboxDelegate
+			+setSingleSelectable() cs.listbox
 			+Boolean multipleSelection
-			+setMultipleSelectable() cs.listboxDelegate
+			+setMultipleSelectable() cs.listbox
 			+selected() Integer
-			+selectAll(): cs.listboxDelegate
-			+select(row : Integer) cs.listboxDelegate
-			+unselect(row : Integer) cs.listboxDelegate
-			+selectFirstRow() cs.listboxDelegate
-			+selectLastRow() cs.listboxDelegate
+			+selectAll(): cs.listbox
+			+select(row : Integer) cs.listbox
+			+unselect(row : Integer) cs.listbox
+			+selectFirstRow() cs.listbox
+			+selectLastRow() cs.listbox
 			+autoSelect()
-			+doSafeSelect(row : Integer) cs.listboxDelegate
+			+doSafeSelect(row : Integer) cs.listbox
 			+Boolean sortable
-			+setSortable(enabled : Boolean) cs.listboxDelegate
-			+setNotSortable() cs.listboxDelegate
+			+setSortable(enabled : Boolean) cs.listbox
+			+setNotSortable() cs.listbox
 			+Boolean selectionHighlight
-			+withSelectionHighlight(enabled : Boolean) cs.listboxDelegate
-			+withoutSelectionHighlight() cs.listboxDelegate
+			+withSelectionHighlight(enabled : Boolean) cs.listbox
+			+withoutSelectionHighlight() cs.listbox
 			+Text dataSourceType
 			+Object properties
 			+getProperties(column : Text) Object
-			+setProperty(property : Integer; value) cs.listboxDelegate
+			+setProperty(property : Integer; value) cs.listbox
 			+saveProperties()
 			+restoreProperties()
-			+setRowsHeight(height : Integer; unit : Integer) cs.listboxDelegate
+			+setRowsHeight(height : Integer; unit : Integer) cs.listbox
 			+isCollection() Boolean
 			+isEntitySelection() Boolean
 			+isArray() Boolean
 			+isHierarchical() Boolean
-			+selectBreak(row : Integer; column : Integer) cs.listboxDelegate
-			+collapse(row : Integer; selector : Integer; recursive : Boolean) cs.listboxDelegate
-			+collapseAll() cs.listboxDelegate
-			+expand(row : Integer; selector : Integer; recursive : Boolean) cs.listboxDelegate
-			+expandAll() cs.listboxDelegate
+			+selectBreak(row : Integer; column : Integer) cs.listbox
+			+collapse(row : Integer; selector : Integer; recursive : Boolean) cs.listbox
+			+collapseAll() cs.listbox
+			+expand(row : Integer; selector : Integer; recursive : Boolean) cs.listbox
+			+expandAll() cs.listbox
 			+columnPtr(name : Text) Pointer
 			+columnNumber(name : Text) Integer
 			+getColumnName(columnNumber : Integer) Text
@@ -432,21 +432,21 @@ classDiagram
 			+cellCoordinates(column : Integer; row : Integer) Object
 			+rowCoordinates(row : Integer) Object
 			+edit(target; item : Integer)
-			+reveal(row : Integer) cs.listboxDelegate
-			+updateDefinition() cs.listboxDelegate
-			+updateCell() cs.listboxDelegate
+			+reveal(row : Integer) cs.listbox
+			+updateDefinition() cs.listbox
+			+updateCell() cs.listbox
 			+popup(menu : cs.menu; default : Text) cs.menu
-			+showColumn(column; visible : Boolean) cs.listboxDelegate
-			+hideColumn(column) cs.listboxDelegate
-			+clear() cs.listboxDelegate
-			+deleteRows(row : Integer) cs.listboxDelegate
+			+showColumn(column; visible : Boolean) cs.listbox
+			+hideColumn(column) cs.listbox
+			+clear() cs.listbox
+			+deleteRows(row : Integer) cs.listbox
 			+setSystemFormat()
 		}
-		class subformDelegate["cs.subformDelegate"]{
+		class subform["cs.subform"]{
 			+Object parent
 			+Object forms
-			+setSubform(detail : Text; list : Text; table : Pointer) cs.subformDelegate
-			+cs.formDelegate : form
+			+setSubform(detail : Text; list : Text; table : Pointer) cs.subform
+			+cs.form : form
 			+setPrivateEvents(events : Object)
 			+refresh(delay : Integer)
 			+stopTimer()
@@ -457,7 +457,7 @@ classDiagram
 			+getParentDimensions() cs.dim
 			+alignHorizontally(alignment : Integer; reference)
 		}
-		class hListDelegate["cs.hListDelegate"]{
+		class hList["cs.hList"]{
 			+Boolean isList
 			+Integer itemCount   
 			+Integer visibleItemCount
@@ -477,26 +477,26 @@ classDiagram
 			+Collection selectedItemReferences
 			+Collection parameters
 		}	
-		class groupDelegate["cs.groupDelegate"]{
+		class group["cs.group"]{
 			+Collection members
-			+add(member) cs.groupDelegate
+			+add(member) cs.group
 			+belongsTo(widget) Boolean
 			+Variant data
-			+show(visible : Boolean) cs.groupDelegate
-			+hide() cs.groupDelegate
-			+enable(enabled : Boolean) cs.groupDelegate
-			+disable() cs.groupDelegate
+			+show(visible : Boolean) cs.group
+			+hide() cs.group
+			+enable(enabled : Boolean) cs.group
+			+disable() cs.group
 			+enclosingRect(gap : Integer) cs.coord
 			+moveVertically(offset : Integer)
 			+hiddenFromView()
 			+moveHorizontally(offset : Integer)
-			+distributeLeftToRight(params : Object) cs.groupDelegate
-			+distributeRigthToLeft(params : Object) cs.groupDelegate
+			+distributeLeftToRight(params : Object) cs.group
+			+distributeRigthToLeft(params : Object) cs.group
 			+center(horizontally : Boolean; vertically : Boolean)
-			+centerVertically(reference : Text) cs.groupDelegate
-			+alignLeft(reference : Text) cs.groupDelegate
-			+alignRight(reference : Text) cs.groupDelegate
-			+setFontStyle(style : Integer) cs.groupDelegate
+			+centerVertically(reference : Text) cs.group
+			+alignLeft(reference : Text) cs.group
+			+alignRight(reference : Text) cs.group
+			+setFontStyle(style : Integer) cs.group
 		}		
 		class colour["cs.colour"]{
 			+Text foreground

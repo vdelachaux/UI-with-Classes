@@ -1,154 +1,147 @@
 # widget
 
-The `widget` class is intended to manipulate active form objects.  
-It's a transition class between the **`static`** class and more specific classes like `input`, `button`, `listbox`…
+The `widget` class is intended to manipulate active form objects.
 
-📌 This class inherit from the [`static`](static.md) class    
+<hr>
+> 📌 **Important**: 
+><br>      1. This class inherit from the [`static`](static.md) class
+><br>      2. It's a transition class between the `static` class and more specific classes like `input`, `button`, `listbox`…
+><br>      3. Normally, you'll never have to instantiate the **cs.**widget class, since instantiation is automatic with a more specialized widget.
+><br>      4. All functions that return **cs.**widget may include one call after another. 
+><br>
+><hr>
 
-#### This class is available via the [`form`](form.md#objects) class as `widget` interface.    
+#Summary
 
-```4D
-This.form.widget.new("formObjectName")
-```
+## <a name="Inherited">Inherited Properties & Functions</a>
 
-#### This class can also be instantiated on its own.
+See the [parent class](static.md)
 
-```4D
-cs.widget.new({"formObjectName"})
-```
-If the `formObjectName` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv18R6/4D/18-R6/OBJECT-Get-name.301-5198296.en.html)** ( _Object current_ )
+## <a name="Properties">Properties & Functions</a>
 
-> 📌 Omitting the object name can only be used if the constructor is called from the object method.
+* [Value](#Value)
+* [Data Source](#Data)
+* [Entry](#Entry)
+* [Events](#Events)
+* [Callback](#Callback)
+* [User Data](#Data)
+* [Drag & drop](#DragAndDrop)
+* [Actions](#Actions)
+* [Miscellaneous](#Miscellaneous)
 
-## Properties
+<hr>
 
-|Properties|Description|Type||
-|----------|-----------|:--:|-------|
-|**.name** | [*inherited*](static.md) |
-|**.type** | [*inherited*](static.md) |
-|**.coordinates** | [*inherited*](static.md) |
-|**.dimensions** | [*inherited*](static.md) |
-|**.windowCoordinates** | [*inherited*](static.md) |
+### <a name="Value">Value</a>
 
-**Other properties are described below in the section devoted to them.**
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**isEmpty** | Returns **True** if the widget value is empty \* | `Boolean` |<font color="red">x</font>
+|.**isNotEmpty** | Returns **True** if the widget value is not empty \* | `Boolean` |<font color="red">x</font>
+|.**value** | The value associated to the widget \**  | `Variant` |<font color="green">✓</font>
 
-## Object
-
-|Properties|Description|Type|default|Writable|
-|:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.datasource** | Sets the data source for the widget | `4D.Formula` \| `Text Formula` | | <font color="green">X</font>
-
-| Functions | |
-|:-------- |:------ |  
-|.**setDatasource** ( datasource`:4D.Function`) →`cs.widget` | Sets the data source for the widget
-
-## Value
-
-|Properties|Description|Type|default|Writable|
-|:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.value** | The value associated to the widget | `Variant` | | <font color="green">X</font>
-|**.isEmpty** | Returns **True** if the widget value is empty\* | `Boolean`
-|**.isNotEmpty** | Returns **True** if the widget value is not empty\* | `Boolean`
+\* Empty values are : Null, 0, !00-00-00 !, ?00:00:00 ?, {}, [], False, an empty string or an empty image.
 
 | Functions | |
 |:-------- |:------ | 
 |.**clear** () →`cs.widget` | Sets empty value\* to the datasource according to its type
-|.**touch** () →`cs.widget` | Forces the update of the widget by reassigning the same value to the data source
+|.**getValue** ( value ) →`cs.widget` | Returns the value associated to the widget \** 
+|.**setValue** ( value ) →`cs.widget` | Sets the value of the widget
 
-\* Empty values are : Null, 0, !00-00-00 !, ?00:00:00 ?, {}, [], False, an empty string or an empty image.
+\** For a text input box that has the focus, returns text as it is being entered.
 
-## Entry
+### <a name="Data">Data Source</a>
 
 |Properties|Description|Type|default|Writable|
 |:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.pointer** | Returns a pointer to the widget | `Pointer`
-|**.enterable** | Makes the widget enterable or non-enterable | `Boolean` | | <font color="green">X</font>
-|**.helpTip** | Returns the associated help message | `Text` | | <font color="green">X</font>
+|.**datasource** | Sets the data source for the widget | `4D.Formula` \| `Text Formula` | | <font color="green">✓</font>
+
+| Functions | |
+|:-------- |:------ |  
+|.**setDatasource** ( datasource :`4D.Function`) →`cs.widget` | Sets the data source for the widget
+
+### <a name="Entry">Entry</a>
+
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**contextMenu** | Context menu associated with the widget or not | `Boolean` |<font color="green">✓</font>
+|.**enterable** | Makes the widget enterable or not | `Boolean` |<font color="green">✓</font>
+|.**helpTip** | Associated help message | `Text` |<font color="green">✓</font>
 
 | Functions | |
 |:-------- |:------ | 
-|.**setEnterable** ({enterable: `Boolean`}) →`cs.widget` | Makes the widget enterable according to enterable parameter<br> Default is **True**
-|.**notEnterable** () →`cs.widget` | Makes the widget non-enterable
-|.**getShortcut** () →`Object` | Returns the associated shortcut definition <br>`{key (Text), modifier (Integer)}`
-|.**setShortcut** (key: `Text` {; modifier: `Integer`}) →`cs.widget` | Sets the associated shortcut
 |.**getHelpTip** () →`Text` | Returns the associated help tip
-|.**setHelpTip** (helptip: `Text`) →`cs.widget` | Sets the associated help tip. <br>If no parameter , the help tip will be removed.
+|.**getShortcut** () →`Object` | Returns the associated shortcut definition <br>`{key (Text), modifier (Integer)}`
+|.**notEnterable** () →`cs.widget` | Makes the widget non-enterable
 |.**removeHelpTip** () →`cs.widget` | Removes the associated helptip
+|.**setEnterable** ({enterable}) →`cs.widget` | Makes the widget enterable according to enterable parameter<br> Default is **True**
+|.**setHelpTip** (tip) →`cs.widget` | Sets the associated help tip. <br>If `tip` is ommitted, the help tip will be removed.
+|.**setShortcut** (key {; modifier}) →`cs.widget` | Sets the associated shortcut
 
-## Callback
+## <a name="Events">Events</a>
 
-| Functions | |
-|:-------- |:------ | 
-|.**setCallback** ( formula: `4D.Formula` \| `Text`}) →`cs.widget` | Associates a callback to be executed when a form event occurs
-|.**execute** () | Executes the associates callback
-
-## Events
-
-|Properties|Description|Type|default|Writable|
-|:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.events** | The  form event codes of the widget | `Collection`| | <font color="green">X</font>
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**events** | The widget's form events (codes) | `Collection` | <font color="green">✓</font>
 
 | Functions | |
 |:-------- |:------ | 
-|.**catch** ( {e: `Integer` {; events: `Integer` \| `Collection`}}) →`Boolean` | Returns **True** if the widget is causing the form event and executes the `callback` formula if it exists. <br/>Pass an event code or collection of event codes to restrict the response to these events.
-|.**addEvent** ( `Integer` \| `Collection`) →`cs.widget` | Appends one or more event codes to the widget
-|.**removeEvent** ( `Integer` \| `Collection`) →`cs.widget` | Removes one or more event codes to the widget
-|.**setEvents** ( `Integer` \| `Collection`) →`cs.widget` | Sets one or more event codes to the widget
+|.**addEvent** ( code \| collection of codes ) →`cs.widget` | Appends one or more event codes to the widget
+|.**catch** ( { Form event {; code \| collection of codes}}) →`Boolean` | Returns **True** if the widget is causing the form event and executes the [callback](#Callback) formula if it exists. <br/>Pass an event code or collection of event codes to restrict the response to these events.
+|.**removeEvent** ( code \| collection of codes ) →`cs.widget` | Removes one or more event codes to the widget
+|.**setEvents** ( code \| collection of codes ) →`cs.widget` | Sets one or more event codes to the widget
 
-## Attached data
-
-|Properties|Description|Type|default|Writable|
-|:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.data** | Any user data you attach to the widget | `Variant`| | <font color="green">X</font>
-
-## Drag & drop
-
-|Properties|Description|Type|default|Writable|
-|:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.uri** | The Uniform Resource Identifier associated with the widget | `Text`| | <font color="green">X</font>
-
-## Actions
-
-|Properties|Description|Type|default|Writable|
-|:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.action** | The name of the [Standard actions](https://doc.4d.com/4Dv20/4D/20.1/Standard-Action.302-6481063.en.html) associated with the widget | `Text` | |<font color="green">X</font>
-|**.draggable** | The dragging option | `Boolean`| | <font color="green">X</font>
-|**.droppable** | The drop-off option | `Boolean`| | <font color="green">X</font>
+## <a name="Callback">Callback</a>
 
 | Functions | |
 |:-------- |:------ | 
-|.**setDraggable** ( enable: `Boolean` {; automatic : `Boolean`}) →`cs.widget` | Sets the drag options
+|.**setCallback** ( formula \| "This.\<function>"}) →`cs.widget` | Associates a callback to be executed when a form event occurs
+|.**execute** () | Executes the callback associated with the widget if it exists
+
+## <a name="Data">User Data</a>
+
+> 📌 User data can be anything you want to attach to the widget and retrieve later..
+
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**data** | Any user data you want attach to the widget | `Variant`| <font color="green">✓</font>
+
+| Functions | |
+|:-------- |:------ | 
+|.**setData** ( object ) →`cs.widget` | Set or enrich the `data` property with the contents of an object<br>If the `data` property is not **Null** or is not an `Object`, an error is raised.
+
+## <a name="DragAndDrop">Drag & drop</a>
+
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**uri** | The Uniform Resource Identifier (URI) associated with the widget | `Text`|  <font color="green">✓</font>
+
+## <a name="Actions">Actions</a>
+
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**action** | Name and (if any) parameter of the [Standard action](https://developer.4d.com/docs/FormObjects/propertiesAction#standard-action) associated with the widget | `Text` |<font color="green">✓</font>
+|.**draggable** | The dragging option | `Boolean`|<font color="green">✓</font>
+|.**droppable** | The drop-off option | `Boolean`|<font color="green">✓</font>
+
+| Functions | |
+|:-------- |:------ | 
+|.**setDraggable** ( enable {; automaticDrag}) →`cs.widget` | Sets the drag options
+|.**setDroppable** ( enable {; automaticDrop}) →`cs.widget` | Sets the drop options<br/> Default: accept drop and not automatic
 |.**setNotDraggable** () →`cs.widget` | Disables drag option
-|.**setDroppable** ( enable: `Boolean` {; automatic : `Boolean`}) →`cs.widget` | Sets the drop options<br/> Default: accept drop and not automatic
 |.**setNotDroppable** () →`cs.widget` | Disables the droppable option
 
-## Miscellaneous
+## <a name="Miscellaneous">Miscellaneous</a>
 
-|Properties|Description|Type|default|Writable|
-|:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.pointer** | Returns the pointer to the widget |`Pointer` | ⚠️ Nil pointer if data source is an expression
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|.**pointer** | Returns the pointer to the widget<br>⚠️ Nil pointer if data source is an expression |`Pointer` | <font color="red">x</font>
 
 | Functions | |
 |:-------- |:------ | 
 |.**focus** () →`cs.widget` | Gives focus to the widget |
 |.**isFocused** () →`Boolean` | Returns **True** if the widget is focused |
-|.**setFormat** (format: `Text`) →`cs.widget` | Sets the format for the widget |
-|.**setPicture** (proxy: `Text`) →`cs.widget` | Attaches an image to the widget - *cf*. *infra* |
-
-
-> 📌 All functions that return `cs.widget` may include one call after another. 
-
-## 🔹 .setPicture()
-.**setPicture** ({ proxy: `Text`} ) →`cs.widget`
-
-This function is intended to set the image of the compatible `3D button`, `3D checkbox`, `3D radio button`, `picture button`, `picture popup menu`, `listbox header` or `static picture`.
-
-Possible values for the `proxy` parameter are:
-
-* The string `#{folder/}picturename` or `file:{folder/}picturename` if the picture comes from a file stored in the `Resources` folder
-* A variable name if the picture comes from a `picture variable`
-
-If the `proxy` parameter is omitted, the picture is removed
+|.**postClick** () | Simulates a mouse click on the widget |
+|.**touch** () →`cs.widget` | Forces the update of the widget by reassigning the same value to the data source
 
 ## Class diagram
 

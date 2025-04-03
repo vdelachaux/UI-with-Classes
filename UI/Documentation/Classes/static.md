@@ -28,7 +28,7 @@ This.myWidget.hide()
 #### This class can also be instantiated on its own.
 
 ```4d
-Form.myWidget:=cs.static.new(form object")
+Form.myWidget:=cs.static.new("form object")
 
 ...
 
@@ -48,19 +48,19 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 
 > ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
 
-## <a name="Properties">General Properties</a>
+#Summary
+
+## <a name="Properties">General</a>
 
 > 📌 Other properties are described below in the section devoted to them.
 
-|Properties|Description|Type||Writable|
-|----------|-----------|:--:|-------|:-----------:|
-|**.name**                        | The name of the widget | `Text`||<font color="red">x</font>
-|**.type** | The type of the widget | `Integer` | Use the [Form object Types](https://doc.4d.com/4Dv18R6/4D/18-R6/Form-Object-Types.302-5199153.en.html) constant theme|<font color="red">x</font>
-|**.class** | List of space-separated words used as class selectors| `Text` | See [Style sheets documentation](https://developer.4d.com/docs/FormEditor/stylesheets)|<font color="red">x</font>
-|**.initialPosition**| The widget's coordinates on instantiation| `Object`||<font color="red">x</font>
-|<br><br>⚠️ <font color="darkgrey">**If relevant**</font>|
-|**.title** | The title of the widget \**  |`Text`||<font color="green">✓</font>
-
+|Properties|Description|Type|Writable|
+|:----------|:-----------|:-----------|:-----------:| 
+|**.class** | List of space-separated words used as class selectors| `Text` <br>See [Style sheets documentation](https://developer.4d.com/docs/FormEditor/stylesheets)|<font color="red">x</font>
+|**.initialPosition**| The widget's coordinates on instantiation| `Object`|<font color="red">x</font>
+|**.name**                        | The name of the widget | `Text`|<font color="red">x</font>
+|**.title** | The title of the widget \**  |`Text`|<font color="green">✓</font>
+|**.type** | The type of the widget<br>Use the [Form object Types](https://doc.4d.com/4Dv18R6/4D/18-R6/Form-Object-Types.302-5199153.en.html) constant theme | `Integer` |<font color="red">x</font>
 
 | Functions | Action |
 |:-------- |:------ | 
@@ -68,20 +68,23 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
   
 \** Can be applied to a static text and will be avalaible for the inherited classes (buttons, check boxes, radio buttons, …)
 
-## <a name="Dimensions">Dimensions & resizing</a>
+## <a name="Dimensions">Coordinates & Sizing</a>
 
 |Properties|Description|Type|Writable|
 |:----------|:-----------|:-----------|:-----------:| 
-|.**left**<br>.**top**<br>.**right**<br>.**bottom**| The coordinates of the widget |`Integer`|<font color="green">✓</font>
-|**.coordinates** | The coordinates of the widget in the form as a [**cs**.coord](coord.md) object|`Object`|<font color="green">✓</font>
-|.**windowCoordinates**| The coordinates of the widget in the current window <br>as an object {`left`,`top`,`right`,`bottom`} |`Object`|<font color="red">x</font>
-|.**width**<br>.**height**| The dimensions of the widget |`Integer`|<font color="green">✓</font>
+|.**bottom**| The bottom position of the widget |`Integer`|<font color="green">✓</font>
+|.**coordinates** | The coordinates of the widget in the form as a [**cs**.coord](coord.md) object|`Object`|<font color="green">✓</font>
 |.**dimensions**| The dimensions of the widget <br>as an object {`width`,`height`} |`Object`|<font color="green">✓</font>
-|**.resizingOptions** | The current resizing options for the widget<br>as an object {`horizontal`,`vertical`} |`Object`|<font color="red">x</font>
-|**.horizontallyResizable** | Can the widget be resized horizontally |`Boolean`|<font color="green">✓</font>
-|**.verticallyResizable** | Can the widget be resized vertically  |`Boolean`|<font color="green">✓</font>
-|**.horizontallyMovable** | Can the widget be moved horizontally |`Boolean`|<font color="green">✓</font>
-|**.verticallyMovable** | Can the widget be moved vertically  |`Boolean`|<font color="green">✓</font>
+|.**horizontallyMovable** | Can the widget be moved horizontally |`Boolean`|<font color="green">✓</font>
+|.**horizontallyResizable** | Can the widget be resized horizontally |`Boolean`|<font color="green">✓</font>
+|.**left**| The left position of the widget |`Integer`|<font color="green">✓</font>
+|.**resizingOptions** | The current resizing options for the widget<br>as an object {`horizontal`,`vertical`} |`Object`|<font color="red">x</font>
+|.**right**| The right position of the widget |`Integer`|<font color="green">✓</font>
+|.**top**| The top position of the widget |`Integer`|<font color="green">✓</font>
+|.**verticallyResizable** | Can the widget be resized vertically  |`Boolean`|<font color="green">✓</font>
+|.**verticallyMovable** | Can the widget be moved vertically  |`Boolean`|<font color="green">✓</font>
+|.**width**<br>.**height**| The dimensions of the widget |`Integer`|<font color="green">✓</font>
+|.**windowCoordinates**| The coordinates of the widget in the current window <br>as an object {`left`,`top`,`right`,`bottom`} |`Object`|<font color="red">x</font>
 
 | Functions | Action |
 |:-------- |:------ | 
@@ -137,7 +140,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**hide** () → **cs**.static | Hides the widget |
 |.**show** ({state}) → **cs**.static | Makes the widget visible (no parameter) or invisible (`state` = **False**) | 
 |.**setFormat** (format) → **cs**.static | Sets the [display format](https://developer.4d.com/docs/commands/object-set-format) of the widget |
-|.**setPicture** (proxy) → **cs**.static | Defines the image associated with a 3D button, image button or list box header.<br>Clears the associated image if proxy is empty |
+|.**setPicture** (proxy) → **cs**.static | Defines the image associated with:<br> `3D button`, `picture button`, `picture popup menu`, `listbox header` or `static picture`.<br>Clears the associated image if proxy is empty |
 
 ## <a name="Colors">Colors</a>
 
@@ -183,3 +186,14 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**hiddenFromView** () → **cs**.static | Sets the widget's coordinates so that it is outside the viewing window. | 
 |.**jsonFormDefinition** () → `Object` | Returns the json widget definition as defined in the structure.<br>⚠️ Only available if the `parent` parameter has been passed to the constructor.| 
 
+## 🔹 .setPicture()
+.**setPicture** ({ proxy: `Text`} ) →`cs.widget`
+
+This function is intended to set the image of the compatible `3D button`, `3D checkbox`, `3D radio button`, `picture button`, `picture popup menu`, `listbox header` or `static picture`.
+
+Possible values for the `proxy` parameter are:
+
+* The string `#{folder/}picturename` or `file:{folder/}picturename` if the picture comes from a file stored in the `Resources` folder
+* A variable name if the picture comes from a `picture variable`
+
+If the `proxy` parameter is omitted, the picture is removed

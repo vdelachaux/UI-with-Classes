@@ -1,18 +1,19 @@
 property form : cs:C1710.ui.form
+property isSubform:=True:C214
+property toBeInitialized:=False:C215
 
 property ring; glass : cs:C1710.ui.static
 property box : cs:C1710.ui.input
 property button; close : cs:C1710.ui.button
 
+property expanded:=False:C215
+property options : Object
+property instant : Boolean
+
 Class constructor
 	
-	This:C1470.isSubform:=True:C214
-	This:C1470.toBeInitialized:=False:C215
-	
 	// MARK:-Delegates 📦
-	var $form : Object
-	$form:=Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText()))
-	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; $form)
+	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText())))
 	
 	This:C1470.form.init()
 	
@@ -20,13 +21,11 @@ Class constructor
 	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function init()
 	
-	This:C1470.expanded:=False:C215
-	
-	This:C1470.ring:=This:C1470.form.static.new("ring")
-	This:C1470.glass:=This:C1470.form.static.new("glass")
-	This:C1470.box:=This:C1470.form.input.new("box")
-	This:C1470.button:=This:C1470.form.button.new("button")
-	This:C1470.close:=This:C1470.form.button.new("close")
+	This:C1470.ring:=This:C1470.form.Static("ring")
+	This:C1470.glass:=This:C1470.form.Static("glass")
+	This:C1470.box:=This:C1470.form.Input("box")
+	This:C1470.button:=This:C1470.form.Button("button")
+	This:C1470.close:=This:C1470.form.Button("close")
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === ===
 Function handleEvents($e : cs:C1710.ui.evt)

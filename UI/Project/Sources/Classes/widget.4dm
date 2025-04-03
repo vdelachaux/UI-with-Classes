@@ -2,15 +2,13 @@ Class extends static
 
 property name; action; _uri : Text
 
-property _events : Collection
+property _events:=[]
 property _data; dataSource
 property _callback : 4D:C1709.Function
 
 Class constructor($name : Text; $parent : Object)
 	
 	Super:C1705($name; $parent)
-	
-	This:C1470.action:=OBJECT Get action:C1457(*; This:C1470.name)
 	
 /*
 The user data can be anything you want to attach to the widget.
@@ -24,7 +22,7 @@ The .data property is used to get or set this data.
 	// Get the events handled for this widget
 	This:C1470._setEvents()
 	
-	//MARK:-[Object]
+	// MARK:- [Data Source]
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set datasource($datasource)
 	
@@ -61,7 +59,7 @@ Function setDatasource($datasource) : cs:C1710.widget
 	
 	return This:C1470
 	
-	//mark:-[Value]
+	// MARK:- [Value]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get value() : Variant
 	
@@ -100,11 +98,8 @@ Function setValue($value) : cs:C1710.widget
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get isEmpty() : Boolean
 	
-	var $type : Integer
-	var $value
-	
-	$value:=This:C1470.getValue()
-	$type:=Value type:C1509($value)
+	var $value:=This:C1470.getValue()
+	var $type:=Value type:C1509($value)
 	
 	Case of 
 			
@@ -153,16 +148,10 @@ Function get isEmpty() : Boolean
 			//______________________________________________________
 	End case 
 	
-	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get isNotEmpty() : Boolean
-	
-	return Not:C34(This:C1470.isEmpty)
-	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function clear : cs:C1710.widget
 	
-	var $type : Integer
-	$type:=Value type:C1509(OBJECT Get value:C1743(This:C1470.name))
+	var $type:=Value type:C1509(OBJECT Get value:C1743(This:C1470.name))
 	
 	Case of 
 			
@@ -212,36 +201,12 @@ Function clear : cs:C1710.widget
 	
 	return This:C1470
 	
-	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function touch() : cs:C1710.widget
-	
-	var $value
-	$value:=OBJECT Get value:C1743(This:C1470.name)
-	
-	If (Value type:C1509($value)#Is undefined:K8:13)
-		
-		OBJECT SET VALUE:C1742(This:C1470.name; $value)
-		
-	End if 
-	
-	return This:C1470
-	
-	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function postClick()
-	
-	This:C1470.updateCoordinates()
-	var $o:=This:C1470.coordinates
-	POST CLICK:C466(($o.left+$o.right)/2; ($o.top+$o.bottom)/2)
-	
-	
-	//MARK:-[Entry]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-	// Returns a pointer to the widget
-	// ⚠️ Could return a nil pointer if data source is an expression
-Function get pointer() : Pointer
+Function get isNotEmpty() : Boolean
 	
-	return OBJECT Get pointer:C1124(Object named:K67:5; This:C1470.name)
+	return Not:C34(This:C1470.isEmpty)
 	
+	// MARK:- [Entry]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get enterable() : Boolean
 	
@@ -270,14 +235,14 @@ Function notEnterable() : cs:C1710.widget
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function getShortcut : Object
 	
-	var $t : Text
-	var $l : Integer
+	var $key : Text
+	var $modifier : Integer
 	
-	OBJECT GET SHORTCUT:C1186(*; This:C1470.name; $t; $l)
+	OBJECT GET SHORTCUT:C1186(*; This:C1470.name; $key; $modifier)
 	
 	return {\
-		key: $t; \
-		modifier: $l}
+		key: $key; \
+		modifier: $modifier}
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setShortcut($key : Text; $modifier : Integer) : cs:C1710.widget
@@ -296,7 +261,7 @@ Function set contextMenu($on : Boolean)
 	
 	OBJECT SET CONTEXT MENU:C1251(*; This:C1470.name; $on)
 	
-	//MARK:-[Help]
+	// MARK:- [Help]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get helpTip() : Text
 	
@@ -316,21 +281,19 @@ Function getHelpTip() : Text
 Function setHelpTip($helpTip : Text) : cs:C1710.widget
 	
 	OBJECT SET HELP TIP:C1181(*; This:C1470.name; This:C1470._getLocalizeString($helpTip))
-	
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function removeHelpTip() : cs:C1710.widget
 	
 	OBJECT SET HELP TIP:C1181(*; This:C1470.name; "")
-	
 	return This:C1470
 	
-	//MARK:-[Events]
+	// MARK:- [Events]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get events() : Collection
 	
-	return This:C1470._events#Null:C1517 ? This:C1470._events : []
+	return This:C1470._events
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set events($events)
@@ -395,30 +358,58 @@ Function catch($e; $events) : Boolean
 		End case 
 	End if 
 	
-	If ($catch)
+	If ($catch)\
+		 && (This:C1470._callback#Null:C1517)
 		
-		If (This:C1470._callback#Null:C1517)
-			
-			This:C1470._callback.call()
-			
-		End if 
+		This:C1470._callback.call()
+		
 	End if 
 	
 	return $catch
 	
-	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _setEvents($events; $mode : Integer)
 	
 	ARRAY LONGINT:C221($eventCodes; 0x0000)
 	
-	This:C1470._events:=This:C1470._events || []
-	
 	Case of 
 			
 			//______________________________________________________
-		: ($events=Null:C1517)
+		: ($events=Null:C1517)  // Get widget events
 			
-			return 
+/* 📌 OBJECT GET EVENTS returns an empty array if no object method is associated with the object
+or if no form method is associated with the form.
+*/
+			
+			var $c:=[]
+			
+			// Get definition events if available
+			var $def:=This:C1470.jsonFormDefinition()
+			
+			If ($def#Null:C1517)
+				
+				var $e:=cs:C1710.evt.new()
+				
+				var $name : Text
+				For each ($name; $def.events || [])
+					
+					var $indx:=$e._getEventCode($name)
+					
+					If ($indx>0)
+						
+						$c.push($indx)
+						
+					End if 
+				End for each 
+				
+			Else 
+				
+				OBJECT GET EVENTS:C1238(*; This:C1470.name; $eventCodes)
+				ARRAY TO COLLECTION:C1563($c; $eventCodes)
+				
+			End if 
+			
+			This:C1470._events.combine($c)
 			
 			//______________________________________________________
 		: (Value type:C1509($events)=Is collection:K8:32)
@@ -444,17 +435,7 @@ Function _setEvents($events; $mode : Integer)
 			//______________________________________________________
 	End case 
 	
-/* 📌 Update widget events
-The arrEvents array is returned empty if no object method is associated with the object
-or if no form method is associated with the form.
-*/
-	OBJECT GET EVENTS:C1238(*; This:C1470.name; $eventCodes)
-	var $c : Collection
-	$c:=[]
-	ARRAY TO COLLECTION:C1563($c; $eventCodes)
-	This:C1470._events.combine($c)
-	
-	//mark:-[Attached data]
+	// MARK:- [User Data]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 	/// Returns the user data attached to the widget
 Function get data() : Variant
@@ -470,16 +451,20 @@ Function set data($data)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setData($o : Object)
 	
-	var $t : Text
-	
-	This:C1470._data:=This:C1470._data || {}
-	
-	For each ($t; $o)
+	If (Asserted:C1132((This:C1470._data=Null:C1517) || (Value type:C1509(This:C1470._data)=Is object:K8:27); "Property data is not an object!"))
 		
-		This:C1470._data[$t]:=$o[$t]
+		This:C1470._data:=This:C1470._data || {}
 		
-	End for each 
-	//mark:-[Drag & drop]
+		var $t : Text
+		For each ($t; $o)
+			
+			This:C1470._data[$t]:=$o[$t]
+			
+		End for each 
+		
+	End if 
+	
+	// MARK:- [Drag & drop]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 	// Defines the uri associated with the widget
 Function get uri() : Text
@@ -493,6 +478,16 @@ Function set uri($uri : Text)
 	This:C1470._uri:=$uri
 	
 	//mark:-[Actions]
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get action() : Text
+	
+	return OBJECT Get action:C1457(*; This:C1470.name)
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set action($action : Text)
+	
+	OBJECT SET ACTION:C1259(*; This:C1470.name; $action)
+	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get draggable() : Boolean
 	
@@ -679,4 +674,31 @@ Function focus() : cs:C1710.widget
 Function isFocused() : Boolean
 	
 	return OBJECT Get name:C1087(Object with focus:K67:3)=This:C1470.name
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function touch() : cs:C1710.widget
+	
+	var $value:=OBJECT Get value:C1743(This:C1470.name)
+	
+	If (Value type:C1509($value)#Is undefined:K8:13)
+		
+		OBJECT SET VALUE:C1742(This:C1470.name; $value)
+		
+	End if 
+	
+	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function postClick()
+	
+	This:C1470.updateCoordinates()
+	var $o:=This:C1470.coordinates
+	POST CLICK:C466(($o.left+$o.right)\2; ($o.top+$o.bottom)\2)
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+	// Returns a pointer to the widget
+Function get pointer() : Pointer
+	
+	// ⚠️ Could return a nil pointer if data source is an expression
+	return Try(OBJECT Get pointer:C1124(Object named:K67:5; This:C1470.name))
 	

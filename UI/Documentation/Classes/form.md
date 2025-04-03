@@ -4,7 +4,6 @@ The `form` class is intended to be called as a delegate by a `form controller cl
 
 > 📌 **Note**: to simplify the distinction between form objects and object type, this documentation uses the term “widget” for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…). 
 
-
 ## <a name="Constructor"> Constructor </a>
 
 ### <a name="sample">Code sample for a `form controller class`</a>
