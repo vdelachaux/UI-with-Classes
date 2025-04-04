@@ -85,15 +85,28 @@
 							"dataSource": "This:C1470.label"
 						}
 					]
+				},
+				"Input": {
+					"type": "input",
+					"left": 221,
+					"top": 22,
+					"width": 422,
+					"height": 17,
+					"dataSource": "\"Search: \"+(Is macOS:C1572 ? \"⌘ F\" : \"Ctrl+F\")",
+					"enterable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"stroke": "#c0c0c0"
 				}
 			},
 			"entryOrder": [
 				"search",
-				"list"
+				"list",
+				"Input"
 			]
 		}
 	],
-	"geometryStamp": 53,
+	"geometryStamp": 56,
 	"method": "formMethod",
 	"editor": {
 		"activeView": "View 1",

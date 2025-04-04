@@ -55,6 +55,7 @@ Function update()
 ```4d
 This.form:=cs.form.new(This; Try(JSON Parse(File("/SOURCES/Forms/"+Current form name+"/form.4DForm").getText())))
 ```
+
 ## Table of Contents
 
 * [Properties](#Properties)

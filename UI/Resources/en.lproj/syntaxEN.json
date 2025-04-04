@@ -161,10 +161,10 @@
 		},
 		"group": {
 			"new()": {
-				"Syntax": "**.new**( *members* : Variant; *...* : Variant )",
+				"Syntax": "**.new**( *member* : Variant; *...* : Variant )",
 				"Params": [
 					[
-						"members",
+						"member",
 						"Variant",
 						"->"
 					],
@@ -2634,11 +2634,11 @@
 			],
 			"Summary": ""
 		},
-		"type": {
-			"Syntax": "type : Integer"
-		},
 		"members": {
 			"Syntax": "members : Collection"
+		},
+		"type": {
+			"Syntax": "type : Integer"
 		}
 	},
 	"onBoard": {
@@ -7851,8 +7851,56 @@
 		}
 	},
 	"button": {
+		"setShortcut()": {
+			"Syntax": "**.setShortcut**( *key* : Text; *modifier* : Integer ) : cs.ui.widget",
+			"Params": [
+				[
+					"key",
+					"Text",
+					"->"
+				],
+				[
+					"modifier",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.widget",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"highlightShortcut()": {
 			"Syntax": "**.highlightShortcut**() : cs.ui.button",
+			"Params": [
+				[
+					"",
+					"cs.ui.button",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"is3DButton()": {
+			"Syntax": "**.is3DButton**( *message* : Text ) : Boolean",
+			"Params": [
+				[
+					"message",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setNoPopupMenu()": {
+			"Syntax": "**.setNoPopupMenu**() : cs.ui.button",
 			"Params": [
 				[
 					"",
@@ -7916,6 +7964,17 @@
 			],
 			"Summary": ""
 		},
+		"set backgroundPicture()": {
+			"Syntax": "**.set backgroundPicture**( *proxy* : Text )",
+			"Params": [
+				[
+					"proxy",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"get numStates()": {
 			"Syntax": "**.get numStates**() : Integer",
 			"Params": [
@@ -7927,17 +7986,28 @@
 			],
 			"Summary": ""
 		},
-		"is3DButton()": {
-			"Syntax": "**.is3DButton**( *message* : Text ) : Boolean",
+		"setBackgroundPicture()": {
+			"Syntax": "**.setBackgroundPicture**( *proxy* : Text ) : cs.ui.button",
 			"Params": [
 				[
-					"message",
+					"proxy",
 					"Text",
 					"->"
 				],
 				[
 					"",
-					"Boolean",
+					"cs.ui.button",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setSeparatePopupMenu()": {
+			"Syntax": "**.setSeparatePopupMenu**() : cs.ui.button",
+			"Params": [
+				[
+					"",
+					"cs.ui.button",
 					"<-"
 				]
 			],
@@ -7954,13 +8024,13 @@
 			],
 			"Summary": ""
 		},
-		"set backgroundPicture()": {
-			"Syntax": "**.set backgroundPicture**( *proxy* : Text )",
+		"get backgroundPicture()": {
+			"Syntax": "**.get backgroundPicture**() : Text",
 			"Params": [
 				[
-					"proxy",
+					"",
 					"Text",
-					"->"
+					"<-"
 				]
 			],
 			"Summary": ""
@@ -7997,22 +8067,6 @@
 			],
 			"Summary": ""
 		},
-		"setBackgroundPicture()": {
-			"Syntax": "**.setBackgroundPicture**( *proxy* : Text ) : cs.ui.button",
-			"Params": [
-				[
-					"proxy",
-					"Text",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.button",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"get styleName()": {
 			"Syntax": "**.get styleName**() : Text",
 			"Params": [
@@ -8030,17 +8084,6 @@
 				[
 					"",
 					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"setNoPopupMenu()": {
-			"Syntax": "**.setNoPopupMenu**() : cs.ui.button",
-			"Params": [
-				[
-					"",
-					"cs.ui.button",
 					"<-"
 				]
 			],
@@ -8068,12 +8111,34 @@
 			],
 			"Summary": ""
 		},
-		"setSeparatePopupMenu()": {
-			"Syntax": "**.setSeparatePopupMenu**() : cs.ui.button",
+		"get picture()": {
+			"Syntax": "**.get picture**() : Text",
 			"Params": [
 				[
 					"",
-					"cs.ui.button",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set separatePopupMenu()": {
+			"Syntax": "**.set separatePopupMenu**( *menuOn* : Boolean )",
+			"Params": [
+				[
+					"menuOn",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get separatePopupMenu()": {
+			"Syntax": "**.get separatePopupMenu**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
 					"<-"
 				]
 			],
@@ -8091,10 +8156,10 @@
 			"Summary": ""
 		},
 		"set linkedPopupMenu()": {
-			"Syntax": "**.set linkedPopupMenu**( *linked* : Boolean )",
+			"Syntax": "**.set linkedPopupMenu**( *menuOn* : Boolean )",
 			"Params": [
 				[
-					"linked",
+					"menuOn",
 					"Boolean",
 					"->"
 				]

@@ -26,112 +26,76 @@ Class constructor($name : Text; $parent : Object)
 	// Adjust height to suit system
 	var $height:=This:C1470.height
 	
-	Case of 
-			
-			//________________________________________________________________________________
-		: (This:C1470.type=Object type 3D button:K79:17)\
-			 && ([0; 2].includes(This:C1470.style))  // Push button
-			
-			If (Is Windows:C1573)
-				
-				Case of 
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-					: ($height>18)  // Regular
-						
-						This:C1470.height:=28
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-					Else 
-						
-						This:C1470.height:=19
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-				End case 
-				
-			Else 
-				
-				Case of 
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-					: ($height>18)  // Regular
-						
-						This:C1470.height:=21
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-					: ($height>=16)  // Small
-						
-						This:C1470.height:=17
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-					Else 
-						
-						This:C1470.height:=16  // Mini
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-				End case 
-			End if 
-			
-			//________________________________________________________________________________
-		: (This:C1470.type=Object type 3D checkbox:K79:27)\
-			 && ([0; 2].includes(This:C1470.style))  // Checkbox
-			
-			If (Is Windows:C1573)
-				
-				This:C1470.height:=13
-				
-			Else 
-				
-				$height:=This:C1470.height
-				
-				Case of 
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-					: ($height>=17)  // Regular
-						
-						This:C1470.height:=17
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-					: ($height>=16)  // Small
-						
-						This:C1470.height:=16
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-					Else 
-						
-						This:C1470.height:=15  // Mini
-						
-						//┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-				End case 
-			End if 
-			
-			//________________________________________________________________________________
-	End case 
-	
-	If (This:C1470.type=Object type 3D checkbox:K79:27)\
-		 || (This:C1470.type=Object type 3D radio button:K79:24)
+	If ([0; 2].includes(This:C1470.style))
 		
-		This:C1470.bestSize()
-		
+		Case of 
+				
+				// __________________________________________________
+			: (This:C1470.type=Object type 3D button:K79:17)  // Push buttons
+				
+				If (Is Windows:C1573)
+					
+					This:C1470.height:=$height>18 ? 22 : 19
+					
+				Else 
+					
+					This:C1470.height:=$height>18 ? \
+						/*Regular*/21 : $height>=16 ? \
+						/*Small*/17 : \
+						/*Mini*/16
+					
+				End if 
+				
+				// __________________________________________________
+			: (This:C1470.type=Object type 3D checkbox:K79:27)\
+				 || (This:C1470.type=Object type 3D radio button:K79:24)
+				
+				If (Is Windows:C1573)
+					
+					This:C1470.height:=13
+					
+				Else 
+					
+					This:C1470.height:=$height>17 ? \
+						/*Regular*/17 : $height>=16 ? \
+						/*Small*/16 : \
+						/*Mini*/15
+					
+				End if 
+				
+				This:C1470.bestSize()
+				
+				// __________________________________________________
+		End case 
 	End if 
 	
 	//MARK:-[Text & Picture]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get linkedPopupMenu() : Boolean
 	
-	var $c : Collection
-	$c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
-	return Bool:C1537(($c.length>10) && $c[11])
+	var $c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
+	return Bool:C1537(($c.length>10) && ($c[11]="1"))
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
-Function set linkedPopupMenu($linked : Boolean)
+Function set linkedPopupMenu($menuOn : Boolean)
 	
-	This:C1470._setPopupMenu($linked ? "linked" : "none")
+	This:C1470._setPopupMenu($menuOn ? "linked" : "none")
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setLinkedPopupMenu() : cs:C1710.button
 	
 	return This:C1470._setPopupMenu("linked")
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get separatePopupMenu() : Boolean
+	
+	var $c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
+	return Bool:C1537(($c.length>10) && ($c[11]="2"))
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set separatePopupMenu($menuOn : Boolean)
+	
+	This:C1470._setPopupMenu($menuOn ? "separate" : "none")
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setSeparatePopupMenu() : cs:C1710.button
@@ -187,7 +151,7 @@ Otherwise, the possible values are :
 			Else 
 				
 				This:C1470.setFormat(";;;;;;;;;;"+String:C10(Num:C11($value)))
-				This:C1470[Choose:C955(Num:C11($value)=2; "addEvent"; "removeEvent")](On Alternative Click:K2:36)
+				This:C1470[Num:C11($value)=2 ? "addEvent" : "removeEvent"](On Alternative Click:K2:36)
 				
 			End if 
 			
@@ -206,11 +170,16 @@ Otherwise, the possible values are :
 	
 	return This:C1470
 	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get picture() : Text
+	
+	var $c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
+	return $c.length>=2 ? $c[1] : ""
+	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set picture($proxy : Text)
 	
 	This:C1470.setPicture($proxy)
-	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Picture linked to a button
 Function setPicture($proxy : Text) : cs:C1710.button
@@ -227,6 +196,12 @@ Function setPicture($proxy : Text) : cs:C1710.button
 	End if 
 	
 	return This:C1470
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get backgroundPicture() : Text
+	
+	var $c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
+	return $c.length>=3 ? $c[2] : ""
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set backgroundPicture($proxy : Text)
@@ -253,9 +228,8 @@ Function setBackgroundPicture($proxy : Text) : cs:C1710.button
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get numStates() : Integer
 	
-	var $c : Collection
-	$c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
-	return $c.length>=13 ? Num:C11($c[12]) : 4
+	var $c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
+	return $c.length>=13 ? Num:C11($c[12]) : /*DEFAULT*/4
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set numStates($states : Integer)
@@ -283,8 +257,7 @@ Function setNumStates($states : Integer) : cs:C1710.button
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get style() : Integer
 	
-	var $c : Collection
-	$c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
+	var $c:=Split string:C1554(OBJECT Get format:C894(*; This:C1470.name); ";")
 	return $c.length>=7 ? Num:C11($c[6]) : 0/*default*/
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
@@ -358,35 +331,44 @@ Function is3DButton($message : Text) : Boolean
 	/// if not found the first letter, corresponding to the associated key shortcut
 Function highlightShortcut() : cs:C1710.button
 	
-	var $key; $t : Text
-	var $index; $lModifier : Integer
+	var $UNDERLINED:=Char:C90(0x0332)
 	
-	$t:=This:C1470.title
+	var $key : Text
+	var $modifier : Integer
+	OBJECT GET SHORTCUT:C1186(*; This:C1470.name; $key; $modifier)
 	
-	OBJECT GET SHORTCUT:C1186(*; This:C1470.name; $key; $lModifier)
+	var $t:=This:C1470.title
 	
 	If (Length:C16($key)>0)
 		
-		$index:=Position:C15(Uppercase:C13($key); $t; *)
+		var $indx:=Position:C15(Uppercase:C13($key); $t; *)
 		
-		If ($index=0)
+		If ($indx=0)
 			
-			$index:=Position:C15($key; $t)
+			$indx:=Position:C15($key; $t)
 			
 		End if 
 		
-		If ($index>0)
+		If ($indx>0)
 			
-			This:C1470.title:=Substring:C12($t; 1; $index)+Char:C90(0x0332)+Substring:C12($t; $index+1)
+			This:C1470.title:=Substring:C12($t; 1; $indx)+$UNDERLINED+Substring:C12($t; $indx+1)
 			
 		End if 
 		
 	Else 
 		
 		// Remove if any
-		This:C1470.title:=Replace string:C233($t; Char:C90(0x0332); "")
+		This:C1470.title:=Replace string:C233($t; $UNDERLINED; "")
 		
 	End if 
 	
 	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// ⚠️ Overloading the parent
+Function setShortcut($key : Text; $modifier : Integer) : cs:C1710.widget
+	
+	Super:C1706.setShortcut($key; $modifier)
+	
+	return This:C1470.highlightShortcut()
 	

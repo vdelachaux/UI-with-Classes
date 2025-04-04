@@ -13,72 +13,89 @@ in this case, all named objects are initialized with widget class
 
 */
 
-property members : Collection
-property type : Integer
+property type : Integer:=Object type group:K79:22
+property members:=[]
 
+/*
+The user data can be anything you want to attach to the group.
+The .data property is used to get or set this data.
+*/
 property _data
-property __CLASS__ : Object
 
-Class constructor($members : Variant;  ... )
+property __CLASS__ : 4D:C1709.Class
+
+Class constructor($member : Variant;  ... )
 	
 	This:C1470.__CLASS__:=OB Class:C1730(This:C1470)
 	
-	This:C1470.type:=Object type group:K79:22
+	var $countParameters:=Count parameters:C259
 	
 	Case of 
 			
 			// ___________________________
-		: (Count parameters:C259=0)
+		: ($countParameters=0)
 			
-			This:C1470.members:=[]
+			// <NOTHING MORE TO DO>
 			
 			// ___________________________
-		: (Value type:C1509($members)=Is collection:K8:32)
+		: (Value type:C1509($member)=Is collection:K8:32)
 			
 			// TODO: Manage non widget collections
-			This:C1470.members:=$members
+			This:C1470.members:=$member
 			
 			// ___________________________
-		: (Value type:C1509($members)=Is object:K8:27)  // 1 to N objects (could be groups)
-			
-			This:C1470.members:=[]
+		: (Value type:C1509($member)=Is object:K8:27)  // 1 to N objects (could be groups)
 			
 			var $i : Integer
-			
-			For ($i; 1; Count parameters:C259; 1)
+			For ($i; 1; $countParameters; 1)
 				
 				This:C1470.add(${$i})
 				
 			End for 
 			
 			// ___________________________
-		: (Value type:C1509($members)=Is text:K8:3)  // Comma separated list of object names
+		: (Value type:C1509($member)=Is text:K8:3)
 			
-			This:C1470.members:=[]
-			
-			If (Count parameters:C259>=2)
-				
-				This:C1470.add($members; String:C10($2))  // $2 could give the types
-				
-			Else 
-				
-				This:C1470.add($members)
-				
-			End if 
-			
-			// ___________________________
-		Else 
-			
-			This:C1470.members:=[]
+			Case of 
+					//______________________________________________________
+				: (Split string:C1554($member; ",").length>1)\
+					 && ($countParameters=2)  // Comma separated list with type
+					
+					This:C1470.add($member; String:C10($2))
+					
+					//______________________________________________________
+				: ($countParameters>=2)
+					
+					var $lastParam:=Try(String:C10(${$countParameters}))
+					
+					If (Length:C16($lastParam)>0)\
+						 && (Try(OB Class:C1730(cs:C1710[$lastParam])#Null:C1517))  // The last parameter is the type
+						
+						For ($i; 1; $countParameters-1; 1)
+							
+							This:C1470.add(${$i}; $lastParam)
+							
+						End for 
+						
+					Else 
+						
+						For ($i; 1; $countParameters; 1)
+							
+							This:C1470.add(${$i})
+							
+						End for 
+					End if 
+					
+					//______________________________________________________
+				Else 
+					
+					This:C1470.add($member)
+					
+					//______________________________________________________
+			End case 
 			
 			// ___________________________
 	End case 
-	
-/*
-The user data can be anything you want to attach to the group.
-The .data property is used to get or set this data.
-*/
-	This:C1470._data:=Null:C1517
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 	/// Returns the user data attached to the group
@@ -121,7 +138,7 @@ or
 */
 Function add($member; $as : Text) : cs:C1710.group
 	
-	$as:=$as || "widget"  // Default is widget
+	$as:=$as || "static"  // Default is widget
 	var $type:=Value type:C1509($member)
 	
 	Case of 
@@ -179,7 +196,7 @@ Function add($member; $as : Text) : cs:C1710.group
 					
 				Else 
 					
-					This:C1470.members.push(cs:C1710[$as].new($t))  // Widget by default
+					This:C1470.members.push(cs:C1710[$as].new($member))  // Widget by default
 					
 				End if 
 			End if 
@@ -194,7 +211,6 @@ Function add($member; $as : Text) : cs:C1710.group
 	
 	// Avoid Null members
 	This:C1470.members:=This:C1470.members.filter(Formula:C1597($1.value#Null:C1517))
-	
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -375,12 +391,10 @@ The optional object type parameter allow to specify:
 */
 Function distributeLeftToRight($params : Object) : cs:C1710.group
 	
-	var $member : cs:C1710.static
-	
 	var $e:=This:C1470._userOptions({start: 0; spacing: 0; minWidth: 0; maxWidth: 0}; $params)
-	
 	$e.alignment:=Align left:K42:2
 	
+	var $member : cs:C1710.static
 	For each ($member; This:C1470.members)
 		
 		$member.bestSize($e)
@@ -449,12 +463,10 @@ The optional object type parameter allow to specify:
 */
 Function distributeRigthToLeft($params : Object) : cs:C1710.group
 	
-	var $member : cs:C1710.static
-	
 	var $e:=This:C1470._userOptions({start: 0; spacing: 0; minWidth: 0; maxWidth: 0}; $params)
-	
 	$e.alignment:=Align right:K42:4
 	
+	var $member : cs:C1710.static
 	For each ($member; This:C1470.members)
 		
 		$member.bestSize($e)
@@ -508,10 +520,9 @@ Function distributeAroundCenter($params : Object) : cs:C1710.group
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function distributeVertically($params : Object) : cs:C1710.group
 	
-	var $member : cs:C1710.static
-	
 	var $e:=This:C1470._userOptions({start: 0; spacing: 0}; $params)
 	
+	var $member : cs:C1710.static
 	For each ($member; This:C1470.members)
 		
 		If ($e.start#0)
@@ -530,10 +541,9 @@ Function distributeVertically($params : Object) : cs:C1710.group
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function distributeHorizontally($params : Object) : cs:C1710.group
 	
-	var $member : cs:C1710.static
-	
 	var $e:=This:C1470._userOptions({start: 0; spacing: 0}; $params)
 	
+	var $member : cs:C1710.static
 	For each ($member; This:C1470.members)
 		
 		$member.bestSize()
@@ -606,14 +616,13 @@ useful, for example, for reversing the OK and Cancel buttons depending on the pl
 */
 Function switch($updateEntryOrder : Boolean) : cs:C1710.group
 	
-	var $left; $right : Integer
-	var $member : cs:C1710.static
-	
 	var $c : Collection:=This:C1470.members.orderBy("left")
 	
 	// TODO: Manage more than 2 widgets
 	ASSERT:C1129(This:C1470.members.length=2; Current method name:C684+": Available only for a group of 2 widgets")
 	
+	var $left; $right : Integer
+	var $member : cs:C1710.static
 	For each ($member; $c)
 		
 		If ($left=0)
@@ -710,9 +719,8 @@ If ommited, the distribution is relative to the form
 */
 Function centerVertically($reference : Text) : cs:C1710.group
 	
-	var $bottom; $height; $left; $middle; $right; $top : Integer
-	var $width : Integer
-	var $member : cs:C1710.static
+	var $bottom; $left; $right; $top : Integer
+	var $height; $middle; $width : Integer
 	
 	If (Count parameters:C259>=1)
 		
@@ -726,6 +734,7 @@ Function centerVertically($reference : Text) : cs:C1710.group
 		
 	End if 
 	
+	var $member : cs:C1710.static
 	For each ($member; This:C1470.members)
 		
 		OBJECT GET COORDINATES:C663(*; $member.name; $left; $top; $right; $bottom)
@@ -740,9 +749,6 @@ Function centerVertically($reference : Text) : cs:C1710.group
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function alignLeft($reference) : cs:C1710.group
-	
-	var $left : Integer
-	var $member : cs:C1710.static
 	
 	If (Count parameters:C259>=1)
 		
@@ -769,7 +775,7 @@ Function alignLeft($reference) : cs:C1710.group
 				//______________________________________________________
 			Else 
 				
-				// #ERROR
+				var $left : Integer  // #ERROR
 				
 				//______________________________________________________
 		End case 
@@ -781,6 +787,7 @@ Function alignLeft($reference) : cs:C1710.group
 		
 	End if 
 	
+	var $member : cs:C1710.static
 	For each ($member; This:C1470.members)
 		
 		$member.moveHorizontally($left-$member.coordinates.left)
@@ -791,9 +798,6 @@ Function alignLeft($reference) : cs:C1710.group
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function alignRight($reference) : cs:C1710.group
-	
-	var $right : Integer
-	var $member : cs:C1710.static
 	
 	If (Count parameters:C259>=1)
 		
@@ -820,7 +824,7 @@ Function alignRight($reference) : cs:C1710.group
 				// ______________________________________________________
 			Else 
 				
-				// #ERROR
+				var $right : Integer  // #ERROR
 				
 				// ______________________________________________________
 		End case 
@@ -832,6 +836,7 @@ Function alignRight($reference) : cs:C1710.group
 		
 	End if 
 	
+	var $member : cs:C1710.static
 	For each ($member; This:C1470.members)
 		
 		$member.moveHorizontally($right-$member.coordinates.right)
@@ -843,10 +848,9 @@ Function alignRight($reference) : cs:C1710.group
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function show($visible : Boolean) : cs:C1710.group
 	
-	var $member : cs:C1710.static
-	
 	$visible:=Count parameters:C259=0 ? True:C214 : $visible
 	
+	var $member : cs:C1710.static
 	For each ($member; This:C1470.members)
 		
 		$member.show($visible)
@@ -859,7 +863,6 @@ Function show($visible : Boolean) : cs:C1710.group
 Function hide() : cs:C1710.group
 	
 	var $member : cs:C1710.static
-	
 	For each ($member; This:C1470.members)
 		
 		$member.hide()
@@ -871,10 +874,9 @@ Function hide() : cs:C1710.group
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function enable($enabled : Boolean) : cs:C1710.group
 	
-	var $member : cs:C1710.static
-	
 	$enabled:=Count parameters:C259=0 ? True:C214 : $enabled
 	
+	var $member : cs:C1710.static
 	For each ($member; This:C1470.members)
 		
 		Case of 
@@ -912,7 +914,6 @@ Function enable($enabled : Boolean) : cs:C1710.group
 Function disable() : cs:C1710.group
 	
 	var $member : cs:C1710.static
-	
 	For each ($member; This:C1470.members)
 		
 		If ($member.type=Object type static text:K79:2)
@@ -932,7 +933,6 @@ Function disable() : cs:C1710.group
 Function setFontStyle($style : Integer) : cs:C1710.group
 	
 	var $member : cs:C1710.static
-	
 	For each ($member; This:C1470.members)
 		
 		$member.setFontStyle()
@@ -951,7 +951,6 @@ Function _userOptions($e : Object; $user : Object) : Object
 	End if 
 	
 	var $key : Text
-	
 	For each ($key; $user)
 		
 		If ($user[$key]#Null:C1517)

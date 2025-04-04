@@ -5,9 +5,7 @@ property list : cs:C1710.ui.listbox
 Class constructor
 	
 	// MARK:Delegates 📦
-	var $form : Object
-	$form:=Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText()))
-	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; $form)
+	This:C1470.form:=cs:C1710.ui.form.new(This:C1470; Try(JSON Parse:C1218(File:C1566("/SOURCES/Forms/"+Current form name:C1298+"/form.4DForm").getText())))
 	
 	This:C1470.form.init()
 	

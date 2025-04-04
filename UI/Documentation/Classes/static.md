@@ -12,28 +12,18 @@ The `static` class is the parent class of all form widget classes.
 #### This class is available via the [`form`](form.md#objects) class as `Static` interface.
 
 ```4d
-
 This.form:=cs.form.new(This)
-
 ...
-
 This.myWidget:=This.form.Static("form object")
-
 ...
-
 This.myWidget.hide()
-
 ```
 
 #### This class can also be instantiated on its own.
 
 ```4d
 Form.myWidget:=cs.static.new("form object")
-
-...
-
 Form.myWidget.hide()
-
 ```
 
 <br>**Note**: 📌 The `group` class can also refer to this class even if it's not inheritance
@@ -42,7 +32,7 @@ Form.myWidget.hide()
 
 The class constructor `cs.static.new({formObjectName {; parent }})` creates a new class instance.
 
->📌 The optional `parent` parameter is the **cs**.form object containing the widget. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the cs.form class.
+>📌 The optional `parent` parameter is the **cs**.form object containing the widget. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the **cs**.form class.
 
 If the `formObjectName` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
 
