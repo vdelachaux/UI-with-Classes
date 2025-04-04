@@ -12,9 +12,7 @@ Function asynchronous() : cs:C1710.thermometer
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function isAsynchronous() : Boolean
 	
-	var $type : Integer
-	
-	$type:=This:C1470.getIndicatorType()
+	var $type:=This:C1470.getIndicatorType()
 	
 	return ($type=Asynchronous progress bar:K42:36) | ($type=Barber shop:K42:35) | ($type=0)
 	

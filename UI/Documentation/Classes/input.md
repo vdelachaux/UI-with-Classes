@@ -30,7 +30,7 @@ Form.myInput.filter := Is date
 
 ## <a name="Constructor"> Constructor </a>
 
-The class constructor `cs. input.new({formObjectName {; parent }})` creates a new class instance.
+The class constructor `cs.input.new({formObjectName {; parent }})` creates a new class instance.
 
 >📌 The optional `parent` parameter is the **cs**.form object containing the widget. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the **cs**.form class.
 
