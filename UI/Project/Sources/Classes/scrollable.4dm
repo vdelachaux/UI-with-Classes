@@ -21,7 +21,6 @@ Class constructor($name : Text; $parent : Object)
 Function getScrollPosition() : Variant
 	
 	var $h; $v : Integer
-	
 	OBJECT GET SCROLL POSITION:C1114(*; This:C1470.name; $v; $h)
 	
 	If (This:C1470.type=Object type picture input:K79:5)\
@@ -44,7 +43,6 @@ Function getScrollPosition() : Variant
 Function setScrollPosition($vertical; $horizontal) : cs:C1710.scrollable
 	
 	var $h; $v : Integer
-	
 	OBJECT GET SCROLL POSITION:C1114(*; This:C1470.name; $v; $h)
 	
 	$v:=Num:C11($vertical)
@@ -63,7 +61,6 @@ Function setScrollPosition($vertical; $horizontal) : cs:C1710.scrollable
 	Else 
 		
 		OBJECT SET SCROLL POSITION:C906(*; This:C1470.name; $v; *)
-		
 		This:C1470.scroll:=$v
 		
 	End if 
@@ -74,7 +71,6 @@ Function setScrollPosition($vertical; $horizontal) : cs:C1710.scrollable
 Function getScrollbars
 	
 	var $horizontal; $vertical : Integer
-	
 	OBJECT GET SCROLLBAR:C1076(*; This:C1470.name; $horizontal; $vertical)
 	
 	This:C1470.scrollbars:={\

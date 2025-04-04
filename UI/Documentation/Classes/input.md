@@ -47,7 +47,6 @@ Inherited properties and functions are described in the parent classes:
 * [`static` class](static.md)
 * [`widget` class](widget.md)
 
-
 ## <a name="Properties">Properties</a>
 
 |Properties|Description|Type|default|Writable|
