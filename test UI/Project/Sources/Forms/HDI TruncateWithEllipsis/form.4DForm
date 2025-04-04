@@ -1,0 +1,153 @@
+{
+	"destination": "detailScreen",
+	"windowSizingX": "fixed",
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"Input": {
+					"type": "input",
+					"left": 19,
+					"top": 40,
+					"width": 310,
+					"height": 17,
+					"hideFocusRing": true
+				},
+				"ellipsis_left": {
+					"type": "button",
+					"text": "left",
+					"top": 117,
+					"left": 19,
+					"width": 69,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/ellipsis_left.4dm"
+				},
+				"ellipsis_center": {
+					"type": "button",
+					"text": "center",
+					"top": 117,
+					"left": 139,
+					"width": 69,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/ellipsis_center.4dm"
+				},
+				"ellipsis_right": {
+					"type": "button",
+					"text": "right",
+					"top": 117,
+					"left": 260,
+					"width": 69,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/ellipsis_right.4dm"
+				},
+				"Text": {
+					"type": "text",
+					"text": "input.truncateWithEllipsis()",
+					"top": 11,
+					"left": 19,
+					"width": 310,
+					"height": 16,
+					"fontTheme": "main"
+				},
+				"Radio Button": {
+					"type": "radio",
+					"text": "…",
+					"top": 72,
+					"left": 50,
+					"width": 47,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"radioGroup": "char",
+					"method": "ObjectMethods/Radio Button.4dm"
+				},
+				"Radio Button1": {
+					"type": "radio",
+					"text": "+",
+					"top": 72,
+					"left": 117,
+					"width": 47,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"radioGroup": "char",
+					"method": "ObjectMethods/Radio Button1.4dm"
+				},
+				"Radio Button2": {
+					"type": "radio",
+					"text": "-",
+					"top": 72,
+					"left": 184,
+					"width": 47,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"radioGroup": "char",
+					"method": "ObjectMethods/Radio Button2.4dm"
+				},
+				"Radio Button3": {
+					"type": "radio",
+					"text": "_",
+					"top": 72,
+					"left": 251,
+					"width": 47,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"radioGroup": "char",
+					"method": "ObjectMethods/Radio Button3.4dm"
+				}
+			}
+		},
+		null
+	],
+	"editor": {
+		"activeView": "Vue 1",
+		"defaultView": "Vue 1",
+		"views": {
+			"Vue 1": {},
+			"Vue 2": {},
+			"Vue 3": {},
+			"Vue 4": {},
+			"Vue 5": {},
+			"Vue 6": {},
+			"Vue 7": {},
+			"Vue 8": {},
+			"Vue 9": {}
+		}
+	},
+	"geometryStamp": 43,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	}
+}

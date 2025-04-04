@@ -49,7 +49,9 @@ Function handleEvents($e:cs.evt)
 Function update()
 	
 ```
+
 <hr>
+
 > ⚠️ If you're using UI classes from a component, since the component doesn't have access to the host database's form definition, you need to call the delegate instantiation (line 8) like this:
 
 ```4d
@@ -87,7 +89,7 @@ This.form:=cs.form.new(This; Try(JSON Parse(File("/SOURCES/Forms/"+Current form 
 |**.window** | Current form window class object |`cs.window`||<font color="red">x</font>
 |**.constraints** | The constraints manager |`cs.constraints`||<font color="red">x</font>
 
-> *  To be set up by the `form controller class`    
+\*  To be set up by the `form controller class`    
 
 
 ## <a name="objects">Form widget instantiation functions</a>

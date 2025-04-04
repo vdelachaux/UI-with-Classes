@@ -1,0 +1,261 @@
+{
+	"destination": "detailScreen",
+	"rightMargin": 19,
+	"bottomMargin": 20,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"Line": {
+					"type": "line",
+					"top": 188,
+					"left": 318,
+					"height": 90,
+					"stroke": "#EE0000",
+					"startPoint": "topLeft"
+				},
+				"Line1": {
+					"type": "line",
+					"top": 79,
+					"left": 19,
+					"height": 90,
+					"stroke": "#EE0000"
+				},
+				"Line2": {
+					"type": "line",
+					"top": 6,
+					"left": 617,
+					"height": 90,
+					"stroke": "#EE0000"
+				},
+				"Rectangle3": {
+					"type": "rectangle",
+					"top": 246,
+					"left": 169,
+					"width": 299,
+					"height": 17,
+					"fill": "transparent",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1"
+				},
+				"Rectangle2": {
+					"type": "rectangle",
+					"top": 206,
+					"left": 169,
+					"width": 299,
+					"height": 24,
+					"fill": "transparent",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1"
+				},
+				"Rectangle1": {
+					"type": "rectangle",
+					"top": 122,
+					"left": 19,
+					"width": 299,
+					"height": 24,
+					"fill": "transparent",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1"
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 51,
+					"left": 318,
+					"width": 299,
+					"height": 44,
+					"fill": "transparent",
+					"stroke": "#0099FF",
+					"strokeDashArray": "1 1"
+				},
+				"Button2": {
+					"type": "button",
+					"top": 52,
+					"left": 317,
+					"width": 87,
+					"height": 42,
+					"text": "Lorem ipsum",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"top": 52,
+					"left": 424,
+					"width": 87,
+					"height": 42,
+					"text": "Lorem ipsum",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button": {
+					"type": "button",
+					"top": 52,
+					"left": 531,
+					"width": 87,
+					"height": 42,
+					"text": "Lorem ipsum dolor sit amet",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button5": {
+					"type": "button",
+					"top": 123,
+					"left": 18,
+					"width": 87,
+					"height": 22,
+					"text": "Lorem ipsum dolor sit amet",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button4": {
+					"type": "button",
+					"top": 123,
+					"left": 125,
+					"width": 87,
+					"height": 22,
+					"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button3": {
+					"type": "button",
+					"top": 123,
+					"left": 232,
+					"width": 87,
+					"height": 22,
+					"text": "Lorem ",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button6": {
+					"type": "button",
+					"top": 207,
+					"left": 168,
+					"width": 87,
+					"height": 22,
+					"text": "Lorem ipsum dolor sit amet",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button7": {
+					"type": "button",
+					"top": 207,
+					"left": 275,
+					"width": 87,
+					"height": 22,
+					"text": "Lorem ipsum dolor sit amet",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button8": {
+					"type": "button",
+					"top": 207,
+					"left": 382,
+					"width": 87,
+					"height": 22,
+					"text": "Lorem",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button9": {
+					"type": "button",
+					"top": 247,
+					"left": 168,
+					"width": 87,
+					"height": 12,
+					"text": "Lorem",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button10": {
+					"type": "button",
+					"top": 247,
+					"left": 275,
+					"width": 87,
+					"height": 12,
+					"text": "OK",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button11": {
+					"type": "button",
+					"top": 247,
+					"left": 382,
+					"width": 87,
+					"height": 12,
+					"text": "Lorem",
+					"events": [
+						"onClick"
+					]
+				},
+				"Texte": {
+					"type": "text",
+					"text": "group.distributeRigthToLeft()",
+					"top": 26,
+					"left": 340,
+					"width": 276,
+					"height": 16,
+					"textAlign": "right",
+					"stroke": "#1e90ff"
+				},
+				"Texte1": {
+					"type": "text",
+					"text": "group.distributeLeftToRight()",
+					"top": 96,
+					"left": 22,
+					"width": 276,
+					"height": 16,
+					"stroke": "#1e90ff"
+				},
+				"Texte2": {
+					"type": "text",
+					"text": "group.distributeAroundCenter()",
+					"top": 173,
+					"left": 180,
+					"width": 276,
+					"height": 16,
+					"textAlign": "center",
+					"stroke": "#1e90ff"
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"geometryStamp": 126,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"windowTitle": "group.distribute…"
+}

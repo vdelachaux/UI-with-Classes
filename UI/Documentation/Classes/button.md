@@ -3,11 +3,12 @@
 The `button` class is intended to manage button widgets.  
 
 <hr>
-> 📌 **Important**: 
-><br>      1. This class inherit from the [`widget`](widget.md) class
-><br>      2. All functions that return **cs**.button may include one call after another. 
-><br>
-><hr>
+📌 <b> Important </b>
+
+1. This class inherit from the [`widget`](widget.md) class
+2. All functions that return **cs**.button may include one call after another. 
+
+<hr><br>
 
 #### This class is available via the [`form`](form.md#objects) class as `Button` interface.
 
@@ -22,7 +23,7 @@ This.myButton.disable()
 #### This class can also be instantiated on its own.
 
 ```4d
-Form.myButton:=cs.Button.new("Button 10")
+Form.myButton:=cs.button.new("Button 10")
 Form.myButton.disable()
 ```
 
@@ -47,7 +48,7 @@ Inherited properties and functions are described in the parent classes:
 * [`static` class](static.md)
 * [`widget` class](widget.md)
 
-## <a name="Properties">Properties & Functions</a>
+## <a name="Properties">Properties</a>
 
 |Properties|Description|Type|Writable|
 |:----------|:-----------|:-----------|:-----------:| 
@@ -59,6 +60,8 @@ Inherited properties and functions are described in the parent classes:
 |.**separatePopupMenu** | With separate pop-up menu (**False** = no associated menu)  | `Boolean` | <font color="green">✓</font>
 |.**style** | Button style\*  | `Integer` | <font color="green">✓</font>
 |.**styleName** | The current button style name\*  | `Text` | <font color="red">x</font>
+
+## <a name="Functions">Functions</a>
 
 | Functions | |
 |:-------- |:------ | 
@@ -72,10 +75,11 @@ Inherited properties and functions are described in the parent classes:
 |.**setSeparatePopupMenu** () →`cs.button` | Sets the button to display and manage a separate pop-up menu
 |.**setStyle** ( style ) →`cs.button` | Defines button style\*
 
-> 📌 Adding or deleting a linked or associated menu automatically activates/deactivates the object's form event of the `On Alternative Click`. 
-
 <hr>
-\* The following values are possible:
+> 📌 Adding or deleting a linked or associated menu automatically activates/deactivates the object's form event of the `On Alternative Click`. 
+<br>
+
+\* The following style values are possible:
 >style = 0: None (default)<br>style = 1: Background offset<br>style = 2: Push button<br>style = 3: Toolbar button<br>style = 4: Custom<br>style = 5: Circle<br>style = 6: Small system square<br>style = 7: Office XP<br>style = 8: Bevel<br>style = 9: Rounded bevel<br>style = 10: Collapse/Expand<br>style = 11: Help<br>style = 12: OS X Textured<br>style = 13: OS X Gradient
 	
 

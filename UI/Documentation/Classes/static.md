@@ -3,11 +3,12 @@
 The `static` class is the parent class of all form widget classes.
 
 <hr>
-> 📌 **Conventions**: 
-<br>      1. to simplify the distinction between form objects and object type, this documentation uses the term “widget” for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…).
-<br>      2. All functions that return **cs**.static may include one call after another. 
-<br>
-<hr>
+📌 <b>Conventions</b>
+
+1. to simplify the distinction between form objects and object type, this documentation uses the term “widget” for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…).
+2. All functions that return **cs**.static may include one call after another. 
+
+<hr><br>
 
 #### This class is available via the [`form`](form.md#objects) class as `Static` interface.
 
@@ -38,7 +39,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 
 > ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
 
-#Summary
+# Summary
 
 ## <a name="Properties">General</a>
 

@@ -73,6 +73,9 @@
 			"DEMO_Menus",
 			"DEMO_Search",
 			"DEMO_Tab_Control"
+		],
+		"forms": [
+			"HDI TruncateWithEllipsis"
 		]
 	},
 	"MAIN": {

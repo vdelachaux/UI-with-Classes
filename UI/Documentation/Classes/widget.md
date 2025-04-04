@@ -3,15 +3,16 @@
 The `widget` class is intended to manipulate active form objects.
 
 <hr>
-> 📌 **Important**: 
-><br>      1. This class inherit from the [`static`](static.md) class
-><br>      2. It's a transition class between the `static` class and more specific classes like `input`, `button`, `listbox`…
-><br>      3. Normally, you'll never have to instantiate the **cs.**widget class, since instantiation is automatic with a more specialized widget.
-><br>      4. All functions that return **cs.**widget may include one call after another. 
-><br>
-><hr>
+📌 <b>Conventions</b>
 
-#Summary
+1. This class inherit from the [`static`](static.md) class
+2. It's a transition class between the `static` class and more specific classes like `input`, `button`, `listbox`…
+3. Normally, you'll never have to instantiate the **cs.**widget class, since instantiation is automatic with a more specialized widget.
+4. All functions that return **cs.**widget may include one call after another.
+
+
+
+# Summary
 
 ## <a name="Inherited">Inherited Properties & Functions</a>
 
