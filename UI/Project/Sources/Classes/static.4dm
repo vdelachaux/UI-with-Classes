@@ -258,6 +258,7 @@ Function setDimensions($width : Integer; $height : Integer) : cs:C1710.static
 Function get coordinates() : cs:C1710.coord
 	
 	This:C1470.getCoordinates()
+	var $o:=This:C1470._coordinates
 	return cs:C1710.coord.new(This:C1470._coordinates)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
@@ -266,13 +267,13 @@ Function set coordinates($coordinates : Object)
 	This:C1470.setCoordinates($coordinates)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function getCoordinates() : Object
+Function getCoordinates() : cs:C1710.coord
 	
 	var $bottom; $left; $right; $top : Integer
 	OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
 	This:C1470.updateCoordinates($left; $top; $right; $bottom)
 	
-	return This:C1470._coordinates
+	return This:C1470.coordinates
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setCoordinates($left; $top : Integer; $right : Integer; $bottom : Integer) : cs:C1710.static
@@ -649,11 +650,15 @@ Function updateCoordinates($left : Integer; $top : Integer; $right : Integer; $b
 		
 	End if 
 	
-	This:C1470._coordinates:={\
-		left: $left; \
-		top: $top; \
-		right: $right; \
-		bottom: $bottom}
+/*
+This._coordinates:={\
+left: $left; \
+top: $top; \
+right: $right; \
+bottom: $bottom}
+*/
+	
+	This:C1470._coordinates:=cs:C1710.coord.new($left; $top; $right; $bottom)
 	
 	// Keep the position defined in structure
 	This:C1470.initialPosition:=This:C1470.initialPosition || This:C1470._coordinates

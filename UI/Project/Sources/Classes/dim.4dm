@@ -1,7 +1,8 @@
-property height : Integer:=0
-property width : Integer:=0
+property height : Integer
+property width : Integer
 
-Class constructor
+Class constructor($width : Integer; $height : Integer)
 	
-	//
+	This:C1470.width:=$width
+	This:C1470.height:=$height
 	

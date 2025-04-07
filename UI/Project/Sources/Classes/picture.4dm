@@ -69,7 +69,6 @@ Function getAttribute($id : Text; $attribute : Text; $type : Integer) : Variant
 Function setAttributes($id : Text; $attributes : Collection)
 	
 	var $o : Object
-	
 	For each ($o; $attributes)
 		
 		This:C1470.setAttribute($id; $o.name; $o.value)
@@ -79,23 +78,21 @@ Function setAttributes($id : Text; $attributes : Collection)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setAttribute($id : Text; $name : Text; $value)
 	
-	var $t : Text
-	var $type : Integer
-	
-	$type:=Value type:C1509($value)
+	var $type:=Value type:C1509($value)
 	
 	Case of 
 			
 			//______________________________________
 		: ($type=Is BLOB:K8:12)
 			
+			var $t : Text
 			BASE64 ENCODE:C895($value; $t)
 			$value:=$t
 			
 			//______________________________________
 		: ($type=Is text:K8:3)\
-			 | ($type=Is longint:K8:6)\
-			 | ($type=Is integer:K8:5)
+			 || ($type=Is longint:K8:6)\
+			 || ($type=Is integer:K8:5)
 			
 			// <NOTHING MORE TO DO>
 			
@@ -111,49 +108,42 @@ Function setAttribute($id : Text; $name : Text; $value)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// ⚠️
-Function getCoordinates()->$coordinates : Object
+Function getCoordinates() : cs:C1710.coord
 	
-	$coordinates:=Super:C1706.getCoordinates()
+	var $coordinates:=Super:C1706.getCoordinates()
 	
 	This:C1470.getScrollbars()
 	This:C1470.getScrollPosition()
 	This:C1470.getDimensions()
 	
+	return $coordinates
+	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function getDimensions() : Object
+Function getDimensions() : cs:C1710.dim
 	
-	var $p : Picture
+	var $p : Picture:=This:C1470.getValue()
+	
 	var $height; $width : Integer
-	
-	$p:=This:C1470.getValue()
-	
 	PICTURE PROPERTIES:C457($p; $width; $height)
 	
-	return {\
-		width: $width; \
-		height: $height}
+	return cs:C1710.dim.new($width; $height)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function read($file : 4D:C1709.File) : cs:C1710.picture
 	
-	var $p : Picture
-	
-	If (Asserted:C1132(Count parameters:C259>=1; Current method name:C684+".read(): Missing File parameter"))
+	If (Asserted:C1132(Count parameters:C259>=1; Current method name:C684+".read(): Missing File parameter"))\
+		 && (Asserted:C1132(OB Instance of:C1731($file; 4D:C1709.File); Current method name:C684+".read(): The passed parameter is not a File object"))\
+		 && (Asserted:C1132($file.exists; Current method name:C684+".read(): File not found"))
 		
-		If (Asserted:C1132(OB Instance of:C1731($file; 4D:C1709.File); Current method name:C684+".read(): The passed parameter is not a File object"))
+		var $p : Picture
+		READ PICTURE FILE:C678($file.platformPath; $p)
+		
+		If (Bool:C1537(OK))
 			
-			If (Asserted:C1132($file.exists; Current method name:C684+".read(): File not found"))
-				
-				READ PICTURE FILE:C678($file.platformPath; $p)
-				
-				If (Bool:C1537(OK))
-					
-					This:C1470.setValue($p)
-					This:C1470.fileName:=Get picture file name:C1171($p)
-					This:C1470.size:=Picture size:C356($p)
-					
-				End if 
-			End if 
+			This:C1470.setValue($p)
+			This:C1470.fileName:=Get picture file name:C1171($p)
+			This:C1470.size:=Picture size:C356($p)
+			
 		End if 
 	End if 
 	

@@ -10,8 +10,7 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 			//______________________________________________________
 		: (Value type:C1509($left)=Is object:K8:27)
 			
-			var $o : Object
-			$o:=Try($left.getCoordinates())
+			var $o : Object:=Try($left.getCoordinates())
 			
 			If ($o#Null:C1517)  // Widget
 				
@@ -93,12 +92,9 @@ Function get height() : Integer
 	return Try(This:C1470.bottom-This:C1470.top)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get dimensions() : Object
+Function get dimensions() : cs:C1710.dim
 	
-	return {\
-		width: This:C1470.width; \
-		height: This:C1470.height\
-		}
+	return cs:C1710.dim.new(This:C1470.width; This:C1470.height)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function apply($name : Text)
