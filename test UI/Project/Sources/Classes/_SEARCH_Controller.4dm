@@ -217,11 +217,11 @@ Function expand()
 	
 	If (Not:C34(This:C1470.expanded))
 		
-		var $ring : cs:C1710.ui.coord
+		var $ring : cs:C1710.ui.coordinates
 		$ring:=This:C1470.ring.coordinates
 		
-		var $glass : cs:C1710.ui.coord
-		$glass:=cs:C1710.ui.coord.new(This:C1470.glass)
+		var $glass : cs:C1710.ui.coordinates
+		$glass:=cs:C1710.ui.coordinates.new(This:C1470.glass)
 		
 		This:C1470.glass.setCoordinates(\
 			$ring.left+3; \

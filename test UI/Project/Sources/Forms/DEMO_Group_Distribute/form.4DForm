@@ -180,7 +180,7 @@
 						"onClick"
 					]
 				},
-				"Button9": {
+				"myButton1": {
 					"type": "button",
 					"top": 247,
 					"left": 168,
@@ -191,7 +191,7 @@
 						"onClick"
 					]
 				},
-				"Button10": {
+				"myButton2": {
 					"type": "button",
 					"top": 247,
 					"left": 275,
@@ -202,7 +202,7 @@
 						"onClick"
 					]
 				},
-				"Button11": {
+				"myButton3": {
 					"type": "button",
 					"top": 247,
 					"left": 382,
@@ -249,7 +249,7 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 126,
+	"geometryStamp": 135,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",

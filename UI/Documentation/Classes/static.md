@@ -29,7 +29,7 @@ Form.myWidget.hide()
 
 <br>**Note**: 📌 The `group` class can also refer to this class even if it's not inheritance
 
-## <a name="Constructor"> Constructor </a>
+## <a name="Constructor">Constructor</a>
 
 The class constructor `cs.static.new({formObjectName {; parent }})` creates a new class instance.
 
@@ -48,7 +48,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |Properties|Description|Type|Writable|
 |:----------|:-----------|:-----------|:-----------:| 
 |**.class** | List of space-separated words used as class selectors| `Text` <br>See [Style sheets documentation](https://developer.4d.com/docs/FormEditor/stylesheets)|<font color="red">x</font>
-|**.initialPosition**| The widget's coordinates on instantiation| `Object`|<font color="red">x</font>
+|**.initialPosition**| The widget's coordinates on instantiation| [**cs**.coordinates](coordinates.md)|<font color="red">x</font>
 |**.name**                        | The name of the widget | `Text`|<font color="red">x</font>
 |**.title** | The title of the widget \**  |`Text`|<font color="green">✓</font>
 |**.type** | The type of the widget<br>Use the [Form object Types](https://doc.4d.com/4Dv18R6/4D/18-R6/Form-Object-Types.302-5199153.en.html) constant theme | `Integer` |<font color="red">x</font>
@@ -64,8 +64,8 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |Properties|Description|Type|Writable|
 |:----------|:-----------|:-----------|:-----------:| 
 |.**bottom**| The bottom position of the widget |`Integer`|<font color="green">✓</font>
-|.**coordinates** | The coordinates of the widget in the form as a [**cs**.coord](coord.md) object|`Object`|<font color="green">✓</font>
-|.**dimensions**| The dimensions of the widget <br>as an object {`width`,`height`} |`Object`|<font color="green">✓</font>
+|.**coordinates** | The coordinates of the widget|[**cs**.coordinates](coordinates.md)|<font color="green">✓</font>
+|.**dimensions**| The dimensions of the widget |[**cs**.dimensions](dimensions.md)|<font color="green">✓</font>
 |.**horizontallyMovable** | Can the widget be moved horizontally |`Boolean`|<font color="green">✓</font>
 |.**horizontallyResizable** | Can the widget be resized horizontally |`Boolean`|<font color="green">✓</font>
 |.**left**| The left position of the widget |`Integer`|<font color="green">✓</font>

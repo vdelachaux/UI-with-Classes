@@ -388,18 +388,17 @@ Function truncateWithEllipsis($where : Integer; $target : Text; $char : Text)
 	$target:=$target || This:C1470.value
 	$char:=$char || "…"
 	
-	var $bestHeight; $bestWidth; $pos : Integer
-	var $width : Integer:=This:C1470.dimensions.width
-	
 	This:C1470.value:=$target
 	
+	var $bestHeight; $bestWidth : Integer
 	OBJECT GET BEST SIZE:C717(*; This:C1470.name; $bestWidth; $bestHeight)
 	
 	var $result:=$target
+	var $width:=This:C1470.dimensions.width
 	
 	While ($bestWidth>$width)
 		
-		$pos:=$where=Align left:K42:2 ? 1\
+		var $pos : Integer:=$where=Align left:K42:2 ? 1\
 			 : $where=Align center:K42:3 ? Length:C16($result)\2\
 			 : Length:C16($result)-1
 		

@@ -10,8 +10,7 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 			//______________________________________________________
 		: (Value type:C1509($left)=Is object:K8:27)
 			
-			var $o : Object
-			$o:=Try($left.getCoordinates())
+			var $o : Object:=Try($left.getCoordinates())
 			
 			If ($o#Null:C1517)  // Widget
 				
@@ -45,12 +44,10 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get windowCoordinates() : Object
 	
-	var $bottom; $left; $right; $top : Integer
-	
-	$left:=This:C1470.left
-	$top:=This:C1470.top
-	$right:=This:C1470.right
-	$bottom:=This:C1470.bottom
+	var $left : Integer:=This:C1470.left
+	var $top : Integer:=This:C1470.top
+	var $right : Integer:=This:C1470.right
+	var $bottom : Integer:=This:C1470.bottom
 	
 	CONVERT COORDINATES:C1365($left; $top; XY Current form:K27:5; XY Current window:K27:6)
 	CONVERT COORDINATES:C1365($right; $bottom; XY Current form:K27:5; XY Current window:K27:6)
@@ -65,12 +62,10 @@ Function get windowCoordinates() : Object
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get screenCoordinates() : Object
 	
-	var $bottom; $left; $right; $top : Integer
-	
-	$left:=This:C1470.left
-	$top:=This:C1470.top
-	$right:=This:C1470.right
-	$bottom:=This:C1470.bottom
+	var $left : Integer:=This:C1470.left
+	var $top : Integer:=This:C1470.top
+	var $right : Integer:=This:C1470.right
+	var $bottom : Integer:=This:C1470.bottom
 	
 	CONVERT COORDINATES:C1365($left; $top; XY Current form:K27:5; XY Screen:K27:7)
 	CONVERT COORDINATES:C1365($right; $bottom; XY Current form:K27:5; XY Screen:K27:7)
@@ -93,12 +88,9 @@ Function get height() : Integer
 	return Try(This:C1470.bottom-This:C1470.top)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get dimensions() : Object
+Function get dimensions() : cs:C1710.dimensions
 	
-	return {\
-		width: This:C1470.width; \
-		height: This:C1470.height\
-		}
+	return cs:C1710.dimensions.new(This:C1470.width; This:C1470.height)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function apply($name : Text)

@@ -94,11 +94,11 @@ These constraints are applied using a formula
 	
 */
 	This:C1470.form.constraints.new({\
-		formula: Formula:C1597(OBJECT SET VISIBLE:C603(*; "maxReached"; cs:C1710.ui.coord.new("helloWorld").width=520))\
+		formula: Formula:C1597(OBJECT SET VISIBLE:C603(*; "maxReached"; cs:C1710.ui.coordinates.new("helloWorld").width=520))\
 		})
 	
 	This:C1470.form.constraints.new({\
-		formula: Formula:C1597(OBJECT SET RGB COLORS:C628(*; "Text4"; (cs:C1710.ui.coord.new("helloWorld").width=520 ? "green" : "blue")))\
+		formula: Formula:C1597(OBJECT SET RGB COLORS:C628(*; "Text4"; (cs:C1710.ui.coordinates.new("helloWorld").width=520 ? "green" : "blue")))\
 		})
 	
 /*
@@ -234,8 +234,8 @@ Function onLoad()
 	// === === === === === === === === === === === === === === === === === === === === ===
 Function minReached()
 	
-	var $coord : cs:C1710.ui.coord
-	$coord:=cs:C1710.ui.coord.new("helloWorld")
+	var $coord : cs:C1710.ui.coordinates
+	$coord:=cs:C1710.ui.coordinates.new("helloWorld")
 	
 	OBJECT SET VISIBLE:C603(*; "minReached"; $coord.width=145)
 	OBJECT SET RGB COLORS:C628(*; "Text3"; ($coord.width=145 ? "red" : "blue"))

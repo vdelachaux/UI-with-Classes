@@ -5,7 +5,7 @@ This class is the parent class of all form objects classes
 property name : Text
 property type : Integer
 
-property _coordinates; initialPosition : Object
+property _coordinates; initialPosition : cs:C1710.coordinates
 property _fonts : Collection
 
 property __CLASS__ : 4D:C1709.Class  // The widget's class definition
@@ -112,9 +112,7 @@ Function setResizingOptions($horizontal : Integer; $vertical : Integer)
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get width() : Integer
 	
-	var $bottom; $left; $right; $top : Integer
-	OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
-	return $right-$left
+	return This:C1470.getCoordinates().width
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set width($width : Integer)
@@ -134,9 +132,7 @@ Function setWidth($width : Integer) : cs:C1710.static
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get height() : Integer
 	
-	var $bottom; $left; $right; $top : Integer
-	OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
-	return $bottom-$top
+	return This:C1470.getCoordinates().height
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set height($height : Integer)
@@ -162,8 +158,8 @@ Function get left() : Integer
 Function set left($left : Integer)
 	
 	This:C1470.getCoordinates()
-	var $o : cs:C1710.coord:=This:C1470._coordinates
-	var $width : Integer:=$o.right-$o.left
+	var $o:=This:C1470._coordinates
+	var $width:=$o.width
 	$o.left:=$left
 	$o.right:=$o.left+$width
 	This:C1470.setCoordinates($o)
@@ -177,8 +173,8 @@ Function get top() : Integer
 Function set top($top : Integer)
 	
 	This:C1470.getCoordinates()
-	var $o : cs:C1710.coord:=This:C1470._coordinates
-	var $height : Integer:=$o.height
+	var $o:=This:C1470._coordinates
+	var $height:=$o.height
 	$o.top:=$top
 	$o.bottom:=$o.top+$height
 	This:C1470.setCoordinates($o)
@@ -192,7 +188,7 @@ Function get right() : Integer
 Function set right($right : Integer)
 	
 	This:C1470.getCoordinates()
-	var $o : cs:C1710.coord:=This:C1470._coordinates
+	var $o:=This:C1470._coordinates
 	$o.right:=$right
 	This:C1470.setCoordinates($o)
 	
@@ -205,18 +201,16 @@ Function get bottom() : Integer
 Function set bottom($bottom : Integer)
 	
 	This:C1470.getCoordinates()
-	var $o : cs:C1710.coord:=This:C1470._coordinates
+	var $o:=This:C1470._coordinates
 	$o.bottom:=$bottom
 	This:C1470.setCoordinates($o)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get dimensions() : Object
+Function get dimensions() : cs:C1710.dimensions
 	
 	var $o : Object:=This:C1470.getCoordinates()
 	
-	return {\
-		width: $o.right-$o.left; \
-		height: $o.bottom-$o.top}
+	return cs:C1710.dimensions.new($o.right-$o.left; $o.bottom-$o.top)
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set dimensions($dimensions : Object)
@@ -255,10 +249,9 @@ Function setDimensions($width : Integer; $height : Integer) : cs:C1710.static
 	return This:C1470
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get coordinates() : cs:C1710.coord
+Function get coordinates() : cs:C1710.coordinates
 	
-	This:C1470.getCoordinates()
-	return cs:C1710.coord.new(This:C1470._coordinates)
+	return This:C1470.getCoordinates()
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function set coordinates($coordinates : Object)
@@ -266,11 +259,9 @@ Function set coordinates($coordinates : Object)
 	This:C1470.setCoordinates($coordinates)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function getCoordinates() : Object
+Function getCoordinates() : cs:C1710.coordinates
 	
-	var $bottom; $left; $right; $top : Integer
-	OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
-	This:C1470.updateCoordinates($left; $top; $right; $bottom)
+	This:C1470.updateCoordinates()
 	
 	return This:C1470._coordinates
 	
@@ -328,24 +319,9 @@ Function setCoordinates($left; $top : Integer; $right : Integer; $bottom : Integ
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get windowCoordinates() : Object
 	
-	
 	This:C1470.updateCoordinates()
 	
-	var $bottom; $left; $right; $top : Integer
-	
-	$left:=This:C1470._coordinates.left
-	$top:=This:C1470._coordinates.top
-	$right:=This:C1470._coordinates.right
-	$bottom:=This:C1470._coordinates.bottom
-	
-	CONVERT COORDINATES:C1365($left; $top; XY Current form:K27:5; XY Current window:K27:6)
-	CONVERT COORDINATES:C1365($right; $bottom; XY Current form:K27:5; XY Current window:K27:6)
-	
-	return {\
-		left: $left; \
-		top: $top; \
-		right: $right; \
-		bottom: $bottom}
+	return This:C1470._coordinates.windowCoordinates
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function bestSize($alignment; $minWidth : Integer; $maxWidth : Integer) : cs:C1710.static
@@ -649,11 +625,7 @@ Function updateCoordinates($left : Integer; $top : Integer; $right : Integer; $b
 		
 	End if 
 	
-	This:C1470._coordinates:={\
-		left: $left; \
-		top: $top; \
-		right: $right; \
-		bottom: $bottom}
+	This:C1470._coordinates:=cs:C1710.coordinates.new($left; $top; $right; $bottom)
 	
 	// Keep the position defined in structure
 	This:C1470.initialPosition:=This:C1470.initialPosition || This:C1470._coordinates

@@ -1,6 +1,6 @@
 property form : cs:C1710.ui.form
 property pwd : cs:C1710.ui.input
-property ok; cancel : cs:C1710.ui.button
+property ok; cancel; view : cs:C1710.ui.button
 property bottomButtons : cs:C1710.ui.group
 
 Class constructor
@@ -23,6 +23,9 @@ Instantiate the widgets we need to manipulate.
 	
 	// The text box for entering password
 	This:C1470.pwd:=This:C1470.form.Input("Input")
+	
+	// The button to temporarily display the input
+	This:C1470.view:=This:C1470.form.Button("view-password")
 	
 	// The bottom buttons are grouped together for correct positioning (see the onLoad function)
 	This:C1470.bottomButtons:=This:C1470.form.Group()
@@ -73,6 +76,11 @@ Function handleEvents($e : cs:C1710.ui.evt)
 				This:C1470.ok.enable(This:C1470.pwd.isNotEmpty)
 				
 				//==============================================
+			: (This:C1470.view.catch())
+				
+				This:C1470.pwd.asPassword:=Not:C34($e.mouseEnter)
+				
+				//==============================================
 		End case 
 	End if 
 	
@@ -92,15 +100,15 @@ Function onLoad()
 	
 	// Set the password textbox placeholder
 	// 💡 You can pass an XLIFF resname, it will be resolved
-	This:C1470.pwd.placeholder:="New password..."
+	This:C1470.pwd.placeholder:="Try “1234” for fun"
 	
 	// Distribute bottom buttons according to their label
 	This:C1470.bottomButtons.distributeRigthToLeft()
 	
-	If (Is Windows:C1573)
+	If (Is Windows:C1573 || Shift down:C543)
 		
 		// Reverse the order of the bottom buttons
-		This:C1470.bottomButtons.switch()
+		This:C1470.bottomButtons.switch(True:C214)
 		
 	End if 
 	
@@ -120,8 +128,10 @@ Function verify() : Boolean
 	
 	If (This:C1470.pwd.isEmpty || (This:C1470.pwd.value="1234"))
 		
-		ALERT:C41("Invalid pasword!")
+		This:C1470.form.window.vibrate()
+		
 		This:C1470.pwd.focus()
+		This:C1470.pwd.highlight()
 		
 		return 
 		

@@ -116,7 +116,7 @@
 					"top": 179,
 					"width": 68,
 					"height": 17,
-					"dataSource": "cs:C1710.ui.coord.new(\"helloWorld\").width",
+					"dataSource": "cs:C1710.ui.coordinates.new(\"helloWorld\").width",
 					"dataSourceTypeHint": "number",
 					"enterable": false,
 					"focusable": false,

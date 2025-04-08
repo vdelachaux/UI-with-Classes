@@ -56,6 +56,8 @@ Class constructor($member : Variant;  ... )
 			// ___________________________
 		: (Value type:C1509($member)=Is text:K8:3)
 			
+			var $lastParam : Text:=Try(String:C10(${$countParameters}))
+			
 			Case of 
 					//______________________________________________________
 				: (Split string:C1554($member; ",").length>1)\
@@ -64,9 +66,18 @@ Class constructor($member : Variant;  ... )
 					This:C1470.add($member; String:C10($2))
 					
 					//______________________________________________________
-				: ($countParameters>=2)
+				: ($countParameters=2)\
+					 && (Match regex:C1019("(?m-si)^@|@$"; $member; 1))
 					
-					var $lastParam:=Try(String:C10(${$countParameters}))
+					If (Length:C16($lastParam)>0)\
+						 && (Try(OB Class:C1730(cs:C1710[$lastParam])#Null:C1517))
+						
+						This:C1470.add($member; $lastParam)
+						
+					End if 
+					
+					//______________________________________________________
+				: ($countParameters>=2)
 					
 					If (Length:C16($lastParam)>0)\
 						 && (Try(OB Class:C1730(cs:C1710[$lastParam])#Null:C1517))  // The last parameter is the type
@@ -164,11 +175,11 @@ Function add($member; $as : Text) : cs:C1710.group
 			// ___________________________
 		: ($type=Is text:K8:3)
 			
-			If (Match regex:C1019("@$"; $member; 1))\
-				 || (Match regex:C1019("^@"; $member; 1))
+			If (Match regex:C1019("(?m-si)^@|@$"; $member; 1))
 				
 				ARRAY TEXT:C222($_widgets; 0x0000)
 				FORM GET OBJECTS:C898($_widgets)
+				SORT ARRAY:C229($_widgets)  // ⚠️ Members will be added in alphabetical order
 				
 				var $i : Integer
 				For ($i; 1; Size of array:C274($_widgets); 1)
@@ -621,6 +632,9 @@ Function switch($updateEntryOrder : Boolean) : cs:C1710.group
 	// TODO: Manage more than 2 widgets
 	ASSERT:C1129(This:C1470.members.length=2; Current method name:C684+": Available only for a group of 2 widgets")
 	
+	// TODO: Check if they are buttons
+	
+	// 1st get spacing
 	var $left; $right : Integer
 	var $member : cs:C1710.static
 	For each ($member; $c)
@@ -642,8 +656,10 @@ Function switch($updateEntryOrder : Boolean) : cs:C1710.group
 	
 	For each ($member; $c.reverse())
 		
+		var $width:=$member.width
 		$member.left:=$left
-		$left:=$left+$member.width+$spacing
+		$member.width:=$width
+		$left+=$width+$spacing
 		
 	End for each 
 	
@@ -677,8 +693,8 @@ Function switch($updateEntryOrder : Boolean) : cs:C1710.group
 	/// Center all members on the first
 Function center($horizontally : Boolean; $vertically : Boolean)
 	
-	var $coordinates : cs:C1710.coord
-	var $dimensions : cs:C1710.dim
+	var $coordinates : cs:C1710.coordinates
+	var $dimensions : cs:C1710.dimensions
 	
 	// The reference is the first member of the group
 	// So we remove it and get its median position.
