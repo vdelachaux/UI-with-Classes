@@ -5,7 +5,7 @@ The `coordinates` class provides an interface for manipulating the coordinates o
 This class is available from the `cs` class store, or `cs.ui` class store if you use the `UI` component.
 
 <hr>
-📌 <b>Conventions</b>
+📌 <b>Important</b>
 
 To simplify the distinction between form objects and object type, this documentation uses the term `widget` for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…).
 

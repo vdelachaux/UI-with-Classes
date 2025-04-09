@@ -14,7 +14,7 @@ cs:C1710.ui.group.new([cs:C1710.ui.button.new("Button6"); cs:C1710.ui.button.new
 // They should be distributed around its center, and its members treated as buttons.
 // They must also be separated by 2 px and the minimum width of a button is 15 px.
 // Finally, all buttons belonging to the group are disabled.
-cs:C1710.ui.group.new("myButton@"; "buttons").distributeAroundCenter({spacing: 2; minWidth: 15}).disable()
+cs:C1710.ui.group.new("myButton@"; "button").distributeAroundCenter({spacing: 2; minWidth: 15}).disable()
 
 
 // No widget has the focus at dialog opening.

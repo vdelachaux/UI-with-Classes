@@ -182,9 +182,9 @@ Form.myWidget.hide()
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**addToGroup** (**cs**.group) → `This` | Adds this widget to a group. | 
+|.**addToGroup** ( *group* ) → `This` | Adds this widget to a group. | 
 |.**hiddenFromView** () → `This` | Sets the widget's coordinates so that it is outside the viewing window. | 
-|.**jsonFormDefinition** () → `Object` | Returns the json widget definition as defined in the structure.<br>⚠️ Only available if the `parent` parameter has been passed to the constructor.| 
+|.**jsonFormDefinition** () → `Object` | Returns the json widget definition as defined in the structure.<br>⚠️ Only available if the `parent` parameter has been passed to the constructor when using from a component.| 
 
 # <a name="setPicture">.setPicture()</a>
 

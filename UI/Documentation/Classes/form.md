@@ -1,12 +1,9 @@
 # form
 
-The `form` class is intended to be called as a delegate by a `form controller class`, as in the code example below line 8.
+The `form` class is intended to be called as a delegate by a `form controller class`, as in the [code example](#sample) below line 8.
 
-> 📌 **Note**: to simplify the distinction between form objects and object type, this documentation uses the term “widget” for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…). 
-
-## <a name="Constructor"> Constructor </a>
-
-### <a name="sample">Code sample for a `form controller class`</a>
+<br>
+### <a name="sample">Example</a>
 
 ```4d
 // Class _myDialog_Controller
@@ -49,10 +46,27 @@ Function handleEvents($e:cs.evt)
 Function update()
 	
 ```
+<br><hr>
 
-<hr>
+> 📌 **Note**: to simplify the distinction between form objects and object type, this documentation uses the term "*widget*" for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…). 
 
-> ⚠️ If you're using UI classes from a component, since the component doesn't have access to the host database's form definition, you need to call the delegate instantiation (line 8) like this:
+## <a name="Constructor">cs.form.new()</a>
+
+**cs.form.new** ( *parent* : 4D.class) : `cs.form`
+<br>**cs.form.new** ( *parent* : 4D.class ; *form* : Object) : `cs.form`
+
+|Parameter|Type||Description|
+|---|---|---|---|
+| Parent | Object | -> | `form controller class` instance |
+| form | Object | -> | form object definition |
+| result | cs.form | <- | New `cs.form`
+
+### Description
+
+`cs.form.new()` creates & returns a new instance of the class.
+ 
+* If the class is included in your project, the constructor automatically retrieves the form definition.
+* If the class is issued from a component, the class has no access to the form definition of the host database. In this case, if you want to be sure of accessing all properties and functions, call the delegate instantiation by replacing the line 8 with:
 
 ```4d
 This.form:=cs.form.new(This; Try(JSON Parse(File("/SOURCES/Forms/"+Current form name+"/form.4DForm").getText())))
@@ -103,28 +117,28 @@ In the `form controller class`, you instantiate the widgets (form objects) you w
 
 | Functions | |
 |:-------- |:------ |  
-|.**Button** (name: `Text`) → [**cs**.button](button.md) | for a [Button](https://developer.4d.com/docs/FormObjects/buttonOverview), a [Check Box](https://developer.4d.com/docs/FormObjects/checkboxOverview) or a [Radio Button](https://developer.4d.com/docs/FormObjects/radiobuttonOverview)|
-|.**ComboBox** (name: `Text` {; data : `Object`}) → **cs**.comboBox | for a [Combo Box](https://developer.4d.com/docs/FormObjects/comboBoxOverview)|
-|.**DropDown** (name: `Text` {; data : `Object`}) → **cs**.dropDown | for a [Drop-down List](https://developer.4d.com/docs/FormObjects/dropdownListOverview)|
-|.**HList** (name: `Text` {; ref : `Integer`}) → **cs**.hList | for a [Hierarchical List](https://developer.4d.com/docs/FormObjects/listOverview)|
-|.**Input** (name: `Text`) → [**cs**.input](input.md) | for an [Input](https://developer.4d.com/docs/FormObjects/inputOverview)|
-|.**Listbox** (name: `Text`) → [**cs**.listbox](listbox.md) | for a  [List Box](https://developer.4d.com/docs/FormObjects/listboxOverview)|
-|.**Picture** (name: `Text`) → **cs**.picture | for a  [Static Picture](https://developer.4d.com/docs/FormObjects/staticPicture)|
-|.**Static** (name: `Text`) → [**cs**.static](static.md) | for a [Shapes](https://developer.4d.com/docs/FormObjects/shapesOverview) or static widgets like [Group Box](https://developer.4d.com/docs/FormObjects/groupBox)|
-|.**Stepper** (name: `Text`) → **cs**.stepper | for a  [Stepper](https://developer.4d.com/docs/FormObjects/stepper)|
-|.**Subform** (name: `Text`) → **cs**.subform | for a  [Subform](https://developer.4d.com/docs/FormObjects/subformOverview)|
-|.**TabControl** (name: `Text` {; data : `Object`}) → **cs**.tabControl | for a  [Tab Control](https://developer.4d.com/docs/FormObjects/tabControl)|
-|.**Thermometer** (name: `Text`) → [**cs**.thermometer](thermometer.md) | for a [Progress Indicator](https://developer.4d.com/docs/FormObjects/progressIndicator) |
-|.**WebArea** (name: `Text`) → **cs**.webArea | for a  [Web Area](https://developer.4d.com/docs/FormObjects/webAreaOverview) |
+|.**Button** (*name*: `Text`) → [`cs.button`](button.md) | for a [Button](https://developer.4d.com/docs/FormObjects/buttonOverview), a [Check Box](https://developer.4d.com/docs/FormObjects/checkboxOverview) or a [Radio Button](https://developer.4d.com/docs/FormObjects/radiobuttonOverview)|
+|.**ComboBox** (*name*: `Text` {; *data* : `Object`}) → `cs.comboBox` | for a [Combo Box](https://developer.4d.com/docs/FormObjects/comboBoxOverview)|
+|.**DropDown** (*name*: `Text` {; *data* : `Object`}) → `cs.dropDown` | for a [Drop-down List](https://developer.4d.com/docs/FormObjects/dropdownListOverview)|
+|.**HList** (*name*: `Text` {; *ref* : `Integer`}) → `cs.hList` | for a [Hierarchical List](https://developer.4d.com/docs/FormObjects/listOverview)|
+|.**Input** (*name*: `Text`) → [`cs.input`](input.md) | for an [Input](https://developer.4d.com/docs/FormObjects/inputOverview)|
+|.**Listbox** (*name*: `Text`) → [`cs.listbox`](listbox.md) | for a  [List Box](https://developer.4d.com/docs/FormObjects/listboxOverview)|
+|.**Picture** (*name*: `Text`) → `cs.picture` | for a  [Static Picture](https://developer.4d.com/docs/FormObjects/staticPicture)|
+|.**Static** (*name*: `Text`) → [`cs.static`](static.md) | for a [Shapes](https://developer.4d.com/docs/FormObjects/shapesOverview) or static widgets like [Group Box](https://developer.4d.com/docs/FormObjects/groupBox)|
+|.**Stepper** (*name*: `Text`) → `cs.stepper` | for a  [Stepper](https://developer.4d.com/docs/FormObjects/stepper)|
+|.**Subform** (*name*: `Text`) → `cs.subform` | for a  [Subform](https://developer.4d.com/docs/FormObjects/subformOverview)|
+|.**TabControl** (*name*: `Text` {; data : `Object`}) → `cs.tabControl` | for a  [Tab Control](https://developer.4d.com/docs/FormObjects/tabControl)|
+|.**Thermometer** (*name*: `Text`) → [`cs.thermometer`](thermometer.md) | for a [Progress Indicator](https://developer.4d.com/docs/FormObjects/progressIndicator) |
+|.**WebArea** (*name*: `Text`) → [`cs.webArea`](webArea) | for a  [Web Area](https://developer.4d.com/docs/FormObjects/webAreaOverview) |
 
 In addition, other handler can be instantiated. For example: a `Group` allows you to manage several widgets at once, since groups created in design mode cannot be manipulated at runtime. 
 
 | Functions | |
 |:-------- |:------ |  
-|.**Group** ({name: `Text`}) → [**cs**.group](group.md) | to manage several widgets at once|
-|.**Selector** (name: `Text`) → **cs**.selector | a superclass to manage Dropdown, Combo Box and Tab Control widgets|
-|.**Scrollable** (name: `Text`) → [**cs**.scrollable](scrollable.md) | a superclass to manage widgets that accept scrollbars|
-|.**Widget**.*new* (name: `Text`) → [**cs**.widget](widget.md) | a superclass to manage all active form widgets|
+|.**Group** ({*name*: `Text`}) → [**cs**.group](group.md) | to manage several widgets at once|
+|.**Selector** (*name*: `Text`) → **cs**.selector | a superclass to manage Dropdown, Combo Box and Tab Control widgets|
+|.**Scrollable** (*name*: `Text`) → [**cs**.scrollable](scrollable.md) | a superclass to manage widgets that accept scrollbars|
+|.**Widget**.*new* (*name*: `Text`) → [**cs**.widget](widget.md) | a superclass to manage all active form widgets|
 
 >📌 The `name` parameter is the object name as defined in the form editor.
 
@@ -163,13 +177,13 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 | Functions | Action |
 |:-------- |:------ |  
-|.**setPageNames** (names: `Collection`)| Defines the hashmap table* from the collection of names passed|
-|.**pageFromName** (name: `Text`) : `Integer`| Returns a page number from its name|
-|.**goToPage** (page: `Integer`\| `Text` {; parent : `Boolean`})| Replaces the currently displayed form page with the form page specified by its page number or name.|
-|.**firstPage** ({parent: `Boolean`})| Changes the currently displayed form page to the first form page|
-|.**lastPage** ({parent: `Boolean`})| Changes the currently displayed form page to the last form page|
-|.**nextPage** ({parent: `Boolean`})| Changes the currently displayed form page to the next form page|
-|.**previousPage** ({parent: `Boolean`})| Changes the currently displayed form page to the previous form page|
+|.**setPageNames** (*names*: `Collection`)| Defines the hashmap table* from the collection of names passed|
+|.**pageFromName** (*name*: `Text`) : `Integer`| Returns a page number from its name|
+|.**goToPage** (*page*: `Integer`\| `Text` {; parent : `Boolean`})| Replaces the currently displayed form page with the form page specified by its page number or name.|
+|.**firstPage** ({*parent*: `Boolean`})| Changes the currently displayed form page to the first form page|
+|.**lastPage** ({*parent*: `Boolean`})| Changes the currently displayed form page to the last form page|
+|.**nextPage** ({*parent*: `Boolean`})| Changes the currently displayed form page to the next form page|
+|.**previousPage** ({*parent*: `Boolean`})| Changes the currently displayed form page to the previous form page|
 
 \* The hashmap table allows navigation commands to access a page by its name instead of its page number.
 
@@ -181,10 +195,10 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 | Functions | Action |
 |:-------- |:------ |  
-|.**setTimer** ({tickCount: `Integer`}) | Starts a timer and sets its delay, ASAP if `tickCount ` is omitted|
+|.**setTimer** ({*tickCount*: `Integer`}) | Starts a timer and sets its delay, ASAP if `tickCount ` is omitted|
 |.**stopTimer** () | Disables the timer|
 |.**refresh** () | Starts a timer to be executed as quickly as possible|
-|.**deferTimer** (id : `Integer`; tickCount : `Integer`) | Registers the ID of an action to be executed in the next timer cycle <br>& launch timer ASAP or after `tickCount` parameter|
+|.**deferTimer** (*id* : `Integer`; *tickCount* : `Integer`) | Registers the ID of an action to be executed in the next timer cycle <br>& launch timer ASAP or after `tickCount` parameter|
 |.**clearDeferedTimer** () | Remove all registered deffered actions and stop the timer|
 
 ## <a name="Focus">Focus</a>
@@ -197,7 +211,7 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**focus** (widget )| Gives the focus to a widget. `widget` can be a widget name or a widget object|
+|.**focus** ( *widget* )| Gives the focus to a widget. `widget` can be a widget name or a widget object|
 |.**removeFocus** ()| Removes any focus in the current form|
 |.**focusNext** () | Go to next focusable widget |
 |.**focusPrevious** () | Go to previous focusable widget |
@@ -211,10 +225,10 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**setEvents** (events: `Integer`\|`Collection`) | Define the event(s) for the current form|
-|.**appendEvents** (events: `Integer`\|`Collection`) | Adds form event(s) for the current form|
-|.**removeEvents** (events: `Integer`\|`Collection`) | Removes form event(s) for the current form|
-|.**postKeyDown** (keyCode: `Integer` {; modifier: `Integer` }) |  Posts a keyboard event|
+|.**setEvents** (*events*: `Integer`\|`Collection`) | Define the event(s) for the current form|
+|.**appendEvents** (*events*: `Integer`\|`Collection`) | Adds form event(s) for the current form|
+|.**removeEvents** (*events*: `Integer`\|`Collection`) | Removes form event(s) for the current form|
+|.**postKeyDown** (*keyCode*: `Integer` {; *modifier*: `Integer` }) |  Posts a keyboard event|
 
 ## <a name="Worker">Associated Worker</a>
 
@@ -234,11 +248,11 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**callMeBack** ()<br/>.**callMeBack** (param: `Collection`)<br/>.**callMeBack** (param; … ; paramN) | Call the form using the current callback method|
-|.**callMe** (method: `Text`)<br/>.**callMe** (method: `Text`; param: `Collection`)<br>.**callMe** (method: `Text`; param; … ; paramN) | Call the form with the passed method|
-|.**callChild** (subform: `Object`\|`Text`; method: `Text`)<br/>.**callChild** (subform: `Object`\|`Text`; method: `Text`; param: `Collection`)<br>.**callChild** (subform: `Object`\|`Text`; method: `Text`; param; … ; paramN) | Executes a project method in the context of a subform<br>(without returned value)|
-|.**spreadToChilds** (message : `Object`{; subforms : `Collection`})| Execute the message.method into all the subforms of the current forms
-|.**callParent** (eventCode: `Integer`) | Sends an event to the subform container|
+|.**callMeBack** ()<br/>.**callMeBack** (*param*: `Collection`)<br/>.**callMeBack** (*param*; *…* ; *paramN*) | Call the form using the current callback method|
+|.**callMe** (*method*: `Text`)<br/>.**callMe** (*method*: `Text`; *param*: `Collection`)<br>.**callMe** (*method*: `Text`; *param*; *…* ; i) | Call the form with the passed method|
+|.**callChild** (*subform*: `Object`\|`Text`; *method*: `Text`)<br/>.**callChild** (*subform*: `Object`\|`Text`; *method*: `Text`; *param*: `Collection`)<br>.**callChild** (*subform*: `Object`\|`Text`; *method*: `Text`; *param*; *…* ; *paramN*) | Executes a project method in the context of a subform<br>(without returned value)|
+|.**spreadToChilds** (*message* : `Object`{; *subforms* : `Collection`})| Execute the message.method into all the subforms of the current forms
+|.**callParent** (*eventCode*: `Integer`) | Sends an event to the subform container|
 
 ## <a name="Dimensions">Dimensions & resizing</a>
 
@@ -255,8 +269,8 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**setHorizontalResising** (resizable: `Boolean` {; min: `Integer` {; max: `Integer`}})| Change the form horizontal resizing properties|
-|.**setVerticalResising** (resizable: `Boolean` {; min: `Integer` {; max: `Integer`}})| Change the form  vertical resizing properties|
+|.**setHorizontalResising** (*resizable*: `Boolean` {; *min*: `Integer` {; *max*: `Integer`}})| Change the form horizontal resizing properties|
+|.**setVerticalResising** (*resizable*: `Boolean` {; *min*: `Integer` {; *max*: `Integer`}})| Change the form  vertical resizing properties|
 
 ## <a name="scheme">Color scheme</a>
 
@@ -270,7 +284,7 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 | Functions | Action |
 |:-------- |:------ |  
-|.**resourceFromScheme** (path: `Text`) → `Text` | Returns the access path to the given resource path with the dark suffix, if applicable |
+|.**resourceFromScheme** (*path*: `Text`) → `Text` | Returns the access path to the given resource path with the dark suffix, if applicable |
 
 ## <a name="Subforms">Subforms</a>
 
@@ -285,9 +299,9 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 | Functions* | Action |
 |:-------- |:------ | 
-|.**setContainerValue** (value: `Variant`) | Sets the container value|
+|.**setContainerValue** (*value*: `Variant`) | Sets the container value|
 |.**getContainerValue** () → `Variant` | Returns the container value|
-|.**callParent** (eventCode: `Integer`) | Sends an event to the subform container|
+|.**callParent** (*eventCode*: `Integer`) | Sends an event to the subform container|
 
 > \*  Calling these functions when `isSubform` = **False**, generates an error.
  
@@ -295,21 +309,21 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 | Functions | Action |
 |:-------- |:------ |  
-|.**beginDrag** (uri: `Text`; data: `Variant` {; icon: `Picture`})| Appends `data` to the pasteboard under the data type specified in `uri`.<br>Also sets the drag icon if passed|
-|.**getPasteboard** (uri: `Text`) → `Variant`| Returns the `data` from the pasteboard whose type you pass in `uri`|
+|.**beginDrag** (*uri*: `Text`; *data*: `Variant` {; *icon*: `Picture`})| Appends `data` to the pasteboard under the data type specified in `uri`.<br>Also sets the drag icon if passed|
+|.**getPasteboard** (*uri*: `Text`) → `Variant`| Returns the `data` from the pasteboard whose type you pass in `uri`|
 
 ## <a name="Cursor">Cursor</a>
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**setCursor** (cursor: `Integer`\|`Text`)| Sets the mouse cursor to the <a href="https://github.com/vdelachaux/tip-and-tricks/blob/master/docs/Don't%20forget%20the%20cursor.md">cursor type</a> specified in `cursor` by its number or name.|
+|.**setCursor** (*cursor*: `Integer`\|`Text`)| Sets the mouse cursor to the <a href="https://github.com/vdelachaux/tip-and-tricks/blob/master/docs/Don't%20forget%20the%20cursor.md">cursor type</a> specified in `cursor` by its number or name.|
 |.**releaseCursor** ()| Restores the standard mouse cursor| 
 
 ## <a name="Miscellaneous">Miscellaneous</a>
 
 | Functions | Action |
 |:-------- |:------ | 
-| .**getScreenshot** ({page:`Integer`}) : `Picture`| Returns the form as a picture. See [FORM SCREENSHOT](https://developer.4d.com/docs/commands/form-screenshot)
+| .**getScreenshot** ({*page*:`Integer`}) : `Picture`| Returns the form as a picture. See [FORM SCREENSHOT](https://developer.4d.com/docs/commands/form-screenshot)
 
 ## <a name="access">Form definition access</a>
 

@@ -1,4 +1,4 @@
-Class extends widget
+Class extends scrollable
 
 property _backup
 property _font : Text
@@ -164,6 +164,11 @@ Function backup($value) : cs:C1710.input
 	This:C1470._backup:=$value || This:C1470.getValue()
 	
 	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function restore()
+	
+	This:C1470.value:=This:C1470._backup
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get modified() : Boolean

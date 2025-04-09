@@ -20,47 +20,55 @@ property pages : Object
 property _darkExtension:="_dark"
 property _callback : Text
 property _definition; _cursorsHash : Object
-property _instantiableWidgets; _mapEvents : Collection
+property _mapEvents : Collection
 property _worker : Text
 property _timerID : Integer
 
+property _instantiableWidgets:=[\
+cs:C1710.static; \
+cs:C1710.button; \
+cs:C1710.comboBox; \
+cs:C1710.dropDown; \
+cs:C1710.hList; \
+cs:C1710.input; \
+cs:C1710.listbox; \
+cs:C1710.picture; \
+cs:C1710.selector; \
+cs:C1710.stepper; \
+cs:C1710.subform; \
+cs:C1710.tabControl; \
+cs:C1710.thermometer; \
+cs:C1710.webArea; \
+cs:C1710.widget]
+
 property __CLASS__ : 4D:C1709.Class
-property __DELEGATES__ : Collection
 property __SUPER__ : Object
 property __CONTAINER__ : Object
 property __DIALOG__ : 4D:C1709.Class
 
-// MARK: DEPRECATED ⚠️
-/*************************************************************************
-Deprecated properties! 
-
-Use now in the form controller class to initialize a widget, for example: 
-
-    This.form.Button(“buttonName”) ✅
-
-Instead of : 
-
-    This.form.button.new(“buttonName”) ❌
-
-To avoid warnings from the syntax checker and compiler
+// FIXME: USEFUL?
+/*
+property __DELEGATES__:=[\
+cs.button; \
+cs.comboBox; \
+cs.dropDown; \
+cs.group; \
+cs.hList; \
+cs.input; \
+cs.listbox; \
+cs.picture; \
+cs.selector; \
+cs.static; \
+cs.stepper; \
+cs.subform; \
+cs.tabControl; \
+cs.thermometer; \
+cs.webArea; \
+cs.widget; \
+cs.window; \
+cs.constraints\
+]
 */
-property button : 4D:C1709.Class
-property comboBox : 4D:C1709.Class
-property dropDown : 4D:C1709.Class
-property group : 4D:C1709.Class
-property hList : 4D:C1709.Class
-property input : 4D:C1709.Class
-property listbox : 4D:C1709.Class
-property picture : 4D:C1709.Class
-property selector : 4D:C1709.Class
-property static : 4D:C1709.Class
-property stepper : 4D:C1709.Class
-property subform : 4D:C1709.Class
-property tabControl : 4D:C1709.Class
-property thermometer : 4D:C1709.Class
-property webArea : 4D:C1709.Class
-property widget : 4D:C1709.Class
-/**************************************************************************/
 
 Class constructor($param; $me : Object)
 	
@@ -107,64 +115,6 @@ Class constructor($param; $me : Object)
 	
 	// MARK:Delegates 📦
 	This:C1470.window:=cs:C1710.window.new(This:C1470)
-	
-	// MARK: -DEPRECATED ⚠️
-	This:C1470.button:=cs:C1710.button
-	This:C1470.comboBox:=cs:C1710.comboBox
-	This:C1470.dropDown:=cs:C1710.dropDown
-	This:C1470.group:=cs:C1710.group
-	This:C1470.hList:=cs:C1710.hList
-	This:C1470.input:=cs:C1710.input
-	This:C1470.listbox:=cs:C1710.listbox
-	This:C1470.picture:=cs:C1710.picture
-	This:C1470.selector:=cs:C1710.selector
-	This:C1470.static:=cs:C1710.static
-	This:C1470.stepper:=cs:C1710.stepper
-	This:C1470.subform:=cs:C1710.subform
-	This:C1470.tabControl:=cs:C1710.tabControl
-	This:C1470.thermometer:=cs:C1710.thermometer
-	This:C1470.webArea:=cs:C1710.webArea
-	This:C1470.widget:=cs:C1710.widget
-	// MARK:-
-	
-	This:C1470._instantiableWidgets:=[\
-		cs:C1710.static; \
-		cs:C1710.button; \
-		cs:C1710.comboBox; \
-		cs:C1710.dropDown; \
-		cs:C1710.hList; \
-		cs:C1710.input; \
-		cs:C1710.listbox; \
-		cs:C1710.picture; \
-		cs:C1710.selector; \
-		cs:C1710.stepper; \
-		cs:C1710.subform; \
-		cs:C1710.tabControl; \
-		cs:C1710.thermometer; \
-		cs:C1710.webArea; \
-		cs:C1710.widget]
-	
-	// FIXME: USEFUL?
-	This:C1470.__DELEGATES__:=[\
-		cs:C1710.button; \
-		cs:C1710.comboBox; \
-		cs:C1710.dropDown; \
-		cs:C1710.group; \
-		cs:C1710.hList; \
-		cs:C1710.input; \
-		cs:C1710.listbox; \
-		cs:C1710.picture; \
-		cs:C1710.selector; \
-		cs:C1710.static; \
-		cs:C1710.stepper; \
-		cs:C1710.subform; \
-		cs:C1710.tabControl; \
-		cs:C1710.thermometer; \
-		cs:C1710.webArea; \
-		cs:C1710.widget; \
-		cs:C1710.window; \
-		cs:C1710.constraints\
-		]
 	
 	This:C1470.me($me)
 	

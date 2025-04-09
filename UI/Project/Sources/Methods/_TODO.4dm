@@ -16,8 +16,6 @@ subformWidgetMethod
 
 colour
 comboBox
-coord
-dim
 dropDown
 evt
 hList
@@ -27,7 +25,6 @@ stepper
 subform
 tabControl
 tips
-webArea
 window
 
 */

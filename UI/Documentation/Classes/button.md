@@ -1,43 +1,63 @@
 # button
 
-The `button` class is intended to manage button widgets.  
+The `button` class provides an interface to manage properties and actions of button widget.
 
 <hr>
-📌 <b> Important </b>
+📌 <b>Important</b>
 
 1. This class inherit from the [`widget`](widget.md) class
-2. All functions that return **cs**.button may include one call after another. 
+2. All functions that return `This` may include one call after another. 
 
-<hr><br>
+<hr>
 
-#### This class is available via the [`form`](form.md#objects) class as `Button` interface.
+The `button` class is available via the [`form`](form.md#objects) class through the `Button` interface.
 
 ```4d
 This.form:=cs.form.new(This)
 ...
-This.myButton:=This.form.Button("Button 10")
+This.myButton:=This.form.Button("button1")
 ...
 This.myButton.disable()
 ```
 
-#### This class can also be instantiated on its own.
+This class is, more generally, available from the `cs` class store, or `cs.ui` class store if you use the `UI` component.
 
 ```4d
-Form.myButton:=cs.button.new("Button 10")
-Form.myButton.disable()
+Form.myButton:=cs.ui.button.new("button1")
+Form.myButton.enable()
 ```
 
-## <a name="Constructor"> Constructor </a>
+## <a name="Constructor">cs.button.new()</a>
 
-The class constructor `cs.button.new({formObjectName {; parent }})` creates a new class instance.
 
-Where relevant, the constructor defines the height of the button to suit the system's interface rules.<br>The width can also be adapted to ensure correct label display and a better user experience, particularly for checkboxes and radio buttons.
+**cs.button.new** ( *name* : Text) : `cs.button `<br>
+**cs.button.new** ( *name* : Text ; *parent* : Object) : `cs.button`<br>
+**cs.button.new** ( ) : `cs.button`
 
->📌 The optional `parent` parameter is the **cs**.form object containing the widget. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the **cs**.form class.
+|Parameter|Type||Description|
+|---|---|---|---|
+| name | Text | -> | Widget name |
+| parent | `cs.form` | -> | `form` object containing the *widget* |
+| result | cs.button | <- | New `cs.button`
 
-If the `formObjectName` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
+### Description
+
+`cs.button.new()` creates & returns a new instance of the class.
+ 
+* Where relevant, the constructor defines the height of the button to suit the system's interface rules.<br>The width can also be adapted to ensure correct label display and a better user experience, particularly for checkboxes and radio buttons.
+* The optional `parent` parameter is the [`cs.form`](form.md) object containing the *widget*. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the `cs.form` class.
+* If the `name` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
 
 > ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
+
+# Summary
+
+## <a name="Inherited">Inherited Properties & Functions</a>
+
+Inherited properties and functions are described in the parent classes:
+
+* [`static` class](static.md)
+* [`widget` class](widget.md)
 
 #Summary
 
@@ -65,15 +85,15 @@ Inherited properties and functions are described in the parent classes:
 
 | Functions | |
 |:-------- |:------ | 
-|.**highlightShortcut** ( ) →`cs.button` | Underlines the first uppercase letter of the title corresponding to the keyboard shortcut. If not found, the first lowercase letter, if any<br>📌 Automatically called when you use the .**setShortcut**() function.
-|.**is3DButton** ( style ) →`cs.button` | Returns **True** if the current button is a 3D button
-|.**setBackgroundPicture** ( proxy ) →`cs.button` | Sets the background picture (deletes it if the `proxy` parameter is omitted)
-|.**setLinkedPopupMenu** () →`cs.button` | Sets the button to display and manage a linked pop-up menu
-|.**setNoPopupMenu** () →`cs.button` | Removes associated pop-up menu
-|.**setNumStates** ( state ) →`cs.button` | Sets number of states present in picture (restore to 4 if no parameter)
-|.**setPicture** ( proxy ) →`cs.button` | Sets the associated picture (deletes it if the `proxy` parameter is omitted)
-|.**setSeparatePopupMenu** () →`cs.button` | Sets the button to display and manage a separate pop-up menu
-|.**setStyle** ( style ) →`cs.button` | Defines button style\*
+|.**highlightShortcut** ( ) →`This` | Underlines the first uppercase letter of the title corresponding to the keyboard shortcut. If not found, the first lowercase letter, if any<br>📌 Automatically called when you use the .**setShortcut**() function.
+|.**is3DButton** ( ) →`This` | Returns **True** if the current button is a 3D button
+|.**setBackgroundPicture** ( *proxy* : `Text` ) →`This` | Sets the background picture (deletes it if the `proxy` parameter is omitted)
+|.**setLinkedPopupMenu** () →`This` | Sets the button to display and manage a linked pop-up menu
+|.**setNoPopupMenu** () →`This` | Removes associated pop-up menu
+|.**setNumStates** ( *state* : `Integer` ) →`This` | Sets number of states present in picture (restore to 4 if no parameter)
+|.**setPicture** ( *proxy* : `Text` ) →`This` | Sets the associated picture (deletes it if the `proxy` parameter is omitted)
+|.**setSeparatePopupMenu** () →`This` | Sets the button to display and manage a separate pop-up menu
+|.**setStyle** ( *style* : `Integer` ) →`This` | Defines button style\*
 
 <hr>
 > 📌 Adding or deleting a linked or associated menu automatically activates/deactivates the object's form event of the `On Alternative Click`. 

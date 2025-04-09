@@ -60,14 +60,14 @@ Class constructor($member : Variant;  ... )
 			
 			Case of 
 					//______________________________________________________
-				: (Split string:C1554($member; ",").length>1)\
-					 && ($countParameters=2)  // Comma separated list with type
+				: ($countParameters=2)\
+					 && (Split string:C1554($member; ",").length>1)  // Comma separated list with type
 					
 					This:C1470.add($member; String:C10($2))
 					
 					//______________________________________________________
 				: ($countParameters=2)\
-					 && (Match regex:C1019("(?m-si)^@|@$"; $member; 1))
+					 && (Match regex:C1019("(?m-si)^@|@$"; $member; 1))  // Name motif
 					
 					If (Length:C16($lastParam)>0)\
 						 && (Try(OB Class:C1730(cs:C1710[$lastParam])#Null:C1517))

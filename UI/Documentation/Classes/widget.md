@@ -1,16 +1,34 @@
 # widget
 
-The `widget` class is intended to manipulate active form objects.
+The `widget ` class provides an interface to manage properties and actions of active widget.
 
 <hr>
-📌 <b>Conventions</b>
+📌 <b>Important</b>
 
 1. This class inherit from the [`static`](static.md) class
-2. It's a transition class between the `static` class and more specific classes like `input`, `button`, `listbox`…
-3. Normally, you'll never have to instantiate the **cs**.widget class, since instantiation is automatic with a more specialized widget.
-4. All functions that return **cs**.widget may include one call after another.
+2. This class is a transition class between the `static` class and more specific classes like `input`, `button`, `listbox`…
+3. _Normally, you'll never have to instantiate the **cs**.widget class_, since instantiation is automatic with a more specialized widget.
+4. To simplify the distinction between form objects and object type, this documentation uses the term `widget` for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…).
+5. All functions that return `This` return the current widget object and can include one call after another. 
 
 <hr>
+
+The `widget` class is available via the [`form`](form.md#objects) class through the `Widget` interface.
+
+```4d
+This.form:=cs.form.new(This)
+...
+This.myWidget:=This.form.Widget("myWidget")
+...
+This.myWidget.droppable:=True
+```
+
+This class is, more generally, available from the `cs` class store, or `cs.ui` class store if you use the `UI` component.
+
+```4d
+Form.myWidget:=cs.ui.widget.new("form object")
+Form.myWidget.setDroppable(True; False)
+```
 
 # Summary
 
@@ -44,9 +62,9 @@ See the [parent class](static.md)
 
 | Functions | |
 |:-------- |:------ | 
-|.**clear** () →`cs.widget` | Sets empty value\* to the datasource according to its type
-|.**getValue** ( value ) →`cs.widget` | Returns the value associated to the widget \** 
-|.**setValue** ( value ) →`cs.widget` | Sets the value of the widget
+|.**clear** () →`This` | Sets empty value\* to the datasource according to its type
+|.**getValue** ( ) →`This` | Returns the value associated to the widget \** 
+|.**setValue** ( *value* ) →`This` | Sets the value of the widget
 
 \** For a text input box that has the focus, returns text as it is being entered.
 
@@ -58,7 +76,7 @@ See the [parent class](static.md)
 
 | Functions | |
 |:-------- |:------ |  
-|.**setDatasource** ( datasource :`4D.Function`) →`cs.widget` | Sets the data source for the widget
+|.**setDatasource** ( *datasource* :`4D.Function`) →`This` | Sets the data source for the widget
 
 ### <a name="Entry">Entry</a>
 
@@ -72,11 +90,11 @@ See the [parent class](static.md)
 |:-------- |:------ | 
 |.**getHelpTip** () →`Text` | Returns the associated help tip
 |.**getShortcut** () →`Object` | Returns the associated shortcut definition <br>`{key (Text), modifier (Integer)}`
-|.**notEnterable** () →`cs.widget` | Makes the widget non-enterable
-|.**removeHelpTip** () →`cs.widget` | Removes the associated helptip
-|.**setEnterable** ({enterable}) →`cs.widget` | Makes the widget enterable according to enterable parameter<br> Default is **True**
-|.**setHelpTip** (tip) →`cs.widget` | Sets the associated help tip. <br>If `tip` is ommitted, the help tip will be removed.
-|.**setShortcut** (key {; modifier}) →`cs.widget` | Sets the associated shortcut
+|.**notEnterable** () →`This` | Makes the widget non-enterable
+|.**removeHelpTip** () →`This` | Removes the associated helptip
+|.**setEnterable** ( {*enterable*} ) →`This` | Makes the widget enterable according to enterable parameter<br> Default is **True**
+|.**setHelpTip** ( *tip* ) →`This` | Sets the associated help tip. <br>If `tip` is ommitted, the help tip will be removed.
+|.**setShortcut** ( *key* {; *modifier* }) →`This` | Sets the associated shortcut
 
 ## <a name="Events">Events</a>
 
@@ -86,16 +104,16 @@ See the [parent class](static.md)
 
 | Functions | |
 |:-------- |:------ | 
-|.**addEvent** ( code \| collection of codes ) →`cs.widget` | Appends one or more event codes to the widget
-|.**catch** ( { Form event {; code \| collection of codes}}) →`Boolean` | Returns **True** if the widget is causing the form event and executes the [callback](#Callback) formula if it exists. <br/>Pass an event code or collection of event codes to restrict the response to these events.
-|.**removeEvent** ( code \| collection of codes ) →`cs.widget` | Removes one or more event codes to the widget
-|.**setEvents** ( code \| collection of codes ) →`cs.widget` | Sets one or more event codes to the widget
+|.**addEvent** ( *code* \| *codeCollection* ) →`This` | Appends one or more event codes to the widget
+|.**catch** ( {*event* {; *code* \| *codeCollection* }}) →`Boolean`| Returns **True** if the widget is causing the form event & executes the [callback](#Callback) formula if it exists.<br/>Pass an event code or collection of event codes to restrict the response to these events.
+|.**removeEvent** ( *code* \| *codeCollection*  ) →`This` | Removes one or more event codes to the widget
+|.**setEvents** ( *code* \| *codeCollection* ) →`This` | Sets one or more event codes to the widget
 
 ## <a name="Callback">Callback</a>
 
 | Functions | |
 |:-------- |:------ | 
-|.**setCallback** ( formula \| "This.\<function>"}) →`cs.widget` | Associates a callback to be executed when a form event occurs
+|.**setCallback** ( *formula* \| "This.\<function>"}) →`This` | Associates a callback to be executed when a form event occurs
 |.**execute** () | Executes the callback associated with the widget if it exists
 
 ## <a name="Data">User Data</a>
@@ -108,7 +126,7 @@ See the [parent class](static.md)
 
 | Functions | |
 |:-------- |:------ | 
-|.**setData** ( object ) →`cs.widget` | Set or enrich the `data` property with the contents of an object<br>If the `data` property is not **Null** or is not an `Object`, an error is raised.
+|.**setData** ( *object* ) →`This` | Set or enrich the `data` property with the contents of an object<br>If the `data` property is not **Null** or is not an `Object`, an error is raised.
 
 ## <a name="DragAndDrop">Drag & drop</a>
 
@@ -126,10 +144,10 @@ See the [parent class](static.md)
 
 | Functions | |
 |:-------- |:------ | 
-|.**setDraggable** ( enable {; automaticDrag}) →`cs.widget` | Sets the drag options
-|.**setDroppable** ( enable {; automaticDrop}) →`cs.widget` | Sets the drop options<br/> Default: accept drop and not automatic
-|.**setNotDraggable** () →`cs.widget` | Disables drag option
-|.**setNotDroppable** () →`cs.widget` | Disables the droppable option
+|.**setDraggable** ( *enable* {; *automaticDrag*}) →`This` | Sets the drag options
+|.**setDroppable** ( *enable* {; *automaticDrop*}) →`This` | Sets the drop options<br/> Default: accept drop and not automatic
+|.**setNotDraggable** () →`This` | Disables drag option
+|.**setNotDroppable** () →`This` | Disables the droppable option
 
 ## <a name="Miscellaneous">Miscellaneous</a>
 
@@ -139,10 +157,10 @@ See the [parent class](static.md)
 
 | Functions | |
 |:-------- |:------ | 
-|.**focus** () →`cs.widget` | Gives focus to the widget |
+|.**focus** () →`This` | Gives focus to the widget |
 |.**isFocused** () →`Boolean` | Returns **True** if the widget is focused |
 |.**postClick** () | Simulates a mouse click on the widget |
-|.**touch** () →`cs.widget` | Forces the update of the widget by reassigning the same value to the data source
+|.**touch** () →`This` | Forces the update of the widget by reassigning the same value to the data source
 
 ## Class diagram
 

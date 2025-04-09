@@ -169,11 +169,11 @@
 		},
 		"dimensions": {
 			"new()": {
-				"Syntax": "**.new**( *width* : Integer; *height* : Integer )",
+				"Syntax": "**.new**( *width* : Variant; *height* : Integer )",
 				"Params": [
 					[
 						"width",
-						"Integer",
+						"Variant",
 						"->"
 					],
 					[
@@ -2750,6 +2750,9 @@
 		},
 		"height": {
 			"Syntax": "height : Integer"
+		},
+		"name": {
+			"Syntax": "name : Text"
 		}
 	},
 	"input": {
@@ -2882,6 +2885,22 @@
 			],
 			"Summary": ""
 		},
+		"set dictionary()": {
+			"Syntax": "**.set dictionary**( *dictionary* : Variant )",
+			"Params": [
+				[
+					"dictionary",
+					"Variant",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"restore()": {
+			"Syntax": "**.restore**()",
+			"Params": [],
+			"Summary": ""
+		},
 		"set placeholder()": {
 			"Syntax": "**.set placeholder**( *placeholder* : Text )",
 			"Params": [
@@ -2936,17 +2955,6 @@
 			],
 			"Summary": ""
 		},
-		"set dictionary()": {
-			"Syntax": "**.set dictionary**( *dictionary* : Variant )",
-			"Params": [
-				[
-					"dictionary",
-					"Variant",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
 		"get placeholder()": {
 			"Syntax": "**.get placeholder**() : Text",
 			"Params": [
@@ -2988,22 +2996,6 @@
 					"<-"
 				]
 			],
-			"Summary": ""
-		},
-		"set autoSpellcheck()": {
-			"Syntax": "**.set autoSpellcheck**( *enabled* : Boolean )",
-			"Params": [
-				[
-					"enabled",
-					"Boolean",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"swapDecimalSeparator()": {
-			"Syntax": "**.swapDecimalSeparator**()",
-			"Params": [],
 			"Summary": ""
 		},
 		"set asPassword()": {
@@ -3050,7 +3042,23 @@
 			],
 			"Summary": ""
 		},
-		"_inheritedFrom_": "widget"
+		"swapDecimalSeparator()": {
+			"Syntax": "**.swapDecimalSeparator**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"set autoSpellcheck()": {
+			"Syntax": "**.set autoSpellcheck**( *enabled* : Boolean )",
+			"Params": [
+				[
+					"enabled",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "scrollable"
 	},
 	"constraints": {
 		"apply()": {
@@ -6441,47 +6449,11 @@
 			"Params": [],
 			"Summary": ""
 		},
-		"webArea": {
-			"Syntax": "webArea : 4D.Class"
-		},
-		"thermometer": {
-			"Syntax": "thermometer : 4D.Class"
-		},
-		"tabControl": {
-			"Syntax": "tabControl : 4D.Class"
-		},
-		"subform": {
-			"Syntax": "subform : 4D.Class"
-		},
-		"stepper": {
-			"Syntax": "stepper : 4D.Class"
-		},
-		"static": {
-			"Syntax": "static : 4D.Class"
-		},
-		"listbox": {
-			"Syntax": "listbox : 4D.Class"
-		},
-		"input": {
-			"Syntax": "input : 4D.Class"
-		},
-		"group": {
-			"Syntax": "group : 4D.Class"
-		},
-		"button": {
-			"Syntax": "button : 4D.Class"
-		},
-		"dropDown": {
-			"Syntax": "dropDown : 4D.Class"
-		},
 		"isSubform": {
 			"Syntax": "isSubform : Boolean"
 		},
 		"name": {
 			"Syntax": "name : Text"
-		},
-		"picture": {
-			"Syntax": "picture : 4D.Class"
 		},
 		"pages": {
 			"Syntax": "pages : Object"
@@ -6492,12 +6464,6 @@
 		"context": {
 			"Syntax": "context : Collection"
 		},
-		"selector": {
-			"Syntax": "selector : 4D.Class"
-		},
-		"comboBox": {
-			"Syntax": "comboBox : 4D.Class"
-		},
 		"window": {
 			"Syntax": "window : cs.ui.window"
 		},
@@ -6507,14 +6473,8 @@
 		"isMatrix": {
 			"Syntax": "isMatrix : Boolean"
 		},
-		"widget": {
-			"Syntax": "widget : 4D.Class"
-		},
 		"entryOrder": {
 			"Syntax": "entryOrder : Collection"
-		},
-		"hList": {
-			"Syntax": "hList : 4D.Class"
 		},
 		"toBeInitialized": {
 			"Syntax": "toBeInitialized : Boolean"
@@ -7622,6 +7582,11 @@
 			"Params": [],
 			"Summary": ""
 		},
+		"showInspector()": {
+			"Syntax": "**.showInspector**()",
+			"Params": [],
+			"Summary": ""
+		},
 		"get lastFilteredURL()": {
 			"Syntax": "**.get lastFilteredURL**() : Text",
 			"Params": [
@@ -7665,38 +7630,12 @@
 			],
 			"Summary": ""
 		},
-		"setContent()": {
-			"Syntax": "**.setContent**( *content* : Text; *base* : Text )",
+		"get canBackwards()": {
+			"Syntax": "**.get canBackwards**() : Boolean",
 			"Params": [
-				[
-					"content",
-					"Text",
-					"->"
-				],
-				[
-					"base",
-					"Text",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"evaluateJS()": {
-			"Syntax": "**.evaluateJS**( *code* : Text; *type* : Integer ) : Variant",
-			"Params": [
-				[
-					"code",
-					"Text",
-					"->"
-				],
-				[
-					"type",
-					"Integer",
-					"->"
-				],
 				[
 					"",
-					"Variant",
+					"Boolean",
 					"<-"
 				]
 			],
@@ -7710,44 +7649,6 @@
 		"back()": {
 			"Syntax": "**.back**()",
 			"Params": [],
-			"Summary": ""
-		},
-		"getTitle()": {
-			"Syntax": "**.getTitle**() : Text",
-			"Params": [
-				[
-					"",
-					"Text",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get content()": {
-			"Syntax": "**.get content**() : Text",
-			"Params": [
-				[
-					"",
-					"Text",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"inspector()": {
-			"Syntax": "**.inspector**()",
-			"Params": [],
-			"Summary": ""
-		},
-		"get canBackwards()": {
-			"Syntax": "**.get canBackwards**() : Boolean",
-			"Params": [
-				[
-					"",
-					"Boolean",
-					"<-"
-				]
-			],
 			"Summary": ""
 		},
 		"open()": {
@@ -7803,6 +7704,65 @@
 					"->"
 				]
 			],
+			"Summary": ""
+		},
+		"getTitle()": {
+			"Syntax": "**.getTitle**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get content()": {
+			"Syntax": "**.get content**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setContent()": {
+			"Syntax": "**.setContent**( *content* : Text )",
+			"Params": [
+				[
+					"content",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"evaluateJS()": {
+			"Syntax": "**.evaluateJS**( *code* : Text; *type* : Integer ) : Variant",
+			"Params": [
+				[
+					"code",
+					"Text",
+					"->"
+				],
+				[
+					"type",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"clear()": {
+			"Syntax": "**.clear**()",
+			"Params": [],
 			"Summary": ""
 		},
 		"get loaded()": {
