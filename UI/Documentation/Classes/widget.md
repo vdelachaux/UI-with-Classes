@@ -10,7 +10,7 @@ The `widget` class is intended to manipulate active form objects.
 3. Normally, you'll never have to instantiate the **cs**.widget class, since instantiation is automatic with a more specialized widget.
 4. All functions that return **cs**.widget may include one call after another.
 
-
+<hr>
 
 # Summary
 
