@@ -1,6 +1,6 @@
 # colors
 
-The `colors` class provides an interface for manipulating the colors of a widget.
+The `colors` class provides an interface for manipulating the colors that can be used for a widget.
 
 This class is available from the `cs` class store, or `cs.ui` class store if you use the `UI` component.
 
