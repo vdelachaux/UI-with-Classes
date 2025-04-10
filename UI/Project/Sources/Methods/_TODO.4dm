@@ -14,7 +14,6 @@ subformWidgetMethod
 
 /* Classes
 
-colour
 comboBox
 dropDown
 evt

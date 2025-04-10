@@ -825,7 +825,6 @@ Function get backgroundColor() : Variant
 Function set backgroundColor($color)
 	
 	var $foreground; $background; $altBackground
-	
 	OBJECT GET RGB COLORS:C1074(*; This:C1470.name; $foreground; $background)
 	OBJECT SET RGB COLORS:C628(*; This:C1470.name; $foreground; $color)
 	
@@ -936,6 +935,16 @@ Function restoreForegroundColor()
 Function restoreBackgroundColor()
 	
 	This:C1470.backgroundColor:=Background color:K23:2
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function restoreAltBackgroundColor()
+	
+	This:C1470.altBackgroundColor:=Background color:K23:2
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function removeAltBackgroundColor()
+	
+	This:C1470.altBackgroundColor:=Background color none:K23:10
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function removeBackgroundColor()

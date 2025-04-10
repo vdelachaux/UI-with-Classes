@@ -35,9 +35,9 @@ Form.myWidget.hide()
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| name | Text | -> | Widget name |
-| parent | `cs.form` | -> | `form` object containing the widget |
-| result | cs.static | <- | New `cs.static`
+| name | Text | → | Widget name |
+| parent | `cs.form` |→ | `form` object containing the widget |
+| result | cs.static | ← | New `cs.static`
 
 ### Description
 
@@ -64,7 +64,7 @@ Form.myWidget.hide()
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**setTitle** ( *title* : Text ) → `This`| To change the title of the widget (if the title is a `resname`, the localization is performed) \** |
+|.**setTitle** ( *title* : Text ) →`This`| To change the title of the widget (if the title is a `resname`, the localization is performed) \** |
   
 \** Can be applied to a static text and will be avalaible for the inherited classes (buttons, check boxes, radio buttons, …)
 
@@ -88,29 +88,29 @@ Form.myWidget.hide()
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**setCoordinates** ( *left*; *top* {; *right*; *bottom* } ) → `This`<br>.**setCoordinates** ( *coordinates*`:Object` ) → `This` | To modifies the coordinates and, optionally, the size of the widget \* |
-|.**bestSize** ( *alignement* {; *minWidth* {; *maxWidth* }}) → `This`<br>.**bestSize** ( {*options*`:Object` }) → `This`  | Set the size of the widget to its best width according to its content <br>(e.g. a localized string) \* |
-|.**bestHeight** ( {*width* }) → `This` | Set the size of the widget to its best height according to its content <br>(e.g. a localized string) \* |
+|.**setCoordinates** ( *left*; *top* {; *right*; *bottom* } ) →`This`<br>.**setCoordinates** ( *coordinates*`:Object` ) →`This` | To modifies the coordinates and, optionally, the size of the widget \* |
+|.**bestSize** ( *alignement* {; *minWidth* {; *maxWidth* }}) →`This`<br>.**bestSize** ( {*options*`:Object` }) →`This`  | Set the size of the widget to its best width according to its content <br>(e.g. a localized string) \* |
+|.**bestHeight** ( {*width* }) →`This` | Set the size of the widget to its best height according to its content <br>(e.g. a localized string) \* |
 |.**getBestWidth** ( {*maxWidth* }) → `Integer` | Returns the best width of the widget according to its content <br>(e.g. a localized string) \* |
 |.**getBestHeight** ( {*maxWidth* }) → `Integer` | Returns the best height of the widget according to its content <br>(e.g. a localized string) \* |
-|.**moveHorizontally** ( *offset* ) → `This` | To move the widget horizontally \*  |
-|.**moveLeft** ( *offset* ) → `This` | To move the widget to the left \*  |
-|.**moveRight** ( *offset* ) → `This` | To move the widget to the right \*  |
-|.**moveVertically** ( *offset* ) → `This` | To move the widget vertically \*  |
-|.**moveUp** ( *offset* ) → `This` | To move the widget up \*  |
-|.**moveDown** ( *offset* ) → `This` | To move the widget down \*  |
-|.**resizeHorizontally** ( *offset* ) → `This` | To resize the widget horizontally \*  |
-|.**resizeVertically** ( *offset* ) → `This` | To resize the widget vertically \*  |
-|.**resize** ( *offset* ) → `This` | To resize the widget horizontally & vertically \*  |
-|.**moveAndResizeHorizontally** ( *offset*; *resize* ) → `This` | To move and resize the widget horizontally \*  |
-|.**moveAndResizeVertically** ( *offset*; *resize* ) → `This` | To move and resize the widget vertically \*  |
-|.**setDimension** ( *width* {; *height* }) → `This` | To modify the widget width & height \*  |
+|.**moveHorizontally** ( *offset* ) →`This` | To move the widget horizontally \*  |
+|.**moveLeft** ( *offset* ) →`This` | To move the widget to the left \*  |
+|.**moveRight** ( *offset* ) →`This` | To move the widget to the right \*  |
+|.**moveVertically** ( *offset* ) →`This` | To move the widget vertically \*  |
+|.**moveUp** ( *offset* ) →`This` | To move the widget up \*  |
+|.**moveDown** ( *offset* ) →`This` | To move the widget down \*  |
+|.**resizeHorizontally** ( *offset* ) →`This` | To resize the widget horizontally \*  |
+|.**resizeVertically** ( *offset* ) →`This` | To resize the widget vertically \*  |
+|.**resize** ( *offset* ) →`This` | To resize the widget horizontally & vertically \*  |
+|.**moveAndResizeHorizontally** ( *offset*; *resize* ) →`This` | To move and resize the widget horizontally \*  |
+|.**moveAndResizeVertically** ( *offset*; *resize* ) →`This` | To move and resize the widget vertically \*  |
+|.**setDimension** ( *width* {; *height* }) →`This` | To modify the widget width & height \*  |
 |.**restorePosition** () | Sets the widget coordinates with the contents of `initialPosition` \*  |
-|.**backupCoordinates** () → `This` | Updates `initialPosition` with the widget's current coordinates \*  |
-|.**setHeight** ( *height* ) → `This` | To modify the widget height \*  |
-|.**setWidth** ( *width* ) → `This` | To modify the widget width \*  |
-|.**setResizingOptions** ( *horizontal* {; *vertical* })) → `This` | Modifies the resizing options for the widget |
-|.**updateCoordinates** ( {*left*; *top*; *right*; *bottom* })   → `This` | To force update of properties:<br>  - `coordinates`<br>  - `dimensions`<br>  - `windowCoordinates`<br>with the passed values or the current widget coordinates if omitted.|
+|.**backupCoordinates** () →`This` | Updates `initialPosition` with the widget's current coordinates \*  |
+|.**setHeight** ( *height* ) →`This` | To modify the widget height \*  |
+|.**setWidth** ( *width* ) →`This` | To modify the widget width \*  |
+|.**setResizingOptions** ( *horizontal* {; *vertical* })) →`This` | Modifies the resizing options for the widget |
+|.**updateCoordinates** ( {*left*; *top*; *right*; *bottom* })   →`This` | To force update of properties:<br>  - `coordinates`<br>  - `dimensions`<br>  - `windowCoordinates`<br>with the passed values or the current widget coordinates if omitted.|
 |.**getCoordinates** () →`Object` | Returns the widget's updated coordinates \* |
     
 \* Automatically update the `coordinates`, `dimensions` and `windowCoordinates` properties.  
@@ -124,8 +124,8 @@ Form.myWidget.hide()
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**disable** () → `This` | To disable the widget |
-|.**enable** ( {*state* }) → `This` | To enable (no parameter) or disable (`state` = **False**) the widget |
+|.**disable** () →`This` | To disable the widget |
+|.**enable** ( {*state* }) →`This` | To enable (no parameter) or disable (`state` = **False**) the widget |
 
 ## <a name="Display">Display</a>
 
@@ -137,10 +137,10 @@ Form.myWidget.hide()
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**hide** () → `This` | Hides the widget |
-|.**show** ( {*state* }) → `This` | Makes the widget visible (no parameter) or invisible (`state` = **False**) | 
-|.**setFormat** ( *format* ) → `This` | Sets the [display format](https://developer.4d.com/docs/commands/object-set-format) of the widget |
-|.[**setPicture**](#setPicture) ( *proxy* ) → `This` | Defines the image associated with:<br> `3D button`, `picture button`, `picture popup menu`, `listbox header` or `static picture`.<br>Clears the associated image if proxy is empty |
+|.**hide** () →`This` | Hides the widget |
+|.**show** ( {*state* }) →`This` | Makes the widget visible (no parameter) or invisible (`state` = **False**) | 
+|.**setFormat** ( *format* ) →`This` | Sets the [display format](https://developer.4d.com/docs/commands/object-set-format) of the widget |
+|.[**setPicture**](#setPicture) ( *proxy* ) →`This` | Defines the image associated with:<br> `3D button`, `picture button`, `picture popup menu`, `listbox header` or `static picture`.<br>Clears the associated image if proxy is empty |
 
 ## <a name="Colors">Colors</a>
 
@@ -153,10 +153,12 @@ Form.myWidget.hide()
 
 | Functions | Action |
 |:-------- |:------ | 
+|.**removeAltBackgroundColor** ()  | Removes widget alternating background color | 
 |.**removeBackgroundColor** ()  | Removes widget background color | 
+|.**restoreAltBackgroundColor** ()  | Restores the widget alternating background color set in structure | 
 |.**restoreBackgroundColor** ()  | Restores the widget background color set in structure | 
 |.**restoreForegroundColor** ()  | Restores the widget foreground color set in structure | 
-|.**setColors** ( *foreground* {; *background* {; *altBackground*}} ) → `This` | Sets the widget's colors | 
+|.**setColors** ( **background* {; *altBackground*}} ) →`This` | Sets the widget's colors | 
 
 ## <a name="Text">Text</a>
 
@@ -170,21 +172,21 @@ Form.myWidget.hide()
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**alignLeft** () → `This` | Sets horizontal alignment of widget to left | 
-|.**alignRight** () → `This` | Sets horizontal alignment of widget to right | 
-|.**alignTop** () → `This` | Sets vertical alignment of widget to top | 
-|.**alignBottom** () → `This` | Sets vertical alignment of widget to bottom | 
-|.**alignCenter** ( *vertical* ) → `This` | Sets the widget's horizontal or vertical alignment (if `vertical` = **True**) to centered. | 
-|.**setFont** ( *fontName* ) → `This` | Defines the fonts used by the widget to display text.<br>If `fontName` is omitted, empty or equal to “default” or “system”, the default system font is used. | 
-|.**setFontStyle** ( *style* ) → `This` | Defines the fonts style used by the widget to display text.<br>Use the predefined constants, placed in the "Font Styles" theme. | 
+|.**alignLeft** () →`This` | Sets horizontal alignment of widget to left | 
+|.**alignRight** () →`This` | Sets horizontal alignment of widget to right | 
+|.**alignTop** () →`This` | Sets vertical alignment of widget to top | 
+|.**alignBottom** () →`This` | Sets vertical alignment of widget to bottom | 
+|.**alignCenter** ( *vertical* ) →`This` | Sets the widget's horizontal or vertical alignment (if `vertical` = **True**) to centered. | 
+|.**setFont** ( *fontName* ) →`This` | Defines the fonts used by the widget to display text.<br>If `fontName` is omitted, empty or equal to “default” or “system”, the default system font is used. | 
+|.**setFontStyle** ( *style* ) →`This` | Defines the fonts style used by the widget to display text.<br>Use the predefined constants, placed in the "Font Styles" theme. | 
 
 ## <a name="Miscellaneous">Miscellaneous</a>
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**addToGroup** ( *group* ) → `This` | Adds this widget to a group. | 
-|.**hiddenFromView** () → `This` | Sets the widget's coordinates so that it is outside the viewing window. | 
-|.**jsonFormDefinition** () → `Object` | Returns the json widget definition as defined in the structure.<br>⚠️ Only available if the `parent` parameter has been passed to the constructor when using from a component.| 
+|.**addToGroup** ( *group* ) →`This` | Adds this widget to a group. | 
+|.**hiddenFromView** () →`This` | Sets the widget's coordinates so that it is outside the viewing window. | 
+|.**jsonFormDefinition** () →`Object` | Returns the json widget definition as defined in the structure.<br>⚠️ Only available if the `parent` parameter has been passed to the constructor when using from a component.| 
 
 # <a name="setPicture">.setPicture()</a>
 
@@ -192,8 +194,8 @@ Form.myWidget.hide()
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| proxy | Text | <- | proxy picture |
-| result | `This`| -> | Current widget object |
+| proxy | Text | → | proxy picture |
+| result | `This`| ← | Current widget object |
 
 ### Description
 
