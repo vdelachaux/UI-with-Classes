@@ -7982,11 +7982,87 @@
 		}
 	},
 	"scrollable": {
+		"getScrollPosition()": {
+			"Syntax": "**.getScrollPosition**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set verticalPosition()": {
+			"Syntax": "**.set verticalPosition**( *pos* : Integer )",
+			"Params": [
+				[
+					"pos",
+					"Integer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get verticalPosition()": {
+			"Syntax": "**.get verticalPosition**() : Integer",
+			"Params": [
+				[
+					"",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set horizontalPosition()": {
+			"Syntax": "**.set horizontalPosition**( *pos* : Integer )",
+			"Params": [
+				[
+					"pos",
+					"Integer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"setVerticalScrollbar()": {
 			"Syntax": "**.setVerticalScrollbar**( *display* : Variant ) : cs.ui.scrollable",
 			"Params": [
 				[
 					"display",
+					"Variant",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.scrollable",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set horizontalScrollbarAuto()": {
+			"Syntax": "**.set horizontalScrollbarAuto**( *on* : Boolean )",
+			"Params": [
+				[
+					"on",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"setScrollbars()": {
+			"Syntax": "**.setScrollbars**( *horizontal* : Variant; *vertical* : Variant ) : cs.ui.scrollable",
+			"Params": [
+				[
+					"horizontal",
+					"Variant",
+					"->"
+				],
+				[
+					"vertical",
 					"Variant",
 					"->"
 				],
@@ -8014,59 +8090,137 @@
 			],
 			"Summary": ""
 		},
-		"setScrollPosition()": {
-			"Syntax": "**.setScrollPosition**( *vertical* : Variant; *horizontal* : Variant ) : cs.ui.scrollable",
-			"Params": [
-				[
-					"vertical",
-					"Variant",
-					"->"
-				],
-				[
-					"horizontal",
-					"Variant",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.scrollable",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"setScrollbars()": {
-			"Syntax": "**.setScrollbars**( *horizontal* : Variant; *vertical* : Variant ) : cs.ui.scrollable",
-			"Params": [
-				[
-					"horizontal",
-					"Variant",
-					"->"
-				],
-				[
-					"vertical",
-					"Variant",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.scrollable",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"getScrollbars()": {
-			"Syntax": "**.getScrollbars**()",
-			"Params": [],
-			"Summary": ""
-		},
-		"getScrollPosition()": {
-			"Syntax": "**.getScrollPosition**() : Variant",
+			"Syntax": "**.getScrollbars**() : Object",
 			"Params": [
 				[
 					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set verticalScrollbarAuto()": {
+			"Syntax": "**.set verticalScrollbarAuto**( *on* : Boolean )",
+			"Params": [
+				[
+					"on",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get horizontalPosition()": {
+			"Syntax": "**.get horizontalPosition**() : Integer",
+			"Params": [
+				[
+					"",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set verticalScrollbar()": {
+			"Syntax": "**.set verticalScrollbar**( *on* : Boolean )",
+			"Params": [
+				[
+					"on",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get horizontalScrollbar()": {
+			"Syntax": "**.get horizontalScrollbar**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"noScrollbar()": {
+			"Syntax": "**.noScrollbar**() : cs.ui.scrollable",
+			"Params": [
+				[
+					"",
+					"cs.ui.scrollable",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set horizontalScrollbar()": {
+			"Syntax": "**.set horizontalScrollbar**( *on* : Boolean )",
+			"Params": [
+				[
+					"on",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get verticalScrollbar()": {
+			"Syntax": "**.get verticalScrollbar**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setScrollPosition()": {
+			"Syntax": "**.setScrollPosition**( *vertical* : Integer; *horizontal* : Variant; *firstPosition* : Boolean ) : cs.ui.scrollable",
+			"Params": [
+				[
+					"vertical",
+					"Integer",
+					"->"
+				],
+				[
+					"horizontal",
 					"Variant",
+					"->"
+				],
+				[
+					"firstPosition",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.scrollable",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get verticalScrollbarAuto()": {
+			"Syntax": "**.get verticalScrollbarAuto**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get horizontalScrollbarAuto()": {
+			"Syntax": "**.get horizontalScrollbarAuto**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
 					"<-"
 				]
 			],

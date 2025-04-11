@@ -67,3 +67,4 @@ This class is available from the `cs` class store, or `cs.ui` class store if you
 Sets widget colors to current colors.
  
 * Target could be a *widget* object or a *widget* name.
+ 

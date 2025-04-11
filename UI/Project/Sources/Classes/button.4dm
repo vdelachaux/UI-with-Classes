@@ -35,7 +35,7 @@ Class constructor($name : Text; $parent : Object)
 				
 				If (Is Windows:C1573)
 					
-					This:C1470.height:=$height>18 ? 22 : 19
+					This:C1470.height:=$height>18 ? 23 : 19
 					
 				Else 
 					
