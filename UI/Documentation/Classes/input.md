@@ -37,7 +37,7 @@ Form.myInput.filter := Is date
 |---|---|---|---|
 | name | Text | -> | Widget name |
 | parent | `cs.form` | -> | `form` object containing the *widget* |
-| result | cs.input | <- | New `cs.input`
+| result | **cs**.input | <- | New `cs.input`
 
 ### Description
 

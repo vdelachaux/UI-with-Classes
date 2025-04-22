@@ -37,8 +37,8 @@ Form.myButton.enable()
 |Parameter|Type||Description|
 |---|---|---|---|
 | name | Text | -> | Widget name |
-| parent | `cs.form` | -> | `form` object containing the *widget* |
-| result | cs.button | <- | New `cs.button`
+| parent | **cs**.form | -> | `form` object containing the *widget* |
+| result | **cs**.button | <- | New `cs.button`
 
 ### Description
 
@@ -51,15 +51,6 @@ Form.myButton.enable()
 > ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
 
 # Summary
-
-## <a name="Inherited">Inherited Properties & Functions</a>
-
-Inherited properties and functions are described in the parent classes:
-
-* [`static` class](static.md)
-* [`widget` class](widget.md)
-
-#Summary
 
 ## <a name="Inherited">Inherited Properties & Functions</a>
 

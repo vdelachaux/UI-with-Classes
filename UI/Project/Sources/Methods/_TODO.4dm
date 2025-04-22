@@ -1,4 +1,32 @@
 //%attributes = {}
+/*
+
+static ✅ ---- widget ✅ ---- | button ✅
+                        |
+                        | selector
+                        |
+                        | stepper
+                        |
+                        | tabControl
+                        |
+                        | thermometer ✅
+                        |
+                        | webArea
+                        |
+                        | dropdown ✅ ---- | comboBox
+                        |
+                        | scrollable ✅ ---- | hList
+                                          |
+                                          | input ✅ ---- | password
+                                          |
+                                          | listbox ✅
+                                          |
+                                          | picture ✅
+                                          |
+                                          | subform
+
+*/
+
 //TODO:Documentation
 
 /* Methods
@@ -15,7 +43,6 @@ subformWidgetMethod
 /* Classes
 
 comboBox
-dropDown
 evt
 hList
 picture
@@ -27,3 +54,5 @@ tips
 window
 
 */
+
+

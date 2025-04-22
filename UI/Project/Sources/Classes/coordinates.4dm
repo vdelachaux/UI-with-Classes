@@ -1,4 +1,4 @@
-property name : Text
+property name:=""
 property left; top; right; bottom : Integer
 
 Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
@@ -7,18 +7,31 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 	
 	Case of 
 			
-			//______________________________________________________
-		: (Value type:C1509($left)=Is object:K8:27)
+			// ______________________________________________________
+		: (Value type:C1509($1)=Is longint:K8:6)\
+			 || (Value type:C1509($1)=Is real:K8:4)
 			
-			var $o : Object:=Try($left.getCoordinates())
+			// Left
+			
+			//______________________________________________________
+		: (Value type:C1509($1)=Is object:K8:27)
+			
+			var $o : Object
+			
+			If ($1.getCoordinates#Null:C1517)\
+				 && (OB Instance of:C1731($1.getCoordinates; 4D:C1709.Function))
+				
+				$o:=$1.getCoordinates()
+				
+			End if 
 			
 			If ($o#Null:C1517)  // Widget
 				
-				This:C1470.name:=String:C10($left.name)
+				This:C1470.name:=String:C10($1.name)
 				
 			Else 
 				
-				$o:=$left
+				$o:=$1
 				
 			End if 
 			
@@ -28,10 +41,15 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 			$bottom:=Num:C11($o.bottom)
 			
 			//______________________________________________________
-		: (Value type:C1509($left)=Is text:K8:3)  // Object name
+		: (Value type:C1509($1)=Is text:K8:3)  // Object name
 			
-			This:C1470.name:=$left
+			This:C1470.name:=$1
 			OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
+			
+		Else 
+			
+			throw:C1805(_error("The first parameter must be an Object or Text"))
+			return 
 			
 			//______________________________________________________
 	End case 
@@ -96,6 +114,13 @@ Function get dimensions() : cs:C1710.dimensions
 Function apply($name : Text)
 	
 	$name:=$name || This:C1470.name
-	ASSERT:C1129(Length:C16($name)>0; "Missing target name!")
 	
-	OBJECT SET COORDINATES:C1248(*; $name; This:C1470.left; This:C1470.top; This:C1470.right; This:C1470.bottom)
+	If (Length:C16($name)>0)
+		
+		OBJECT SET COORDINATES:C1248(*; $name; This:C1470.left; This:C1470.top; This:C1470.right; This:C1470.bottom)
+		
+	Else 
+		
+		throw:C1805(_error("Missing target name!"))
+		
+	End if 

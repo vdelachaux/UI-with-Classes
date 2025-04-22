@@ -2879,28 +2879,6 @@
 		}
 	},
 	"dimensions": {
-		"perimeter()": {
-			"Syntax": "**.perimeter**() : Integer",
-			"Params": [
-				[
-					"",
-					"Integer",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"area()": {
-			"Syntax": "**.area**() : Integer",
-			"Params": [
-				[
-					"",
-					"Integer",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"width": {
 			"Syntax": "width : Integer"
 		},
@@ -6727,6 +6705,49 @@
 			],
 			"Summary": ""
 		},
+		"appendEvents()": {
+			"Syntax": "**.appendEvents**( *events* : Variant )",
+			"Params": [
+				[
+					"events",
+					"Variant",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"setCursor()": {
+			"Syntax": "**.setCursor**( *cursor* : Variant )",
+			"Params": [
+				[
+					"cursor",
+					"Variant",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"DropDown()": {
+			"Syntax": "**.DropDown**( *name* : Text; *data* : Object ) : cs.ui.dropDown",
+			"Params": [
+				[
+					"name",
+					"Text",
+					"->"
+				],
+				[
+					"data",
+					"Object",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.dropDown",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"ComboBox()": {
 			"Syntax": "**.ComboBox**( *name* : Text; *data* : Object ) : cs.ui.comboBox",
 			"Params": [
@@ -6882,6 +6903,28 @@
 			],
 			"Summary": ""
 		},
+		"get maxHeight()": {
+			"Syntax": "**.get maxHeight**() : Integer",
+			"Params": [
+				[
+					"",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set horizontallyResizable()": {
+			"Syntax": "**.set horizontallyResizable**( *resize* : Boolean )",
+			"Params": [
+				[
+					"resize",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"deferTimer()": {
 			"Syntax": "**.deferTimer**( *id* : Integer; *tickCount* : Integer )",
 			"Params": [
@@ -6905,28 +6948,6 @@
 					"",
 					"Boolean",
 					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get maxHeight()": {
-			"Syntax": "**.get maxHeight**() : Integer",
-			"Params": [
-				[
-					"",
-					"Integer",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"set horizontallyResizable()": {
-			"Syntax": "**.set horizontallyResizable**( *resize* : Boolean )",
-			"Params": [
-				[
-					"resize",
-					"Boolean",
-					"->"
 				]
 			],
 			"Summary": ""
@@ -7420,49 +7441,6 @@
 					"",
 					"Variant",
 					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"DropDown()": {
-			"Syntax": "**.DropDown**( *name* : Text; *data* : Object ) : cs.ui.dropDown",
-			"Params": [
-				[
-					"name",
-					"Text",
-					"->"
-				],
-				[
-					"data",
-					"Object",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.dropDown",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"appendEvents()": {
-			"Syntax": "**.appendEvents**( *events* : Variant )",
-			"Params": [
-				[
-					"events",
-					"Variant",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"setCursor()": {
-			"Syntax": "**.setCursor**( *cursor* : Variant )",
-			"Params": [
-				[
-					"cursor",
-					"Variant",
-					"->"
 				]
 			],
 			"Summary": ""

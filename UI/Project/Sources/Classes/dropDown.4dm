@@ -6,7 +6,7 @@ Class constructor($name : Text; $data : Object; $parent : Object)
 	
 	Super:C1705($name; $parent)
 	
-	This:C1470.data:=$data || {}
+	This:C1470.data:=$data || {values: []; index: -1}
 	
 	If (This:C1470.data#Null:C1517)\
 		 && (This:C1470.data.currentValue#Null:C1517)
