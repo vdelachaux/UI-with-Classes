@@ -128,6 +128,23 @@ Vous pouvez définir :
           - La source de données pour les onglets du bas est une liste hiérarchique  utilisée ici pour afficher des icônes, ce qui n'est pas possible avec un objet. Dans ce cas, il faut appeler la fonction goToPage() lors du clic et ne pas oublier d'appeler la fonction .clearList() lors du déchargement du formulaire. 
          - Notez que le contructeur de la classe tabControl accepte un paramètre pour afficher une page spécifique au démarrage.</target>
         </trans-unit>
+        <trans-unit id="_zy6B_N5wST60SFgRvVTNQ" resname="title_7">
+          <source>drop-down list</source>
+          <target state="new">drop-down list</target>
+        </trans-unit>
+        <trans-unit id="x1RQpiltOUMd3m12UzTCQQ" resname="desc_7">
+          <source>This dialog shows a very simple implementation of dropdown widgets.
+          - The first drop-down list uses an amazing 4D automatism: goto page.
+          - The second one, more classical, allow to select an item. Note that the form object datasource is set to &lt;instance&gt;.data
+          - The "Clear" button uses the widget's clear() function to remove the user's selection and restore the placeholder.  
+          - The “Change data source” button uses the widget's reinit() function to specify a new data source.
+        </source>
+          <target>Ce dialogue montre une mise en œuvre très simple des listes déroulantes. 
+          - La première liste déroulante utilise un automatisme 4D étonnant : goto page. 
+          - La seconde, plus classique, permet de sélectionner un élément. Notez que la source de données de l'objet formulaire est fixée à &lt;instance&gt;.data
+          - Le bouton "Clear" utilise la fonction clear() du widget pour supprimer la sélection de l'utilisateur et restaurer le placeholder.  
+          - Le bouton "Change datasource" utilise la fonction reinit() du widget pour spécifier une nouvelle source de données.</target>
+        </trans-unit>
       </group>
       <group resname="dial">
         <trans-unit id="FcZegetf3JLn0r1d0Z03OQ" resname="selectAnExample">
@@ -217,6 +234,7 @@ Vous pouvez définir :
       </group>
     </body>
   </file>
+
 
 
 

@@ -237,10 +237,8 @@ Function handleEvents($e : cs:C1710.evt)
 Function onLoad()
 	
 	// Defines the container reference in subform instances
-	var $widget : cs:C1710.widget:=This:C1470._getInstantiated(cs:C1710.subform)
-	
 	var $o : Object
-	For each ($o; $widget)
+	For each ($o; This:C1470._getInstantiated(cs:C1710.subform))
 		
 		$o._execute(Formula:C1597(Form:C1466.__DIALOG__.__CONTAINER__:=$o))
 		
@@ -263,6 +261,7 @@ Function onLoad()
 				If ($page#Null:C1517)
 					
 					var $key : Text
+					var $widget : cs:C1710.widget
 					For each ($key; $page.objects)
 						
 						$widget:=$widgets.query("name = :1"; $key).first()

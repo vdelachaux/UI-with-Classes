@@ -62,6 +62,11 @@ Function init()
 		form: "DEMO_TAB_CONTROL"; \
 		comments: Localized string:C991("desc_6")})
 	
+	This:C1470.demos.push({\
+		name: Localized string:C991("title_7"); \
+		form: "DEMO_Dropdown"; \
+		comments: Localized string:C991("desc_7")})
+	
 	This:C1470.sidebar:=This:C1470.form.Listbox("sidebar")
 	
 	// Mark:Detail panel
@@ -79,7 +84,6 @@ Function init()
 	This:C1470.form.constraints.add("run").anchoredInTheCenter.of("common_background")
 	
 	// Mark: Controlers
-	
 	ARRAY TEXT:C222($classes; 0x0000)
 	METHOD GET PATHS:C1163(Path class:K72:19; $classes)
 	ARRAY TO COLLECTION:C1563(This:C1470.controllers; $classes)

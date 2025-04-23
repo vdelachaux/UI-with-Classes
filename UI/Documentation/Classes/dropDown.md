@@ -94,3 +94,4 @@ Inherited properties and functions are described in the parent classes:
 | Functions | |
 |:-------- |:------ | 
 |.**clear** () | Unselect item & restore the placeholder
+|.**reinit** ( *data* ) | Uses the passed object to redefine the datasource of the dropdown.

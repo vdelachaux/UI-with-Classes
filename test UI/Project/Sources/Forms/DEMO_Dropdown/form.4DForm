@@ -1,0 +1,144 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {
+				"pages": {
+					"type": "dropdown",
+					"left": 63,
+					"top": 5,
+					"width": 41,
+					"height": 22,
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text1": {
+					"type": "text",
+					"text": "Page",
+					"top": 8,
+					"left": 11,
+					"width": 46,
+					"height": 16,
+					"textAlign": "right"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Popup Dropdown List": {
+					"type": "dropdown",
+					"left": 21,
+					"top": 37,
+					"width": 237,
+					"height": 24,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "Form:C1466.myDrop.data",
+					"method": "ObjectMethods/Popup Dropdown List.4dm"
+				},
+				"Input": {
+					"type": "input",
+					"left": 111,
+					"top": 67,
+					"width": 97,
+					"height": 17,
+					"enterable": false,
+					"dataSource": "Form:C1466.myDrop.currentValue",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"textAlign": "left",
+					"stroke": "#808080"
+				},
+				"Button": {
+					"type": "button",
+					"text": "Clear",
+					"top": 64,
+					"left": 210,
+					"width": 48,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button.4dm"
+				},
+				"Button1": {
+					"type": "button",
+					"text": "Change datasource",
+					"top": 104,
+					"left": 64,
+					"width": 151,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button1.4dm"
+				},
+				"Text": {
+					"type": "text",
+					"text": "Current value:",
+					"top": 67,
+					"left": 15,
+					"width": 93,
+					"height": 16,
+					"stroke": "#808080",
+					"textAlign": "right"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Input1": {
+					"type": "input",
+					"left": 28,
+					"top": 68,
+					"width": 203,
+					"height": 17,
+					"dataSource": "\"You are now on page \"+String:C10(OBJECT Get value:C1743(\"pages\"))",
+					"enterable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"class": "comment"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Input2": {
+					"type": "input",
+					"left": 28,
+					"top": 68,
+					"width": 203,
+					"height": 17,
+					"dataSource": "\"You are now on page \"+String:C10(OBJECT Get value:C1743(\"pages\"))",
+					"enterable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"class": "comment"
+				}
+			}
+		}
+	],
+	"geometryStamp": 148,
+	"method": "method.4dm",
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed"
+}

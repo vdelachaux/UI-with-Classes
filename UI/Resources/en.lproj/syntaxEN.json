@@ -17,11 +17,11 @@
 			"Summary": ""
 		},
 		"formGetInstance": {
-			"Syntax": "**formGetInstance**() : Object",
+			"Syntax": "**formGetInstance**() : 4D.Class",
 			"Params": [
 				[
 					"",
-					"Object",
+					"4D.Class",
 					"<-"
 				]
 			],
@@ -10745,11 +10745,11 @@
 	},
 	"dropDown": {
 		"get placeholder()": {
-			"Syntax": "**.get placeholder**() : Text",
+			"Syntax": "**.get placeholder**() : Variant",
 			"Params": [
 				[
 					"",
-					"Text",
+					"Variant",
 					"<-"
 				]
 			],
@@ -10783,11 +10783,11 @@
 			"Summary": ""
 		},
 		"set placeholder()": {
-			"Syntax": "**.set placeholder**( *placeholder* : Text )",
+			"Syntax": "**.set placeholder**( *placeholder* : Variant )",
 			"Params": [
 				[
 					"placeholder",
-					"Text",
+					"Variant",
 					"->"
 				]
 			],
@@ -10804,12 +10804,23 @@
 			],
 			"Summary": ""
 		},
+		"reinit()": {
+			"Syntax": "**.reinit**( *data* : Object )",
+			"Params": [
+				[
+					"data",
+					"Object",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"get index()": {
-			"Syntax": "**.get index**() : Variant",
+			"Syntax": "**.get index**() : Integer",
 			"Params": [
 				[
 					"",
-					"Variant",
+					"Integer",
 					"<-"
 				]
 			],

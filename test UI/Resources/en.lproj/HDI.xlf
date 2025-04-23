@@ -129,6 +129,24 @@ You can define :
           - The data source for the bottom tabs is a hierarchical list that can be used to display icons, which is not possible with an object. In this case, you must call the goToPage() function on click and don't forget to call the .clearList() function when the form is unloaded. 
          - Note that the contructor of the tabControl class accepts a parameter to display a specific page at startup.</target>
         </trans-unit>
+        <trans-unit id="_zy6B_N5wST60SFgRvVTNQ" resname="title_7">
+          <source>drop-down list</source>
+          <target>drop-down list</target>
+        </trans-unit>
+        <trans-unit id="x1RQpiltOUMd3m12UzTCQQ" resname="desc_7">
+          <source>This dialog shows a very simple implementation of dropdown widgets.
+          - The first drop-down list uses an amazing 4D automatism: goto page.
+          - The second one, more classical, allow to select an item. Note that the form object datasource is set to &lt;instance&gt;.data
+          - The "Clear" button uses the widget's clear() function to remove the user's selection and restore the placeholder.  
+          - The “Change data source” button uses the widget's reinit() function to specify a new data source.
+        </source>
+          <target>This dialog shows a very simple implementation of dropdown widgets.
+          - The first drop-down list uses an amazing 4D automatism: goto page.
+          - The second one, more classical, allow to select an item. Note that the form object datasource is set to &lt;instance&gt;.data
+          - The "Clear" button uses the widget's clear() function to remove the user's selection and restore the placeholder.  
+          - The “Change data source” button uses the widget's reinit() function to specify a new data source.
+        </target>
+        </trans-unit>
       </group>
       <group resname="dial">
         <trans-unit id="FcZegetf3JLn0r1d0Z03OQ" resname="selectAnExample">
@@ -218,6 +236,7 @@ You can define :
       </group>
     </body>
   </file>
+
 
 
 
