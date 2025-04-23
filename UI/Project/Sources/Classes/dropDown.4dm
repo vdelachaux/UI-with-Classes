@@ -1,6 +1,6 @@
 Class extends widget
 
-property data : Object
+property data; _backup : Object
 
 Class constructor($name : Text; $data : Object; $parent : Object)
 	
@@ -17,18 +17,20 @@ Function get values() : Collection
 Function set values($values : Collection)
 	
 	This:C1470.data.values:=$values
+	This:C1470.data.index:=-1
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get currentValue() : Variant
+Function get value() : Text
 	
-	If (This:C1470.data.index#-1)
+	If (This:C1470.data.index#-1)\
+		 || (OB Instance of:C1731(This:C1470; cs:C1710.dropDown))
 		
 		return This:C1470.data.currentValue
 		
 	End if 
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
-Function set currentValue($value)
+Function set value($value)
 	
 	This:C1470.data.currentValue:=$value
 	
@@ -67,6 +69,11 @@ Function reinit($data : Object)
 	
 	This:C1470._populate($data)
 	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function reset()
+	
+	This:C1470._populate(This:C1470._backup)
+	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _populate($data : Object)
 	
@@ -84,3 +91,5 @@ Function _populate($data : Object)
 	End if 
 	
 	This:C1470.clear()
+	
+	This:C1470._backup:=OB Copy:C1225(This:C1470.data)

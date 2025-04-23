@@ -1,15 +1,18 @@
 Class extends dropDown
 
-property _ordered; automaticExpand : Boolean
-
 Class constructor($name : Text; $data : Object; $parent : Object)
 	
 	Super:C1705($name; $data; $parent)
 	
-	This:C1470._ordered:=Bool:C1537($data.ordered)
-	This:C1470.automaticExpand:=Bool:C1537($data.automaticExpand)
+	// TODO: Check that values is a scalar collection of text
 	
-	If (This:C1470.automaticExpand)
+	If (Bool:C1537($data.ordered))
+		
+		This:C1470.order()
+		
+	End if 
+	
+	If ($data.automaticExpand)
 		
 		This:C1470._automaticExpandInit()
 		
@@ -30,6 +33,26 @@ Function set automaticExpand($auto : Boolean)
 		This:C1470._automaticExpandInit()
 		
 	End if 
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get automaticInsertion() : Boolean
+	
+	return Bool:C1537(This:C1470.data.automaticInsertion)
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set automaticInsertion($auto : Boolean)
+	
+	This:C1470.data.automaticInsertion:=$auto
+	
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get ordered() : Boolean
+	
+	return Bool:C1537(This:C1470.data.ordered)
+	
+	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
+Function set ordered($auto : Boolean)
+	
+	This:C1470.data.ordered:=$auto
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get filter() : Text
@@ -86,36 +109,46 @@ Function set filter($filter)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function order() : cs:C1710.comboBox
+	
+	This:C1470.data.values:=This:C1470.data.values.orderBy()
+	
+	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Display the selection list (to use in the On getting focus event)
 Function expand() : cs:C1710.comboBox
 	
-	var $o : Object
-	
-	If (This:C1470.automaticExpand)
+	If (This:C1470.data.automaticExpand)
 		
-		// Get the current widget window coordinates
-		$o:=This:C1470.windowCoordinates
-		POST CLICK:C466($o.right-10; $o.top+10; Current process:C322)
+		POST KEY:C465(Down arrow key:K12:19; 0 ?+ Command key bit:K16:2)
 		
 	End if 
 	
 	return This:C1470
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-	// Display the selection list (to use in the On Data change event)
-Function automaticInsertion($ordered : Boolean)
+	// Insert an item or the current value. 
+	// Keep the list ordered if any
+Function insert($item; $ordered : Boolean) : cs:C1710.comboBox
 	
-	var $index : Integer
-	var $value
+	If (Value type:C1509($1)=Is text:K8:3)
+		
+		var $value : Text:=$item
+		
+	Else 
+		
+		$value:=This:C1470.data.currentValue
+		
+	End if 
 	
-	$value:=This:C1470.data.currentValue
-	$index:=This:C1470.data.values.indexOf($value)
+	var $index : Integer:=This:C1470.data.values.indexOf($value)
 	
 	If ($index=-1)
 		
 		This:C1470.data.values.push($value)
 		
-		If ($ordered | This:C1470._ordered)
+		If ($ordered || This:C1470.data.ordered)
 			
 			This:C1470.data.values:=This:C1470.data.values.orderBy()
 			$index:=This:C1470.data.values.indexOf($value)
@@ -125,6 +158,14 @@ Function automaticInsertion($ordered : Boolean)
 	
 	This:C1470.data.index:=$index
 	
+	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function listModified() : Boolean
+	
+	return Not:C34(This:C1470.data.values.equal(This:C1470._backup.values))
+	
+	// MARK:-
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 	// Set On Getting focus event, if any
 Function _automaticExpandInit()

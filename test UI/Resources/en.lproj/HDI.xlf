@@ -147,6 +147,32 @@ You can define :
           - The “Change data source” button uses the widget's reinit() function to specify a new data source.
         </target>
         </trans-unit>
+        <trans-unit id="qUCcFAyYEzV5pRrq4PnLvA" resname="title_8">
+          <source>Combo box</source>
+          <target>Combo box</target>
+        </trans-unit>
+        <trans-unit id="qAlscAEE2izS+zxwYfvLKw" resname="desc_8">
+          <source>This dialog shows  implementation of comboBox widgets.
+          - The Countries combo box displays the given list as is. A button allow to adds a new item to the list.
+          - The Fruits combo box display the given list. The list ordered and expands on getting focus. A button allow to clear the user selection.
+          - The Cities combo box display the given list not ordered. If a value entered is not found in the list, this value is added to the list in memory. A button allow to reset the widget with the initial values.
+
+Note that, in all cases, the form object datasource is set to &lt;instance&gt;.data
+
+
+Note that, in all cases, the form object datasource is set to &lt;instance&gt;.data
+</source>
+          <target>This dialog shows  implementation of comboBox widgets.
+          - The Countries combo box displays the given list as is. A button allow to adds a new item to the list.
+          - The Fruits combo box display the given list. The list ordered and expands on getting focus. A button allow to clear the user selection.
+          - The Cities combo box display the given list not ordered. If a value entered is not found in the list, this value is added to the list in memory. A button allow to reset the widget with the initial values.
+
+Note that, in all cases, the form object datasource is set to &lt;instance&gt;.data
+
+
+Note that, in all cases, the form object datasource is set to &lt;instance&gt;.data
+</target>
+        </trans-unit>
       </group>
       <group resname="dial">
         <trans-unit id="FcZegetf3JLn0r1d0Z03OQ" resname="selectAnExample">
@@ -236,6 +262,7 @@ You can define :
       </group>
     </body>
   </file>
+
 
 
 

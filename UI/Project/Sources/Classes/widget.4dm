@@ -73,8 +73,7 @@ Function set value($value)
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function getValue() : Variant
 	
-	If (This:C1470.type=Object type text input:K79:4)\
-		 && (This:C1470.isFocused())
+	If (This:C1470.type=Object type text input:K79:4) && (This:C1470.isFocused()) || (This:C1470.type=Object type combobox:K79:12)
 		
 		return Get edited text:C655
 		

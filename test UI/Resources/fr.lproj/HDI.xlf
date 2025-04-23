@@ -130,7 +130,7 @@ Vous pouvez définir :
         </trans-unit>
         <trans-unit id="_zy6B_N5wST60SFgRvVTNQ" resname="title_7">
           <source>drop-down list</source>
-          <target state="new">drop-down list</target>
+          <target>Liste déroulante</target>
         </trans-unit>
         <trans-unit id="x1RQpiltOUMd3m12UzTCQQ" resname="desc_7">
           <source>This dialog shows a very simple implementation of dropdown widgets.
@@ -144,6 +144,29 @@ Vous pouvez définir :
           - La seconde, plus classique, permet de sélectionner un élément. Notez que la source de données de l'objet formulaire est fixée à &lt;instance&gt;.data
           - Le bouton "Clear" utilise la fonction clear() du widget pour supprimer la sélection de l'utilisateur et restaurer le placeholder.  
           - Le bouton "Change datasource" utilise la fonction reinit() du widget pour spécifier une nouvelle source de données.</target>
+        </trans-unit>
+        <trans-unit id="qUCcFAyYEzV5pRrq4PnLvA" resname="title_8">
+          <source>Combo box</source>
+          <target>Combo Box</target>
+        </trans-unit>
+        <trans-unit id="qAlscAEE2izS+zxwYfvLKw" resname="desc_8">
+          <source>This dialog shows  implementation of comboBox widgets.
+          - The Countries combo box displays the given list as is. A button allow to adds a new item to the list.
+          - The Fruits combo box display the given list. The list ordered and expands on getting focus. A button allow to clear the user selection.
+          - The Cities combo box display the given list not ordered. If a value entered is not found in the list, this value is added to the list in memory. A button allow to reset the widget with the initial values.
+
+Note that, in all cases, the form object datasource is set to &lt;instance&gt;.data
+
+
+Note that, in all cases, the form object datasource is set to &lt;instance&gt;.data
+</source>
+          <target>Ce dialogue montre l'implémentation des widgets comboBox.
+          - La combo box Pays affiche la liste donnée telle quelle. Un bouton permet d'ajouter un nouvel élément à la liste.
+          - La combo box Fruits affiche la liste donnée. La liste est ordonnée et se développe lorsqu'elle est mise en évidence. Un bouton permet d'effacer la sélection de l'utilisateur.
+          - La combo box Villes affiche la liste donnée sans ordre. Si une valeur saisie n'est pas trouvée dans la liste, cette valeur est ajoutée à la liste en mémoire. Un bouton permet de réinitialiser le widget avec les valeurs initiales. 
+
+
+Notez que, dans tous les cas, la source de données de l'objet formulaire est fixée à &lt;instance&gt;.data</target>
         </trans-unit>
       </group>
       <group resname="dial">
@@ -234,6 +257,7 @@ Vous pouvez définir :
       </group>
     </body>
   </file>
+
 
 
 

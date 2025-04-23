@@ -84,7 +84,7 @@ Inherited properties and functions are described in the parent classes:
 
 |Properties|Description|Type|default|Writable|
 |:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.currentValue** | Currently selected item | same as Collection |  | <font color="green">✓</font>
+|**.value** | Currently selected item | same as Collection |  | <font color="green">✓</font>
 |**.index** | Currently selected index | `Integer` | -1 | <font color="green">✓</font>
 |**.placeholder** | The placeholder to use if no item selected | same as Collection | `currentValue` | <font color="green">✓</font>
 |**.values** | The collection of scalar values used as datasource| `Collection` | [ ] | <font color="green">✓</font>

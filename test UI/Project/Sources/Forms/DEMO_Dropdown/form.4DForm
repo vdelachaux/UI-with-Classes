@@ -55,7 +55,7 @@
 					"width": 97,
 					"height": 17,
 					"enterable": false,
-					"dataSource": "Form:C1466.myDrop.currentValue",
+					"dataSource": "Form:C1466.myDrop.value",
 					"fill": "transparent",
 					"borderStyle": "none",
 					"textAlign": "left",

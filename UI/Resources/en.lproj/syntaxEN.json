@@ -5505,13 +5505,23 @@
 		"_inheritedFrom_": "scrollable"
 	},
 	"dropDown": {
-		"get placeholder()": {
-			"Syntax": "**.get placeholder**() : Variant",
+		"clear()": {
+			"Syntax": "**.clear**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"reset()": {
+			"Syntax": "**.reset**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"set placeholder()": {
+			"Syntax": "**.set placeholder**( *placeholder* : Variant )",
 			"Params": [
 				[
-					"",
+					"placeholder",
 					"Variant",
-					"<-"
+					"->"
 				]
 			],
 			"Summary": ""
@@ -5527,13 +5537,8 @@
 			],
 			"Summary": ""
 		},
-		"clear()": {
-			"Syntax": "**.clear**()",
-			"Params": [],
-			"Summary": ""
-		},
-		"set currentValue()": {
-			"Syntax": "**.set currentValue**( *value* : Variant )",
+		"set value()": {
+			"Syntax": "**.set value**( *value* : Variant )",
 			"Params": [
 				[
 					"value",
@@ -5543,23 +5548,34 @@
 			],
 			"Summary": ""
 		},
-		"set placeholder()": {
-			"Syntax": "**.set placeholder**( *placeholder* : Variant )",
-			"Params": [
-				[
-					"placeholder",
-					"Variant",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"get currentValue()": {
-			"Syntax": "**.get currentValue**() : Variant",
+		"get placeholder()": {
+			"Syntax": "**.get placeholder**() : Variant",
 			"Params": [
 				[
 					"",
 					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get values()": {
+			"Syntax": "**.get values**() : Collection",
+			"Params": [
+				[
+					"",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get value()": {
+			"Syntax": "**.get value**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
 					"<-"
 				]
 			],
@@ -5594,17 +5610,6 @@
 					"values",
 					"Collection",
 					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"get values()": {
-			"Syntax": "**.get values**() : Collection",
-			"Params": [
-				[
-					"",
-					"Collection",
-					"<-"
 				]
 			],
 			"Summary": ""
@@ -6245,17 +6250,6 @@
 		"_inheritedFrom_": "static"
 	},
 	"comboBox": {
-		"automaticInsertion()": {
-			"Syntax": "**.automaticInsertion**( *ordered* : Boolean )",
-			"Params": [
-				[
-					"ordered",
-					"Boolean",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
 		"expand()": {
 			"Syntax": "**.expand**() : cs.ui.comboBox",
 			"Params": [
@@ -6278,24 +6272,13 @@
 			],
 			"Summary": ""
 		},
-		"get filter()": {
-			"Syntax": "**.get filter**() : Text",
+		"listModified()": {
+			"Syntax": "**.listModified**() : Boolean",
 			"Params": [
 				[
 					"",
-					"Text",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"set automaticExpand()": {
-			"Syntax": "**.set automaticExpand**( *auto* : Boolean )",
-			"Params": [
-				[
-					"auto",
 					"Boolean",
-					"->"
+					"<-"
 				]
 			],
 			"Summary": ""
@@ -6311,8 +6294,103 @@
 			],
 			"Summary": ""
 		},
-		"automaticExpand": {
-			"Syntax": "automaticExpand : Boolean"
+		"get ordered()": {
+			"Syntax": "**.get ordered**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"order()": {
+			"Syntax": "**.order**() : cs.ui.comboBox",
+			"Params": [
+				[
+					"",
+					"cs.ui.comboBox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get automaticInsertion()": {
+			"Syntax": "**.get automaticInsertion**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get filter()": {
+			"Syntax": "**.get filter**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set automaticInsertion()": {
+			"Syntax": "**.set automaticInsertion**( *auto* : Boolean )",
+			"Params": [
+				[
+					"auto",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"insert()": {
+			"Syntax": "**.insert**( *item* : Variant; *ordered* : Boolean ) : cs.ui.comboBox",
+			"Params": [
+				[
+					"item",
+					"Variant",
+					"->"
+				],
+				[
+					"ordered",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.comboBox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set ordered()": {
+			"Syntax": "**.set ordered**( *auto* : Boolean )",
+			"Params": [
+				[
+					"auto",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"set automaticExpand()": {
+			"Syntax": "**.set automaticExpand**( *auto* : Boolean )",
+			"Params": [
+				[
+					"auto",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
 		},
 		"_inheritedFrom_": "dropDown"
 	},

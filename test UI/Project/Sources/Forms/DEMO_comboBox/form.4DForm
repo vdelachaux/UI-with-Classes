@@ -1,0 +1,171 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"Combo Box": {
+					"type": "combo",
+					"left": 137,
+					"top": 22,
+					"width": 172,
+					"height": 21,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "Form:C1466.Countries.data"
+				},
+				"Combo Box1": {
+					"type": "combo",
+					"left": 137,
+					"top": 62,
+					"width": 172,
+					"height": 21,
+					"events": [
+						"onDataChange",
+						"onAfterEdit"
+					],
+					"dataSource": "Form:C1466.Fruits.data",
+					"method": "ObjectMethods/Combo Box1.4dm"
+				},
+				"Text1": {
+					"type": "text",
+					"text": "Countries",
+					"top": 24,
+					"left": 17,
+					"width": 110,
+					"height": 16,
+					"textAlign": "right"
+				},
+				"Text2": {
+					"type": "text",
+					"text": "Fruits",
+					"top": 64,
+					"left": 17,
+					"width": 110,
+					"height": 16,
+					"textAlign": "right"
+				},
+				"Combo Box2": {
+					"type": "combo",
+					"left": 137,
+					"top": 103,
+					"width": 172,
+					"height": 21,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "Form:C1466.Cities.data",
+					"method": "ObjectMethods/Combo Box2.4dm"
+				},
+				"Text3": {
+					"type": "text",
+					"text": "Cities",
+					"top": 105,
+					"left": 17,
+					"width": 110,
+					"height": 16,
+					"textAlign": "right"
+				},
+				"Text4": {
+					"type": "text",
+					"text": "As is",
+					"top": 24,
+					"left": 317,
+					"width": 110,
+					"height": 16,
+					"stroke": "#808080"
+				},
+				"Text5": {
+					"type": "text",
+					"text": "Ordered with automatic expand",
+					"top": 64,
+					"left": 317,
+					"width": 234,
+					"height": 16,
+					"stroke": "#808080"
+				},
+				"Text6": {
+					"type": "text",
+					"text": "Automatic insertion",
+					"top": 105,
+					"left": 317,
+					"width": 234,
+					"height": 16,
+					"stroke": "#808080"
+				},
+				"Button": {
+					"type": "button",
+					"text": "New item…",
+					"top": 21,
+					"left": 541,
+					"width": 93,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button.4dm"
+				},
+				"Button1": {
+					"type": "button",
+					"text": "Clear",
+					"top": 61,
+					"left": 541,
+					"width": 93,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button1.4dm"
+				},
+				"Button2": {
+					"type": "button",
+					"text": "Order",
+					"top": 102,
+					"left": 541,
+					"width": 93,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button2.4dm"
+				},
+				"Button3": {
+					"type": "button",
+					"text": "Reset",
+					"top": 102,
+					"left": 648,
+					"width": 93,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button3.4dm"
+				}
+			}
+		}
+	],
+	"geometryStamp": 211,
+	"method": "method.4dm",
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed"
+}
