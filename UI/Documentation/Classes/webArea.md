@@ -36,10 +36,10 @@ Form.myWidget.open("https://4D.com")
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| name | Text | -> | Widget name |
-| data | Text | Collection | -> | allowed URLs |
-| parent | `cs.form` | -> | `form` object containing the *widget* |
-| result | cs.webArea | <- | New `cs.webArea`
+| name | Text | → | Widget name |
+| data | Text | Collection | → | allowed URLs |
+| parent | `cs.form` | → | `form` object containing the *widget* |
+| result | cs.webArea |←| New `cs.webArea`
 
 ### Description
 
@@ -110,8 +110,8 @@ Inherited properties and functions are described in the parent classes:
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| allowed | Text \| Collection | <- | URL(s) to be allowed into the Web area |
-| allow | Boolean | <- | Allow or not |
+| allowed | Text \| Collection | ← | URL(s) to be allowed into the Web area |
+| allow | Boolean | ← | Allow or not |
 
 ### Description
 
@@ -135,7 +135,7 @@ Form.myWidget.allow(https://fr.4d.com";$lang="fr")
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| denied | Text \| Collection | <- | URL(s) to be denied into the Web area |
+| denied | Text \| Collection | ← | URL(s) to be denied into the Web area |
 
 ### Description
 
@@ -150,8 +150,8 @@ Appends the URL or all URLs in a collection to URL filtering, for the Web area.
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| url | Text | <- | URL to be loaded into the Web area |
-| file | `4D.File` | <- | File to be loaded into the Web area |
+| url | Text | ← | URL to be loaded into the Web area |
+| file | `4D.File` | ←| File to be loaded into the Web area |
 
 ### Description
 

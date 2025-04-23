@@ -92,5 +92,3 @@ Inherited properties and functions are described in the parent classes:
  }
 ```
 
-
-

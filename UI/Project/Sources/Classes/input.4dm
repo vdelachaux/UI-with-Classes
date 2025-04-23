@@ -399,7 +399,7 @@ Function truncateWithEllipsis($where : Integer; $target : Text; $char : Text)
 	OBJECT GET BEST SIZE:C717(*; This:C1470.name; $bestWidth; $bestHeight)
 	
 	var $result:=$target
-	var $width:=This:C1470.dimensions.width
+	var $width:=This:C1470.rect.width
 	
 	While ($bestWidth>$width)
 		

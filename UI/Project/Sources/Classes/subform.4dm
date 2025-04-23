@@ -125,12 +125,12 @@ Function disable($widget : Text)
 	// MARK:-[Definition]
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Returns the width and height of the container.
-Function getParentDimensions() : cs:C1710.dimensions
+Function getParentRect() : cs:C1710.rect
 	
 	var $height; $width : Integer
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
 	
-	return cs:C1710.dimensions.new($width; $height)
+	return cs:C1710.rect.new($width; $height)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Returns  the names of the forms associated with the subform.
@@ -204,7 +204,7 @@ Function alignHorizontally($alignment : Integer; $reference)
 	
 	If (Count parameters:C259=1)
 		
-		var $parent:=This:C1470.getParentDimensions()
+		var $parent:=This:C1470.getParentRect()
 		
 	Else 
 		
@@ -218,7 +218,7 @@ Function alignHorizontally($alignment : Integer; $reference)
 			//______________________________________________________
 		: ($alignment=Align center:K42:3)
 			
-			var $width:=This:C1470.dimensions.width
+			var $width:=This:C1470.rect.width
 			var $middle : Integer:=$parent.width\2
 			$coordinates.left:=$middle-($width\2)
 			$coordinates.right:=$coordinates.left+$width
@@ -243,7 +243,7 @@ Function _getParent($name : Text) : Object
 	
 	return {\
 		name: This:C1470.form.name; \
-		dimensions: {\
+		rect: {\
 		width: $width; \
 		height: $height}; \
 		container: $name}

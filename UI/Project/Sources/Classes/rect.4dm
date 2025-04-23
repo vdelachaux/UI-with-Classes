@@ -26,7 +26,7 @@ Class constructor($width; $height : Integer)
 			
 			If ($o#Null:C1517)  // Wwidget
 				
-				$o:=$o.dimensions
+				$o:=$o.rect
 				
 			Else 
 				

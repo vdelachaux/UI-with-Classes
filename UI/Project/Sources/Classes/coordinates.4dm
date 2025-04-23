@@ -106,9 +106,9 @@ Function get height() : Integer
 	return Try(This:C1470.bottom-This:C1470.top)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get dimensions() : cs:C1710.dimensions
+Function get rect() : cs:C1710.rect
 	
-	return cs:C1710.dimensions.new(This:C1470.width; This:C1470.height)
+	return cs:C1710.rect.new(This:C1470.width; This:C1470.height)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function apply($name : Text)

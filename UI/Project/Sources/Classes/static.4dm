@@ -206,25 +206,25 @@ Function set bottom($bottom : Integer)
 	This:C1470.setCoordinates($o)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get dimensions() : cs:C1710.dimensions
+Function get rect() : cs:C1710.rect
 	
 	var $o : Object:=This:C1470.getCoordinates()
 	
-	return cs:C1710.dimensions.new($o.right-$o.left; $o.bottom-$o.top)
+	return cs:C1710.rect.new($o.right-$o.left; $o.bottom-$o.top)
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
-Function set dimensions($dimensions : Object)
+Function set rect($rect : Object)
 	
 	var $o:=This:C1470.getCoordinates()
-	If ($dimensions.width#Null:C1517)
+	If ($rect.width#Null:C1517)
 		
-		$o.right:=$o.left+Num:C11($dimensions.width)
+		$o.right:=$o.left+Num:C11($rect.width)
 		
 	End if 
 	
-	If ($dimensions.height#Null:C1517)
+	If ($rect.height#Null:C1517)
 		
-		$o.bottom:=$o.top+Num:C11($dimensions.height)
+		$o.bottom:=$o.top+Num:C11($rect.height)
 		
 	End if 
 	
@@ -232,7 +232,7 @@ Function set dimensions($dimensions : Object)
 	This:C1470.updateCoordinates($o.left; $o.top; $o.right; $o.bottom)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function setDimensions($width : Integer; $height : Integer) : cs:C1710.static
+Function setRect($width : Integer; $height : Integer) : cs:C1710.static
 	
 	var $o:=This:C1470.getCoordinates()
 	$o.right:=$o.left+$width
@@ -500,7 +500,7 @@ Function getBestHeight($maxWidth : Integer) : Integer
 	
 	var $width; $height : Integer
 	
-	$maxWidth:=Count parameters:C259>=1 ? $maxWidth : This:C1470.dimensions.width
+	$maxWidth:=Count parameters:C259>=1 ? $maxWidth : This:C1470.rect.width
 	OBJECT GET BEST SIZE:C717(*; This:C1470.name; $width; $height; $maxWidth)
 	
 	return $height

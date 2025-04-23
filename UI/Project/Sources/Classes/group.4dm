@@ -694,24 +694,24 @@ Function switch($updateEntryOrder : Boolean) : cs:C1710.group
 Function center($horizontally : Boolean; $vertically : Boolean)
 	
 	var $coordinates : cs:C1710.coordinates
-	var $dimensions : cs:C1710.dimensions
+	var $rect : cs:C1710.rect
 	
 	// The reference is the first member of the group
 	// So we remove it and get its median position.
 	var $members:=This:C1470.members.copy()
 	var $member : cs:C1710.static:=$members.shift()
 	
-	var $middle : Integer:=$member.coordinates.left+($member.dimensions.width\2)
+	var $middle : Integer:=$member.coordinates.left+($member.rect.width\2)
 	
 	If ($horizontally)
 		
 		For each ($member; $members)
 			
 			$coordinates:=$member.coordinates
-			$dimensions:=$member.dimensions
+			$rect:=$member.rect
 			
-			$coordinates.left:=$middle-($dimensions.width\2)
-			$coordinates.right:=$coordinates.left+$dimensions.width
+			$coordinates.left:=$middle-($rect.width\2)
+			$coordinates.right:=$coordinates.left+$rect.width
 			
 			$member.setCoordinates($coordinates)
 			

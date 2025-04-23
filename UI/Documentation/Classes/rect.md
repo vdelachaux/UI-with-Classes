@@ -1,6 +1,6 @@
-# dimensions
+# rect
 
-The `dimensions` class provides an interface for manipulating the dimensions of a widget.
+The `rect` class provides an interface for manipulating the → of a widget.
 
 This class is available from the `cs` class store, or `cs.ui` class store if you use the `UI` component.
 
@@ -11,25 +11,25 @@ To simplify the distinction between form objects and object type, this documenta
 
 <hr><br>
 
-## <a name="Constructor">cs.dimensions.new()</a>
+## <a name="Constructor">cs.rect.new()</a>
 
-**cs.dimensions.new**( *widget* : Object ) : `cs.dimensions`<br>
-**cs.dimensions.new** ( *name* : Text ) : `cs.dimensions`<br>
-**cs.dimensions.new** ( *width* : Integer; *height* : Integer ) : `cs.dimensions`<br>
-**cs.dimensions.new** ( ) : `cs.dimensions`
+**cs.rect.new**( *widget* : Object ) : `cs.rect`<br>
+**cs.rect.new** ( *name* : Text ) : `cs.rect`<br>
+**cs.rect.new** ( *width* : Integer; *height* : Integer ) : `cs.rect`<br>
+**cs.rect.new** ( ) : `cs.rect`
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| widget | Object | -> | A widget class object like `cs.static`, `cs.input`, `cs.button`… |
-| name | Text | -> | A name of a *widget* |
-| width<br>height| Integer | -> | Sizes in pixels, in the form coordinate system\*.|
-| result | cs.dimensions | <- | New `cs.dimensions`
+| widget | Object | → | A widget class object like `cs.static`, `cs.input`, `cs.button`… |
+| name | Text | → | A name of a *widget* |
+| width<br>height| Integer | → | Sizes in pixels, in the form coordinate system\*.|
+| result | **cs**.rect | ← | New `cs.rect`
 
 \* Origin is top left corner of current form
 
 ### Description
 
-`cs.dimensions.new()` creates & returns a new instance of the class.
+`cs.rect.new()` creates & returns a new instance of the class.
  
 * If the `widget` or `name` parameter is passed, the `width` & `height` of the `widget` in the form coordinate system\* are retrieved & used as stored sizes.
 * If parameters `width` and `height` are passed, these are the stored sizes.

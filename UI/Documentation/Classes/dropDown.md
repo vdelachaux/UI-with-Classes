@@ -48,10 +48,10 @@ var $selected : Text:=Form.myDropDown. currentValue
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| name | Text | -> | Widget name |
-| data | `Object` | -> | Parameters to be used for the drop-down list management |
-| parent | **cs**.form | -> | `form` object containing the *widget* |
-| result | **cs**.dropDown | <- | New `cs.dropDown`
+| name | Text | →| Widget name |
+| data | `Object` | → | Parameters to be used for the drop-down list management |
+| parent | **cs**.form | → | `form` object containing the *widget* |
+| result | **cs**.dropDown | ← | New `cs.dropDown`
 
 ### Description
 

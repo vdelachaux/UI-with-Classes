@@ -1421,7 +1421,7 @@ Function _getInstantiated($class : Object; $instanceName : Text) : Variant
 	
 	//MARK:-[DIMENSIONS & RESIZING]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get dimensions() : Object
+Function get rect() : Object
 	
 	var $height; $width : Integer
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)

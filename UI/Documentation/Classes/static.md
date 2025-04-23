@@ -36,8 +36,8 @@ Form.myWidget.hide()
 |Parameter|Type||Description|
 |---|---|---|---|
 | name | Text | → | Widget name |
-| parent | `cs.form` |→ | `form` object containing the widget |
-| result | cs.static | ← | New `cs.static`
+| parent | **cs**.form |→ | `form` object containing the widget |
+| result | **cs**.static | ← | New `cs.static`
 
 ### Description
 
@@ -52,7 +52,7 @@ Form.myWidget.hide()
 
 ## <a name="Properties">General</a>
 
-> 📌 Other properties are described below in the section devoted to them.
+> 📌 Other properties & functions are described below in the section devoted to them.
 
 |Properties|Description|Type|Writable|
 |:----------|:-----------|:-----------|:-----------:| 
@@ -74,46 +74,47 @@ Form.myWidget.hide()
 |:----------|:-----------|:-----------|:-----------:| 
 |.**bottom**| The bottom position of the widget |`Integer`|<font color="green">✓</font>
 |.**coordinates** | The coordinates of the widget|[`cs.coordinates`](coordinates.md)|<font color="green">✓</font>
-|.**dimensions**| The dimensions of the widget |[`cs.dimensions`](dimensions.md)|<font color="green">✓</font>
+|.**height**| The height of the widget |`Integer`|<font color="green">✓</font>
 |.**horizontallyMovable** | Can the widget be moved horizontally |`Boolean`|<font color="green">✓</font>
 |.**horizontallyResizable** | Can the widget be resized horizontally |`Boolean`|<font color="green">✓</font>
 |.**left**| The left position of the widget |`Integer`|<font color="green">✓</font>
+|.**rect**| The dimensions of the widget |[`cs.rect`](rect.md)|<font color="green">✓</font>
 |.**resizingOptions** | The current resizing options for the widget<br>as an object {`horizontal`,`vertical`} |`Object`|<font color="red">x</font>
 |.**right**| The right position of the widget |`Integer`|<font color="green">✓</font>
 |.**top**| The top position of the widget |`Integer`|<font color="green">✓</font>
 |.**verticallyResizable** | Can the widget be resized vertically  |`Boolean`|<font color="green">✓</font>
 |.**verticallyMovable** | Can the widget be moved vertically  |`Boolean`|<font color="green">✓</font>
-|.**width**<br>.**height**| The dimensions of the widget |`Integer`|<font color="green">✓</font>
+|.**width**| The width of the widget |`Integer`|<font color="green">✓</font>
 |.**windowCoordinates**| The coordinates of the widget in the current window <br>as an object {`left`,`top`,`right`,`bottom`} |`Object`|<font color="red">x</font>
 
 | Functions | Action |
 |:-------- |:------ | 
-|.**setCoordinates** ( *left*; *top* {; *right*; *bottom* } ) →`This`<br>.**setCoordinates** ( *coordinates*`:Object` ) →`This` | To modifies the coordinates and, optionally, the size of the widget \* |
+|.**backupCoordinates** () →`This` | Updates `initialPosition` with the widget's current coordinates \*  |
 |.**bestSize** ( *alignement* {; *minWidth* {; *maxWidth* }}) →`This`<br>.**bestSize** ( {*options*`:Object` }) →`This`  | Set the size of the widget to its best width according to its content <br>(e.g. a localized string) \* |
 |.**bestHeight** ( {*width* }) →`This` | Set the size of the widget to its best height according to its content <br>(e.g. a localized string) \* |
+|.**getCoordinates** () →`Object` | Returns the widget's updated coordinates \* |
 |.**getBestWidth** ( {*maxWidth* }) → `Integer` | Returns the best width of the widget according to its content <br>(e.g. a localized string) \* |
 |.**getBestHeight** ( {*maxWidth* }) → `Integer` | Returns the best height of the widget according to its content <br>(e.g. a localized string) \* |
+|.**moveAndResizeHorizontally** ( *offset*; *resize* ) →`This` | To move and resize the widget horizontally \*  |
+|.**moveAndResizeVertically** ( *offset*; *resize* ) →`This` | To move and resize the widget vertically \*  |
+|.**moveDown** ( *offset* ) →`This` | To move the widget down \*  |
 |.**moveHorizontally** ( *offset* ) →`This` | To move the widget horizontally \*  |
 |.**moveLeft** ( *offset* ) →`This` | To move the widget to the left \*  |
 |.**moveRight** ( *offset* ) →`This` | To move the widget to the right \*  |
-|.**moveVertically** ( *offset* ) →`This` | To move the widget vertically \*  |
 |.**moveUp** ( *offset* ) →`This` | To move the widget up \*  |
-|.**moveDown** ( *offset* ) →`This` | To move the widget down \*  |
+|.**moveVertically** ( *offset* ) →`This` | To move the widget vertically \*  |
+|.**resize** ( *offset* ) →`This` | To resize the widget horizontally & vertically \*  |
 |.**resizeHorizontally** ( *offset* ) →`This` | To resize the widget horizontally \*  |
 |.**resizeVertically** ( *offset* ) →`This` | To resize the widget vertically \*  |
-|.**resize** ( *offset* ) →`This` | To resize the widget horizontally & vertically \*  |
-|.**moveAndResizeHorizontally** ( *offset*; *resize* ) →`This` | To move and resize the widget horizontally \*  |
-|.**moveAndResizeVertically** ( *offset*; *resize* ) →`This` | To move and resize the widget vertically \*  |
-|.**setDimension** ( *width* {; *height* }) →`This` | To modify the widget width & height \*  |
 |.**restorePosition** () | Sets the widget coordinates with the contents of `initialPosition` \*  |
-|.**backupCoordinates** () →`This` | Updates `initialPosition` with the widget's current coordinates \*  |
+|.**setCoordinates** ( *left*; *top* {; *right*; *bottom* } ) →`This`<br>.**setCoordinates** ( *coordinates*`:Object` ) →`This` | To modifies the coordinates and, optionally, the size of the widget \* |
 |.**setHeight** ( *height* ) →`This` | To modify the widget height \*  |
+|.**setRect** ( *width* {; *height* }) →`This` | To modify the widget width & height \*  |
 |.**setWidth** ( *width* ) →`This` | To modify the widget width \*  |
 |.**setResizingOptions** ( *horizontal* {; *vertical* })) →`This` | Modifies the resizing options for the widget |
-|.**updateCoordinates** ( {*left*; *top*; *right*; *bottom* })   →`This` | To force update of properties:<br>  - `coordinates`<br>  - `dimensions`<br>  - `windowCoordinates`<br>with the passed values or the current widget coordinates if omitted.|
-|.**getCoordinates** () →`Object` | Returns the widget's updated coordinates \* |
+|.**updateCoordinates** ( {*left*; *top*; *right*; *bottom* })   →`This` | To force update of properties:<br>  - `coordinates`<br>  - `rect`<br>  - `windowCoordinates`<br>with the passed values or the current widget coordinates if omitted.|
     
-\* Automatically update the `coordinates`, `dimensions` and `windowCoordinates` properties.  
+\* Automatically update the `coordinates`, `rect` and `windowCoordinates` properties.  
 
 ## <a name="Entry">Entry</a>
 

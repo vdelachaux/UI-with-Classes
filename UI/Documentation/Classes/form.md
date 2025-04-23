@@ -26,7 +26,7 @@ Function init()
 	This.cancel:=This.form.Button("Button1")
 	
 	// Resize the window
-	This.form.window.setDimensions(400; 600)
+	This.form.window.setRect(400; 600)
 
 	// Set window title
 	This.form.window.title:="Passkey"
@@ -57,9 +57,9 @@ Function update()
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| Parent | Object | -> | `form controller class` instance |
-| form | Object | -> | form object definition |
-| result | cs.form | <- | New `cs.form`
+| Parent | Object | → | `form controller class` instance |
+| form | Object | → | form object definition |
+| result | **cs**.form | ← | New `cs.form`
 
 ### Description
 
@@ -258,7 +258,7 @@ The minimum suite (`init()`, `onLoad()`, `handleEvents()`) is presented in ***[D
 
 |Properties|Description|Type|default|Writable|
 |:----------|:-----------|:-----------|:-----------|:-----------:| 
-|.**dimensions**| Form dimensions as an object {`width`,`height`} |`Object`||<font color="red">x</font>
+|.**rect**| Form dimensions as an object {`width`,`height`} |`Object`||<font color="red">x</font>
 |**.horizontallyResizable** | Can the form be resized horizontally |`Boolean`||<font color="green">✓</font>
 |**.minWidth** | The smallest form width allowed (pixels) |`Integer`||<font color="green">✓</font>
 |**.maxWidth** | The largest form width allowed (pixels) |`Integer`||<font color="green">✓</font>
@@ -386,7 +386,7 @@ class form["cs.form"] {
 			+subforms : Collection
 			+instantiatedWidgets : Collection
 			+instantiatedSubforms : Collection
-			+dimensions : Dim
+			+rect : rect
 			+horizontallyResizable : Boolean
 			+minWidth : Integer
 			+maxWidth : Integer

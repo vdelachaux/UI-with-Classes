@@ -244,7 +244,7 @@ Function _windowFrameManager()
 	
 	// The title bar fills the entire width of the window
 	This:C1470.windowFrame.left:=0
-	This:C1470.windowFrame.width:=This:C1470.form.dimensions.width
+	This:C1470.windowFrame.width:=This:C1470.form.rect.width
 	
 	// MARK:-[IN-HOUSE]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==

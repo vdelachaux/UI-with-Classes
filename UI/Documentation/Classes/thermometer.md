@@ -35,9 +35,9 @@ Form.myThermo.barber().start()
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| name | Text | -> | Widget name |
-| parent | `cs.form` | -> | `form` object containing the *widget* |
-| result | cs.thermometer | <- | New `cs.thermometer`
+| name | Text | → | Widget name |
+| parent | `cs.form` | → | `form` object containing the *widget* |
+| result | cs.thermometer | ← | New `cs.thermometer`
 
 ### Description
 
@@ -72,3 +72,4 @@ Inherited properties and functions are described in the parent classes:
 |.**stop** ()  → `This` | Stops an asynchronous  progress indicator |
 
 > 📌 To set the value of a standard progress bar use the property `value` or the inherited function .**setValue**()
+

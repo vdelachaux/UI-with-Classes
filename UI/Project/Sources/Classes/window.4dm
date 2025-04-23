@@ -152,7 +152,7 @@ Function setCoordinates($left : Integer; $top : Integer; $right : Integer; $bott
 	SET WINDOW RECT:C444($left; $top; $right; $bottom; This:C1470.ref; *)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
-Function get dimensions() : cs:C1710.dimensions
+Function get rect() : cs:C1710.rect
 	
 	If (This:C1470.ref=Null:C1517)
 		
@@ -163,10 +163,10 @@ Function get dimensions() : cs:C1710.dimensions
 	var $height; $width : Integer
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
 	
-	return cs:C1710.dimensions.new($width; $height)
+	return cs:C1710.rect.new($width; $height)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function setDimensions($width : Integer; $height : Integer)
+Function setRect($width : Integer; $height : Integer)
 	
 	If (This:C1470.ref=Null:C1517)
 		
@@ -186,7 +186,7 @@ Function get width() : Integer
 		
 	End if 
 	
-	return This:C1470.dimensions.width
+	return This:C1470.rect.width
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set width($width : Integer)
@@ -209,7 +209,7 @@ Function get height() : Integer
 		
 	End if 
 	
-	return This:C1470.dimensions.height
+	return This:C1470.rect.height
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set height($height : Integer)

@@ -26,7 +26,7 @@ This class is, more generally, available from the `cs` class store, or `cs.ui` c
 Form.myInput:=cs.ui.input.new("date")
 Form.myInput.filter := Is date
 ```
-
+→
 ## <a name="Constructor">cs.input.new()</a>
 
 **cs.input.new** ( *name* : Text) : `cs.input`<br>
@@ -35,9 +35,9 @@ Form.myInput.filter := Is date
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| name | Text | -> | Widget name |
-| parent | `cs.form` | -> | `form` object containing the *widget* |
-| result | **cs**.input | <- | New `cs.input`
+| name | Text | → | Widget name |
+| parent | `cs.form` | → | `form` object containing the *widget* |
+| result | **cs**.input | ← | New `cs.input`
 
 ### Description
 

@@ -43,7 +43,7 @@ The constructor accepts an optional`members` parameter of type **`Collection`**,
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| member | Variant | -> |  |
+| member | Variant | → |  |
 
 ### Description
 
@@ -120,3 +120,4 @@ The constructor accepts an optional`members` parameter of type **`Collection`**,
   bottom: integer
 }
 ```
+

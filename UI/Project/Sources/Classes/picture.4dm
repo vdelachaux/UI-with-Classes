@@ -114,19 +114,19 @@ Function getCoordinates() : cs:C1710.coordinates
 	
 	This:C1470.getScrollbars()
 	This:C1470.getScrollPosition()
-	This:C1470.getDimensions()
+	This:C1470.getRect()
 	
 	return $coordinates
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function getDimensions() : cs:C1710.dimensions
+Function getRect() : cs:C1710.rect
 	
 	var $p : Picture:=This:C1470.getValue()
 	
 	var $height; $width : Integer
 	PICTURE PROPERTIES:C457($p; $width; $height)
 	
-	return cs:C1710.dimensions.new($width; $height)
+	return cs:C1710.rect.new($width; $height)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function read($file : 4D:C1709.File) : cs:C1710.picture

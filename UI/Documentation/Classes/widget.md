@@ -223,3 +223,4 @@ class widget["cs.widget"]{
 	+isFocused() Boolean
 }
 ```
+

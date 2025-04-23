@@ -36,9 +36,9 @@ Form.myButton.enable()
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| name | Text | -> | Widget name |
-| parent | **cs**.form | -> | `form` object containing the *widget* |
-| result | **cs**.button | <- | New `cs.button`
+| name | Text | → | Widget name |
+| parent | **cs**.form | → | `form` object containing the *widget* |
+| result | **cs**.button | ← | New `cs.button`
 
 ### Description
 
@@ -93,5 +93,4 @@ Inherited properties and functions are described in the parent classes:
 \* The following style values are possible:
 >style = 0: None (default)<br>style = 1: Background offset<br>style = 2: Push button<br>style = 3: Toolbar button<br>style = 4: Custom<br>style = 5: Circle<br>style = 6: Small system square<br>style = 7: Office XP<br>style = 8: Bevel<br>style = 9: Rounded bevel<br>style = 10: Collapse/Expand<br>style = 11: Help<br>style = 12: OS X Textured<br>style = 13: OS X Gradient
 	
-
 
