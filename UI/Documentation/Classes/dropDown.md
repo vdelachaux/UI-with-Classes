@@ -1,6 +1,6 @@
 # dropDown
 
-The`dropDown` class provides an interface to manage properties and actions of [Drop-down List](https://developer.4d.com/docs/20/FormObjects/dropdownListOverview) widgets using an Object.
+The`dropDown` class provides an interface to manage properties and actions of [Drop-down List](https://developer.4d.com/docs/20/FormObjects/dropdownListOverview) widgets using an `Object` as data source.
 
 The `dropDown` class is available via the [`form`](form.md#objects) class through the `DropDown` interface.
 
@@ -43,8 +43,8 @@ var $selected : Text:=Form.myDropDown. currentValue
 
 **cs.dropDown.new** ( ) : `cs.dropDown`
 <br>**cs.dropDown.new** ( *name* : Text ) : `cs.dropDown`
-<br>**cs.dropDown.new** ( *name* : Text ; data : Object ) : `cs.dropDown`
-<br>**cs.dropDown.new** ( *name* : Text ; data : Object ; *parent* : Object ) : `cs.dropDown`
+<br>**cs.dropDown.new** ( *name* : Text ; *data* : Object ) : `cs.dropDown`
+<br>**cs.dropDown.new** ( *name* : Text ; *data* : Object ; *parent* : Object ) : `cs.dropDown`
 
 |Parameter|Type||Description|
 |---|---|---|---|
@@ -61,10 +61,10 @@ var $selected : Text:=Form.myDropDown. currentValue
 
 |Parameter|Type| Mandatory |Description|
 |---|---|:---:|---|
-`values` | Collection | Yes | Collection of scalar values. All values must be of the same type. Supported types:<br>• strings<br>• numbers<br>• dates<br>• times<br>If empty or not defined, the drop-down list is empty
-`index` | number | No | Index of the currently selected item (value between 0 and collection.length-1). If you set -1, currentValue is displayed as a placeholder string
-`currentValue` | same as Collection | No | Currently selected item (used as placeholder value if set by code)
-`placeholder` | same as Collection | No | Default is `currentValue` if exists
+`values` | Collection | Yes | Collection of scalar values. All values must be of the same type. <br>Supported types:<br>  • strings<br>  • numbers<br>  • dates<br>  • times<br>If empty or not defined, the drop-down list is empty.
+`index` | number | No | Index of the currently selected item (value from 0 to `values.length-1`). <br>If you set -1, `currentValue` is displayed as a placeholder string
+`currentValue` | same as `values` | No | Currently selected item (used as placeholder value if set by code)
+`placeholder` | same as `values` | No | Default is `currentValue`
   
  * The optional `parent` parameter is the [`cs.form`](form.md) object containing the *widget*. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the `cs.form` class.
 * If the `name` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
@@ -84,14 +84,16 @@ Inherited properties and functions are described in the parent classes:
 
 |Properties|Description|Type|default|Writable|
 |:----------|:-----------|:-----------|:-----------|:-----------:| 
-|**.value** | Currently selected item | same as Collection |  | <font color="green">✓</font>
 |**.index** | Currently selected index | `Integer` | -1 | <font color="green">✓</font>
-|**.placeholder** | The placeholder to use if no item selected | same as Collection | `currentValue` | <font color="green">✓</font>
+|**.placeholder** | The placeholder to use if no item selected | same as `values` | `currentValue` | <font color="green">✓</font>
+|**.value** | Currently selected item | same as `values` |  | <font color="green">✓</font>
+|**.valueType** | The type of the `values` ([4D constants](https://developer.4d.com/docs/commands/value-type))| `Integer` |  | <font color="red">x</font>
 |**.values** | The collection of scalar values used as datasource| `Collection` | [ ] | <font color="green">✓</font>
 
 ## <a name="Functions">Functions</a>
 
 | Functions | |
 |:-------- |:------ | 
-|.**clear** () | Unselect item & restore the placeholder
-|.**reinit** ( *data* ) | Uses the passed object to redefine the datasource of the dropdown.
+|.**clear** ( ) | Unselect item & restore the placeholder if any.
+|.**reset** ( *data* ) | Uses the *data* object to reset the widget.
+|.**restore** ( ) | Restores the last definition\* of the widget data.<br>\*automatically saved at instantiation or by calling the `.reset( )` function.

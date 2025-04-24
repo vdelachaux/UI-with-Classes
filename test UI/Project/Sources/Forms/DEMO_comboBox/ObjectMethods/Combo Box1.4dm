@@ -4,8 +4,7 @@ var $combobox : cs:C1710.ui.comboBox:=Form:C1466.Fruits
 Case of 
 		
 		// ______________________________________________________
-	: ($e.gettingFocus)\
-		 && ($combobox.automaticExpand)
+	: ($e.gettingFocus)
 		
 		$combobox.expand()
 		

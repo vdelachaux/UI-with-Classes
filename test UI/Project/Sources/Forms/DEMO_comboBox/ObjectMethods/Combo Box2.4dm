@@ -12,7 +12,8 @@ Case of
 		// ______________________________________________________
 	: ($e.dataChange)
 		
-		$combobox.insert()
+		// Pass True to sort the list
+		$combobox.insert(True:C214)
 		
 		SET TIMER:C645(-1)
 		

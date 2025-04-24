@@ -5505,14 +5505,47 @@
 		"_inheritedFrom_": "scrollable"
 	},
 	"dropDown": {
+		"restore()": {
+			"Syntax": "**.restore**()",
+			"Params": [],
+			"Summary": ""
+		},
 		"clear()": {
 			"Syntax": "**.clear**()",
 			"Params": [],
 			"Summary": ""
 		},
+		"get index()": {
+			"Syntax": "**.get index**() : Integer",
+			"Params": [
+				[
+					"",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get valueType()": {
+			"Syntax": "**.get valueType**() : Integer",
+			"Params": [
+				[
+					"",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"reset()": {
-			"Syntax": "**.reset**()",
-			"Params": [],
+			"Syntax": "**.reset**( *data* : Object )",
+			"Params": [
+				[
+					"data",
+					"Object",
+					"->"
+				]
+			],
 			"Summary": ""
 		},
 		"set placeholder()": {
@@ -5576,28 +5609,6 @@
 				[
 					"",
 					"Text",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"reinit()": {
-			"Syntax": "**.reinit**( *data* : Object )",
-			"Params": [
-				[
-					"data",
-					"Object",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"get index()": {
-			"Syntax": "**.get index**() : Integer",
-			"Params": [
-				[
-					"",
-					"Integer",
 					"<-"
 				]
 			],
@@ -6250,13 +6261,50 @@
 		"_inheritedFrom_": "static"
 	},
 	"comboBox": {
-		"expand()": {
-			"Syntax": "**.expand**() : cs.ui.comboBox",
+		"insert()": {
+			"Syntax": "**.insert**( *item* : Variant; *sort* : Boolean ) : cs.ui.comboBox",
 			"Params": [
+				[
+					"item",
+					"Variant",
+					"->"
+				],
+				[
+					"sort",
+					"Boolean",
+					"->"
+				],
 				[
 					"",
 					"cs.ui.comboBox",
 					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"expand()": {
+			"Syntax": "**.expand**( *force* : Boolean ) : cs.ui.comboBox",
+			"Params": [
+				[
+					"force",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.comboBox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setFilter()": {
+			"Syntax": "**.setFilter**( *filter* : Variant )",
+			"Params": [
+				[
+					"filter",
+					"Variant",
+					"->"
 				]
 			],
 			"Summary": ""
@@ -6316,6 +6364,17 @@
 			],
 			"Summary": ""
 		},
+		"reset()": {
+			"Syntax": "**.reset**( *data* : Object )",
+			"Params": [
+				[
+					"data",
+					"Object",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
 		"get automaticInsertion()": {
 			"Syntax": "**.get automaticInsertion**() : Boolean",
 			"Params": [
@@ -6345,27 +6404,6 @@
 					"auto",
 					"Boolean",
 					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"insert()": {
-			"Syntax": "**.insert**( *item* : Variant; *ordered* : Boolean ) : cs.ui.comboBox",
-			"Params": [
-				[
-					"item",
-					"Variant",
-					"->"
-				],
-				[
-					"ordered",
-					"Boolean",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.comboBox",
-					"<-"
 				]
 			],
 			"Summary": ""

@@ -10,11 +10,16 @@ Case of
 		
 		// Instantiate a Fruits widget: Form.Fruits.data is the datasource of the form object
 		// The list should be ordered and displayed when the widget is selected.
-		Form:C1466.Fruits:=cs:C1710.ui.comboBox.new("Combo Box1"; {values: ["apples"; "nuts"; "pears"; "oranges"; "carrots"]; ordered: True:C214; automaticExpand: True:C214})
+		Form:C1466.Fruits:=cs:C1710.ui.comboBox.new("Combo Box1"; {values: ["apples"; "nuts"; "pears"; "oranges"; "carrots"]; ordered: True:C214; automaticExpand: True:C214; currentValue: "oranges"})
 		
 		// Instantiate a Cities widget: Form.Cities.data is the datasource of the form object
 		// If a value entered is not found in the list, this value is added to the list in memory
-		Form:C1466.Cities:=cs:C1710.ui.comboBox.new("Combo Box2"; {values: ["Philadelphia"; "Pittsburg"; "Grand Blanc"; "Bad Axe"; "Frostbite Falls"; "Green Bay"]; automaticInsertion: True:C214})
+		Form:C1466.Cities:=cs:C1710.ui.comboBox.new("Combo Box2"; {\
+			values: ["Philadelphia"; "Pittsburg"; "Grand Blanc"; "Bad Axe"; "Frostbite Falls"; "Green Bay"]; \
+			ordered: False:C215; \
+			automaticExpand: False:C215; \
+			automaticInsertion: True:C214; \
+			placeholder: "Select a city…"})
 		
 		// Instantiate the “Clear” button for Fruits & deactivate it
 		Form:C1466.clearFruits:=cs:C1710.ui.button.new("Button1").disable()
