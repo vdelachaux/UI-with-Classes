@@ -5604,11 +5604,11 @@
 			"Summary": ""
 		},
 		"get value()": {
-			"Syntax": "**.get value**() : Text",
+			"Syntax": "**.get value**() : Variant",
 			"Params": [
 				[
 					"",
-					"Text",
+					"Variant",
 					"<-"
 				]
 			],
@@ -6261,52 +6261,20 @@
 		"_inheritedFrom_": "static"
 	},
 	"comboBox": {
-		"insert()": {
-			"Syntax": "**.insert**( *item* : Variant; *sort* : Boolean ) : cs.ui.comboBox",
+		"eventHandler()": {
+			"Syntax": "**.eventHandler**() : Object",
 			"Params": [
 				[
-					"item",
-					"Variant",
-					"->"
-				],
-				[
-					"sort",
-					"Boolean",
-					"->"
-				],
-				[
 					"",
-					"cs.ui.comboBox",
+					"Object",
 					"<-"
 				]
 			],
 			"Summary": ""
 		},
 		"expand()": {
-			"Syntax": "**.expand**( *force* : Boolean ) : cs.ui.comboBox",
-			"Params": [
-				[
-					"force",
-					"Boolean",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.comboBox",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"setFilter()": {
-			"Syntax": "**.setFilter**( *filter* : Variant )",
-			"Params": [
-				[
-					"filter",
-					"Variant",
-					"->"
-				]
-			],
+			"Syntax": "**.expand**()",
+			"Params": [],
 			"Summary": ""
 		},
 		"set filter()": {
@@ -6354,25 +6322,8 @@
 			"Summary": ""
 		},
 		"order()": {
-			"Syntax": "**.order**() : cs.ui.comboBox",
-			"Params": [
-				[
-					"",
-					"cs.ui.comboBox",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"reset()": {
-			"Syntax": "**.reset**( *data* : Object )",
-			"Params": [
-				[
-					"data",
-					"Object",
-					"->"
-				]
-			],
+			"Syntax": "**.order**()",
+			"Params": [],
 			"Summary": ""
 		},
 		"get automaticInsertion()": {
@@ -6404,6 +6355,27 @@
 					"auto",
 					"Boolean",
 					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"insert()": {
+			"Syntax": "**.insert**( *item* : Variant; *order* : Boolean ) : cs.ui.comboBox",
+			"Params": [
+				[
+					"item",
+					"Variant",
+					"->"
+				],
+				[
+					"order",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.comboBox",
+					"<-"
 				]
 			],
 			"Summary": ""

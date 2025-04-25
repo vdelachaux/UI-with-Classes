@@ -1,17 +1,8 @@
-var $e:=cs:C1710.ui.evt.new()
-var $combobox : cs:C1710.ui.comboBox:=Form:C1466.Fruits
+var $e : Object:=Form:C1466.Fruits.eventHandler()
 
-Case of 
-		
-		// ______________________________________________________
-	: ($e.gettingFocus)
-		
-		$combobox.expand()
-		
-		// ______________________________________________________
-	: ($e.afterEdit) | ($e.dataChange)
-		
-		SET TIMER:C645(-1)
-		
-		// ______________________________________________________
-End case 
+If ([On After Edit:K2:43; On Data Change:K2:15; On Clicked:K2:4].includes($e.code))
+	
+	// Enable Clear button if current value is not empty
+	Form:C1466.clearFruits.enable(Length:C16(Form:C1466.Fruits.value)>0)
+	
+End if 

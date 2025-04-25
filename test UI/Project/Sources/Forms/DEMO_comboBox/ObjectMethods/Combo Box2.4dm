@@ -1,21 +1,8 @@
-var $e:=cs:C1710.ui.evt.new()
-var $combobox : cs:C1710.ui.comboBox:=Form:C1466.Cities
+var $e : Object:=Form:C1466.Cities.eventHandler()
 
-Case of 
-		
-		// ______________________________________________________
-	: ($e.gettingFocus)\
-		 && ($combobox.automaticExpand)
-		
-		$combobox.expand()
-		
-		// ______________________________________________________
-	: ($e.dataChange)
-		
-		// Pass True to sort the list
-		$combobox.insert(True:C214)
-		
-		SET TIMER:C645(-1)
-		
-		// ______________________________________________________
-End case 
+If ([On Data Change:K2:15; On Clicked:K2:4].includes($e.code))
+	
+	// Enable Reset button if associated list was modified
+	Form:C1466.resetCities.enable(Form:C1466.Cities.listModified())
+	
+End if 

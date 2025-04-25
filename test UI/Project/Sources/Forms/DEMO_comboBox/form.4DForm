@@ -6,8 +6,7 @@
 	"rightMargin": 20,
 	"bottomMargin": 20,
 	"events": [
-		"onLoad",
-		"onTimer"
+		"onLoad"
 	],
 	"destination": "detailScreen",
 	"pages": [
@@ -25,7 +24,8 @@
 					"events": [
 						"onDataChange"
 					],
-					"dataSource": "Form:C1466.Countries.data"
+					"dataSource": "Form:C1466.Countries.data",
+					"dataSourceTypeHint": "object"
 				},
 				"Combo Box1": {
 					"type": "combo",
@@ -34,11 +34,13 @@
 					"width": 172,
 					"height": 21,
 					"events": [
+						"onClick",
 						"onDataChange",
 						"onAfterEdit"
 					],
 					"dataSource": "Form:C1466.Fruits.data",
-					"method": "ObjectMethods/Combo Box1.4dm"
+					"method": "ObjectMethods/Combo Box1.4dm",
+					"dataSourceTypeHint": "object"
 				},
 				"Text1": {
 					"type": "text",
@@ -65,10 +67,12 @@
 					"width": 172,
 					"height": 21,
 					"events": [
+						"onClick",
 						"onDataChange"
 					],
 					"dataSource": "Form:C1466.Cities.data",
-					"method": "ObjectMethods/Combo Box2.4dm"
+					"method": "ObjectMethods/Combo Box2.4dm",
+					"dataSourceTypeHint": "object"
 				},
 				"Text3": {
 					"type": "text",
@@ -90,7 +94,7 @@
 				},
 				"Text5": {
 					"type": "text",
-					"text": "Ordered with automatic expand",
+					"text": "Automatic expand & Ordered",
 					"top": 64,
 					"left": 317,
 					"width": 234,
@@ -153,11 +157,51 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/Button3.4dm"
+				},
+				"Combo Box3": {
+					"type": "combo",
+					"left": 137,
+					"top": 144,
+					"width": 172,
+					"height": 21,
+					"events": [],
+					"dataSource": "Form:C1466.Numbers.data",
+					"method": "ObjectMethods/Combo Box3.4dm",
+					"dataSourceTypeHint": "object"
+				},
+				"Text7": {
+					"type": "text",
+					"text": "Numbers",
+					"top": 146,
+					"left": 17,
+					"width": 110,
+					"height": 16,
+					"textAlign": "right"
+				},
+				"Text8": {
+					"type": "text",
+					"text": "Automatic insertion & Ordered",
+					"top": 146,
+					"left": 317,
+					"width": 234,
+					"height": 16,
+					"stroke": "#808080"
+				},
+				"Input": {
+					"type": "input",
+					"left": 541,
+					"top": 146,
+					"width": 200,
+					"height": 17,
+					"dataSource": "JSON Stringify:C1217(Form:C1466.Numbers.values)",
+					"enterable": false,
+					"fill": "transparent",
+					"borderStyle": "dotted"
 				}
 			}
 		}
 	],
-	"geometryStamp": 211,
+	"geometryStamp": 224,
 	"method": "method.4dm",
 	"editor": {
 		"activeView": "View 1",

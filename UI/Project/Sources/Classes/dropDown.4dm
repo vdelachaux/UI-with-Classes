@@ -50,7 +50,7 @@ Function get placeholder() : Variant
 	return String:C10(This:C1470.data.placeholder)
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
-Function set placeholder($placeholder : Variant)
+Function set placeholder($placeholder)
 	
 	This:C1470.data.placeholder:=$placeholder
 	
@@ -66,7 +66,7 @@ Function clear()
 	CLEAR VARIABLE:C89($current)
 	This:C1470.data.currentValue:=$current
 	
-	This:C1470.data.currentValue:=This:C1470.data.placeholder
+	This:C1470.data.currentValue:=This:C1470.data.currentValue || This:C1470.data.placeholder
 	This:C1470.data.index:=-1
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===

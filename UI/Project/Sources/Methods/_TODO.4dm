@@ -42,16 +42,15 @@ subformWidgetMethod
 
 /* Classes
 
-comboBox
+window
+subform
+tabControl
 evt
 hList
 picture
 selector
 stepper
-subform
-tabControl
 tips
-window
 
 */
 
