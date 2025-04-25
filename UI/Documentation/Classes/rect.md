@@ -4,12 +4,13 @@ The `rect` class provides an interface for manipulating the → of a widget.
 
 This class is available from the `cs` class store, or `cs.ui` class store if you use the `UI` component.
 
-<br><hr><br>
-📌 <b>Conventions</b>
+<hr>
+
+ℹ️ <b>Conventions</b>
 
 To simplify the distinction between form objects and object type, this documentation uses the term *widget* for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…).
 
-<hr><br>
+<hr>
 
 ## <a name="Constructor">cs.rect.new()</a>
 
@@ -35,17 +36,10 @@ To simplify the distinction between form objects and object type, this documenta
 * If parameters `width` and `height` are passed, these are the stored sizes.
 * If no parameter is given, all sizes are initialized with a value of 0.
 
-# Summary
+## <a name="Inherited">Properties & Functions</a>
 
-## <a name="Properties">Properties</a>
+### <a name="Properties">Properties</a>
 
 |Properties|Description|Type|Writable|
 |:----------|:-----------|:-----------|:-----------:| 
 |**.height**<br>**.width**| Height & width, in pixels | `Integer` |<font color="red">x</font>
-
-## <a name="Functions">Functions</a>
-
-| Functions | Action |
-|:-------- |:------ | 
-|.**area** ( ) | Returns the area |
-|.**perimeter** ( ) | Returns the perimeter |

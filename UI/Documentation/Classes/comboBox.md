@@ -37,7 +37,6 @@ Form.Cities:=cs.ui.comboBox.new("Combo Box"; {\	values: ["Philadelphia"; "Pitts
 // Get user selection
 var $value : Text:=Form.Cities.value
 ```
-<br>
 <hr>
 
 ℹ️ <b>Important</b>

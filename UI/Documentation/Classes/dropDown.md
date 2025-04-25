@@ -4,6 +4,8 @@ The`dropDown` class provides an interface to manage properties and actions of [D
 
 The `dropDown` class is available via the [`form`](form.md#objects) class through the `DropDown` interface.
 
+#### Example
+
 ```4d
 This.form:=cs.form.new(This)
 ...
@@ -12,6 +14,8 @@ This.myDropDown:=This.form.DropDown("dropDownList"; {\		values: [\		Localized 
 
 In the form editor, you set the *Variable or expression* property of the drop-down list to `formGetInstance.myDropDown.data` and you can later do:
 
+#### Example
+
 ```4d
 // Select exact version
 This.myDropDown.index:=3
@@ -19,25 +23,30 @@ This.myDropDown.index:=3
 
 This class is, more generally, available from the `cs` class store, or `cs.ui` class store if you use the `UI` component:
 
+#### Example
+
 ```4d
 Form.myDropDown:=cs.ui.widget.new("dropDownList"; {\		values: ["one";"two";"three";"four"]; \		index: 0; \		placeholder: "Select one…"})
 ```
 
 In the form editor, you set the *Variable or expression* property of the drop-down list to `Form.myDropDown.data` and you can later retrieve the user's selection like this:
+
+#### Example
+
 ```4d
 // Get user selection
 var $selectedIndex : Integer:=Form.myDropDown.index
 var $selected : Text:=Form.myDropDown. currentValue
 ```
-<br>
 <hr>
 
-📌 <b>Important</b>
+ℹ️ <b>Important</b>
 
 1. This class inherit from the [`widget`](widget.md) class
 2. To simplify the distinction between form objects and object type, this documentation uses the term `widget` for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…).
 3. All functions that return `This` return the current *widget* object and can include one call after another. 
 
+<hr>
 
 ## <a name="Constructor">cs.dropDown.new()</a>
 
@@ -71,16 +80,14 @@ var $selected : Text:=Form.myDropDown. currentValue
 
 > ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
 
-# Summary
-
-## <a name="Inherited">Inherited Properties & Functions</a>
+## <a name="Inherited">Properties & Functions</a>
 
 Inherited properties and functions are described in the parent classes:
 
-* [`static` class](static.md)
-* [`widget` class](widget.md)
+* [static class](static.md)
+* [widget class](widget.md)
 
-## <a name="Properties">Properties</a>
+### <a name="Properties">Properties</a>
 
 |Properties|Description|Type|default|Writable|
 |:----------|:-----------|:-----------|:-----------|:-----------:| 
@@ -90,10 +97,10 @@ Inherited properties and functions are described in the parent classes:
 |**.valueType** | The type of the `values` ([4D constants](https://developer.4d.com/docs/commands/value-type))| `Integer` |  | <font color="red">x</font>
 |**.values** | The collection of scalar values used as datasource| `Collection` | [ ] | <font color="green">✓</font>
 
-## <a name="Functions">Functions</a>
+### <a name="Functions">Functions</a>
 
 | Functions | |
 |:-------- |:------ | 
 |.**clear** ( ) | Unselect item & restore the placeholder if any.
-|.**reset** ( *data* ) | Uses the *data* object to reset the widget.
+|.**reset** (*data* ) | Uses the *data* object to reset the widget.
 |.**restore** ( ) | Restores the last definition\* of the widget data.<br>\*automatically saved at instantiation or by calling the `.reset( )` function.
