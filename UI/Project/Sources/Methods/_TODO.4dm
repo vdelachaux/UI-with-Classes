@@ -1,5 +1,5 @@
 //%attributes = {}
-/*
+/* CLASSES
 
 static ✅ ---- widget ✅ ---- | button ✅
                         |
@@ -11,9 +11,11 @@ static ✅ ---- widget ✅ ---- | button ✅
                         |
                         | thermometer ✅
                         |
+                        | group ✅
+                        |
                         | webArea
                         |
-                        | dropdown ✅ ---- | comboBox
+                        | dropdown ✅ ---- | comboBox ✅
                         |
                         | scrollable ✅ ---- | hList
                                           |
@@ -25,32 +27,45 @@ static ✅ ---- widget ✅ ---- | button ✅
                                           |
                                           | subform
 
+
+form ✅ ---- window
+
+menu ---- menuBar
+
+evt
+
+coordinates ✅
+
+constraints ✅
+
+rect ✅
+
+onBoard 
+
+colors ✅
+
+tips
+
 */
 
-// TODO:Documentation
 
-/* Methods
+/* METHODS
 
-dropableWidgetMethod
-form RESET GEOMETRY
-form_spreadToSubforms
+formGetInstance
+
 formCallBack
+
 formMenuHandle
+
+formMethod
+
 subformWidgetMethod
 
-*/
+dropableWidgetMethod
 
-/* Classes
 
-window
-subform
-tabControl
-evt
-hList
-picture
-selector
-stepper
-tips
+form RESET GEOMETRY
+form_spreadToSubforms
 
 */
 

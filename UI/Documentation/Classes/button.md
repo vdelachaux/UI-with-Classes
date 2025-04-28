@@ -1,13 +1,14 @@
 # button
 
-The `button` class provides an interface to manage properties and actions of button widget.
+The `button` class provides an interface to manage properties and actions of [button](https://developer.4d.com/docs/20/FormObjects/buttonOverview) widget.
 
 <hr>
 
 ℹ️ <b>Important</b>
 
 1. This class inherit from the [`widget`](widget.md) class
-2. All functions that return `This` may include one call after another. 
+2. To simplify the distinction between form objects and object type, this documentation uses the term `widget` for all form objects, whether static (a line, a rectangle…) or not (a button, a subform…).
+3. All functions that return `This` may include one call after another. 
 
 <hr>
 
@@ -88,7 +89,7 @@ Inherited properties and functions are described in the parent classes:
 |.**setSeparatePopupMenu** () →`This` | Sets the button to display and manage a separate pop-up menu\*
 |.**setStyle** (*style* : `Integer`) →`This` | Defines button style\*\*
 
-\* Adding or deleting a linked or associated menu automatically activates/deactivates the object's form event `On Alternative Click` of the widget. 
+\* Adding or deleting a linked or associated menu automatically activates/deactivates the object's form event <u>On Alternative Click</u> of the widget. 
 <br>\*\* The following style values are possible:
 >style = 0: None (default)<br>style = 1: Background offset<br>style = 2: Push button<br>style = 3: Toolbar button<br>style = 4: Custom<br>style = 5: Circle<br>style = 6: Small system square<br>style = 7: Office XP<br>style = 8: Bevel<br>style = 9: Rounded bevel<br>style = 10: Collapse/Expand<br>style = 11: Help<br>style = 12: OS X Textured<br>style = 13: OS X Gradient
 	
