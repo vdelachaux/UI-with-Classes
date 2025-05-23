@@ -48,7 +48,8 @@ Function setTitle($title : Text) : cs:C1710.static
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get class() : Text
 	
-	return Try(String:C10(This:C1470._jsonFormDefinition().class))
+	var $def:=This:C1470._jsonFormDefinition()
+	return ($def=Null:C1517) ? "" : String:C10($def.class)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function jsonFormDefinition() : Object
@@ -1132,7 +1133,7 @@ Function hiddenFromView() : cs:C1710.static
 	// Returns the json form object
 Function _jsonFormDefinition() : Object
 	
-	If (This:C1470.__DEFINITION__=Null:C1517)
+	If ((This:C1470.__DEFINITION__=Null:C1517) && (This:C1470.__PARENT__#Null:C1517))
 		
 		This:C1470.__DEFINITION__:=Try(This:C1470.__PARENT__._definition.pages.query("objects."+This:C1470.name+" != null").first().objects[This:C1470.name])
 		
