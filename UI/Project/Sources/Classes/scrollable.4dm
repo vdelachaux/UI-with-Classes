@@ -29,7 +29,7 @@ Function get horizontalScrollbar() : Boolean
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set horizontalScrollbar($on : Boolean)
 	
-	This:C1470.setVerticalScrollbar(True:C214)
+	This:C1470.setHorizontalScrollbar($on)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get horizontalScrollbarAuto() : Boolean
@@ -48,8 +48,17 @@ Function set horizontalScrollbarAuto($on : Boolean)
 	
 	If (This:C1470._automaticModeAvailable())
 		
-		This:C1470.setHorizontalScrollbar(2)
-		
+		If ($on)
+			
+			This:C1470.setHorizontalScrollbar(2)
+			
+		Else 
+			
+			var $horizontal; $vertical : Integer
+			OBJECT GET SCROLLBAR:C1076(*; This:C1470.name; $horizontal; $vertical)
+			OBJECT SET SCROLLBAR:C843(*; This:C1470.name; $on ? Num:C11($on) : Num:C11($horizontal=2); Num:C11(This:C1470.scrollbars.vertical))
+			
+		End if 
 	End if 
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
@@ -63,7 +72,7 @@ Function get verticalScrollbar() : Boolean
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set verticalScrollbar($on : Boolean)
 	
-	This:C1470.setVerticalScrollbar(True:C214)
+	This:C1470.setVerticalScrollbar($on)
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get verticalScrollbarAuto() : Boolean
@@ -82,8 +91,17 @@ Function set verticalScrollbarAuto($on : Boolean)
 	
 	If (This:C1470._automaticModeAvailable())
 		
-		This:C1470.setVerticalScrollbar(2)
-		
+		If ($on)
+			
+			This:C1470.setVerticalScrollbar(2)
+			
+		Else 
+			
+			var $horizontal; $vertical : Integer
+			OBJECT GET SCROLLBAR:C1076(*; This:C1470.name; $horizontal; $vertical)
+			OBJECT SET SCROLLBAR:C843(*; This:C1470.name; $on ? Num:C11($on) : Num:C11($vertical=2); Num:C11(This:C1470.scrollbars.vertical))
+			
+		End if 
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
