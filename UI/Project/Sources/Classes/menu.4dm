@@ -929,18 +929,37 @@ Function popup($where : Variant; $x : Variant; $y : Integer) : cs:C1710.menu
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Standard Edit menu
-Function edit() : cs:C1710.menu
+Function edit($contextual : Boolean) : cs:C1710.menu
 	
-	This:C1470.append(":xliff:CommonMenuItemUndo").action(ak undo:K76:51).shortcut("Z")
-	This:C1470.append(":xliff:CommonMenuRedo").action(ak redo:K76:52).shortcut("Z"; Shift key mask:K16:3)
-	This:C1470.line()
-	This:C1470.append(":xliff:CommonMenuItemCut").action(ak cut:K76:53).shortcut("X")
-	This:C1470.append(":xliff:CommonMenuItemCopy").action(ak copy:K76:54).shortcut("C")
-	This:C1470.append(":xliff:CommonMenuItemPaste").action(ak paste:K76:55).shortcut("V")
-	This:C1470.append(":xliff:CommonMenuItemClear").action(ak clear:K76:56)
-	This:C1470.append(":xliff:CommonMenuItemSelectAll").action(ak select all:K76:57).shortcut("A")
-	This:C1470.line()
-	This:C1470.append(":xliff:CommonMenuItemShowClipboard").action(ak show clipboard:K76:58)
+	If ($contextual)
+		
+		var $key : Text
+		For each ($key; [ak undo:K76:51; ak redo:K76:52; ak cut:K76:53; ak copy:K76:54; ak paste:K76:55; ak clear:K76:56; ak select all:K76:57])
+			
+			var $o:=Action info:C1442($key; ak current form:K76:70)
+			This:C1470.append($o.title).action($key)
+			
+			If ($key=ak redo:K76:52)
+				
+				This:C1470.line()
+				
+			End if 
+		End for each 
+		
+	Else 
+		
+		This:C1470.append(":xliff:CommonMenuItemUndo").action(ak undo:K76:51).shortcut("Z")
+		This:C1470.append(":xliff:CommonMenuRedo").action(ak redo:K76:52).shortcut("Z"; Shift key mask:K16:3)
+		This:C1470.line()
+		This:C1470.append(":xliff:CommonMenuItemCut").action(ak cut:K76:53).shortcut("X")
+		This:C1470.append(":xliff:CommonMenuItemCopy").action(ak copy:K76:54).shortcut("C")
+		This:C1470.append(":xliff:CommonMenuItemPaste").action(ak paste:K76:55).shortcut("V")
+		This:C1470.append(":xliff:CommonMenuItemClear").action(ak clear:K76:56)
+		This:C1470.append(":xliff:CommonMenuItemSelectAll").action(ak select all:K76:57).shortcut("A")
+		This:C1470.line()
+		This:C1470.append(":xliff:CommonMenuItemShowClipboard").action(ak show clipboard:K76:58)
+		
+	End if 
 	
 	return This:C1470
 	
