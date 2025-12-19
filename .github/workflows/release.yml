@@ -1,0 +1,18 @@
+name: Release
+on: 
+  release:
+    types: [published]
+jobs:
+  publish:
+    name: Publish
+    runs-on: macos-latest
+    env:
+      GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    permissions:
+      contents: write # for asset upload
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v4
+      - name: Upload
+        run: |
+          gh release upload ${{github.event.release.tag_name}} BUILD/${{github.event.repository.name}}.zip
