@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="6">
+	<com.4d>
+		<compiler>
+			<options compilation_path="4" syntax_file="true" target="all"/>
+			<typage default_for_button="2"/>
+			<method_suffix arrays="" interprocess_arrays="" interprocess_variables="" methods="" variables=""/>
+		</compiler>
+		<general component_classStore_name="ui" execute_host_database_event="true"/>
+	</com.4d>
+</preferences>

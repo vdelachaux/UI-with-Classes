@@ -81,7 +81,8 @@
 			"DEMO_Tab_Control"
 		],
 		"forms": [
-			"HDI TruncateWithEllipsis"
+			"HDI TruncateWithEllipsis",
+			"PLAIN_WINDOW"
 		]
 	},
 	"MAIN": {

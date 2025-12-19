@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 280 280">
+  <!-- Fond -->
+  <rect width="280" height="280" fill="#4A90E2"/>
+
+  <!-- Groupe icône -->
+  <g transform="translate(40,30)">
+    
+    <!-- Document -->
+    <rect x="20" y="10" width="160" height="210" rx="12" ry="12" fill="#ffffff"/>
+    
+    <!-- Onglet haut -->
+    <rect x="20" y="10" width="160" height="32" rx="12" ry="12" fill="#ffffff"/>
+
+    <!-- Champs de formulaire -->
+    <rect x="40" y="60" width="120" height="14" rx="4" fill="#4A90E2"/>
+    <rect x="40" y="90" width="120" height="14" rx="4" fill="#4A90E2"/>
+    <rect x="40" y="120" width="120" height="14" rx="4" fill="#4A90E2"/>
+
+    <!-- Checkbox -->
+    <rect x="40" y="155" width="14" height="14" rx="3" fill="#4A90E2"/>
+    <rect x="62" y="158" width="98" height="8" rx="4" fill="#4A90E2"/>
+
+    <!-- Bouton -->
+    <rect x="40" y="185" width="120" height="20" rx="10" fill="#4A90E2"/>
+
+    <!-- Curseurs / UI controls -->
+    <circle cx="205" cy="90" r="18" fill="#ffffff"/>
+    <rect x="190" y="130" width="30" height="80" rx="15" fill="#ffffff"/>
+    <circle cx="205" cy="165" r="10" fill="#4A90E2"/>
+
+  </g>
+</svg>

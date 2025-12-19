@@ -1,5 +1,6 @@
 {
+	"version": 2100,
 	"dependencies": {
-		"UI": {}
+		"UI with Classes": {}
 	}
 }
