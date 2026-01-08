@@ -279,13 +279,11 @@ Function setScrollPosition($vertical : Integer; $horizontal; $firstPosition : Bo
 Function _automaticModeAvailable() : Boolean
 	
 	// The automatic mode can only be used in the context of a list box, a hierarchical list or a picture
-	return Asserted:C1132((This:C1470.type=Object type picture input:K79:5) || (This:C1470.type=Object type listbox:K79:8) || (This:C1470.type=Object type hierarchical list:K79:7); \
-		Current method name:C684+" is only available for Picture, Hierarchical list or Listbox!")
+	return (This:C1470.type=Object type picture input:K79:5) || (This:C1470.type=Object type listbox:K79:8) || (This:C1470.type=Object type hierarchical list:K79:7)
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _horizontallyScrollable() : Boolean
 	
 	// The hPosition parameter can only be used in the context of a list box or a picture
-	return Asserted:C1132((This:C1470.type=Object type picture input:K79:5) || (This:C1470.type=Object type listbox:K79:8); \
-		Current method name:C684+" is only available for Picture or Listbox!")
+	return (This:C1470.type=Object type picture input:K79:5) || (This:C1470.type=Object type listbox:K79:8)
 	

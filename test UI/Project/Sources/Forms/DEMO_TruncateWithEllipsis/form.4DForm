@@ -32,7 +32,7 @@
 				"ellipsis_left": {
 					"type": "button",
 					"text": "left",
-					"top": 117,
+					"top": 106,
 					"left": 19,
 					"width": 69,
 					"height": 20,
@@ -44,7 +44,7 @@
 				"ellipsis_center": {
 					"type": "button",
 					"text": "center",
-					"top": 117,
+					"top": 106,
 					"left": 139,
 					"width": 69,
 					"height": 20,
@@ -56,7 +56,7 @@
 				"ellipsis_right": {
 					"type": "button",
 					"text": "right",
-					"top": 117,
+					"top": 106,
 					"left": 260,
 					"width": 69,
 					"height": 20,
@@ -77,7 +77,7 @@
 				"Radio Button": {
 					"type": "radio",
 					"text": "…",
-					"top": 72,
+					"top": 192,
 					"left": 50,
 					"width": 47,
 					"height": 20,
@@ -90,7 +90,7 @@
 				"Radio Button1": {
 					"type": "radio",
 					"text": "+",
-					"top": 72,
+					"top": 192,
 					"left": 117,
 					"width": 47,
 					"height": 20,
@@ -103,7 +103,7 @@
 				"Radio Button2": {
 					"type": "radio",
 					"text": "-",
-					"top": 72,
+					"top": 192,
 					"left": 184,
 					"width": 47,
 					"height": 20,
@@ -116,7 +116,7 @@
 				"Radio Button3": {
 					"type": "radio",
 					"text": "_",
-					"top": 72,
+					"top": 192,
 					"left": 251,
 					"width": 47,
 					"height": 20,
@@ -125,6 +125,24 @@
 					],
 					"radioGroup": "char",
 					"method": "ObjectMethods/Radio Button3.4dm"
+				},
+				"Text2": {
+					"type": "text",
+					"text": ":xliff:whereToPerformTruncation",
+					"top": 77,
+					"left": 19,
+					"width": 322,
+					"height": 16,
+					"stroke": "#1e90ff"
+				},
+				"Text1": {
+					"type": "text",
+					"text": ":xliff:whichCharacterToUse",
+					"top": 140,
+					"left": 24,
+					"width": 291,
+					"height": 31,
+					"stroke": "#1e90ff"
 				}
 			}
 		},
@@ -145,7 +163,7 @@
 			"Vue 9": {}
 		}
 	},
-	"geometryStamp": 43,
+	"geometryStamp": 79,
 	"$4d": {
 		"version": "1",
 		"kind": "form"

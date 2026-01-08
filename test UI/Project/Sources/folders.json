@@ -22,6 +22,11 @@
 			"_DEMO_1_Controller"
 		]
 	},
+	"DEMO_comboBox": {
+		"forms": [
+			"DEMO_comboBox"
+		]
+	},
 	"DEMO_constraints": {
 		"forms": [
 			"DEMO_constraints"
@@ -69,19 +74,25 @@
 			"_DEMO_TAB_CONTROL_Controller"
 		]
 	},
+	"DEMO_TruncateWithEllipsis": {
+		"forms": [
+			"DEMO_TruncateWithEllipsis"
+		]
+	},
 	"HDIs": {
 		"groups": [
 			"DEMO_1",
+			"DEMO_comboBox",
 			"DEMO_constraints",
 			"DEMO_CSS",
 			"DEMO_Dropdown",
 			"DEMO_Group",
 			"DEMO_Menus",
 			"DEMO_Search",
-			"DEMO_Tab_Control"
+			"DEMO_Tab_Control",
+			"DEMO_TruncateWithEllipsis"
 		],
 		"forms": [
-			"HDI TruncateWithEllipsis",
 			"PLAIN_WINDOW"
 		]
 	},

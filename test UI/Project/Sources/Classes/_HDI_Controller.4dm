@@ -72,6 +72,16 @@ Function init()
 		form: "DEMO_comboBox"; \
 		comments: Localized string:C991("desc_8")})
 	
+	This:C1470.demos.push({\
+		name: Localized string:C991("title_9"); \
+		form: "DEMO_Group_Distribute"; \
+		comments: Localized string:C991("desc_9")})
+	
+	This:C1470.demos.push({\
+		name: Localized string:C991("title_10"); \
+		form: "DEMO_TruncateWithEllipsis"; \
+		comments: Localized string:C991("desc_10")})
+	
 	This:C1470.sidebar:=This:C1470.form.Listbox("sidebar")
 	
 	// Mark:Detail panel

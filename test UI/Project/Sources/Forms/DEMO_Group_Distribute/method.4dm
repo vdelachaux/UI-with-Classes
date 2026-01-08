@@ -16,6 +16,5 @@ cs:C1710.ui.group.new([cs:C1710.ui.button.new("Button6"); cs:C1710.ui.button.new
 // Finally, all buttons belonging to the group are disabled.
 cs:C1710.ui.group.new("myButton@"; "button").distributeAroundCenter({spacing: 2; minWidth: 15}).disable()
 
-
 // No widget has the focus at dialog opening.
 cs:C1710.ui.form.new().removeFocus()

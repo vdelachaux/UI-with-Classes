@@ -23,7 +23,7 @@
 					"type": "line",
 					"top": 188,
 					"left": 318,
-					"height": 90,
+					"height": 110,
 					"stroke": "#EE0000",
 					"startPoint": "topLeft"
 				},
@@ -43,7 +43,7 @@
 				},
 				"Rectangle3": {
 					"type": "rectangle",
-					"top": 246,
+					"top": 266,
 					"left": 169,
 					"width": 299,
 					"height": 17,
@@ -182,7 +182,7 @@
 				},
 				"myButton1": {
 					"type": "button",
-					"top": 247,
+					"top": 267,
 					"left": 168,
 					"width": 87,
 					"height": 12,
@@ -193,7 +193,7 @@
 				},
 				"myButton2": {
 					"type": "button",
-					"top": 247,
+					"top": 267,
 					"left": 275,
 					"width": 87,
 					"height": 12,
@@ -204,7 +204,7 @@
 				},
 				"myButton3": {
 					"type": "button",
-					"top": 247,
+					"top": 267,
 					"left": 382,
 					"width": 87,
 					"height": 12,
@@ -241,6 +241,16 @@
 					"height": 16,
 					"textAlign": "center",
 					"stroke": "#1e90ff"
+				},
+				"Texte3": {
+					"type": "text",
+					"text": "group.distributeAroundCenter().disable()",
+					"top": 246,
+					"left": 169,
+					"width": 299,
+					"height": 16,
+					"textAlign": "center",
+					"stroke": "#1e90ff"
 				}
 			}
 		}
@@ -249,13 +259,12 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 135,
+	"geometryStamp": 150,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",
 		"views": {
 			"View 1": {}
 		}
-	},
-	"windowTitle": "group.distribute…"
+	}
 }

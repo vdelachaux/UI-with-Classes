@@ -3,6 +3,7 @@ If (FORM Event:C1606.code=On Load:K2:1)
 	Form:C1466.text:="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
 	Form:C1466.input:=cs:C1710.ui.input.new("Input").setValue(Form:C1466.text)
 	Form:C1466.char:="…"
+	OBJECT SET VALUE:C1742("Radio Button"; 1)
 	
 Else 
 	

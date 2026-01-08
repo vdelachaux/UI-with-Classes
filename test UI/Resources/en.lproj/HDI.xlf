@@ -173,6 +173,22 @@ Note that, in all cases, the form object datasource is set to &lt;instance&gt;.d
 Note that, in all cases, the form object datasource is set to &lt;instance&gt;.data
 </target>
         </trans-unit>
+        <trans-unit id="5T3exVeMJ84PAfd3cEY08g" resname="title_9">
+          <source>Widget group distribution</source>
+          <target>Widget group distribution</target>
+        </trans-unit>
+        <trans-unit id="kk1bC9AE_gom4080C+jKlw" resname="desc_9">
+          <source>This demo shows how to use groups and distribution functions (right, left, centered) to ensure that objects are always correctly aligned, regardless of their content (in this case, button titles), or to enable/disable all members of the group.</source>
+          <target>This demo shows how to use groups and distribution functions (right, left, centered) to ensure that objects are always correctly aligned, regardless of their content (in this case, button titles), or to enable/disable all members of the group.</target>
+        </trans-unit>
+        <trans-unit id="d6m25Dup1_g23opWt5JxKQ" resname="title_10">
+          <source>Truncate input text</source>
+          <target>Truncate input text</target>
+        </trans-unit>
+        <trans-unit id="5WEF+kF0j__My5CBYCKuxg" resname="desc_10">
+          <source>A simple illustration of the truncateWithEllipsis function</source>
+          <target>A simple illustration of the truncateWithEllipsis function</target>
+        </trans-unit>
       </group>
       <group resname="dial">
         <trans-unit id="FcZegetf3JLn0r1d0Z03OQ" resname="selectAnExample">
@@ -244,6 +260,16 @@ Note that, in all cases, the form object datasource is set to &lt;instance&gt;.d
         <trans-unit id="YDTWwhs4OdxOksKWbKZsUg" resname="resizeMe">
           <source>Resize me horizontally -&gt; </source>
           <target>Resize me horizontally -&gt; </target>
+        </trans-unit>
+        <trans-unit id="th_w3L5gewn8nR6Pr_LMzw" resname="whereToPerformTruncation">
+          <source>Where to perform truncation?</source>
+          <target>Where to perform truncation?</target>
+        </trans-unit>
+        <trans-unit id="gimzHNq2TYEs7ZQzTiyh3Q" resname="whichCharacterToUse">
+          <source>Which character should be used?
+Default ellipsis</source>
+          <target>Which character should be used?
+Default ellipsis</target>
         </trans-unit>
       </group>
       <group resname="CSS">
