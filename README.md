@@ -6,6 +6,8 @@
 
 ## Welcome to this 4D repository dedicated to user interface classes* 
 
+This repository consolidates a collection of reusable user-interface components, example projects, and comprehensive documentation. It contains ready-to-use components, forms, database and UI methods, and multilingual resources, plus demos and step-by-step guides to simplify integration into 4D projects. Designed for developers who want to build modular, accessible, and maintainable interfaces, the repository provides best-practice patterns, example code, and assets to accelerate UI development.
+
 These classes are the result of my work over several years, taking advantage of evolutions in the [4D](https://4d.com) programming language. I've always sought to simplify the coding of the user interface of my developments and make it more naturally readable and easy to maintain. Another major motivation has been the need to be agile in making changes as a project evolves.
 
 ### Readability
