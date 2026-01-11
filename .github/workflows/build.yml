@@ -3,10 +3,10 @@ name: Build
 on:
   push:
     paths:
-      - '**.4dm'
+      - 'UI with Classes/**'
   pull_request:
     paths:
-      - '**.4dm'
+      - 'UI with Classes/**'
   workflow_dispatch:
 
 jobs:
