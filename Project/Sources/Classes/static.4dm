@@ -4,6 +4,7 @@ This class is the parent class of all form objects classes
 
 property name : Text
 property type : Integer
+property flexRules : cs:C1710.flexRules
 
 property _coordinates; initialPosition : cs:C1710.coordinates
 property _fonts : Collection

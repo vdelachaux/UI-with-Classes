@@ -1,0 +1,68 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"events": [
+		"onLoad",
+		"onTimer",
+		"onResize"
+	],
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"background": {
+					"type": "rectangle",
+					"top": 47,
+					"left": 141,
+					"width": 260,
+					"height": 133,
+					"fill": "#fffacd",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"stroke": "#ffd700",
+					"borderRadius": 20
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 18,
+					"left": 43,
+					"width": 50,
+					"height": 133,
+					"fill": "#ff0000",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"stroke": "#0000cd",
+					"borderRadius": 20
+				},
+				"Rectangle1": {
+					"type": "rectangle",
+					"top": 149,
+					"left": 403,
+					"width": 260,
+					"height": 133,
+					"fill": "#6495ed",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"stroke": "#0000cd",
+					"borderRadius": 20
+				}
+			}
+		}
+	],
+	"geometryStamp": 55,
+	"method": "method.4dm",
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"rightMargin": 20,
+	"bottomMargin": 20
+}
