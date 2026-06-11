@@ -1,3 +1,6 @@
+// predefined types
+property type : Text
+
 // Comportement dans un layout
 property flexGrow : Real  // Proportion d'expansion
 property flexShrink : Real  // Réduction si manque de place
@@ -17,6 +20,19 @@ property maxHeight
 Class constructor($metrics : Object)
 	
 	If ($metrics#Null:C1517)
+		
+		
+		Case of 
+				
+				// ______________________________________________________
+			: (String:C10($metrics.type)="bakground")
+				
+				This:C1470.flexGrow:=100
+				This:C1470.adjustHeight:=True:C214
+				This:C1470.adjustWidth:=True:C214
+				
+				// ______________________________________________________
+		End case 
 		
 		var $key : Text
 		For each ($key; $metrics)

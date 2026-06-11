@@ -10,36 +10,64 @@ Case of
 		
 		// MARK:- Background
 		Form:C1466.back:=$form.Static("background")
-		Form:C1466.back.flexRules:=cs:C1710.ui.flexRules.new({flexGrow: 50; minWidth: 250; /*minHeight: 250;*/maxWidth: 1000; adjustHeight: True:C214})
-		Form:C1466.background:=cs:C1710.ui.flexContainer.new($form.window; {padding: 5; children: [Form:C1466.back]})
+		Form:C1466.back.flexRules:=cs:C1710.ui.flexRules.new({type: "bakground"/*; minWidth: 550; minHeight: 150*/})
+		Form:C1466.background:=cs:C1710.ui.flexContainer.new($form.window; {padding: 0; children: [Form:C1466.back]})
 		
-		// MARK:- rectangles
-		Form:C1466.container:=cs:C1710.ui.flexContainer.new(Form:C1466.back; {padding: 20})
+		// MARK:- Rectangles
+		// 📌 default direction is "row". If shift key is pressed, the direction will be "column"
+		var $isColumn:=Shift down:C543
+		var $direction:=$isColumn ? "column" : "row"
+		
+		
+		If ($isColumn)
+			
+			var $title:="flexbox column"
+			
+		Else 
+			
+			$title:="flexbox row"
+			
+		End if 
+		
+		If (Macintosh option down:C545)
+			
+			$title+=" with wrap"
+			Form:C1466.rectangles:=cs:C1710.ui.flexContainer.new(Form:C1466.back; {direction: $direction; padding: 20; flexWrap: "wrap"})
+			
+		Else 
+			
+			$title+=" no wrap"
+			Form:C1466.rectangles:=cs:C1710.ui.flexContainer.new(Form:C1466.back; {direction: $direction; padding: 20})
+			
+		End if 
+		
+		$form.window.title:=$title
 		
 		var $rect:=$form.Static("Rectangle")
-		$rect.flexRules:=cs:C1710.ui.flexRules.new({flexGrow: 10; minWidth: 100; adjustHeight: False:C215})
-		Form:C1466.container.add($rect)
+		$rect.flexRules:=$isColumn ? cs:C1710.ui.flexRules.new({minHeight: 50; maxWidth: 400; minWidth: 100}) : cs:C1710.ui.flexRules.new({flexBasis: 80})
+		Form:C1466.rectangles.add($rect)
 		
 		$rect:=$form.Static("Rectangle1")
-		$rect.flexRules:=cs:C1710.ui.flexRules.new({flexBasis: 200; flexGrow: 20; adjustHeight: False:C215})
-		Form:C1466.container.add($rect)
+		$rect.flexRules:=cs:C1710.ui.flexRules.new({minWidth: 80})
+		Form:C1466.rectangles.add($rect)
 		
+		$rect:=$form.Static("Rectangle3")
+		$rect.flexRules:=$isColumn ? cs:C1710.ui.flexRules.new({minWidth: 100}) : cs:C1710.ui.flexRules.new({minWidth: 50})
+		Form:C1466.rectangles.add($rect)
+		
+		// MARK:- Apply constraints
 		Form:C1466.background.layout()
-		
-		SET TIMER:C645(-1)
+		Form:C1466.rectangles.layout()
 		
 		// ______________________________________________________
-	: ($e.code=On Timer:K2:25)
+	: ($e.code=On Timer:K2:25)\
+		 || ($e.code=On Resize:K2:27)
 		
 		SET TIMER:C645(0)
 		
-		Form:C1466.container.layout()
-		
-		// ______________________________________________________
-	: ($e.code=On Resize:K2:27)
-		
-		Form:C1466.container.layout()
+		// Apply all constraints
 		Form:C1466.background.layout()
+		Form:C1466.rectangles.layout()
 		
 		// ______________________________________________________
 End case 

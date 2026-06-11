@@ -1,5 +1,6 @@
 property children:=[]
 property direction:="row"
+property flexWrap:="nowrap"
 property justifyContent:="start"
 property alignItems:="start"
 property padding:=0
@@ -43,6 +44,73 @@ Class constructor($container : Object; $options : Object)
 	End for each 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function add($widget : cs:C1710.static) : cs:C1710.flexContainer
+	
+	var $rule:=$widget.flexRules
+	
+	Case of 
+			
+			// ______________________________________________________
+		: ($rule=Null:C1517)
+			
+			// <NOTHING MORE TO DO>
+			
+			// ______________________________________________________
+		: ($rule.type="bakground")
+			
+			$widget.setResizingOptions(Resize horizontal grow:K42:8; Resize vertical grow:K42:11)
+			
+			If ($rule.minHeight#Null:C1517)
+				
+				var $resize : Boolean
+				var $min; $max : Integer
+				FORM GET VERTICAL RESIZING:C1078($resize; $min; $max)
+				FORM SET VERTICAL RESIZING:C893($resize; $rule.minHeight; $max)
+				
+			End if 
+			
+			If ($rule.minWidth#Null:C1517)
+				
+				FORM GET HORIZONTAL RESIZING:C1077($resize; $min; $max)
+				FORM SET HORIZONTAL RESIZING:C892($resize; $rule.minWidth; $max)
+				
+			End if 
+			
+			// ______________________________________________________
+		: (This:C1470.direction="column")
+			
+			
+			If (This:C1470.alignItems="stretch")
+				
+				$widget.setResizingOptions(Resize horizontal grow:K42:8; Resize vertical grow:K42:11)
+				
+			Else 
+				
+				$widget.setResizingOptions($widget.resizingOptions.horizontal; Resize horizontal grow:K42:8)
+				
+			End if 
+			
+			// ______________________________________________________
+		: (This:C1470.direction="row")
+			
+			If (This:C1470.alignItems="stretch")
+				
+				$widget.setResizingOptions(Resize horizontal grow:K42:8; Resize vertical grow:K42:11)
+				
+			Else 
+				
+				$widget.setResizingOptions(Resize horizontal grow:K42:8)
+				
+			End if 
+			
+			// ______________________________________________________
+	End case 
+	
+	This:C1470.children.push($widget)
+	
+	return This:C1470
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function set container($container : Object)
 	
 	This:C1470._container:=$container
@@ -63,22 +131,21 @@ Function set container($container : Object)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function add($widget : Object) : cs:C1710.flexContainer
-	
-	This:C1470.children.push($widget)
-	
-	return This:C1470
-	
-	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function layout()
 	
-	var $container:=This:C1470._container
-	This:C1470.height:=$container.height
-	This:C1470.width:=$container.width
+	This:C1470._getContainerDimensions()
 	
 	If (This:C1470.direction="row")
 		
-		This:C1470._layoutRow()
+		If (This:C1470.flexWrap="wrap")
+			
+			This:C1470._layoutRowWrap()
+			
+		Else 
+			
+			This:C1470._layoutRow()
+			
+		End if 
 		
 	Else 
 		
@@ -87,7 +154,27 @@ Function layout()
 	End if 
 	
 	// MARK:-
-	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Function _getContainerDimensions()
+	
+	var $container:=This:C1470._container
+	
+	If ($container#Null:C1517)
+		
+		This:C1470.height:=Num:C11($container.height)
+		This:C1470.width:=Num:C11($container.width)
+		
+	Else 
+		
+		var $with; $height : Integer
+		OBJECT GET SUBFORM CONTAINER SIZE:C1148($with; $height)
+		
+		This:C1470.width:=$with
+		This:C1470.height:=$height
+		
+	End if 
+	
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _layoutRow()
 	
 	var $count:=This:C1470.children.length
@@ -98,110 +185,439 @@ Function _layoutRow()
 		
 	End if 
 	
-	var $available : Real:=This:C1470.width-(This:C1470.padding*2)
-	var $totalBasis; $totalGrow : Real
+	var $available : Real:=This:C1470.width-(This:C1470.padding*2)-(This:C1470.padding*($count-1))
 	
-	// MARK: Phase 1: Sum of bases / grow
+	If ($available<0)
+		
+		$available:=0
+		
+	End if 
+	
+	var $totalBasis; $totalGrow; $totalShrink : Real
 	var $child : Object
+	var $constraints : Object
+	var $width : Real
+	
 	For each ($child; This:C1470.children)
 		
-		var $constraints : Object:=$child.flexRules
-		
-		If ($constraints=Null:C1517)
-			
-			continue
-			
-		End if 
-		
-		$totalBasis+=Num:C11($constraints.flexBasis)
-		$totalGrow+=Num:C11($constraints.flexGrow)
+		$constraints:=This:C1470._getConstraints($child)
+		$totalBasis+=$constraints.flexBasis
+		$totalGrow+=$constraints.flexGrow
+		$totalShrink+=$constraints.flexShrink
 		
 	End for each 
 	
-	var $remaining : Real:=$available-$totalBasis-This:C1470.padding
-	
-	// MARK: Phase 2: Positioning
+	var $remaining : Real:=$available-$totalBasis
 	var $x:=This:C1470.padding
+	var $gap:=This:C1470.padding
+	
+	// Pass 1: compute effective widths after grow/shrink and min/max clamps.
+	var $effectiveWidths:=[]
+	var $usedWidth : Real:=0
 	
 	For each ($child; This:C1470.children)
 		
-		$constraints:=$child.flexRules
+		$constraints:=This:C1470._getConstraints($child)
 		
-		If ($totalGrow>0)
+		If ($remaining<0)
 			
-			var $extra : Real:=($constraints.flexGrow/$totalGrow)*$remaining
+			If ($totalShrink>0)
+				
+				$width:=$constraints.flexBasis+(($constraints.flexShrink/$totalShrink)*$remaining)
+				
+			Else 
+				
+				$width:=$constraints.flexBasis
+				
+			End if 
 			
 		Else 
 			
-			$extra:=0
-			
+			If ($totalGrow>0)
+				
+				$width:=$constraints.flexBasis+(($constraints.flexGrow/$totalGrow)*$remaining)
+				
+			Else 
+				
+				$width:=$constraints.flexBasis
+				
+			End if 
 		End if 
 		
-		var $width : Real:=$constraints.flexBasis+$extra
-		
-		// Clamp min/max
-		If ($constraints.minWidth#Null:C1517)\
-			 && ($width<=$constraints.minWidth)
+		If ($constraints.minWidth#Null:C1517) && ($width<$constraints.minWidth)
 			
 			$width:=$constraints.minWidth
 			
-/*
-$child.setResizingOptions(Resize horizontal none)
-			
-Else 
-			
-$child.setResizingOptions(Resize horizontal grow)
-*/
-			
 		End if 
 		
-		If ($constraints.maxWidth#Null:C1517)\
-			 && ($width>=$constraints.maxWidth)
+		If ($constraints.maxWidth#Null:C1517) && ($width>$constraints.maxWidth)
 			
 			$width:=$constraints.maxWidth
 			
-/*
-$child.setResizingOptions(Resize horizontal none)
+		End if 
+		
+		If ($width<0)
 			
-Else 
-			
-$child.setResizingOptions(Resize horizontal grow)
-*/
+			$width:=0
 			
 		End if 
 		
-		// Apply geometry
+		$effectiveWidths.push($width)
+		$usedWidth+=$width
+		
+	End for each 
+	
+	var $effectiveRemaining : Real:=$available-$usedWidth
+	
+	If ($effectiveRemaining>0)
+		
+		Case of 
+				
+				// ________________________________________________________________________________
+			: (This:C1470.justifyContent="center")
+				
+				$x+=$effectiveRemaining/2
+				
+				// ________________________________________________________________________________
+			: (This:C1470.justifyContent="end")
+				
+				$x+=$effectiveRemaining
+				
+				// ________________________________________________________________________________
+			: (This:C1470.justifyContent="space-between")
+				
+				If ($count>1)
+					
+					$gap+=$effectiveRemaining/($count-1)
+					
+				End if 
+				
+				// ________________________________________________________________________________
+		End case 
+	End if 
+	
+	// Pass 2: apply geometry with effective widths.
+	var $index : Integer:=0
+	For each ($child; This:C1470.children)
+		
+		$constraints:=This:C1470._getConstraints($child)
+		$width:=$effectiveWidths[$index]
+		
 		$child.left:=$x
 		$child.width:=$width
 		
-		var $height:=This:C1470.height-This:C1470.padding-(This:C1470.padding/2)
-		If ($constraints.adjustHeight)
+		var $height : Real:=This:C1470.height-(This:C1470.padding*2)
+		
+		If (This:C1470.alignItems="stretch")
 			
 			$child.height:=$height
 			
+		Else 
+			
+			If ($constraints.adjustHeight)
+				
+				$child.height:=$height
+				
+			End if 
 		End if 
 		
-		If ($constraints.minHeight#0)\
-			 && ($height<$constraints.minHeight)
+		If ($constraints.minHeight#Null:C1517) && ($child.height<$constraints.minHeight)
 			
 			$child.height:=$constraints.minHeight
 			
 		End if 
 		
-		// Align vertical
-		This:C1470._alignCrossAxis($child; "row")
-		
-		If ($child=This:C1470.children.last())
+		If ($constraints.maxHeight#Null:C1517) && ($child.height>$constraints.maxHeight)
 			
-			$child.width+=This:C1470.padding/2
+			$child.height:=$constraints.maxHeight
 			
 		End if 
 		
-		$x+=$width+This:C1470.padding
+		This:C1470._alignCrossAxis($child; "row")
+		$x+=$width+$gap
+		
+		$index+=1
 		
 	End for each 
 	
-	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Function _layoutRowWrap()
+	
+	var $count:=This:C1470.children.length
+	
+	If ($count=0)
+		
+		return 
+		
+	End if 
+	
+	var $contentWidth : Real:=This:C1470.width-(This:C1470.padding*2)
+	$contentWidth:=$contentWidth<0 ? 0 : $contentWidth
+	
+	var $lineItems:=[]
+	var $lines:=[]
+	
+	var $baseGap:=This:C1470.padding
+	
+	var $lineUsedWidth:=0
+	var $lineHeight:=0
+	
+	// Pass 1: split children into lines using clamped base widths.
+	var $child : Object
+	For each ($child; This:C1470.children)
+		
+		var $constraints:=This:C1470._getConstraints($child)
+		var $width : Real:=$constraints.flexBasis
+		
+		If ($width<=0)
+			
+			If (($child.initialPosition#Null:C1517)\
+				 && ($child.initialPosition.width>0))
+				$width:=Num:C11($child.initialPosition.width)
+				
+			Else 
+				
+				$width:=Num:C11($child.width)
+				
+			End if 
+		End if 
+		
+		If (($constraints.minWidth#Null:C1517)\
+			 && ($width<$constraints.minWidth))
+			
+			$width:=$constraints.minWidth
+			
+		End if 
+		
+		If (($constraints.maxWidth#Null:C1517)\
+			 && ($width>$constraints.maxWidth))
+			
+			$width:=$constraints.maxWidth
+			
+		End if 
+		
+		$width:=$width<0 ? 0 : $width
+		
+		var $height : Real
+		If ($child.initialPosition#Null:C1517)
+			
+			$height:=Num:C11($child.initialPosition.height)
+			
+		Else 
+			
+			$height:=Num:C11($child.height)
+			
+		End if 
+		
+		If (($constraints.minHeight#Null:C1517)\
+			 && ($height<$constraints.minHeight))
+			
+			$height:=$constraints.minHeight
+			
+		End if 
+		
+		If (($constraints.maxHeight#Null:C1517)\
+			 && ($height>$constraints.maxHeight))
+			
+			$height:=$constraints.maxHeight
+			
+		End if 
+		
+		$height:=$height<0 ? 0 : $height
+		
+		If (($lineItems.length>0)\
+			 && ($lineUsedWidth+$baseGap+$width>$contentWidth))
+			
+			$lines.push({items: $lineItems; lineHeight: $lineHeight})
+			$lineItems:=[]
+			$lineUsedWidth:=0
+			$lineHeight:=0
+			
+		End if 
+		
+		If ($lineItems.length>0)
+			
+			$lineUsedWidth+=$baseGap
+			
+		End if 
+		
+		$lineUsedWidth+=$width
+		$lineHeight:=This:C1470._max($lineHeight; $height)
+		$lineItems.push({child: $child; constraints: $constraints; basis: $width; baseHeight: $height})
+		
+	End for each 
+	
+	If ($lineItems.length>0)
+		
+		$lines.push({items: $lineItems; lineHeight: $lineHeight})
+		
+	End if 
+	
+	// Pass 2: flex distribution per line, then placement.
+	var $y:=This:C1470.padding
+	
+	var $line : Object
+	For each ($line; $lines)
+		
+		var $items:=$line.items
+		var $currentLineHeight : Real:=$line.lineHeight
+		var $gapsWidth : Real:=($items.length>1) ? (($items.length-1)*$baseGap) : 0
+		var $lineAvailable:=$contentWidth-$gapsWidth
+		
+		If ($lineAvailable<0)
+			
+			$lineAvailable:=0
+			
+		End if 
+		
+		var $totalBasis:=0
+		var $totalGrow:=0
+		var $totalShrink:=0
+		
+		var $item : Object
+		For each ($item; $items)
+			
+			$constraints:=$item.constraints
+			$totalBasis+=$item.basis
+			$totalGrow+=$constraints.flexGrow
+			$totalShrink+=$constraints.flexShrink
+			
+		End for each 
+		
+		var $remaining:=$lineAvailable-$totalBasis
+		var $effectiveWidths:=[]
+		var $usedItemsWidth:=0
+		
+		For each ($item; $items)
+			
+			$constraints:=$item.constraints
+			$width:=$item.basis
+			
+			If ($remaining<0)
+				
+				If ($totalShrink>0)
+					
+					$width:=$item.basis+(($constraints.flexShrink/$totalShrink)*$remaining)
+					
+				End if 
+				
+			Else 
+				
+				If ($totalGrow>0)
+					
+					$width:=$item.basis+(($constraints.flexGrow/$totalGrow)*$remaining)
+					
+				End if 
+			End if 
+			
+			If (($constraints.minWidth#Null:C1517)\
+				 && ($width<$constraints.minWidth))
+				
+				$width:=$constraints.minWidth
+				
+			End if 
+			
+			If (($constraints.maxWidth#Null:C1517)\
+				 && ($width>$constraints.maxWidth))
+				
+				$width:=$constraints.maxWidth
+				
+			End if 
+			
+			If ($width<0)
+				
+				$width:=0
+				
+			End if 
+			
+			$effectiveWidths.push($width)
+			$usedItemsWidth+=$width
+			
+		End for each 
+		
+		var $usedWidth:=$usedItemsWidth+$gapsWidth
+		var $lineRemaining:=$contentWidth-$usedWidth
+		var $x:=This:C1470.padding
+		var $gap:=$baseGap
+		
+		If ($lineRemaining>0)
+			
+			Case of 
+					
+					//________________________________________________________________________________
+				: (This:C1470.justifyContent="center")
+					
+					$x+=$lineRemaining/2
+					
+					//________________________________________________________________________________
+				: (This:C1470.justifyContent="end")
+					
+					$x+=$lineRemaining
+					
+					//________________________________________________________________________________
+				: (This:C1470.justifyContent="space-between")
+					
+					If ($items.length>1)
+						
+						$gap+=$lineRemaining/($items.length-1)
+						
+					End if 
+					
+					//________________________________________________________________________________
+			End case 
+		End if 
+		
+		var $index : Integer:=0
+		For each ($item; $items)
+			
+			$child:=$item.child
+			$constraints:=$item.constraints
+			$width:=$effectiveWidths[$index]
+			$height:=$item.baseHeight
+			
+			$child.left:=$x
+			$child.width:=$width
+			
+			var $align : Text:=($constraints.alignSelf#Null:C1517) ? $constraints.alignSelf : This:C1470.alignItems
+			
+			Case of 
+					
+					//________________________________________________________________________________
+				: ($align="center")
+					
+					$child.top:=$y+(($currentLineHeight-$height)/2)
+					$child.height:=$height
+					
+					//________________________________________________________________________________
+				: ($align="end")
+					
+					$child.top:=$y+($currentLineHeight-$height)
+					$child.height:=$height
+					
+					//________________________________________________________________________________
+				: ($align="stretch")
+					
+					$child.top:=$y
+					$child.height:=$currentLineHeight
+					
+					//________________________________________________________________________________
+				Else 
+					$child.top:=$y
+					$child.height:=$height
+					
+					//________________________________________________________________________________
+			End case 
+			
+			$x+=$width+$gap
+			$index+=1
+			
+		End for each 
+		
+		$y+=$currentLineHeight+This:C1470.padding
+		
+	End for each 
+	
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _layoutColumn()
 	
 	var $count:=This:C1470.children.length
@@ -212,84 +628,190 @@ Function _layoutColumn()
 		
 	End if 
 	
-	//var $available : Real:=This.height-(($count-1)*This.padding)
+	var $available : Real:=This:C1470.height-(This:C1470.padding*2)-(This:C1470.padding*($count-1))
 	
+	If ($available<0)
+		
+		$available:=0
+		
+	End if 
 	
-	var $available; $width : Real
-	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $available)
-	var $totalBasis; $totalGrow : Real
-	
+	var $totalBasis; $totalGrow; $totalShrink : Real
 	var $child : Object
+	var $constraints : Object
+	var $height : Real
 	
 	For each ($child; This:C1470.children)
 		
-		var $constraints : Object:=$child.constraints
-		
-		If ($constraints.flexBasis=Null:C1517)
-			
-			$constraints.flexBasis:=0
-			
-		End if 
-		
-		If ($constraints.flexGrow=Null:C1517)
-			
-			$constraints.flexGrow:=0
-			
-		End if 
-		
+		$constraints:=This:C1470._getConstraints($child)
 		$totalBasis+=$constraints.flexBasis
 		$totalGrow+=$constraints.flexGrow
+		$totalShrink+=$constraints.flexShrink
 		
 	End for each 
 	
 	var $remaining : Real:=$available-$totalBasis
+	var $y:=This:C1470.padding
+	var $gap:=This:C1470.padding
 	
-	var $y:=0
+	// Pass 1: compute effective heights after grow/shrink and min/max clamps.
+	var $effectiveHeights:=[]
+	var $usedHeight : Real:=0
 	
 	For each ($child; This:C1470.children)
 		
-		$constraints:=$child.constraints
+		$constraints:=This:C1470._getConstraints($child)
 		
-		If ($totalGrow>0)
+		If ($remaining<0)
 			
-			var $extra : Real:=($constraints.flexGrow/$totalGrow)*$remaining
+			If ($totalShrink>0)
+				
+				$height:=$constraints.flexBasis+($constraints.flexShrink/$totalShrink)*$remaining
+				
+			Else 
+				
+				$height:=$constraints.flexBasis
+				
+			End if 
 			
 		Else 
 			
-			$extra:=0
-			
+			If ($totalGrow>0)
+				
+				$height:=$constraints.flexBasis+($constraints.flexGrow/$totalGrow)*$remaining
+				
+			Else 
+				
+				$height:=$constraints.flexBasis
+				
+			End if 
 		End if 
 		
-		var $height : Real:=$constraints.flexBasis+$extra
-		
-		// Clamp
 		If ($constraints.minHeight#Null:C1517)
 			
-			$height:=This:C1470._max($height; $constraints.minHeight)
-			
+			If ($height<$constraints.minHeight)
+				
+				$height:=This:C1470._max($height; $constraints.minHeight)
+				
+			End if 
 		End if 
 		
 		If ($constraints.maxHeight#Null:C1517)
 			
-			$height:=This:C1470._min($height; $constraints.maxHeight)
+			If ($height>$constraints.maxHeight)
+				
+				$height:=This:C1470._min($height; $constraints.maxHeight)
+				
+			End if 
+		End if 
+		
+		If ($height<0)
+			
+			$height:=0
 			
 		End if 
+		
+		$effectiveHeights.push($height)
+		$usedHeight+=$height
+		
+	End for each 
+	
+	var $effectiveRemaining : Real:=$available-$usedHeight
+	
+	If ($effectiveRemaining>0)
+		
+		Case of 
+				
+				// ________________________________________________________________________________
+			: (This:C1470.justifyContent="center")
+				
+				$y+=$effectiveRemaining/2
+				
+				// ________________________________________________________________________________
+			: (This:C1470.justifyContent="end")
+				
+				$y+=$effectiveRemaining
+				
+				// ________________________________________________________________________________
+			: (This:C1470.justifyContent="space-between")
+				
+				If ($count>1)
+					
+					$gap+=$effectiveRemaining/($count-1)
+					
+				End if 
+				
+				// ________________________________________________________________________________
+		End case 
+	End if 
+	
+	// Pass 2: apply geometry with effective heights.
+	var $index : Integer:=0
+	For each ($child; This:C1470.children)
+		
+		$index+=1
+		
+		$constraints:=This:C1470._getConstraints($child)
+		$height:=$effectiveHeights[$index-1]
 		
 		$child.top:=$y
 		$child.height:=$height
 		
-		This:C1470._alignCrossAxis($child; "column")
+		If (This:C1470.alignItems="stretch")
+			
+			$child.width:=This:C1470.width-(This:C1470.padding*2)
+			
+		Else 
+			
+			If ($constraints.adjustWidth)
+				
+				$child.width:=This:C1470.width-(This:C1470.padding*2)
+				
+			End if 
+		End if 
 		
-		$y+=$height+This:C1470.padding
+		If ($constraints.minWidth#Null:C1517)
+			
+			If ($child.width<$constraints.minWidth)
+				
+				$child.width:=$constraints.minWidth
+				
+			End if 
+		End if 
+		
+		If ($constraints.maxWidth#Null:C1517)
+			
+			If ($child.width>$constraints.maxWidth)
+				
+				$child.width:=$constraints.maxWidth
+				
+			End if 
+		End if 
+		
+		This:C1470._alignCrossAxis($child; "column")
+		$y+=$height+$gap
 		
 	End for each 
+	
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Function _getConstraints($child : Object) : Object
+	
+	var $constraints:=$child.flexRules || {}
+	
+	$constraints.flexBasis:=$constraints.flexBasis#Null:C1517 ? $constraints.flexBasis : 0
+	$constraints.flexGrow:=$constraints.flexGrow#Null:C1517 ? $constraints.flexGrow : 10
+	$constraints.flexShrink:=$constraints.flexShrink#Null:C1517 ? $constraints.flexShrink : 1
+	$constraints.adjustHeight:=$constraints.adjustHeight#Null:C1517 ? $constraints.adjustHeight : False:C215
+	$constraints.adjustWidth:=$constraints.adjustWidth#Null:C1517 ? $constraints.adjustWidth : False:C215
+	
+	return $constraints
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _max( ...  : Real) : Real
 	
+	var $i : Integer
 	var $value:=0
 	
-	var $i : Integer
 	For ($i; 1; Count parameters:C259; 1)
 		
 		If ($i>1)\
@@ -308,9 +830,9 @@ Function _max( ...  : Real) : Real
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _min( ...  : Real) : Real
 	
+	var $i : Integer
 	var $value:=0
 	
-	var $i : Integer
 	For ($i; 1; Count parameters:C259; 1)
 		
 		If ($i>1)\
@@ -326,10 +848,10 @@ Function _min( ...  : Real) : Real
 	
 	return $value
 	
-	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _alignCrossAxis($child : Object; $mode : Text)
 	
-	var $constraints : Object:=$child.constraints
+	var $constraints:=This:C1470._getConstraints($child)
 	
 	If ($constraints.alignSelf#Null:C1517)
 		
@@ -395,3 +917,5 @@ Function _alignCrossAxis($child : Object; $mode : Text)
 			
 			//________________________________________________________________________________
 	End case 
+	
+	
