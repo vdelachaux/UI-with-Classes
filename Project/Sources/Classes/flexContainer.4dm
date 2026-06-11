@@ -459,7 +459,7 @@ Function _layoutRowWrap()
 	var $line : Object
 	For each ($line; $lines)
 		
-		var $items:=$line.items
+		var $items : Collection:=$line.items
 		var $currentLineHeight : Real:=$line.lineHeight
 		var $gapsWidth : Real:=($items.length>1) ? (($items.length-1)*$baseGap) : 0
 		var $lineAvailable:=$contentWidth-$gapsWidth
@@ -796,7 +796,7 @@ Function _layoutColumn()
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _getConstraints($child : Object) : Object
 	
-	var $constraints:=$child.flexRules || {}
+	var $constraints : Object:=$child.flexRules || {}
 	
 	$constraints.flexBasis:=$constraints.flexBasis#Null:C1517 ? $constraints.flexBasis : 0
 	$constraints.flexGrow:=$constraints.flexGrow#Null:C1517 ? $constraints.flexGrow : 10
