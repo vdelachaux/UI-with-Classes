@@ -1,6 +1,7 @@
 property children:=[]
 property direction:="row"
 property flexWrap:="nowrap"
+property uniformWrapWidth:=False:C215
 property justifyContent:="start"
 property alignItems:="start"
 property padding:=0
@@ -452,8 +453,70 @@ Function _layoutRowWrap()
 		$lines.push({items: $lineItems; lineHeight: $lineHeight})
 		
 	End if 
+		// Pass 2a: if uniformWrapWidth, pre-calculate target width across all items.
+	var $uniformTargetWidth : Real
 	
-	// Pass 2: flex distribution per line, then placement.
+	If (This:C1470.uniformWrapWidth)
+		
+		// Calculate uniform width as if all items were on one line
+		var $allGaps : Real:=(This:C1470.children.length>1) ? ((This:C1470.children.length-1)*$baseGap) : 0
+		var $uniformAvailable:=$contentWidth-$allGaps
+		
+		If ($uniformAvailable<0)
+			
+			$uniformAvailable:=0
+			
+		End if 
+		
+		var $uniformTotalBasis:=0
+		var $uniformTotalGrow:=0
+		var $uniformTotalShrink:=0
+		
+		var $uniformChild : Object
+		For each ($uniformChild; This:C1470.children)
+			
+			var $uniformConstraints:=This:C1470._getConstraints($uniformChild)
+			$uniformTotalBasis+=$uniformConstraints.flexBasis
+			$uniformTotalGrow+=$uniformConstraints.flexGrow
+			$uniformTotalShrink+=$uniformConstraints.flexShrink
+			
+		End for each 
+		
+		var $uniformRemaining:=$uniformAvailable-$uniformTotalBasis
+		
+		// Base uniform width before apply grow/shrink
+		$uniformTargetWidth:=$uniformTotalBasis/This:C1470.children.length
+		
+		If ($uniformRemaining#0)
+			
+			If ($uniformRemaining<0)
+				
+				If ($uniformTotalShrink>0)
+					
+					$uniformTargetWidth+=(($uniformRemaining/$uniformTotalShrink)*(This:C1470.children[0].flexRules.flexShrink || 1))
+					
+				End if 
+				
+			Else 
+				
+				If ($uniformTotalGrow>0)
+					
+					$uniformTargetWidth+=(($uniformRemaining/$uniformTotalGrow)*(This:C1470.children[0].flexRules.flexGrow || 10))
+					
+				End if 
+				
+		End if 
+		
+		End if 
+		
+		If ($uniformTargetWidth<0)
+			
+			$uniformTargetWidth:=0
+			
+		End if 
+		
+	End if 
+		// Pass 2: flex distribution per line, then placement.
 	var $y:=This:C1470.padding
 	
 	var $line : Object
@@ -572,7 +635,31 @@ Function _layoutRowWrap()
 			
 			$child:=$item.child
 			$constraints:=$item.constraints
-			$width:=$effectiveWidths[$index]
+			
+			If (This:C1470.uniformWrapWidth)
+				
+				// Use pre-calculated uniform width, clamped to constraints
+				$width:=$uniformTargetWidth
+				
+				If (($constraints.minWidth#Null:C1517) && ($width<$constraints.minWidth))
+					
+					$width:=$constraints.minWidth
+					
+				End if 
+				
+				If (($constraints.maxWidth#Null:C1517) && ($width>$constraints.maxWidth))
+					
+					$width:=$constraints.maxWidth
+					
+				End if 
+				
+			Else 
+				
+				// Standard per-line distribution
+				$width:=$effectiveWidths[$index]
+				
+			End if 
+			
 			$height:=$item.baseHeight
 			
 			$child.left:=$x

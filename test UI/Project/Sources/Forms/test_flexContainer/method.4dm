@@ -32,7 +32,7 @@ Case of
 		If (Macintosh option down:C545)
 			
 			$title+=" with wrap"
-			Form:C1466.rectangles:=cs:C1710.ui.flexContainer.new(Form:C1466.back; {direction: $direction; padding: 20; flexWrap: "wrap"})
+			Form:C1466.rectangles:=cs:C1710.ui.flexContainer.new(Form:C1466.back; {direction: $direction; padding: 20; flexWrap: "wrap"; uniformWrapWidth: (Command down:C546)})
 			
 		Else 
 			
