@@ -20,7 +20,7 @@ Case of
 		Form:C1466.form:=$form
 		Form:C1466.back:=$form.Static("background")
 		
-		Form:C1466.container:=cs:C1710.ui.flexContainer.new(Form:C1466.back; {direction: "row"; padding: 20; flexWrap: "wrap"; alignItems: "start"})
+		Form:C1466.container:=cs:C1710.ui.flexContainer.new(Form:C1466.back; {direction: "row"; padding: 20; flexWrap: "wrap"; alignItems: "start"; uniformWrapWidth: True:C214})
 		
 		var $contraints:={maxWidth: 400}
 		//var $contraints:={fixedWidth: True}

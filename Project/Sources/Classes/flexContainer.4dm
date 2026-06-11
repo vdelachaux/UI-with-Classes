@@ -453,60 +453,34 @@ Function _layoutRowWrap()
 		$lines.push({items: $lineItems; lineHeight: $lineHeight})
 		
 	End if 
-		// Pass 2a: if uniformWrapWidth, pre-calculate target width across all items.
-	var $uniformTargetWidth : Real
+		// Pass 2a: if uniformWrapWidth, pre-calculate target width based on column count.
+	var $uniformTargetWidth : Real:=0
 	
 	If (This:C1470.uniformWrapWidth)
 		
-		// Calculate uniform width as if all items were on one line
-		var $allGaps : Real:=(This:C1470.children.length>1) ? ((This:C1470.children.length-1)*$baseGap) : 0
-		var $uniformAvailable:=$contentWidth-$allGaps
-		
-		If ($uniformAvailable<0)
+		// Find max items on any line (determines column count)
+		var $maxItemsPerLine : Integer:=0
+		var $line : Object
+		For each ($line; $lines)
 			
-			$uniformAvailable:=0
-			
-		End if 
-		
-		var $uniformTotalBasis:=0
-		var $uniformTotalGrow:=0
-		var $uniformTotalShrink:=0
-		
-		var $uniformChild : Object
-		For each ($uniformChild; This:C1470.children)
-			
-			var $uniformConstraints:=This:C1470._getConstraints($uniformChild)
-			$uniformTotalBasis+=$uniformConstraints.flexBasis
-			$uniformTotalGrow+=$uniformConstraints.flexGrow
-			$uniformTotalShrink+=$uniformConstraints.flexShrink
+			$maxItemsPerLine:=This:C1470._max($maxItemsPerLine; $line.items.length)
 			
 		End for each 
 		
-		var $uniformRemaining:=$uniformAvailable-$uniformTotalBasis
-		
-		// Base uniform width before apply grow/shrink
-		$uniformTargetWidth:=$uniformTotalBasis/This:C1470.children.length
-		
-		If ($uniformRemaining#0)
+		If ($maxItemsPerLine>0)
 			
-			If ($uniformRemaining<0)
+			// Calculate uniform width: (contentWidth - gaps) / columns
+			var $lineGaps : Real:=($maxItemsPerLine>1) ? (($maxItemsPerLine-1)*$baseGap) : 0
+			var $uniformAvailable:=$contentWidth-$lineGaps
+			
+			If ($uniformAvailable<0)
 				
-				If ($uniformTotalShrink>0)
-					
-					$uniformTargetWidth+=(($uniformRemaining/$uniformTotalShrink)*(This:C1470.children[0].flexRules.flexShrink || 1))
-					
-				End if 
+				$uniformAvailable:=0
 				
-			Else 
-				
-				If ($uniformTotalGrow>0)
-					
-					$uniformTargetWidth+=(($uniformRemaining/$uniformTotalGrow)*(This:C1470.children[0].flexRules.flexGrow || 10))
-					
-				End if 
-				
-		End if 
-		
+			End if 
+			
+			$uniformTargetWidth:=$uniformAvailable/$maxItemsPerLine
+			
 		End if 
 		
 		If ($uniformTargetWidth<0)
