@@ -287,11 +287,16 @@
 		},
 		"flexRules": {
 			"new()": {
-				"Syntax": "**.new**( *metrics* : Object )",
+				"Syntax": "**.new**( *metrics* : Object; *widget* : cs.ui.static )",
 				"Params": [
 					[
 						"metrics",
 						"Object",
+						"->"
+					],
+					[
+						"widget",
+						"cs.ui.static",
 						"->"
 					]
 				],
@@ -1692,6 +1697,37 @@
 		"jsonFormDefinition()": {
 			"Syntax": "**.jsonFormDefinition**() : Object",
 			"Params": [
+				[
+					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"duplicate()": {
+			"Syntax": "**.duplicate**( *moveV* : Variant; *moveH* : Integer; *boundTo* : Text; *newName* : Text ) : Object",
+			"Params": [
+				[
+					"moveV",
+					"Variant",
+					"->"
+				],
+				[
+					"moveH",
+					"Integer",
+					"->"
+				],
+				[
+					"boundTo",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
 				[
 					"",
 					"Object",
@@ -5658,20 +5694,26 @@
 		}
 	},
 	"flexRules": {
+		"fixedWidth": {
+			"Syntax": "fixedWidth : Boolean"
+		},
+		"fixedHeight": {
+			"Syntax": "fixedHeight : Boolean"
+		},
 		"maxWidth": {
 			"Syntax": "maxWidth : Variant"
 		},
 		"minWidth": {
 			"Syntax": "minWidth : Variant"
 		},
+		"maxHeight": {
+			"Syntax": "maxHeight : Variant"
+		},
 		"minHeight": {
 			"Syntax": "minHeight : Variant"
 		},
 		"alignSelf": {
 			"Syntax": "alignSelf : Text"
-		},
-		"maxHeight": {
-			"Syntax": "maxHeight : Variant"
 		},
 		"adjustWidth": {
 			"Syntax": "adjustWidth : Boolean"
@@ -6271,6 +6313,9 @@
 		},
 		"alignItems": {
 			"Syntax": "alignItems : Text"
+		},
+		"uniformWrapWidth": {
+			"Syntax": "uniformWrapWidth : Boolean"
 		},
 		"justifyContent": {
 			"Syntax": "justifyContent : Text"

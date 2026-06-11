@@ -26,8 +26,8 @@
 					"type": "rectangle",
 					"top": 0,
 					"left": 0,
-					"width": 716,
-					"height": 583,
+					"width": 860,
+					"height": 591,
 					"sizingX": "grow",
 					"stroke": "transparent"
 				},
@@ -42,7 +42,7 @@
 			}
 		}
 	],
-	"geometryStamp": 37,
+	"geometryStamp": 49,
 	"method": "method.4dm",
 	"editor": {
 		"activeView": "View 1",

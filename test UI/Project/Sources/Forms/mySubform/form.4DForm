@@ -25,52 +25,62 @@
 					"width": 300,
 					"height": 150,
 					"borderRadius": 10,
-					"fill": "#E4E8EC",
+					"fill": "#EBEBEB",
 					"sizingX": "grow",
 					"sizingY": "grow"
 				},
 				"Text": {
 					"type": "text",
-					"text": "text default",
-					"top": 16,
-					"left": 21,
-					"width": 260,
-					"height": 31,
-					"fontTheme": "main"
+					"text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industryLorem ipsum dolor sit amet",
+					"top": 15,
+					"left": 68,
+					"width": 224,
+					"height": 46,
+					"fontTheme": "main",
+					"sizingX": "grow"
 				},
 				"Input": {
 					"type": "input",
 					"left": 123,
-					"top": 51,
-					"width": 136,
+					"top": 81,
+					"width": 151,
 					"height": 17,
 					"sizingX": "grow"
 				},
 				"Text1": {
 					"type": "text",
 					"text": "label",
-					"top": 51,
-					"left": 4,
-					"width": 109,
+					"top": 81,
+					"left": 33,
+					"width": 80,
 					"height": 16,
 					"textAlign": "right"
 				},
 				"Button": {
 					"type": "button",
 					"text": "Button",
-					"top": 111,
-					"left": 176,
+					"top": 109,
+					"left": 191,
 					"width": 83,
-					"height": 24,
+					"height": 26,
 					"events": [
 						"onClick"
 					],
 					"sizingX": "move"
+				},
+				"Static Picture1": {
+					"type": "picture",
+					"top": 15,
+					"left": 12,
+					"width": 48,
+					"height": 52,
+					"picture": "/.PRODUCT_RESOURCES/Images/Plugin.png",
+					"pictureFormat": "scaled"
 				}
 			}
 		}
 	],
-	"geometryStamp": 37,
+	"geometryStamp": 63,
 	"width": 300,
 	"height": 150,
 	"editor": {

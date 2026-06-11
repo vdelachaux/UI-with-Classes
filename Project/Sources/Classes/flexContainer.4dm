@@ -363,7 +363,7 @@ Function _layoutRowWrap()
 	var $lineUsedWidth:=0
 	var $lineHeight:=0
 	
-	// Pass 1: split children into lines using clamped base widths.
+	// MARK: Pass 1: split children into lines using clamped base widths.
 	var $child : Object
 	For each ($child; This:C1470.children)
 		
@@ -453,7 +453,8 @@ Function _layoutRowWrap()
 		$lines.push({items: $lineItems; lineHeight: $lineHeight})
 		
 	End if 
-		// Pass 2a: if uniformWrapWidth, pre-calculate target width based on column count.
+	
+	// MARK: Pass 2a: if uniformWrapWidth, pre-calculate target width based on column count.
 	var $uniformTargetWidth : Real:=0
 	
 	If (This:C1470.uniformWrapWidth)
@@ -490,10 +491,10 @@ Function _layoutRowWrap()
 		End if 
 		
 	End if 
-		// Pass 2: flex distribution per line, then placement.
+	
+	// MARK: Pass 2b: flex distribution per line, then placement.
 	var $y:=This:C1470.padding
 	
-	var $line : Object
 	For each ($line; $lines)
 		
 		var $items : Collection:=$line.items
@@ -604,6 +605,7 @@ Function _layoutRowWrap()
 			End case 
 		End if 
 		
+		// MARK: Phase 3 - apply
 		var $index : Integer:=0
 		For each ($item; $items)
 			

@@ -14,15 +14,24 @@ Case of
 			"mySubform"; \
 			"mySubform"; \
 			"mySubform"; \
+			"mySubform"; \
+			"mySubform"; \
+			"mySubform"; \
+			"mySubform"; \
+			"mySubform"; \
+			"mySubform"; \
+			"mySubform"; \
+			"mySubform"; \
 			"mySubform"]
 		
-		var $form:=cs:C1710.ui.form.new()
-		Form:C1466.form:=$form
-		Form:C1466.back:=$form.Static("background")
+		var $flexOptions:={\
+			padding: 20; \
+			flexWrap: "wrap"; \
+			uniformWrapWidth: True:C214}
 		
-		Form:C1466.container:=cs:C1710.ui.flexContainer.new(Form:C1466.back; {direction: "row"; padding: 20; flexWrap: "wrap"; alignItems: "start"; uniformWrapWidth: True:C214})
+		Form:C1466.container:=cs:C1710.ui.flexContainer.new(cs:C1710.ui.static.new("background"); $flexOptions)
 		
-		var $contraints:={maxWidth: 400}
+		var $contraints:={maxWidth: 600}
 		//var $contraints:={fixedWidth: True}
 		
 		var $i : Integer
@@ -30,7 +39,7 @@ Case of
 			
 			If ($i=0)
 				
-				var $widget:=$form.Subform("Subform")
+				var $widget:=cs:C1710.ui.subform.new("Subform")
 				
 			Else 
 				
