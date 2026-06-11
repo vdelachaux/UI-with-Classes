@@ -76,5 +76,19 @@ Pass `type` in the metrics object to apply a preset configuration:
 |**.maxWidth** | Maximum width allowed (pixels) | `Integer` | <font color="green">✓</font> |
 |**.minHeight** | Minimum height allowed (pixels) | `Integer` | <font color="green">✓</font> |
 |**.maxHeight** | Maximum height allowed (pixels) | `Integer` | <font color="green">✓</font> |
+|**.fixedWidth** | Lock widget width: sets both `minWidth` and `maxWidth` to the same value | `Boolean` | <font color="green">✓</font> |
+|**.fixedHeight** | Lock widget height: sets both `minHeight` and `maxHeight` to the same value | `Boolean` | <font color="green">✓</font> |
 
-> 📌 Use `flexRules` to adjust a widget's size and alignment inside a `flexContainer`, especially when you need responsive behavior on window or form resize.
+### Fixed dimensions
+
+Set `fixedWidth: true` or `fixedHeight: true` to prevent a widget from expanding or shrinking. This is useful in wrap layouts where you want certain elements to maintain their original size regardless of available space:
+
+```4d
+// This widget will never change width, even in uniformWrapWidth mode
+This.form.button.flexRules:=cs.flexRules.new({fixedWidth: true})
+
+// This widget will keep its current height but can expand/shrink horizontally
+This.form.input.flexRules:=cs.flexRules.new({fixedHeight: true; flexGrow: 1})
+```
+
+> 📌 Use `fixedWidth` and `fixedHeight` to create mixed layouts with both rigid and flexible elements.
