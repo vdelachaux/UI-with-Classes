@@ -95,7 +95,7 @@ var $layout : cs.flexContainer:=cs.flexContainer.new(This.form.Group("content");
 // Wrap disabled — all widgets stay on one line
 var $layout : cs.flexContainer:=cs.flexContainer.new(This.form.Group("toolbar"); {
 	direction: "row";
-	flexWrap: False:C215;
+	flexWrap: False;
 	padding: 8
 })
 ```
@@ -108,7 +108,7 @@ When `flexWrap=True` and `uniformWrapWidth=True`, all items maintain the same wi
 // All items will have consistent width, even when wrapping to new lines
 var $layout : cs.flexContainer:=cs.flexContainer.new(This.form.Group("cards"); {
 	direction: "row";
-	uniformWrapWidth: True:C214;
+	uniformWrapWidth: True;
 	padding: 12
 })
 ```
