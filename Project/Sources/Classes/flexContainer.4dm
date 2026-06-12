@@ -248,7 +248,7 @@ Function _layoutRow() : Object
 		
 	End if 
 	
-	var $available : Real:=This:C1470.width-(This:C1470.padding*2)-(This:C1470.padding*($count-1))
+	var $available : Integer:=This:C1470.width-(This:C1470.padding*2)-(This:C1470.padding*($count-1))
 	
 	If ($available<0)
 		
@@ -259,7 +259,7 @@ Function _layoutRow() : Object
 	var $totalBasis; $totalGrow; $totalShrink : Real
 	var $child : Object
 	var $constraints : Object
-	var $width : Real
+	var $width : Integer
 	
 	For each ($child; This:C1470.children)
 		
@@ -270,13 +270,13 @@ Function _layoutRow() : Object
 		
 	End for each 
 	
-	var $remaining : Real:=$available-$totalBasis
-	var $x:=This:C1470.padding
-	var $gap:=This:C1470.padding
+	var $remaining : Integer:=$available-$totalBasis
+	var $x : Integer:=This:C1470.padding
+	var $gap : Integer:=This:C1470.padding
 	
 	// Pass 1: compute effective widths after grow/shrink and min/max clamps.
 	var $effectiveWidths:=[]
-	var $usedWidth : Real:=0
+	var $usedWidth : Integer:=0
 	
 	For each ($child; This:C1470.children)
 		
@@ -324,7 +324,7 @@ Function _layoutRow() : Object
 		
 	End for each 
 	
-	var $effectiveRemaining : Real:=$available-$usedWidth
+	var $effectiveRemaining : Integer:=$available-$usedWidth
 	
 	If ($effectiveRemaining>0)
 		
@@ -363,7 +363,7 @@ Function _layoutRow() : Object
 		$child.left:=$x
 		$child.width:=$width
 		
-		var $height : Real:=This:C1470.height-(This:C1470.padding*2)
+		var $height : Integer:=This:C1470.height-(This:C1470.padding*2)
 		
 		If (This:C1470.alignItems="stretch")
 			
@@ -397,7 +397,7 @@ Function _layoutRow() : Object
 		
 	End for each 
 	
-	var $usedWidth : Real:=($x-This:C1470.padding)
+	var $usedWidth : Integer:=($x-This:C1470.padding)
 	var $containerHeight : Real:=This:C1470.height
 	
 	return {width: $usedWidth; height: $containerHeight}
@@ -756,18 +756,18 @@ Function _layoutColumn() : Object
 		
 	End if 
 	
-	var $available : Real:=This:C1470.height-(This:C1470.padding*2)-(This:C1470.padding*($count-1))
+var $available : Integer:=This:C1470.height-(This:C1470.padding*2)-(This:C1470.padding*($count-1))
 	
 	If ($available<0)
 		
 		$available:=0
-		
-	End if 
+	
+	End if
 	
 	var $totalBasis; $totalGrow; $totalShrink : Real
 	var $child : Object
 	var $constraints : Object
-	var $height : Real
+	var $height : Integer
 	
 	For each ($child; This:C1470.children)
 		
@@ -778,13 +778,13 @@ Function _layoutColumn() : Object
 		
 	End for each 
 	
-	var $remaining : Real:=$available-$totalBasis
-	var $y:=This:C1470.padding
-	var $gap:=This:C1470.padding
+	var $remaining : Integer:=$available-$totalBasis
+	var $y : Integer:=This:C1470.padding
+	var $gap : Integer:=This:C1470.padding
 	
 	// Pass 1: compute effective heights after grow/shrink and min/max clamps.
 	var $effectiveHeights:=[]
-	var $usedHeight : Real:=0
+	var $usedHeight : Integer:=0
 	
 	For each ($child; This:C1470.children)
 		
@@ -844,7 +844,7 @@ Function _layoutColumn() : Object
 		
 	End for each 
 	
-	var $effectiveRemaining : Real:=$available-$usedHeight
+var $effectiveRemaining : Integer:=$available-$usedHeight
 	
 	If ($effectiveRemaining>0)
 		
@@ -921,8 +921,8 @@ Function _layoutColumn() : Object
 		
 	End for each 
 	
-	var $containerWidth : Real:=This:C1470.width
-	var $usedHeight : Real:=($y-This:C1470.padding)
+	var $containerWidth : Integer:=This:C1470.width
+	var $usedHeight : Integer:=($y-This:C1470.padding)
 	
 	return {width: $containerWidth; height: $usedHeight}
 	
