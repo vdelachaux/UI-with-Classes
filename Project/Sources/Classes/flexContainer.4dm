@@ -1,5 +1,5 @@
 property direction:="row"  // = row || column
-property padding:=0
+property padding : Integer:=0
 property alignItems:="start"
 property flexWrap:=True:C214  // Default is wrap
 property uniformWrapWidth:=False:C215
@@ -133,7 +133,7 @@ Function set container($container : Object)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-Function layout()
+Function layout() : Object
 	
 	This:C1470._getContainerDimensions()
 	
@@ -141,17 +141,17 @@ Function layout()
 		
 		If (This:C1470.flexWrap)
 			
-			This:C1470._layoutRowWrap()
+			return This:C1470._layoutRowWrap()
 			
 		Else 
 			
-			This:C1470._layoutRow()
+			return This:C1470._layoutRow()
 			
 		End if 
 		
 	Else 
 		
-		This:C1470._layoutColumn()
+		return This:C1470._layoutColumn()
 		
 	End if 
 	
@@ -238,7 +238,7 @@ Function _getContainerDimensions()
 	End if 
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
-Function _layoutRow()
+Function _layoutRow() : Object
 	
 	var $count:=This:C1470.children.length
 	
@@ -397,8 +397,13 @@ Function _layoutRow()
 		
 	End for each 
 	
+	var $usedWidth : Real:=($x-This:C1470.padding)
+	var $containerHeight : Real:=This:C1470.height
+	
+	return {width: $usedWidth; height: $containerHeight}
+	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
-Function _layoutRowWrap()
+Function _layoutRowWrap() : Object
 	
 	var $count:=This:C1470.children.length
 	
@@ -408,7 +413,7 @@ Function _layoutRowWrap()
 		
 	End if 
 	
-	var $contentWidth : Real:=This:C1470.width-(This:C1470.padding*2)
+	var $contentWidth : Integer:=This:C1470.width-(This:C1470.padding*2)
 	$contentWidth:=$contentWidth<0 ? 0 : $contentWidth
 	
 	var $lineItems:=[]
@@ -416,15 +421,15 @@ Function _layoutRowWrap()
 	
 	var $baseGap:=This:C1470.padding
 	
-	var $lineUsedWidth:=0
-	var $lineHeight:=0
+	var $lineUsedWidth : Integer:=0
+	var $lineHeight : Integer:=0
 	
 	// MARK: Pass 1: split children into lines using clamped base widths.
 	var $child : Object
 	For each ($child; This:C1470.children)
 		
 		var $constraints:=This:C1470._getConstraints($child)
-		var $width : Real:=$constraints.flexBasis
+		var $width : Integer:=$constraints.flexBasis
 		
 		If ($width<=0)
 			
@@ -455,7 +460,7 @@ Function _layoutRowWrap()
 		
 		$width:=$width<0 ? 0 : $width
 		
-		var $height : Real
+		var $height : Integer
 		If ($child.initialPosition#Null:C1517)
 			
 			$height:=Num:C11($child.initialPosition.height)
@@ -510,8 +515,8 @@ Function _layoutRowWrap()
 		
 	End if 
 	
-	// MARK: Pass 2a: if uniformWrapWidth, pre-calculate target width based on column count.
-	var $uniformTargetWidth : Real:=0
+	// MARK: Pass 2: if uniformWrapWidth, pre-calculate target width based on column count.
+	var $uniformTargetWidth : Integer:=0
 	
 	If (This:C1470.uniformWrapWidth)
 		
@@ -527,7 +532,7 @@ Function _layoutRowWrap()
 		If ($maxItemsPerLine>0)
 			
 			// Calculate uniform width: (contentWidth - gaps) / columns
-			var $lineGaps : Real:=($maxItemsPerLine>1) ? (($maxItemsPerLine-1)*$baseGap) : 0
+			var $lineGaps : Integer:=($maxItemsPerLine>1) ? (($maxItemsPerLine-1)*$baseGap) : 0
 			var $uniformAvailable:=$contentWidth-$lineGaps
 			
 			If ($uniformAvailable<0)
@@ -548,15 +553,16 @@ Function _layoutRowWrap()
 		
 	End if 
 	
-	// MARK: Pass 2b: flex distribution per line, then placement.
-	var $y:=This:C1470.padding
+	// MARK: Pass 3: flex distribution per line, then placement.
+	var $y : Integer:=This:C1470.padding
+	var $totalWidth : Integer
 	
 	For each ($line; $lines)
 		
 		var $items : Collection:=$line.items
-		var $currentLineHeight : Real:=$line.lineHeight
-		var $gapsWidth : Real:=($items.length>1) ? (($items.length-1)*$baseGap) : 0
-		var $lineAvailable:=$contentWidth-$gapsWidth
+		var $currentLineHeight : Integer:=$line.lineHeight
+		var $gapsWidth : Integer:=($items.length>1) ? (($items.length-1)*$baseGap) : 0
+		var $lineAvailable : Integer:=$contentWidth-$gapsWidth
 		
 		If ($lineAvailable<0)
 			
@@ -564,9 +570,9 @@ Function _layoutRowWrap()
 			
 		End if 
 		
-		var $totalBasis:=0
-		var $totalGrow:=0
-		var $totalShrink:=0
+		var $totalBasis : Integer:=0
+		var $totalGrow : Integer:=0
+		var $totalShrink : Integer:=0
 		
 		var $item : Object
 		For each ($item; $items)
@@ -578,9 +584,9 @@ Function _layoutRowWrap()
 			
 		End for each 
 		
-		var $remaining:=$lineAvailable-$totalBasis
+		var $remaining : Integer:=$lineAvailable-$totalBasis
+		var $usedItemsWidth : Integer:=0
 		var $effectiveWidths:=[]
-		var $usedItemsWidth:=0
 		
 		For each ($item; $items)
 			
@@ -661,8 +667,7 @@ Function _layoutRowWrap()
 			End case 
 		End if 
 		
-		// MARK: Phase 3 - apply
-		var $index : Integer:=0
+		var $index : Integer
 		For each ($item; $items)
 			
 			$child:=$item.child
@@ -734,10 +739,14 @@ Function _layoutRowWrap()
 		
 		$y+=$currentLineHeight+This:C1470.padding
 		
+		$totalWidth:=$x>$totalWidth ? $x : $totalWidth
+		
 	End for each 
 	
+	return {width: $totalWidth; height: $y}
+	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
-Function _layoutColumn()
+Function _layoutColumn() : Object
 	
 	var $count:=This:C1470.children.length
 	
@@ -911,6 +920,11 @@ Function _layoutColumn()
 		$y+=$height+$gap
 		
 	End for each 
+	
+	var $containerWidth : Real:=This:C1470.width
+	var $usedHeight : Real:=($y-This:C1470.padding)
+	
+	return {width: $containerWidth; height: $usedHeight}
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _getConstraints($child : Object) : Object

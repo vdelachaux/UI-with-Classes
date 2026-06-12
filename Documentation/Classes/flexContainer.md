@@ -65,7 +65,7 @@ $layout.layout()
 | Functions | |
 |:-------- |:------ |
 |.**add**(*widget* : `cs.static`) : `cs.flexContainer` | Adds a child widget and configures its native resize options |
-|.**layout**() | Reads container dimensions then computes widget positions and sizes |
+|.**layout**() : `Object` | Reads container dimensions, computes widget positions and sizes. Returns `{width; height}` representing the total space used by the layout |
 |**.wrap** | Enable wrapping (chainable keyword) |
 |**.noWrap** | Disable wrapping (chainable keyword) |
 |**.directionRow** | Set direction to row (chainable keyword) |
@@ -107,6 +107,32 @@ var $layout : cs.flexContainer:=cs.flexContainer.new($container; {padding: 12})\
 | `direction = "row"` (default) | Grow horizontal only |
 
 > 📌 The layout engine works by reading each child widget's `flexRules` constraints, then allocating space and optionally expanding or shrinking children based on available space.
+
+### layout()
+
+`layout()` reads the container dimensions and computes widget positions and sizes based on constraints. It returns an object containing the total space used by the layout:
+
+```4d
+var $result : Object:=$layout.layout()
+
+var $usedWidth : Real:=$result.width    // Total width used (including padding/gaps)
+var $usedHeight : Real:=$result.height  // Total height used (including padding/gaps)
+```
+
+This is useful for:
+- Computing scroll area dimensions
+- Adjusting parent container size based on content
+- Cascading layouts in complex hierarchies
+
+```4d
+// Apply layout and get used space
+var $space : Object:=$layout.layout()
+
+If ($space.height>This.form.container.height)
+	// Adjust container if needed
+	This.form.container.height:=$space.height+20
+End if
+```
 
 ### Wrap mode
 
