@@ -17,7 +17,7 @@ This class is available via the `cs` class store through `cs.flexContainer.new()
 #### Example
 
 ```4d
-var $layout : cs.flexContainer:=cs.flexContainer.new(This.form.Group("content"); {direction: "row"; flexWrap: "wrap"; padding: 12})
+var $layout : cs.flexContainer:=cs.flexContainer.new(This.form.Group("content"); {direction: "row"; padding: 12})
 
 This.form.input1.flexRules:=cs.flexRules.new({flexBasis: 150; flexGrow: 1; minWidth: 80})
 This.form.input2.flexRules:=cs.flexRules.new({flexBasis: 120; flexGrow: 2; minWidth: 100})
@@ -52,7 +52,7 @@ $layout.layout()
 |:----------|:-----------|:-----------|:-----------:|
 |**.children** | Child widgets managed by the layout | `Collection` | <font color="green">✓</font> |
 |**.direction** | Layout direction: `"row"` (default) or `"column"` | `Text` | <font color="green">✓</font> |
-|**.flexWrap** | Wrapping mode: `"nowrap"` (default) or `"wrap"` | `Text` | <font color="green">✓</font> |
+|**.flexWrap** | Enable line wrapping when items overflow (default: `True`) | `Boolean` | <font color="green">✓</font> |
 |**.uniformWrapWidth** | In wrap mode, apply uniform width to all items across lines (default: `False`) | `Boolean` | <font color="green">✓</font> |
 |**.justifyContent** | Main-axis alignment: `"start"` (default), `"center"`, `"end"`, `"space-between"` | `Text` | <font color="green">✓</font> |
 |**.alignItems** | Cross-axis alignment: `"start"` (default), `"center"`, `"end"`, `"stretch"` | `Text` | <font color="green">✓</font> |
@@ -81,27 +81,33 @@ $layout.layout()
 
 ### Wrap mode
 
-When `direction="row"` and `flexWrap="wrap"`, widgets are split into multiple lines when the available width is exceeded.
+When `direction="row"` and `flexWrap=True` (the default), widgets are split into multiple lines when the available width is exceeded. Set `flexWrap=False` to keep all widgets on a single line.
 
 ```4d
+// Wrap enabled (default)
 var $layout : cs.flexContainer:=cs.flexContainer.new(This.form.Group("content"); {
 	direction: "row";
-	flexWrap: "wrap";
 	justifyContent: "space-between";
 	alignItems: "center";
+	padding: 8
+})
+
+// Wrap disabled — all widgets stay on one line
+var $layout : cs.flexContainer:=cs.flexContainer.new(This.form.Group("toolbar"); {
+	direction: "row";
+	flexWrap: False:C215;
 	padding: 8
 })
 ```
 
 ### Uniform width in wrap mode
 
-When `flexWrap="wrap"` and `uniformWrapWidth=True`, all items maintain the same width across all lines, expanding uniformly up to their `maxWidth` constraints. Without this option, items on partially-filled lines may be wider than items on full lines.
+When `flexWrap=True` and `uniformWrapWidth=True`, all items maintain the same width across all lines, expanding uniformly up to their `maxWidth` constraints. Without this option, items on partially-filled lines may be wider than items on full lines.
 
 ```4d
 // All items will have consistent width, even when wrapping to new lines
 var $layout : cs.flexContainer:=cs.flexContainer.new(This.form.Group("cards"); {
 	direction: "row";
-	flexWrap: "wrap";
 	uniformWrapWidth: True:C214;
 	padding: 12
 })

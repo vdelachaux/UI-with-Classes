@@ -1,6 +1,6 @@
 property children:=[]
 property direction:="row"
-property flexWrap:="nowrap"
+property flexWrap:=True:C214  // daefault is wrap
 property uniformWrapWidth:=False:C215
 property justifyContent:="start"
 property alignItems:="start"
@@ -138,7 +138,7 @@ Function layout()
 	
 	If (This:C1470.direction="row")
 		
-		If (This:C1470.flexWrap="wrap")
+		If (This:C1470.flexWrap)
 			
 			This:C1470._layoutRowWrap()
 			
@@ -222,15 +222,9 @@ Function _layoutRow()
 		
 		If ($remaining<0)
 			
-			If ($totalShrink>0)
-				
-				$width:=$constraints.flexBasis+(($constraints.flexShrink/$totalShrink)*$remaining)
-				
-			Else 
-				
-				$width:=$constraints.flexBasis
-				
-			End if 
+			// In nowrap mode, keep base widths and let content overflow horizontally.
+			// This avoids visual truncation caused by automatic shrink.
+			$width:=$constraints.flexBasis
 			
 		Else 
 			
