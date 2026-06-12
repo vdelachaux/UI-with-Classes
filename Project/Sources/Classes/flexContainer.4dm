@@ -1,10 +1,11 @@
-property children:=[]
-property direction:="row"
-property flexWrap:=True:C214  // daefault is wrap
+property direction:="row"  // = row || column
+property padding:=0
+property alignItems:="start"
+property flexWrap:=True:C214  // Default is wrap
 property uniformWrapWidth:=False:C215
 property justifyContent:="start"
-property alignItems:="start"
-property padding:=0
+
+property children:=[]
 
 property width : Real
 property height : Real
@@ -154,7 +155,68 @@ Function layout()
 		
 	End if 
 	
-	// MARK:-
+	// MARK:- Keywords
+	// _______________________________________________________________________________________________________
+Function get wrap() : cs:C1710.flexContainer
+	
+	This:C1470.flexWrap:=True:C214
+	return This:C1470
+	
+	// _______________________________________________________________________________________________________
+Function get noWrap() : cs:C1710.flexContainer
+	
+	This:C1470.flexWrap:=False:C215
+	return This:C1470
+	
+	// _______________________________________________________________________________________________________
+Function get directionRow() : cs:C1710.flexContainer
+	
+	This:C1470.direction:="row"
+	return This:C1470
+	
+	// _______________________________________________________________________________________________________
+Function get directionColumn() : cs:C1710.flexContainer
+	
+	This:C1470.direction:="column"
+	return This:C1470
+	
+	// _______________________________________________________________________________________________________
+Function get alignStart() : cs:C1710.flexContainer
+	
+	This:C1470.alignItems:="start"
+	return This:C1470
+	
+	// _______________________________________________________________________________________________________
+Function get alignCenter() : cs:C1710.flexContainer
+	
+	This:C1470.alignItems:="center"
+	return This:C1470
+	
+	// _______________________________________________________________________________________________________
+Function get alignEnd() : cs:C1710.flexContainer
+	
+	This:C1470.alignItems:="end"
+	return This:C1470
+	
+	// _______________________________________________________________________________________________________
+Function get alignSpaceBetween() : cs:C1710.flexContainer
+	
+	This:C1470.alignItems:="space-between"
+	return This:C1470
+	
+	// _______________________________________________________________________________________________________
+Function get uniformWidth() : cs:C1710.flexContainer
+	
+	This:C1470.uniformWrapWidth:=True:C214
+	return This:C1470
+	
+	// _______________________________________________________________________________________________________
+Function get variableWidth() : cs:C1710.flexContainer
+	
+	This:C1470.uniformWrapWidth:=False:C215
+	return This:C1470
+	
+	// MARK:- Private
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _getContainerDimensions()
 	

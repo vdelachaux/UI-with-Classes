@@ -66,6 +66,35 @@ $layout.layout()
 |:-------- |:------ |
 |.**add**(*widget* : `cs.static`) : `cs.flexContainer` | Adds a child widget and configures its native resize options |
 |.**layout**() | Reads container dimensions then computes widget positions and sizes |
+|**.wrap** | Enable wrapping (chainable keyword) |
+|**.noWrap** | Disable wrapping (chainable keyword) |
+|**.directionRow** | Set direction to row (chainable keyword) |
+|**.directionColumn** | Set direction to column (chainable keyword) |
+|**.alignStart** | Set alignItems to start (chainable keyword) |
+|**.alignCenter** | Set alignItems to center (chainable keyword) |
+|**.alignEnd** | Set alignItems to end (chainable keyword) |
+|**.alignSpaceBetween** | Set justifyContent to space-between (chainable keyword) |
+|**.uniformWidth** | Enable uniform width in wrap mode (chainable keyword) |
+|**.variableWidth** | Disable uniform width in wrap mode (chainable keyword) |
+
+### Chainable keywords
+
+Keyword getters provide a fluent API for configuring layout options inline. Each returns the container instance, allowing method chaining:
+
+```4d
+// Traditional approach
+var $layout : cs.flexContainer:=cs.flexContainer.new($container; {direction: "row"; padding: 12})
+$layout.flexWrap:=True
+$layout.uniformWrapWidth:=True
+$layout.alignItems:="center"
+
+// Fluent approach with keywords
+var $layout : cs.flexContainer:=cs.flexContainer.new($container; {padding: 12})\
+  .directionRow\
+  .wrap\
+  .uniformWidth\
+  .alignCenter
+```
 
 ### add()
 
