@@ -74,17 +74,15 @@ Function get name() : Text
 	// === === === === === === === === === === === === === === === === === ===
 Function get instance() : Object
 	
-	var $form; $name : Text
-	var $ptr : Pointer
-	var $data : Object
-	
-	$name:=OBJECT Get name:C1087(Object current:K67:2)
+	var $name:=OBJECT Get name:C1087(Object current:K67:2)
 	
 	// Get the name of the current displayed sub-form
+	var $form : Text
+	var $ptr : Pointer
 	OBJECT GET SUBFORM:C1139(*; $name; $ptr; $form)
 	
 	// Get the data associated with the subform (Form)
-	$data:=OBJECT Get value:C1743($name)
+	var $data : Object:=OBJECT Get value:C1743($name)
 	
 	return {name: $name; form: $form; data: $data}
 	
@@ -92,11 +90,8 @@ Function get instance() : Object
 	// Displays widget
 Function show($data : Object) : Text
 	
-	var $widget : Text
-	$widget:=This:C1470.name
-	
-	var $instance : Object
-	$instance:=This:C1470.instances.query("name = :1"; $widget).first()
+	var $widget:=This:C1470.name
+	var $instance : Object:=This:C1470.instances.query("name = :1"; $widget).first()
 	
 	If ($instance=Null:C1517)
 		
@@ -107,8 +102,7 @@ Function show($data : Object) : Text
 		var $ptr : Pointer
 		OBJECT DUPLICATE:C1111(*; This:C1470.instances[0].name; $widget; $ptr; $names{Size of array:C274($names)})
 		
-		var $page : Integer
-		$page:=FORM Get current page:C276
+		var $page:=FORM Get current page:C276
 		This:C1470.instances[$page]:={name: $widget; data: This:C1470.instances[0].data}
 		$instance:=This:C1470.instances[$page]
 		
@@ -193,8 +187,7 @@ Function cancel()
 	// Returns the data of the widget on the current page
 Function get data() : Object
 	
-	var $widget : Text
-	$widget:=This:C1470.name
+	var $widget:=This:C1470.name
 	
 	If (OBJECT Get type:C1300(*; $widget)#Object type unknown:K79:1)
 		
@@ -206,8 +199,7 @@ Function get data() : Object
 	// Sets the data of the widget on the current page
 Function set data($data : Object)
 	
-	var $widget : Text
-	$widget:=This:C1470.name
+	var $widget:=This:C1470.name
 	
 	If (OBJECT Get type:C1300(*; $widget)#Object type unknown:K79:1)
 		
@@ -218,17 +210,14 @@ Function set data($data : Object)
 	// === === === === === === === === === === === === === === === === === ===
 Function setProgress($progress : Integer; $message : Text)
 	
-	var $o : Object
-	$o:=OB Copy:C1225(This:C1470)
+	var $o:=OB Copy:C1225(This:C1470)
 	EXECUTE METHOD IN SUBFORM:C1085(This:C1470.name; Formula:C1597($o._setProgress($progress; $message)))
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _setProgress($value : Integer; $message : Text)
 	
-	var $c : Collection
-	
 	// "min;max;unit;step;flags;format;display"
-	$c:=Split string:C1554(OBJECT Get format:C894(*; "progress"); ";")
+	var $c : Collection:=Split string:C1554(OBJECT Get format:C894(*; "progress"); ";")
 	
 	If ($value<0)
 		

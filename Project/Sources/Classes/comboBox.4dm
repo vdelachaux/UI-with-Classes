@@ -1,18 +1,17 @@
 Class extends dropDown
 
+property _ordered; automaticExpand : Boolean
+
 Class constructor($name : Text; $data : Object; $parent : Object)
 	
 	Super:C1705($name; $data; $parent)
 	
-	If (Bool:C1537($data.ordered))
-		
-		This:C1470.order()
-		
-	End if 
+	This:C1470._ordered:=Bool:C1537($data.ordered)
+	This:C1470.automaticExpand:=Bool:C1537($data.automaticExpand)
 	
-	If ($data.automaticExpand)
+	If (This:C1470.automaticExpand)
 		
-		This:C1470.addEvent(On Getting Focus:K2:7)
+		This:C1470._automaticExpandInit()
 		
 	End if 
 	
@@ -23,6 +22,49 @@ Class constructor($name : Text; $data : Object; $parent : Object)
 	End if 
 	
 	This:C1470.filter:=Num:C11(This:C1470.data.type)
+
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get value() : Text
+	
+	return This:C1470.isFocused() ? Get edited text:C655 : String:C10(This:C1470.data.currentValue)
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function predictiveTyping($input : Text) : Text
+	
+	If (This:C1470.isFocused())
+		
+		$input:=$input || Get edited text:C655
+		
+		If (Length:C16($input)=0)
+			
+			This:C1470.index:=-1
+			
+			return 
+			
+		End if 
+		
+		var $o:=This:C1470.checkValue($input+"@")
+		
+		If ($o.success)
+			
+			This:C1470.index:=$o.indx
+			This:C1470.data.currentValue:=$o.value
+			
+			HIGHLIGHT TEXT:C210(*; This:C1470.name; Length:C16($input)+1; MAXLONG:K35:2)
+			
+			This:C1470.redraw()
+			
+		End if 
+		
+		return $input
+		
+	End if 
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Force the redrawing
+Function redraw()
+	
+	This:C1470.data:=This:C1470.data
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get automaticExpand() : Boolean
@@ -36,10 +78,10 @@ Function set automaticExpand($auto : Boolean)
 	
 	If ($auto)
 		
-		This:C1470.addEvent(On Getting Focus:K2:7)
+		This:C1470._automaticExpandInit()
 		
 	End if 
-	
+
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get automaticInsertion() : Boolean
 	
@@ -55,7 +97,7 @@ Function set automaticInsertion($auto : Boolean)
 		This:C1470.addEvent(On Data Change:K2:15)
 		
 	End if 
-	
+
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get ordered() : Boolean
 	
@@ -127,17 +169,45 @@ Function set filter($filter)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Display the selection list (to use in the On getting focus event)
+Function expand($force : Boolean) : cs:C1710.comboBox
+	
+	If ($force || This:C1470.automaticExpand)
+		
+		// Get the current widget window coordinates
+		var $o:=This:C1470.windowCoordinates
+		POST CLICK:C466($o.right-10; $o.top+10; Current process:C322)
+		
+	End if 
+	
+	return This:C1470
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function order()
 	
 	This:C1470.data.values:=This:C1470.data.values.orderBy()
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-	// Display the selection list (to use in the On getting focus event)
-Function expand()
+	// Display the selection list (to use in the On Data change event)
+Function automaticInsertion($ordered : Boolean)
 	
-	GOTO OBJECT:C206(*; This:C1470.name)
-	POST KEY:C465(Down arrow key:K12:19; 0 ?+ Command key bit:K16:2)
+	var $value : Variant:=This:C1470.data.currentValue
+	var $index : Integer:=This:C1470.data.values.indexOf($value)
 	
+	If ($index=-1)
+		
+		This:C1470.data.values.push($value)
+		
+		If ($ordered | This:C1470._ordered)
+			
+			This:C1470.data.values:=This:C1470.data.values.orderBy()
+			$index:=This:C1470.data.values.indexOf($value)
+			
+		End if 
+	End if 
+	
+	This:C1470.data.index:=$index
+
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Insert an item or the current value. 
 	// Keep the list ordered if any
@@ -198,7 +268,7 @@ Function eventHandler() : Object
 			
 			If (This:C1470.data.automaticExpand)
 				
-				This:C1470.expand()
+				This:C1470.expand(True:C214)
 				
 			End if 
 			
@@ -207,7 +277,7 @@ Function eventHandler() : Object
 			
 			If (This:C1470.data.automaticInsertion)
 				
-				This:C1470.insert()
+				This:C1470.automaticInsertion()
 				
 			End if 
 			
@@ -215,3 +285,9 @@ Function eventHandler() : Object
 	End case 
 	
 	return $e
+
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+	// Set On Getting focus event, if any
+Function _automaticExpandInit()
+	
+	This:C1470.addEvent(On Getting Focus:K2:7)

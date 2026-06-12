@@ -1,4 +1,4 @@
-property name:=""
+property name : Text
 property left; top; right; bottom : Integer
 
 Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
@@ -7,31 +7,21 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 	
 	Case of 
 			
-			// ______________________________________________________
-		: (Value type:C1509($1)=Is longint:K8:6)\
-			 || (Value type:C1509($1)=Is real:K8:4)
-			
-			// Left
-			
 			//______________________________________________________
-		: (Value type:C1509($1)=Is object:K8:27)
+		: (Value type:C1509($left)=Is object:K8:27)
 			
 			var $o : Object
-			
-			If ($1.getCoordinates#Null:C1517)\
-				 && (OB Instance of:C1731($1.getCoordinates; 4D:C1709.Function))
-				
-				$o:=$1.getCoordinates()
-				
+			If ($left.getCoordinates#Null:C1517)  // could check also "OB Instance of($left.getCoordinates;4D.Function)" if needed
+				$o:=Try($left.getCoordinates())
 			End if 
 			
 			If ($o#Null:C1517)  // Widget
 				
-				This:C1470.name:=String:C10($1.name)
+				This:C1470.name:=String:C10($left.name)
 				
 			Else 
 				
-				$o:=$1
+				$o:=$left
 				
 			End if 
 			
@@ -41,15 +31,10 @@ Class constructor($left; $top : Integer; $right : Integer; $bottom : Integer)
 			$bottom:=Num:C11($o.bottom)
 			
 			//______________________________________________________
-		: (Value type:C1509($1)=Is text:K8:3)  // Object name
+		: (Value type:C1509($left)=Is text:K8:3)  // Object name
 			
-			This:C1470.name:=$1
+			This:C1470.name:=$left
 			OBJECT GET COORDINATES:C663(*; This:C1470.name; $left; $top; $right; $bottom)
-			
-		Else 
-			
-			throw:C1805(_error("The first parameter must be an Object or Text"))
-			return 
 			
 			//______________________________________________________
 	End case 
@@ -109,18 +94,16 @@ Function get height() : Integer
 Function get rect() : cs:C1710.rect
 	
 	return cs:C1710.rect.new(This:C1470.width; This:C1470.height)
+
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get dimensions() : cs:C1710.dimensions
 	
+	return cs:C1710.dimensions.new(This:C1470.width; This:C1470.height)
+
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function apply($name : Text)
 	
 	$name:=$name || This:C1470.name
+	ASSERT:C1129(Length:C16($name)>0; "Missing target name!")
 	
-	If (Length:C16($name)>0)
-		
-		OBJECT SET COORDINATES:C1248(*; $name; This:C1470.left; This:C1470.top; This:C1470.right; This:C1470.bottom)
-		
-	Else 
-		
-		throw:C1805(_error("Missing target name!"))
-		
-	End if 
+	OBJECT SET COORDINATES:C1248(*; $name; This:C1470.left; This:C1470.top; This:C1470.right; This:C1470.bottom)

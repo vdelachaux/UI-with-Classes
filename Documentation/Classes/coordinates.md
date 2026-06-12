@@ -22,7 +22,7 @@ To simplify the distinction between form objects and object type, this documenta
 |---|---|---|---|
 | widget | Object | → | A widget class object like `cs.static`, `cs.input`, `cs.button`… |
 | name | Text | → | A name of a widget |
-| left<br>top<br>right<br>bottom| Integer | -> | Coordinates in pixels, in the form coordinate system\*.|
+| left<br>top<br>right<br>bottom| Integer | → | Coordinates in pixels, in the form coordinate system\*.|
 | result | cs.coordinates | ← | New `cs.coordinates`
 
 \* Origin is top left corner of current form
@@ -44,6 +44,7 @@ To simplify the distinction between form objects and object type, this documenta
 |**.left**<br>**.top**<br>**.right**<br>**.bottom** | Coordinates, in pixels, in the form coordinate system| `Integer` |<font color="green">✓</font>
 |**.height**<br>**.width**| Height & width, in pixels, calculated from the current coordinates | `Integer` |<font color="red">x</font>
 |**.rect**| Dimension object from the current coordinates | [`cs.rect`](rect.md) |<font color="red">x</font>
+|**.dimensions**| Dimension object from the current coordinates | [`cs.dimensions`](dimensions.md) |<font color="red">x</font>
 |**.name**| Name of the widget registered when using the constructor | `Text` |<font color="red">x</font>
 |**.screenCoordinates**| Converted current coordinates into the screen coordinate system (origin is top left corner of main screen) | `{left,top,right,bottom}` |<font color="red">x</font>
 |**.windowCoordinates**| Converted current coordinates into the window coordinate system (origin is top left corner of current window) | `{left,top,right,bottom}` |<font color="red">x</font>
@@ -61,7 +62,7 @@ To simplify the distinction between form objects and object type, this documenta
 
 |Parameter|Type||Description|
 |---|---|---|---|
-| name | Text | <- | form object name |
+| name | Text | ← | form object name |
 
 ### Description
 
@@ -73,5 +74,8 @@ If no name is available, an assert is triggered.
 ### Example
 
 ```4d
-var $coordinates:=cs.coordinates.new("Input")$coordinates.left+=10$coordinates.top+=10$coordinates.apply()
+var $coordinates:=cs.coordinates.new("Input")
+$coordinates.left+=10
+$coordinates.top+=10
+$coordinates.apply()
 ```

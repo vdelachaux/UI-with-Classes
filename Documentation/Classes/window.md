@@ -93,3 +93,10 @@ This.form.window.maximize()
 |.**vibrate**(*count* : `Integer`) | Shakes the window visually |
 
 > 📌 `vibrate()` is useful to draw attention to an invalid action, such as a failed login attempt.
+
+## Integration Notes
+
+Recent integration adds dimension aliases for backward compatibility with `rect`:
+
+* `.dimensions` (`cs.dimensions`) mirrors `.rect`.
+* `.setDimensions(width; height)` mirrors `.setRect(width; height)`.

@@ -15,7 +15,7 @@ The `listbox` class is intended to handle listbox widget.
 |**.windowCoordinates** | [*inherited*](formObject.md) |
 |**.scrollbars** | [*inherited*](scrollable.md) |
 |**.scroll** | [*inherited*](scrollable.md) |
-|**.isCollection** | **True** if the listbox datasource is a collection or an entity slecetion
+|**.isCollection** | **True** if the listbox datasource is a collection or an entity selection
 |**.isArray** | **True** if the listbox datasources are arrays
 |**.item** | Ready to be used as a current element of the data source.
 |**.itemPosition** | Ready to be used as a current item position of the data source.
@@ -28,7 +28,7 @@ The `listbox` class is intended to handle listbox widget.
 
 The class constructor `cs.listbox.new({formObjectName})` creates a new class instance.
 
-If the `formObjectName` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv18R6/4D/18-R6/OBJECT-Get-name.301-5198296.en.html)** ( <u>Object current</u> )
+If the `formObjectName` parameter is omitted, the constructor uses the result of **[OBJECT Get name](https://doc.4d.com/4Dv18R6/4D/18-R6/OBJECT-Get-name.301-5198296.en.html)** ( <u>Object current</u> )
 
 > 📌 Omitting the object name can only be used if the constructor is called from the object method.
 
@@ -46,7 +46,8 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**doSafeSelect** (row `:Integer`) →`:cs.listbox` | Selects the given row if possible, else the most appropiate one. <br/>Useful to maintain a selection after a deletion|
 |.**selectAll** ( ) →`:cs.listbox` | Selects all rows |
 |.**edit** ()<br/>.**edit** (event `:Object` {; item `:Integer`})<br/>.**edit** (target `:Text` {; item `:Integer`}) | To edit a listbox item |
-|.**reveal** (row `:Integer`)  → `:cs.listbox` | Selects ans reveal the passed row number |
+|.**forceEdit**()<br/>.**forceEdit** (event `:Object` {; item `:Integer`})<br/>.**forceEdit** (target `:Text` {; item `:Integer`}) | Forces enterable state then starts edition of a listbox cell/item |
+|.**reveal** (row `:Integer`)  → `:cs.listbox` | Selects and reveals the passed row number |
 |.**selectedNumber** ()  →`:Integer` | Gives the number of selected rows |
 |.**columnNumber** ()  →`:Integer` | Gives the number of columns |
 |.**rowNumber** ()  →`:Integer` | Gives the number of lines |
@@ -59,7 +60,7 @@ If the `formObjectName` parameter is ommited, the constructor use the result of 
 |.**clear** ()  →`:cs.listbox`| |
 |.**deleteRow** (row`:Integer`)  →`:cs.listbox`| |
 |.**getColumnProperties** (column`:Integer`)  →`:Object`| |
-|.**getProperty** (property`:Integer` {; column`:Integer`}) →`:Variant`| Returns a column or listbox (if column is ommited) property value|
+|.**getProperty** (property`:Integer` {; column`:Integer`}) →`:Variant`| Returns a column or listbox (if column is omitted) property value|
 |.**highlight** ({enable`:Boolean`})  →`:cs.listbox`| |
 |.**noHighlight** ()  →`:cs.listbox`| |
 |.**movableLines** ({enable `:Boolean`})  →`:cs.listbox`| |

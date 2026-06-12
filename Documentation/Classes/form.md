@@ -102,6 +102,7 @@ This.form:=cs.form.new(This; Try(JSON Parse(File("/SOURCES/Forms/"+Current form 
 |**.toBeInitialized** | Has the form been initialized *  |`Boolean`|**True**|<font color="green">✓</font>
 |**.window** | Current form window class object |`cs.window`||<font color="red">x</font>
 |**.constraints** | The constraints manager |`cs.constraints`||<font color="red">x</font>
+|**.fluentUI** | Windows theme compatibility flag (**True** when Fluent UI is active) |`Boolean`|**False**|<font color="green">✓</font>
 
 \*  To be set up by the `form controller class`    
 

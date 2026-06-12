@@ -131,6 +131,15 @@ Function getParentRect() : cs:C1710.rect
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
 	
 	return cs:C1710.rect.new($width; $height)
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	/// Returns the width and height of the container.
+Function getParentDimensions() : cs:C1710.dimensions
+	
+	var $height; $width : Integer
+	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
+	
+	return cs:C1710.dimensions.new($width; $height)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Returns  the names of the forms associated with the subform.
@@ -244,6 +253,9 @@ Function _getParent($name : Text) : Object
 	return {\
 		name: This:C1470.form.name; \
 		rect: {\
+		width: $width; \
+		height: $height}; \
+		dimensions: {\
 		width: $width; \
 		height: $height}; \
 		container: $name}

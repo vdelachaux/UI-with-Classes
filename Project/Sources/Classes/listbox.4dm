@@ -912,6 +912,81 @@ Function edit($target; $item : Integer)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function forceEdit($target; $item : Integer)
+	
+	If (Value type:C1509($target)=Is object:K8:27)  // ⚠️ Should be an event object
+		
+		ASSERT:C1129($target.columnName#Null:C1517)
+		
+		OBJECT SET ENTERABLE:C238(*; String:C10($target.columnName); True:C214)
+		
+		If ($target.row#Null:C1517)
+			
+			EDIT ITEM:C870(*; String:C10($target.columnName); Num:C11($target.row))
+			
+		Else 
+			
+			If (Count parameters:C259=1)  // Current item
+				
+				EDIT ITEM:C870(*; String:C10($target.columnName))
+				
+			Else 
+				
+				EDIT ITEM:C870(*; String:C10($target.columnName); $item)
+				
+			End if 
+			
+		End if 
+		
+	Else 
+		
+		Case of 
+			
+				//______________________________________________________________
+			: (Count parameters:C259=0)  // First editable column of the current row
+				
+				ARRAY BOOLEAN:C223($isVisible; 0)
+				ARRAY POINTER:C280($columnsPtr; 0)
+				ARRAY POINTER:C280($footersPtr; 0)
+				ARRAY POINTER:C280($headersPtr; 0)
+				ARRAY POINTER:C280($stylesPtr; 0)
+				ARRAY TEXT:C222($columns; 0)
+				
+				LISTBOX GET ARRAYS:C832(*; This:C1470.name; \
+					$columns; $headers; \
+					$columnsPtr; $headersPtr; \
+					$isVisible; \
+					$stylesPtr)
+				
+				var $i : Integer
+				For ($i; 1; Size of array:C274($columns); 1)
+					
+					If (OBJECT Get visible:C1075(*; $columns{$i}))
+						
+						OBJECT SET ENTERABLE:C238(*; $columns{$i}; True:C214)
+						EDIT ITEM:C870(*; $columns{$i})
+						break
+						
+					End if 
+				End for 
+				
+				//______________________________________________________________
+			: (Count parameters:C259=1)  // Current item
+				
+				OBJECT SET ENTERABLE:C238(*; String:C10($target); True:C214)
+				EDIT ITEM:C870(*; String:C10($target))
+				
+				//______________________________________________________________
+			Else 
+				
+				OBJECT SET ENTERABLE:C238(*; String:C10($target); True:C214)
+				EDIT ITEM:C870(*; String:C10($target); $item)
+				
+				//______________________________________________________________
+		End case 
+	End if 
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Reveal the row
 Function reveal($row : Integer) : cs:C1710.listbox
 	

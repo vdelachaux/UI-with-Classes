@@ -9,7 +9,14 @@ The `dropDown` class is available via the [`form`](form.md#objects) class throug
 ```4d
 This.form:=cs.form.new(This)
 ...
-This.myDropDown:=This.form.DropDown("dropDownList"; {\		values: [\		Localized string("latest"); \		Localized string("upToNextMajorVersion"); \		Localized string("upToNextMinorVersion"); \		Localized string("exactVersion"); \		Localized string("follow4dVersion")]; \		index: 0})
+This.myDropDown:=This.form.DropDown("dropDownList"; {\
+		values: [\
+		Localized string("latest"); \
+		Localized string("upToNextMajorVersion"); \
+		Localized string("upToNextMinorVersion"); \
+		Localized string("exactVersion"); \
+		Localized string("follow4dVersion")]; \
+		index: 0})
 ```
 
 In the form editor, you set the *Variable or expression* property of the drop-down list to `formGetInstance.myDropDown.data` and you can later do:
@@ -26,7 +33,10 @@ This class is, more generally, available from the `cs` class store, or `cs.ui` c
 #### Example
 
 ```4d
-Form.myDropDown:=cs.ui.widget.new("dropDownList"; {\		values: ["one";"two";"three";"four"]; \		index: 0; \		placeholder: "Select one…"})
+Form.myDropDown:=cs.ui.widget.new("dropDownList"; {\
+		values: ["one";"two";"three";"four"]; \
+		index: 0; \
+		placeholder: "Select one…"})
 ```
 
 In the form editor, you set the *Variable or expression* property of the drop-down list to `Form.myDropDown.data` and you can later retrieve the user's selection like this:
@@ -36,7 +46,7 @@ In the form editor, you set the *Variable or expression* property of the drop-do
 ```4d
 // Get user selection
 var $selectedIndex : Integer:=Form.myDropDown.index
-var $selected : Text:=Form.myDropDown. currentValue
+var $selected : Text:=Form.myDropDown.currentValue
 ```
 <hr>
 
@@ -76,7 +86,7 @@ var $selected : Text:=Form.myDropDown. currentValue
 `placeholder` | same as `values` | No | Default is `currentValue`
   
  * The optional `parent` parameter is the [`cs.form`](form.md) object containing the *widget*. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the `cs.form` class.
-* If the `name` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
+* If the `name` parameter is omitted, the constructor uses the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
 
 > ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
 
@@ -102,5 +112,7 @@ Inherited properties and functions are described in the parent classes:
 | Functions | |
 |:-------- |:------ | 
 |.**clear** ( ) | Unselect item & restore the placeholder if any.
+|.**inTheListOfValues**(*value* : `Text`) →`Boolean` | Returns **True** when *value* (or current `.value` if omitted/empty) exists in `.values`.
+|.**checkValue**(*value* : `Text`) →`Object` | Returns `{success; input; indx; value}` when found, otherwise `{success: False; input}`.
 |.**reset** (*data* ) | Uses the *data* object to reset the widget.
 |.**restore** ( ) | Restores the last definition\* of the widget data.<br>\*automatically saved at instantiation or by calling the `.reset( )` function.

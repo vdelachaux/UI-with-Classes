@@ -119,7 +119,11 @@ Function get data() : Variant
 Function set data($data)
 	
 	This:C1470._data:=$data
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+	/// Returns the number of members in the group
+Function get count() : Integer
 	
+	return This:C1470.members.length	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 /** 
 Add one or more members to a group
@@ -811,7 +815,56 @@ Function alignLeft($reference) : cs:C1710.group
 	End for each 
 	
 	return This:C1470
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function alignTop($reference) : cs:C1710.group
 	
+	If (Count parameters:C259>=1)
+		
+		Case of 
+			
+					// _________________________________________________________
+			: (Value type:C1509($reference)=Is object:K8:27)
+				
+				// We assume it is from the static class (or extend)
+				// #TO_DO: test the class
+				$top:=$reference.updateCoordinates().coordinates.top
+				
+					// _________________________________________________________
+			: (Value type:C1509($reference)=Is integer:K8:5)\
+				 | (Value type:C1509($reference)=Is real:K8:4)
+				
+				$top:=$reference
+				
+					// _________________________________________________________
+			: (Value type:C1509($reference)=Is text:K8:3)
+				
+				$top:=cs:C1710.static.new($reference).coordinates.top
+				
+					// _________________________________________________________
+			Else 
+				
+				var $top : Integer  // #ERROR
+				
+					// _________________________________________________________
+			End case 
+		
+	Else 
+		
+		// Default reference is the first member of the group
+		$top:=This:C1470.members[0].updateCoordinates().coordinates.top
+		
+	End if 
+	
+	var $member : cs:C1710.static
+	For each ($member; This:C1470.members)
+		
+		$member.moveVertically($top-$member.coordinates.top)
+		
+	End for each 
+	
+	return This:C1470
+
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function alignRight($reference) : cs:C1710.group
 	
@@ -956,7 +1009,31 @@ Function setFontStyle($style : Integer) : cs:C1710.group
 	End for each 
 	
 	return This:C1470
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function backupCoordinates() : cs:C1710.group
 	
+	var $member : cs:C1710.static
+	For each ($member; This:C1470.members)
+		
+		$member.backupCoordinates()
+		
+	End for each 
+	
+	return This:C1470
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function restorePosition() : cs:C1710.group
+	
+	var $member : cs:C1710.static
+	For each ($member; This:C1470.members)
+		
+		$member.restorePosition()
+		
+	End for each 
+	
+	return This:C1470
+
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _userOptions($e : Object; $user : Object) : Object
 	

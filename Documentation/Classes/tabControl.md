@@ -84,5 +84,7 @@ This.BOTTOM.clearList()
 |.**isChoiceList**() →`Boolean` | Returns **True** when the data source is a choice list |
 |.**isObject**() →`Boolean` | Returns **True** when the data source is an object |
 |.**clearList**() | Clears the choice list when used as a choice list source |
+|.**enableTab**(*index* : `Integer` {; *enabled* : `Boolean`}) | Enables/disables a tab item when backed by a choice list |
+|.**disableTab**(*index* : `Integer`) | Shortcut for `.enableTab(index; False)` |
 
 > 📌 `pageNumber` is 1-based and updates both the form page and the list selection when the widget uses a choice list.

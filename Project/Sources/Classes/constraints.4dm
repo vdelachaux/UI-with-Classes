@@ -22,6 +22,8 @@ Class constructor($metrics : Object)
 		End for each 
 	End if 
 	
+	This:C1470._matrix:=Not:C34(Is compiled mode:C492)  // True if Dev mode
+	
 	// MARK:-[KEYWORDS]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get centerHorizontally() : cs:C1710.constraints

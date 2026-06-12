@@ -4,6 +4,7 @@ property toBeInitialized:=True:C214
 property pageNumber : Integer:=0
 property entryOrder:=[]
 property colorScheme:=FORM Get color scheme:C1761
+property fluentUI:=False:C215
 
 property name : Text:=Current form name:C1298
 property isMatrix : Boolean:=Structure file:C489=Structure file:C489(*)
@@ -139,38 +140,45 @@ Class constructor($param; $me : Object)
 	
 	This:C1470._callback:=Formula:C1597(formCallBack).source
 	
+	If (Is Windows:C1573)
+		
+		// Ensure backward compatibility
+		This:C1470.fluentUI:=Try(Formula from string:C1601("FORM Windows theme:C1832").call()="FluentUI")
+		
+	End if 
+	
 	Case of 
 			
 			//______________________________________________________
-		: ($1=Null:C1517)
+		: ($param=Null:C1517)
 			
 			//
 			
 			//______________________________________________________
-		: (Value type:C1509($1)=Is text:K8:3)  // Callback method's name
+		: (Value type:C1509($param)=Is text:K8:3)  // Callback method's name
 			
-			This:C1470._callback:=$1
+			This:C1470._callback:=$param
 			
 			//______________________________________________________
-		: (Value type:C1509($1)=Is object:K8:27)\
-			 && (OB Instance of:C1731(OB Class:C1730($1); 4D:C1709.Class))
+		: (Value type:C1509($param)=Is object:K8:27)\
+			 && (OB Instance of:C1731(OB Class:C1730($param); 4D:C1709.Class))
 			
-			This:C1470.__SUPER__:=$1
-			$1.__CLASS__:=OB Class:C1730($1)
+			This:C1470.__SUPER__:=$param
+			$param.__CLASS__:=OB Class:C1730($param)
 			
-			This:C1470._worker:=String:C10($1.worker) || This:C1470._worker
-			This:C1470._callback:=String:C10($1.callback) || This:C1470._callback
-			This:C1470.isSubform:=$1.isSubform || This:C1470.isSubform
-			This:C1470.toBeInitialized:=$1.toBeInitialized || This:C1470.toBeInitialized
-			This:C1470._darkExtension:=String:C10($1.darkExtension) || This:C1470._darkExtension
-			This:C1470.entryOrder:=$1.entryOrder || This:C1470.entryOrder
-			This:C1470.pages:=$1.pages || This:C1470.pages
+			This:C1470._worker:=String:C10($param.worker) || This:C1470._worker
+			This:C1470._callback:=String:C10($param.callback) || This:C1470._callback
+			This:C1470.isSubform:=$param.isSubform || This:C1470.isSubform
+			This:C1470.toBeInitialized:=$param.toBeInitialized || This:C1470.toBeInitialized
+			This:C1470._darkExtension:=String:C10($param.darkExtension) || This:C1470._darkExtension
+			This:C1470.entryOrder:=$param.entryOrder || This:C1470.entryOrder
+			This:C1470.pages:=$param.pages || This:C1470.pages
+			This:C1470.fluentUI:=$param.fluentUI || This:C1470.fluentUI
 			
 			//______________________________________________________
 		Else 
 			
-			throw:C1805(_error("The first parameter must be an Object or Text"))
-			return 
+			ASSERT:C1129(False:C215; "The 'param' parameter must be a text or an object.")
 			
 			//______________________________________________________
 	End case 

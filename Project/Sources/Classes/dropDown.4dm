@@ -17,23 +17,40 @@ Function get values() : Collection
 Function set values($values : Collection)
 	
 	This:C1470.data.values:=$values
-	This:C1470.data.index:=-1
+	// This.data.index:=-1
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get value() : Variant
 	
-	If (This:C1470.data.index#-1)\
-		 || (OB Instance of:C1731(This:C1470; cs:C1710.dropDown))
-		
-		return This:C1470.data.currentValue
-		
-	End if 
+	return This:C1470.data.currentValue
 	
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set value($value)
 	
 	This:C1470.data.currentValue:=$value
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Returns True if value is in the list of values
+Function inTheListOfValues($value : Text) : Boolean
 	
+	return This:C1470.data.values.indexOf($value || This:C1470.value)#-1
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	// Check if value is in the list of values
+Function checkValue($value : Text) : Object
+	
+	var $indx : Integer:=This:C1470.data.values.indexOf($value || This:C1470.value)
+	
+	If ($indx=-1)
+		
+		return {success: False:C215; input: $value}
+		
+	Else 
+		
+		return {success: True:C214; input: $value; indx: $indx; value: This:C1470.data.values[$indx]}
+		
+	End if 
+
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get index() : Integer
 	

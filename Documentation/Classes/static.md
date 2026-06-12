@@ -49,7 +49,7 @@ Form.myWidget.hide()
 `cs.static.new()` creates & returns a new instance of the class.
  
 * The optional `parent` parameter is the [`cs.form`](form.md) object containing the widget. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the `cs.form` class.
-* If the `name` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
+* If the `name` parameter is omitted, the constructor uses the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
 
 > ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
 
@@ -249,6 +249,14 @@ Possible values for the `proxy` parameter are:
 * A variable name if the picture comes from a `picture variable`
 
 If the `proxy` parameter is omitted, the picture is removed
+
+## Integration Notes
+
+Recent integration adds dimension aliases and best-size paddings:
+
+* `.dimensions` getter/setter mirrors `.rect`.
+* `.setDimensions(width; height)` mirrors `.setRect(width; height)`.
+* `.bestSize()` now accepts optional `horizontalPadding` and `verticalPadding` in its object parameter.
 
 
 

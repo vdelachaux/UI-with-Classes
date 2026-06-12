@@ -2,6 +2,8 @@ Class extends static
 
 property name; action; _uri : Text
 
+property newUI:=Bool:C1537(Application info:C1599[(Is Windows:C1573 ? "useFluentUI" : "useLiquidGlass")])
+
 property _events:=[]
 property _data; dataSource
 property _callback : 4D:C1709.Function

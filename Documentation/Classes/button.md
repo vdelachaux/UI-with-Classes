@@ -51,7 +51,7 @@ Form.myButton.enable()
  
 * Where relevant, the constructor defines the height of the button to suit the system's interface rules.<br>The width can also be adapted to ensure correct label display and a better user experience, particularly for checkboxes and radio buttons.
 * The optional `parent` parameter is the [`cs.form`](form.md) object containing the *widget*. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the `cs.form` class.
-* If the `name` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
+* If the `name` parameter is omitted, the constructor uses the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
 
 > ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
 
@@ -91,6 +91,27 @@ Inherited properties and functions are described in the parent classes:
 
 \* Adding or deleting a linked or associated menu automatically activates/deactivates the object's form event <u>On Alternative Click</u> of the widget. 
 <br>\*\* The following style values are possible:
->style = 0: None (default)<br>style = 1: Background offset<br>style = 2: Push button<br>style = 3: Toolbar button<br>style = 4: Custom<br>style = 5: Circle<br>style = 6: Small system square<br>style = 7: Office XP<br>style = 8: Bevel<br>style = 9: Rounded bevel<br>style = 10: Collapse/Expand<br>style = 11: Help<br>style = 12: OS X Textured<br>style = 13: OS X Gradient
+>style = 0: None (default)
+<br>style = 1: Background offset
+<br>style = 2: Push button
+<br>style = 3: Toolbar button
+<br>style = 4: Custom
+<br>style = 5: Circle
+<br>style = 6: Small system square
+<br>style = 7: Office XP
+<br>style = 8: Bevel
+<br>style = 9: Rounded bevel
+<br>style = 10: Collapse/Expand
+<br>style = 11: Help
+<br>style = 12: OS X Textured
+<br>style = 13: OS X Gradient
+
+## Integration Notes
+
+Recent integration adds adaptive sizing behavior based on `widget.newUI`:
+
+* Windows: Fluent UI sizes differ from Win32 classic sizes.
+* macOS: Liquid Glass sizes differ from legacy sizes.
+* Constructor keeps backward compatibility when `parent` is omitted.
 	
 

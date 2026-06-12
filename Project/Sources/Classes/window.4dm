@@ -164,7 +164,21 @@ Function get rect() : cs:C1710.rect
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
 	
 	return cs:C1710.rect.new($width; $height)
+
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get dimensions() : cs:C1710.dimensions
 	
+	If (This:C1470.ref=Null:C1517)
+		
+		return 
+		
+	End if 
+	
+	var $height; $width : Integer
+	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
+	
+	return cs:C1710.dimensions.new($width; $height)
+
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function setRect($width : Integer; $height : Integer)
 	
@@ -176,7 +190,19 @@ Function setRect($width : Integer; $height : Integer)
 	
 	var $coordinates:=This:C1470.coordinates
 	SET WINDOW RECT:C444($coordinates.left; $coordinates.top; $coordinates.left+$width; $coordinates.top+$height; This:C1470.ref; *)
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function setDimensions($width : Integer; $height : Integer)
 	
+	If (This:C1470.ref=Null:C1517)
+		
+		return 
+		
+	End if 
+	
+	var $coordinates:=This:C1470.coordinates
+	SET WINDOW RECT:C444($coordinates.left; $coordinates.top; $coordinates.left+$width; $coordinates.top+$height; This:C1470.ref; *)
+
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get width() : Integer
 	

@@ -160,3 +160,26 @@ Function clearList()
 		CLEAR LIST:C377(This:C1470.dataSource; *)
 		
 	End if 
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function enableTab($index : Integer; $enabled : Boolean)
+	
+	If (Not:C34(This:C1470.isChoiceList))
+		
+		return 
+		
+	End if 
+	
+	$enabled:=Count parameters:C259>=2 ? $enabled : True:C214
+	SET LIST ITEM PROPERTIES:C386(This:C1470.dataSource; $index; $enabled; 0)
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function disableTab($index : Integer)
+	
+	If (Not:C34(This:C1470.isChoiceList))
+		
+		return 
+		
+	End if 
+	
+	SET LIST ITEM PROPERTIES:C386(This:C1470.dataSource; $index; False:C215; 0)

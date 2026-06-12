@@ -75,3 +75,12 @@ End function
 |**.scroll** | True when the event is `onScroll` | `Boolean` | <font color="red">x</font> |
 
 > 📌 The class also includes boolean getters for many additional built-in form events, such as `mouseEnter`, `mouseLeave`, `dataChange`, `beforeKeystroke`, `afterKeystroke`, `resize`, and more.
+
+## Integration Notes
+
+Event name/JSON mappings were moved to `cs._evtCst` singleton:
+
+* `evt._eventName` resolves through `cs._evtCst.me._descriptions`.
+* `evt._getEventCode(name)` resolves through `cs._evtCst.me._formEvents`.
+
+This keeps `evt` focused on event payload behavior while centralizing constants.

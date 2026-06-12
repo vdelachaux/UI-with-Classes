@@ -13,7 +13,9 @@ The `group` class is available via the [`form`](form.md#objects) class through t
 ```4d
 This.form:=cs.form.new(This)
 ...
-This.bottomButtons:=This.form.Group()This.ok:=This.form.Button("Button").addToGroup(This.bottomButtons)This.cancel:=This.form.Button("Button1").addToGroup(This.bottomButtons)
+This.bottomButtons:=This.form.Group()
+This.ok:=This.form.Button("Button").addToGroup(This.bottomButtons)
+This.cancel:=This.form.Button("Button1").addToGroup(This.bottomButtons)
 
 ...
 This.bottomButtons.distributeRigthToLeft()
@@ -95,7 +97,7 @@ The constructor accepts an optional`members` parameter of type **`Collection`**,
 |.**distributeVertically** ({*params* :`Object`}) →`This` | Performs a vertical distribution of the elements\*| 
 |.**enclosingRect** ({*padding* :`Integer`}) →`Object`| Returns the [coordinates](#coord) of the enclosing rectangle, respecting the `padding` parameter if passed| 
 |.**hide** () →`This` | Makes all elements invisible| 
-|.**horizontallyCentered** ({*params* :`Object` {; *ref* :`Text`}) →`This` | Performs an horizontal alignment of the elements.<br/>The optional widget name parameter allow to specify the reference. If ommited, the distribution is relative to the form| 
+|.**horizontallyCentered** ({*params* :`Object` {; *ref* :`Text`}) →`This` | Performs a horizontal alignment of the elements.<br/>The optional widget name parameter allows specifying the reference. If omitted, the distribution is relative to the form| 
 |.**move** (*hOffset* :`Integer` ; *vOffset* :`Integer`) | Move all members horizontally & vertically| 
 |.**moveDown** (*offset* :`Integer`) | Moves down all members| 
 |.**moveUp** (*offset* :`Integer`) | Move all members upwards| 
@@ -106,7 +108,7 @@ The constructor accepts an optional`members` parameter of type **`Collection`**,
 |.**setFontStyle** (*style* :`Integer`) →`This` | Sets the font style of all elements. Use the [4D Font style](https://doc.4d.com/4Dv19/4D/19/Font-Styles.302-5393339.en.html) constantes| 
 |.**show** ({*visible* :`Boolean`}) →`This` | Makes all elements visible if `visible` is **True** or omitted| 
 |.**switch** ({*updateEntryOrder* :`Boolean` }) →`This` | Reverses the horizontal order of the members. Useful, for example, for reversing the OK and Cancel buttons depending on the platform| 
-|.**verticallyCentered** ({*params* :`Object` {; *ref*`:Text`}) →`This` | Performs a centered alignment of the elements.<br/>The optional widget name parameter allow to specify the reference. If ommited, the distribution is relative to the form| 
+|.**verticallyCentered** ({*params* :`Object` {; *ref*`:Text`}) →`This` | Performs a centered alignment of the elements.<br/>The optional widget name parameter allows specifying the reference. If omitted, the distribution is relative to the form| 
 
 \* The optional object type parameter allow to specify:
 
@@ -126,4 +128,13 @@ The constructor accepts an optional`members` parameter of type **`Collection`**,
   bottom: integer
 }
 ```
+
+## Integration Notes
+
+Recent integration adds utility APIs:
+
+* `.count` returns the current number of members.
+* `.alignTop(reference)` aligns all members to the same top coordinate.
+* `.backupCoordinates()` stores current coordinates of all members.
+* `.restorePosition()` restores coordinates from the latest backup.
 

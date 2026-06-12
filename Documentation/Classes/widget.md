@@ -138,6 +138,7 @@ Specific property sections:
 |Properties|Description|Type|Writable|
 |:----------|:-----------|:-----------|:-----------:| 
 |.**pointer** | Returns the pointer to the widget<br>⚠️ Nil pointer if data source is an expression |`Pointer` | <font color="red">x</font>
+|.**newUI** | **True** when modern OS theme is active (`FluentUI` on Windows, `LiquidGlass` on macOS) |`Boolean` | <font color="red">x</font>
 
 | Functions | |
 |:-------- |:------ | 

@@ -87,6 +87,7 @@ This.windowFrame.refresh()
 |.**enable**(*widget* : `Text`) | Enables a widget or all widgets in the subform |
 |.**disable**(*widget* : `Text`) | Disables a widget or all widgets in the subform |
 |.**getParentRect**() →`cs.rect` | Returns the subform container rectangle |
+|.**getParentDimensions**() →`cs.dimensions` | Returns the subform container dimensions |
 |.**getSubforms**() →`Object` | Returns the associated detail and list form names |
 |.**detailForm**() →`Text` | Returns the associated detail form name |
 |.**listForm**() →`Text` | Returns the associated list form name |

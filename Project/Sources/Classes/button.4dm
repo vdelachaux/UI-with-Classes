@@ -1,8 +1,16 @@
 Class extends widget
 
-Class constructor($name : Text; $parent : Object)
+Class constructor($name : Text; $parent)
 	
-	Super:C1705($name; $parent)
+	If (Value type:C1509($parent)=Is object:K8:27)
+		
+		Super:C1705($name; $parent)
+		
+	Else 
+		
+		Super:C1705($name)
+		
+	End if 
 	
 	This:C1470[""]:={}
 	
@@ -35,15 +43,53 @@ Class constructor($name : Text; $parent : Object)
 				
 				If (Is Windows:C1573)
 					
-					This:C1470.height:=$height>18 ? 23 : 19
+					If (This:C1470.newUI)
+/*
+            Small       Medium      Large
+Fluent UI   24 px       32 px       40 px */
+						
+						This:C1470.height:=$height>32 ? \
+							40 : $height>24 ? \
+							32 : 24
+						
+					Else 
+/*
+               Small       Medium      Large
+Win32 Classic  20 px       23–26 px    30 px */
+						
+						This:C1470.height:=24
+						
+						This:C1470.height:=$height>24 ? \
+							30 : $height>=22 ? \
+							24 : 20
+						
+					End if 
+					
+					This:C1470.height:=This:C1470.newUI ? 32 : 24
 					
 				Else 
 					
-					This:C1470.height:=$height>18 ? \
-						/*Regular*/21 : $height>=16 ? \
-						/*Small*/17 : \
-						/*Mini*/16
-					
+					If (This:C1470.newUI)
+/*
+          Mini        Small      Regular
+macOS     18 px       22 px      30 px */
+						
+						This:C1470.height:=$height>=22 ? \
+							/*Regular*/30 : $height>18 ? \
+							/*Small*/22 : \
+							/*Mini*/18
+						
+					Else 
+/*
+          Mini        Small        Regular
+macOS     16 px       17 px        22 px */
+						
+						This:C1470.height:=$height>18 ? \
+							/*Regular*/22 : $height>=16 ? \
+							/*Small*/17 : \
+							/*Mini*/16
+						
+					End if 
 				End if 
 				
 				// __________________________________________________
@@ -52,11 +98,18 @@ Class constructor($name : Text; $parent : Object)
 				
 				If (Is Windows:C1573)
 					
-					This:C1470.height:=13
+					This:C1470.height:=This:C1470.newUI ? 20 : 17
 					
 				Else 
 					
-					This:C1470.height:=$height>17 ? \
+/*
+This is probably not necessary, 
+given that there is only one pixel difference between the heights
+					
+However, we ensure that the height is not greater than 17 or less than 15.
+*/
+					
+					This:C1470.height:=$height>=17 ? \
 						/*Regular*/17 : $height>=16 ? \
 						/*Small*/16 : \
 						/*Mini*/15

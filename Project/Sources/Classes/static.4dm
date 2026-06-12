@@ -213,7 +213,14 @@ Function get rect() : cs:C1710.rect
 	var $o : Object:=This:C1470.getCoordinates()
 	
 	return cs:C1710.rect.new($o.right-$o.left; $o.bottom-$o.top)
+
+	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
+Function get dimensions() : cs:C1710.dimensions
 	
+	var $o : Object:=This:C1470.getCoordinates()
+	
+	return cs:C1710.dimensions.new($o.right-$o.left; $o.bottom-$o.top)
+
 	// ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==> ==>
 Function set rect($rect : Object)
 	
@@ -247,6 +254,30 @@ Function setRect($width : Integer; $height : Integer) : cs:C1710.static
 	
 	OBJECT SET COORDINATES:C1248(*; This:C1470.name; $o.left; $o.top; $o.right; $o.bottom)
 	This:C1470.updateCoordinates($o.left; $o.top; $o.right; $o.bottom)
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function set dimensions($dimensions : Object)
+	
+	var $o:=This:C1470.getCoordinates()
+	If ($dimensions.width#Null:C1517)
+		
+		$o.right:=$o.left+Num:C11($dimensions.width)
+		
+	End if 
+	
+	If ($dimensions.height#Null:C1517)
+		
+		$o.bottom:=$o.top+Num:C11($dimensions.height)
+		
+	End if 
+	
+	OBJECT SET COORDINATES:C1248(*; This:C1470.name; $o.left; $o.top; $o.right; $o.bottom)
+	This:C1470.updateCoordinates($o.left; $o.top; $o.right; $o.bottom)
+
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function setDimensions($width : Integer; $height : Integer) : cs:C1710.static
+	
+	return This:C1470.setRect($width; $height)
 	
 	return This:C1470
 	
@@ -337,10 +368,12 @@ Function bestSize($alignment; $minWidth : Integer; $maxWidth : Integer) : cs:C17
 			
 			$o:=OB Copy:C1225($alignment)
 			$o.alignment:=$o.alignment ? $o.alignment : Align left:K42:2
+				$o.horizontalPadding:=$o.horizontalPadding || 0
+				$o.verticalPadding:=$o.verticalPadding || 0
 			
 		Else 
 			
-			$o:={alignment: Num:C11($alignment)}
+			$o:={alignment: Num:C11($alignment); horizontalPadding: 0; verticalPadding: 0}
 			
 			If (Count parameters:C259>=2)
 				
@@ -356,7 +389,7 @@ Function bestSize($alignment; $minWidth : Integer; $maxWidth : Integer) : cs:C17
 		
 	Else 
 		
-		$o:={alignment: Align left:K42:2}  // Default is Align left
+		$o:={alignment: Align left:K42:2; horizontalPadding: 0; verticalPadding: 0}  // Default is Align left
 		
 	End if 
 	
@@ -477,6 +510,20 @@ Function bestSize($alignment; $minWidth : Integer; $maxWidth : Integer) : cs:C17
 		
 		OBJECT SET COORDINATES:C1248(*; This:C1470.name; $left; $top; $right; $bottom)
 		This:C1470.updateCoordinates($left; $top; $right; $bottom)
+		
+		If (Num:C11($o.horizontalPadding)#0)
+			
+			$left-=$o.horizontalPadding
+			$right+=$o.horizontalPadding
+			
+		End if 
+		
+		If (Num:C11($o.verticalPadding)#0)
+			
+			$top+=$o.verticalPadding
+			$bottom+=$o.verticalPadding
+			
+		End if 
 		
 	End if 
 	

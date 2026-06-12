@@ -9,7 +9,11 @@ The `comboBox` class is available via the [`form`](form.md#objects) class throug
 ```4d
 This.form:=cs.form.new(This)
 ...
-This.myCombo:=This.form.DropDown("Combo Box"; {\	{values: ["apples"; "nuts"; "pears"; "oranges"; "carrots"]; \	ordered: True; \	automaticExpand: True; \	automaticInsertion: True})
+This.myCombo:=This.form.DropDown("Combo Box"; {\
+	{values: ["apples"; "nuts"; "pears"; "oranges"; "carrots"]; \
+	ordered: True; \
+	automaticExpand: True; \
+	automaticInsertion: True})
 ```
 
 📌 In the form editor, you set the *Variable or expression* property of the drop-down list to `formGetInstance.myCombo.data` and you can later do:
@@ -26,7 +30,11 @@ This class is, more generally, available from the `cs` class store, or `cs.ui` c
 #### Example
 
 ```4d
-Form.Cities:=cs.ui.comboBox.new("Combo Box"; {\	values: ["Philadelphia"; "Pittsburg"; "Grand Blanc"; "Bad Axe"; "Frostbite Falls"; "Green Bay"]; \	ordered: True; \	automaticExpand: True; \	automaticInsertion: True})
+Form.Cities:=cs.ui.comboBox.new("Combo Box"; {\
+	values: ["Philadelphia"; "Pittsburg"; "Grand Blanc"; "Bad Axe"; "Frostbite Falls"; "Green Bay"]; \
+	ordered: True; \
+	automaticExpand: True; \
+	automaticInsertion: True})
 ```
 
 📌 In the form editor, you set the *Variable or expression* property of the drop-down list to `Form.Cities.data` and you can later retrieve the user's selection like this:
@@ -59,7 +67,7 @@ var $value : Text:=Form.Cities.value
 | name | Text | →| Widget name |
 | data | Object | → | Parameters to be used for the Combo Box management |
 | parent | **cs**.form | → | `form` object containing the *widget* |
-| result | **cs**.dropDown | ← | New `cs.dropDown`
+| result | **cs**.comboBox | ← | New `cs.comboBox`
 
 ### Description
 
@@ -80,7 +88,7 @@ var $value : Text:=Form.Cities.value
 \* The constructor checks that all values are of the same type. If this is not the case, an error is raised.
 
 * The optional `parent` parameter is the [`cs.form`](form.md) object containing the *widget*. This parameter is automatically set if instantiation is performed via a [form widget instantiation function](form.md#objects) of the `cs.form` class.
-* If the `name` parameter is ommited, the constructor use the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
+* If the `name` parameter is omitted, the constructor uses the result of **[OBJECT Get name](https://doc.4d.com/4Dv19/4D/19/OBJECT-Get-name.301-5392401.en.html)** (_Object current_ )
 
 > ⚠️ Omitting the widget name can only be used if the constructor is called from the object method.
 
@@ -110,12 +118,17 @@ Inherited properties and functions are described in the parent classes:
 | Functions | |
 |:-------- |:------ | 
 |[.**eventHandler**](#eventHandler) ( ) | Manages automatic expansion of the list of values and/or automatic insertion of the value if the corresponding properties are enabled.
-|.**expand** ( )| Expands the list of values.
+|.**expand** ({*force* : `Boolean`}) →`This` | Expands the list of values. If *force* is omitted, expansion follows `.automaticExpand`.
+|.**predictiveTyping**(*input* : `Text`) →`Text` | Applies predictive typing against list values while editing.
+|.**redraw**() | Forces widget redraw after in-place value updates.
+|.**automaticInsertion**({*ordered* : `Boolean`}) | Inserts current value into list and updates index.
 |[.**insert**](#insert) (*item*; *order*) → `This` | Insert an item (or the current value if *item* is omitted).<br>Sorts the list, if *order* is **True**, even if `ordered` property is **False**. <br>If *order* is omitted, the property `ordered` is used.
 |.**listModified** ( ) → `Boolean` | Returns **True** if the values list was modified by a call to the function `insert()`.
 |.**order** ( )| Sorts the values list
 
-## <a name="eventHandler">. eventHandler()</a>
+> 📌 Internal helper `._automaticExpandInit()` is used by the class to ensure required events are registered.
+
+## <a name="eventHandler">.eventHandler()</a>
 
 .**eventHandler** ( ) : Object
 
@@ -140,7 +153,11 @@ myCombo.eventHandler()
 
 ```4D
 var $e:=myCombo.eventHandler()
-If ($e.code=On Data Change)		// Do something	End if 
+If ($e.code=On Data Change)
+	
+	// Do something
+	
+End if 
 ```
 
 ## <a name="insert">.insert()</a>
@@ -167,7 +184,11 @@ This function add an item to the list of values in memory & keep the list ordere
 #### Example
 
 ```4D
-If (FORM Event.code=On Data Change)		myCombo.insert()	End if 
+If (FORM Event.code=On Data Change)
+	
+	myCombo.insert()
+	
+End if 
 ```
 
 * The widget's function can be called anywhere in the code to add one or more elements to the list of values:
