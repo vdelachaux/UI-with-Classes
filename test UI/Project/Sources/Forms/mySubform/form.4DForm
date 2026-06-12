@@ -25,9 +25,9 @@
 					"width": 300,
 					"height": 150,
 					"borderRadius": 10,
-					"fill": "#EBEBEB",
 					"sizingX": "grow",
-					"sizingY": "grow"
+					"sizingY": "grow",
+					"fill": "#EBEBEB"
 				},
 				"Text": {
 					"type": "text",
@@ -37,7 +37,8 @@
 					"width": 224,
 					"height": 46,
 					"fontTheme": "main",
-					"sizingX": "grow"
+					"sizingX": "grow",
+					"stroke": "#000000"
 				},
 				"Input": {
 					"type": "input",
@@ -45,7 +46,8 @@
 					"top": 81,
 					"width": 151,
 					"height": 17,
-					"sizingX": "grow"
+					"sizingX": "grow",
+					"stroke": "#000000"
 				},
 				"Text1": {
 					"type": "text",
@@ -54,7 +56,8 @@
 					"left": 33,
 					"width": 80,
 					"height": 16,
-					"textAlign": "right"
+					"textAlign": "right",
+					"stroke": "#000000"
 				},
 				"Button": {
 					"type": "button",
@@ -66,7 +69,8 @@
 					"events": [
 						"onClick"
 					],
-					"sizingX": "move"
+					"sizingX": "move",
+					"stroke": "#000000"
 				},
 				"Static Picture1": {
 					"type": "picture",
@@ -89,5 +93,6 @@
 		"views": {
 			"View 1": {}
 		}
-	}
+	},
+	"colorScheme": "light"
 }

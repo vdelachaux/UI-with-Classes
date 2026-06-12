@@ -26,15 +26,15 @@ Case of
 		
 		var $flexOptions:={\
 			padding: 20; \
-			flexWrap: "wrap"; \
 			uniformWrapWidth: True:C214}
 		
-		Form:C1466.container:=cs:C1710.ui.flexContainer.new(cs:C1710.ui.static.new("background"); $flexOptions)
+		Form:C1466.container:=cs:C1710.ui.flexContainer.new(cs:C1710.ui.static.new("background"); $flexOptions)  //.wrap
 		
 		var $contraints:={maxWidth: 600}
 		//var $contraints:={fixedWidth: True}
 		
 		var $i : Integer
+		var $tool : Text
 		For each ($tool; $tools)
 			
 			If ($i=0)
