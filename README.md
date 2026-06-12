@@ -8,6 +8,15 @@
 
 This repository consolidates a collection of reusable user-interface components, example projects, and comprehensive documentation. It contains ready-to-use components, forms, database and UI methods, and multilingual resources, plus demos and step-by-step guides to simplify integration into 4D projects. Designed for developers who want to build modular, accessible, and maintainable interfaces, the repository provides best-practice patterns, example code, and assets to accelerate UI development.
 
+### Repository structure
+
+This repository includes two complementary 4D projects:
+
+1. Main project: `Project/UI with Classes.4DProject`.
+	This is the project that contains the UI classes and core source code.
+1. Test project: `test UI/Project/test UI.4DProject`.
+	This project contains runnable demos and usage examples of these classes.
+
 These classes are the result of my work over several years, taking advantage of evolutions in the [4D](https://4d.com) programming language. I've always sought to simplify the coding of the user interface of my developments and make it more naturally readable and easy to maintain. Another major motivation has been the need to be agile in making changes as a project evolves.
 
 ### Readability
@@ -85,6 +94,26 @@ What's more, if a 4D command evolves, a simple update to a class function immedi
 1. See the [How it works](#how) section below.
 1. I suggest you first look at ***DEMO_1***, which is a simple case, to understand the design. Then you can run and explore the other demos that introduce more complicated or specific uses, I'm trying to show use cases like menu bar management or contextual menus.  Other demonstrations will follow (I need to enrich this part), as it's also instructive for optimizing and enriching commands. 
 1. See the [Documentation](Documentation/Classes/) folder. I suggest you begin with the [`formDelegate` class documentation](Documentation/Classes/formDelegate.md).
+
+## Installation (4D Package Manager)
+
+There are two common scenarios.
+
+### 1) You cloned this repository
+
+If you open `test UI/Project/test UI.4DProject`, dependencies are already declared in `test UI/Project/Sources/dependencies.json` and will be resolved by 4D Package Manager.
+
+### 2) You want to use UI Classes in your own 4D project
+
+1. Open your project.
+1. Go to `Design` > `Project Dependencies`.
+1. Switch to the `GitHub` tab.
+1. Type `vdelachaux/UI-with-Classes`.
+1. Set `Dependency Rule` to `Follow 4D version`.
+1. Confirm to add dependency, then resolve/download packages.
+1. Restart
+
+Tip: if versions changed upstream, refresh dependencies from Package Manager.
 
 > Please note that not all documentation is available/updated yet.   *As always, writing documentation is a time-consuming but instructive task, because in a number of cases it leads to changes, since what isn't simply described isn't a good implementation.*
 
