@@ -189,8 +189,46 @@ Form.myWidget.hide()
 | Functions | Action |
 |:-------- |:------ | 
 |.**addToGroup** (*group* ) →`This` | Adds this widget to a group. | 
+|.[**duplicate**](#duplicate) (*options*) →`Object`<br>.**duplicate** ({*offsetV* {; *offsetH* {; *boundTo* {; *newName* }}}}) →`Object` | Duplicates the widget and returns the new widget instance typed according to object type. |
 |.**hiddenFromView** () →`This` | Sets the widget's coordinates so that it is outside the viewing window. | 
 |.**jsonFormDefinition** () →`Object` | Returns the json widget definition as defined in the structure.<br>⚠️ Only available if the `parent` parameter has been passed to the constructor when using from a component.| 
+
+## <a name="duplicate">.duplicate()</a>
+
+.**duplicate** ({ *options* : Object }) : `Object`<br>
+.**duplicate** ({ *offsetV* : Integer {; *offsetH* : Integer {; *boundTo* : Text {; *newName* : Text }}}}) : `Object`
+
+|Parameter|Type||Description|
+|---|---|---|---|
+| options | Object |  | Optional configuration object: `{offsetV; offsetH; boundTo; newName; newVar}` |
+| offsetV | Integer |  | Vertical offset applied to the duplicate (default: widget height + 20) |
+| offsetH | Integer |  | Horizontal offset applied to the duplicate (default: 0) |
+| boundTo | Text |  | Object name used as insertion reference (default: current widget name) |
+| newName | Text |  | Optional new object name |
+| result | Object |  | The newly created widget instance (`cs.static`, `cs.button`, `cs.input`, etc.) |
+
+### Description
+
+`duplicate()` duplicates the current widget in the form and returns the new widget as the appropriate UI class instance based on the duplicated object type.
+
+When no parameter is passed, the duplicate is positioned below the original widget with a default vertical offset equal to `height + 20`.
+
+You can pass a single options object to configure all parameters:
+
+```4d
+var $copy : Object:=This.myWidget.duplicate({
+	offsetV: 40;
+	offsetH: 12;
+	boundTo: "myWidget";
+	newName: "myWidget_copy"
+})
+```
+
+Or pass positional parameters:
+
+```4d
+var $copy : Object:=This.myWidget.duplicate(40; 12; "myWidget"; "myWidget_copy")
+```
 
 ## <a name="setPicture">.setPicture()</a>
 

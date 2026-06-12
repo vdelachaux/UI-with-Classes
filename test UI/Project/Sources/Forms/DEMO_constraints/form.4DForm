@@ -39,7 +39,7 @@
 				},
 				"Text1": {
 					"type": "text",
-					"text": "Horizontal Sizing=Grow",
+					"text": "4D Hor. Sizing=Grow",
 					"top": 14,
 					"left": 19,
 					"width": 150,
@@ -397,7 +397,7 @@
 				},
 				"Text12": {
 					"type": "text",
-					"text": "Horizontal Sizing=Grow",
+					"text": "4D Hor. Sizing=Grow",
 					"top": 63,
 					"left": 169,
 					"width": 150,
@@ -411,7 +411,7 @@
 				},
 				"Text13": {
 					"type": "text",
-					"text": "Horizontal Sizing=Move",
+					"text": "4D Hor. Sizing=Move",
 					"top": 36,
 					"left": 94,
 					"width": 150,

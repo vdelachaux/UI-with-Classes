@@ -189,6 +189,18 @@ Note that, in all cases, the form object datasource is set to &lt;instance&gt;.d
           <source>A simple illustration of the truncateWithEllipsis function</source>
           <target>A simple illustration of the truncateWithEllipsis function</target>
         </trans-unit>
+        <trans-unit id="QWf0iJxF8jP8k9m2vR3aYQ" resname="title_11">
+          <source>flexContainer layout</source>
+          <target>flexContainer layout</target>
+        </trans-unit>
+        <trans-unit id="R7kzv4Lh2dNs9bPq5tYmXA" resname="desc_11">
+          <source>This demo shows the flexContainer layout engine in action.
+You can explore row, column and wrap modes, alignment options, uniform width wrapping, and how constraints impact final placement and sizing.
+It also demonstrates how the layout returns used dimensions ({width; height}) for chaining and scroll-aware UI composition.</source>
+          <target>This demo shows the flexContainer layout engine in action.
+You can explore row, column and wrap modes, alignment options, uniform width wrapping, and how constraints impact final placement and sizing.
+It also demonstrates how the layout returns used dimensions ({width; height}) for chaining and scroll-aware UI composition.</target>
+        </trans-unit>
       </group>
       <group resname="dial">
         <trans-unit id="FcZegetf3JLn0r1d0Z03OQ" resname="selectAnExample">

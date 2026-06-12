@@ -6270,9 +6270,81 @@
 		"_inheritedFrom_": "scrollable"
 	},
 	"flexContainer": {
-		"layout()": {
-			"Syntax": "**.layout**()",
-			"Params": [],
+		"get variableWidth()": {
+			"Syntax": "**.get variableWidth**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get alignEnd()": {
+			"Syntax": "**.get alignEnd**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get alignStart()": {
+			"Syntax": "**.get alignStart**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get alignSpaceBetween()": {
+			"Syntax": "**.get alignSpaceBetween**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get uniformWidth()": {
+			"Syntax": "**.get uniformWidth**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get alignCenter()": {
+			"Syntax": "**.get alignCenter**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get directionRow()": {
+			"Syntax": "**.get directionRow**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
 			"Summary": ""
 		},
 		"set container()": {
@@ -6282,6 +6354,50 @@
 					"container",
 					"Object",
 					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get noWrap()": {
+			"Syntax": "**.get noWrap**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get wrap()": {
+			"Syntax": "**.get wrap**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get directionColumn()": {
+			"Syntax": "**.get directionColumn**() : cs.ui.flexContainer",
+			"Params": [
+				[
+					"",
+					"cs.ui.flexContainer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"layout()": {
+			"Syntax": "**.layout**() : Object",
+			"Params": [
+				[
+					"",
+					"Object",
+					"<-"
 				]
 			],
 			"Summary": ""
@@ -6308,8 +6424,11 @@
 		"width": {
 			"Syntax": "width : Real"
 		},
-		"padding": {
-			"Syntax": "padding : Real"
+		"children": {
+			"Syntax": "children : Collection"
+		},
+		"justifyContent": {
+			"Syntax": "justifyContent : Text"
 		},
 		"alignItems": {
 			"Syntax": "alignItems : Text"
@@ -6317,17 +6436,14 @@
 		"uniformWrapWidth": {
 			"Syntax": "uniformWrapWidth : Boolean"
 		},
-		"justifyContent": {
-			"Syntax": "justifyContent : Text"
-		},
 		"flexWrap": {
-			"Syntax": "flexWrap : Text"
+			"Syntax": "flexWrap : Boolean"
+		},
+		"padding": {
+			"Syntax": "padding : Integer"
 		},
 		"direction": {
 			"Syntax": "direction : Text"
-		},
-		"children": {
-			"Syntax": "children : Collection"
 		}
 	},
 	"input": {

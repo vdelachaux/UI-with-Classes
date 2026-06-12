@@ -23,6 +23,7 @@ Class constructor($container : Object; $options : Object)
 	For each ($key; $options || {})
 		
 		Case of 
+				
 				//______________________________________________________
 			: ($key="children")\
 				 && (Value type:C1509($options[$key])=Is collection:K8:32)
@@ -41,8 +42,6 @@ Class constructor($container : Object; $options : Object)
 				
 				//______________________________________________________
 		End case 
-		
-		
 	End for each 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -80,7 +79,6 @@ Function add($widget : cs:C1710.static) : cs:C1710.flexContainer
 			
 			// ______________________________________________________
 		: (This:C1470.direction="column")
-			
 			
 			If (This:C1470.alignItems="stretch")
 				
@@ -397,10 +395,9 @@ Function _layoutRow() : Object
 		
 	End for each 
 	
-	var $usedWidth : Integer:=($x-This:C1470.padding)
-	var $containerHeight : Real:=This:C1470.height
+	$usedWidth:=($x-This:C1470.padding)
 	
-	return {width: $usedWidth; height: $containerHeight}
+	return {width: $usedWidth; height: This:C1470.height}
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _layoutRowWrap() : Object
@@ -756,13 +753,13 @@ Function _layoutColumn() : Object
 		
 	End if 
 	
-var $available : Integer:=This:C1470.height-(This:C1470.padding*2)-(This:C1470.padding*($count-1))
+	var $available : Integer:=This:C1470.height-(This:C1470.padding*2)-(This:C1470.padding*($count-1))
 	
 	If ($available<0)
 		
 		$available:=0
-	
-	End if
+		
+	End if 
 	
 	var $totalBasis; $totalGrow; $totalShrink : Real
 	var $child : Object
@@ -844,7 +841,7 @@ var $available : Integer:=This:C1470.height-(This:C1470.padding*2)-(This:C1470.p
 		
 	End for each 
 	
-var $effectiveRemaining : Integer:=$available-$usedHeight
+	var $effectiveRemaining : Integer:=$available-$usedHeight
 	
 	If ($effectiveRemaining>0)
 		
@@ -921,10 +918,9 @@ var $effectiveRemaining : Integer:=$available-$usedHeight
 		
 	End for each 
 	
-	var $containerWidth : Integer:=This:C1470.width
-	var $usedHeight : Integer:=($y-This:C1470.padding)
+	$usedHeight:=($y-This:C1470.padding)
 	
-	return {width: $containerWidth; height: $usedHeight}
+	return {width: This:C1470.width; height: $usedHeight}
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 Function _getConstraints($child : Object) : Object

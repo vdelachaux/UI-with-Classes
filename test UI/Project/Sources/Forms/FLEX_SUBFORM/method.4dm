@@ -5,7 +5,7 @@ Case of
 		// ______________________________________________________
 	: ($e.code=On Load:K2:1)
 		
-		var $tools:=[\
+		var $widgets:=[\
 			"mySubform"; \
 			"mySubform"; \
 			"mySubform"; \
@@ -25,21 +25,20 @@ Case of
 			"mySubform"]
 		
 		var $flexOptions:={\
-			padding: 20; \
-			uniformWrapWidth: True:C214}
+			padding: 20}
 		
-		Form:C1466.container:=cs:C1710.ui.flexContainer.new(cs:C1710.ui.static.new("background"); $flexOptions)  //.wrap
+		Form:C1466.container:=cs:C1710.ui.flexContainer.new(Null:C1517; $flexOptions).wrap.uniformWidth
 		
 		var $contraints:={maxWidth: 600}
-		//var $contraints:={fixedWidth: True}
 		
-		var $i : Integer
-		var $tool : Text
-		For each ($tool; $tools)
+		var $first:=True:C214
+		var $item : Text
+		For each ($item; $widgets)
 			
-			If ($i=0)
+			If ($first)
 				
 				var $widget:=cs:C1710.ui.subform.new("Subform")
+				$first:=False:C215
 				
 			Else 
 				
@@ -47,15 +46,13 @@ Case of
 				
 			End if 
 			
-			$widget.setSubform($tool)
+			$widget.setSubform($item)
 			$widget.flexRules:=cs:C1710.ui.flexRules.new($contraints; $widget)
 			Form:C1466.container.add($widget)
 			
-			$i+=1
-			
 		End for each 
 		
-		Form:C1466.container.layout()
+		SET TIMER:C645(-1)
 		
 		// ______________________________________________________
 	: ($e.code=On Timer:K2:25)\
@@ -63,7 +60,14 @@ Case of
 		
 		SET TIMER:C645(0)
 		
-		Form:C1466.container.layout()
+		// Place widgets
+		var $size : Object:=Form:C1466.container.layout()
+		
+		// Update the dimensions of the reference rectangle
+		OBJECT SET COORDINATES:C1248(*; "background"; 0; 0; $size.width; $size.height)
+		
+		OBJECT SET SUBFORM CONTAINER VALUE:C1784($size.height)
+		CALL SUBFORM CONTAINER:C1086(-1)
 		
 		// ______________________________________________________
 End case 
