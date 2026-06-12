@@ -82,6 +82,11 @@ Function init()
 		form: "DEMO_TruncateWithEllipsis"; \
 		comments: Localized string:C991("desc_10")})
 	
+	This:C1470.demos.push({\
+		name: Localized string:C991("title_11"); \
+		form: "DEMO_flexContainer"; \
+		comments: Localized string:C991("desc_11")})
+	
 	This:C1470.sidebar:=This:C1470.form.Listbox("sidebar")
 	
 	// Mark:Detail panel

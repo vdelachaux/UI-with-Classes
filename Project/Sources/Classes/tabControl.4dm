@@ -1,7 +1,7 @@
 Class extends widget
 
 property data : Object
-property dataSource : Object
+property dataSource  //: Object
 
 Class constructor($name : Text; $data; $page : Integer; $parent : Object)
 	

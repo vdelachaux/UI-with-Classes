@@ -1,0 +1,57 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"events": [],
+	"windowTitle": "flexContainer.wrap.uniformWidth",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"background": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 483,
+					"height": 278,
+					"sizingX": "grow",
+					"stroke": "transparent",
+					"fill": "#ffb6c1",
+					"sizingY": "grow",
+					"visibility": "hidden"
+				},
+				"grid": {
+					"type": "subform",
+					"left": 0,
+					"top": 0,
+					"width": 465,
+					"height": 278,
+					"detailForm": "FLEX_SUBFORM",
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"events": [
+						"onLoad",
+						"onDataChange"
+					],
+					"dataSourceTypeHint": "integer",
+					"scrollbarVertical": "visible"
+				}
+			}
+		}
+	],
+	"geometryStamp": 115,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"formSizeAnchor": "background",
+	"rightMargin": 0,
+	"bottomMargin": 0
+}

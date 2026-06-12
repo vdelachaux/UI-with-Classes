@@ -45,6 +45,13 @@
 			"DEMO_Dropdown"
 		]
 	},
+	"DEMO_FlexContainer": {
+		"forms": [
+			"DEMO_flexContainer",
+			"FLEX_SUBFORM",
+			"mySubform"
+		]
+	},
 	"DEMO_Group": {
 		"forms": [
 			"DEMO_Group_Distribute"
@@ -86,6 +93,7 @@
 			"DEMO_constraints",
 			"DEMO_CSS",
 			"DEMO_Dropdown",
+			"DEMO_FlexContainer",
 			"DEMO_Group",
 			"DEMO_Menus",
 			"DEMO_Search",

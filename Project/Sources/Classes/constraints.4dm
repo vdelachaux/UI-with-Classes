@@ -1,20 +1,26 @@
+property labelMargin : Integer:=Is macOS:C1572 ? 10 : 10
+property scrollBarWidth : Integer:=Is macOS:C1572 ? 15 : 15
+property marginV : Integer:=Is macOS:C1572 ? 2 : 2
+property marginH : Integer:=Is macOS:C1572 ? 20 : 20
+property offset : Integer:=2
+
 property rules : Collection
 
-property scrollBarWidth; marginV; marginH; labelMargin; offset : Integer
-property _matrix : Boolean
+property _matrix:=Not:C34(Is compiled mode:C492)  // True if Dev mode
 
 Class constructor($metrics : Object)
 	
 	This:C1470.rules:=[]
 	
-	This:C1470.scrollBarWidth:=$metrics.scrollBarWidth || Is macOS:C1572 ? 15 : 15
-	This:C1470.marginV:=$metrics.marginV || Is macOS:C1572 ? 2 : 2
-	This:C1470.marginH:=$metrics.marginH || Is macOS:C1572 ? 20 : 20
-	
-	This:C1470.labelMargin:=Is macOS:C1572 ? 10 : 10
-	This:C1470.offset:=2
-	
-	This:C1470._matrix:=Not:C34(Is compiled mode:C492)  // True if Dev mode
+	If ($metrics#Null:C1517)
+		
+		var $key : Text
+		For each ($key; $metrics)
+			
+			This:C1470[$key]:=$metrics[$key]
+			
+		End for each 
+	End if 
 	
 	// MARK:-[KEYWORDS]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==

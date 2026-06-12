@@ -184,6 +184,18 @@ Notez que, dans tous les cas, la source de données de l'objet formulaire est fi
           <source>A simple illustration of the truncateWithEllipsis function</source>
           <target>Une illustration simple de la fonction truncateWithEllipsis</target>
         </trans-unit>
+        <trans-unit id="QWf0iJxF8jP8k9m2vR3aYQ" resname="title_11">
+          <source>flexContainer layout</source>
+          <target>Layout flexContainer</target>
+        </trans-unit>
+        <trans-unit id="R7kzv4Lh2dNs9bPq5tYmXA" resname="desc_11">
+          <source>This demo shows the flexContainer layout engine in action.
+You can explore row, column and wrap modes, alignment options, uniform width wrapping, and how constraints impact final placement and sizing.
+It also demonstrates how the layout returns used dimensions ({width; height}) for chaining and scroll-aware UI composition.</source>
+          <target>Cette démo montre le moteur de layout flexContainer en action.
+Vous pouvez explorer les modes ligne, colonne et retour à la ligne, les options d'alignement, la largeur uniforme en mode wrap, et l'impact des contraintes sur le placement et le dimensionnement final.
+Elle montre aussi comment le layout retourne les dimensions utilisées ({width; height}) pour chaîner des layouts et composer des interfaces avec gestion du scroll.</target>
+        </trans-unit>
       </group>
       <group resname="dial">
         <trans-unit id="FcZegetf3JLn0r1d0Z03OQ" resname="selectAnExample">

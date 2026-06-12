@@ -4,6 +4,7 @@ This class is the parent class of all form objects classes
 
 property name : Text
 property type : Integer
+property flexRules : cs:C1710.flexRules
 
 property _coordinates; initialPosition : cs:C1710.coordinates
 property _fonts : Collection
@@ -1140,6 +1141,148 @@ Function _jsonFormDefinition() : Object
 	End if 
 	
 	return This:C1470.__DEFINITION__
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+Function duplicate($moveV; $moveH : Integer; $boundTo : Text; $newName : Text) : Object
+	
+	var $newVar : Pointer
+	
+	Case of 
+			
+			// ________________________________________________________________________________
+		: (Count parameters:C259=0)
+			
+			$moveV:=This:C1470.height+20  // Default vertical offset is 20px
+			
+			//________________________________________________________________________________
+		: (Value type:C1509($moveV)=Is object:K8:27)
+			
+			var $o : Object:=$moveV
+			$moveV:=$o.offsetV#Null:C1517 ? Num:C11($o.offsetV) : This:C1470.height+20
+			$moveH:=$o.offsetH#Null:C1517 ? Num:C11($o.offsetH) : 0
+			$boundTo:=$o.boundTo#Null:C1517 ? String:C10($o.boundTo) : ""
+			$newName:=$o.newName#Null:C1517 ? String:C10($o.newName) : ""
+			
+			If ($o.newVar#Null:C1517)\
+				 && (Value type:C1509($o.newVar)=Is pointer:K8:14)
+				
+				$newVar:=$o.newVar
+				
+			End if 
+			
+			//________________________________________________________________________________
+	End case 
+	
+	$boundTo:=$boundTo || This:C1470.name  // By default, it is placed after the duplicated object
+	
+	FORM GET OBJECTS:C898($_widgets; Form all pages:K67:7)
+	
+	var $before:=[]
+	ARRAY TO COLLECTION:C1563($before; $_widgets)
+	
+	OBJECT DUPLICATE:C1111(*; This:C1470.name; $newName; $newVar; $boundTo; $moveH; $moveV)
+	
+	If (Bool:C1537(OK))
+		
+		// etrieve the new widget name
+		FORM GET OBJECTS:C898($_widgets; Form all pages:K67:7)
+		
+		var $after:=[]
+		ARRAY TO COLLECTION:C1563($after; $_widgets)
+		
+		$after:=$after.filter(Formula:C1597(Not:C34($before.includes($1.value))))
+		
+		Case of 
+				
+				// ________________________________________________________________________________
+			: ($after.length=0)
+				
+				return 
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type static text:K79:2)\
+				 || (This:C1470.type=Object type rectangle:K79:32)\
+				 || (This:C1470.type=Object type line:K79:33)\
+				 || (This:C1470.type=Object type oval:K79:35)\
+				 || (This:C1470.type=Object type groupbox:K79:31)
+				
+				return cs:C1710.static.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type text input:K79:4)
+				
+				return cs:C1710.input.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type 3D button:K79:17)\
+				 || (This:C1470.type=Object type 3D checkbox:K79:27)\
+				 || (This:C1470.type=Object type 3D radio button:K79:24)\
+				 || (This:C1470.type=Object type radio button:K79:23)\
+				 || (This:C1470.type=Object type checkbox:K79:26)\
+				 || (This:C1470.type=Object type invisible button:K79:19)\
+				 || (This:C1470.type=Object type push button:K79:16)\
+				 || (This:C1470.type=Object type radio button:K79:23)
+				
+				return cs:C1710.button.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type combobox:K79:12)
+				
+				return cs:C1710.comboBox.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type popup dropdown list:K79:13)
+				
+				return cs:C1710.dropDown.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type static picture:K79:3)
+				
+				return cs:C1710.picture.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type web area:K79:41)
+				
+				return cs:C1710.webArea.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type progress indicator:K79:28)
+				
+				return cs:C1710.stepper.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type ruler:K79:30)
+				
+				return cs:C1710.thermometer.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type subform:K79:40)
+				
+				return cs:C1710.subform.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type hierarchical list:K79:7)
+				
+				return cs:C1710.hList.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type listbox:K79:8)
+				
+				return cs:C1710.listbox.new($after[0])
+				
+				// ______________________________________________________
+			: (This:C1470.type=Object type tab control:K79:38)
+				
+				return cs:C1710.tabControl.new($after[0])
+				
+				// ______________________________________________________
+			Else 
+				
+				return cs:C1710.widget.new($after[0])
+				
+				// ______________________________________________________
+		End case 
+	End if 
 	
 	// MARK:-
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***

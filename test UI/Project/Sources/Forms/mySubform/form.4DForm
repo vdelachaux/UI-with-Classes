@@ -1,0 +1,98 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "variable",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"events": [],
+	"windowTitle": "window title",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 300,
+					"height": 150,
+					"borderRadius": 10,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"fill": "#EBEBEB"
+				},
+				"Text": {
+					"type": "text",
+					"text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industryLorem ipsum dolor sit amet",
+					"top": 15,
+					"left": 68,
+					"width": 224,
+					"height": 46,
+					"fontTheme": "main",
+					"sizingX": "grow",
+					"stroke": "#000000"
+				},
+				"Input": {
+					"type": "input",
+					"left": 123,
+					"top": 81,
+					"width": 151,
+					"height": 17,
+					"sizingX": "grow",
+					"stroke": "#000000"
+				},
+				"Text1": {
+					"type": "text",
+					"text": "label",
+					"top": 81,
+					"left": 33,
+					"width": 80,
+					"height": 16,
+					"textAlign": "right",
+					"stroke": "#000000"
+				},
+				"Button": {
+					"type": "button",
+					"text": "Button",
+					"top": 109,
+					"left": 191,
+					"width": 83,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"sizingX": "move",
+					"stroke": "#000000"
+				},
+				"Static Picture1": {
+					"type": "picture",
+					"top": 15,
+					"left": 12,
+					"width": 48,
+					"height": 52,
+					"picture": "/.PRODUCT_RESOURCES/Images/Plugin.png",
+					"pictureFormat": "scaled"
+				}
+			}
+		}
+	],
+	"geometryStamp": 63,
+	"width": 300,
+	"height": 150,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"colorScheme": "light"
+}
