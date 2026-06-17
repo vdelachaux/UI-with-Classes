@@ -72,12 +72,12 @@ Win32 Classic  20 px       23–26 px    30 px */
 					If (This:C1470.newUI)
 /*
           Mini        Small      Regular
-macOS     18 px       22 px      30 px */
+macOS     16 px       22 px      30 px */
 						
 						This:C1470.height:=$height>=22 ? \
 							/*Regular*/30 : $height>18 ? \
 							/*Small*/22 : \
-							/*Mini*/18
+							/*Mini*/16
 						
 					Else 
 /*
