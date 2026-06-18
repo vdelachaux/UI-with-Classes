@@ -1,0 +1,35 @@
+name: 4D Build
+description: Shared 4D build step for CI and release workflows.
+
+inputs:
+  actions:
+    description: Build actions to execute.
+    required: false
+    default: build
+  token:
+    description: Token used by 4d/build4d-action.
+    required: true
+  product-line:
+    description: 4D product line.
+    required: false
+    default: vcs
+  version:
+    description: 4D version.
+    required: false
+    default: vcs
+  build:
+    description: Build mode.
+    required: false
+    default: official
+
+runs:
+  using: composite
+  steps:
+    - name: Build
+      uses: 4d/build4d-action@main
+      with:
+        actions: ${{ inputs.actions }}
+        product-line: ${{ inputs.product-line }}
+        version: ${{ inputs.version }}
+        build: ${{ inputs.build }}
+        token: ${{ inputs.token }}

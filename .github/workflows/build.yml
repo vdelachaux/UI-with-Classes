@@ -22,9 +22,6 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Build
-        uses: 4d/build4d-action@main
+        uses: ./.github/actions/4d-build
         with:
-          product-line: vcs
-          version: vcs
-          build: official
           token: ${{ secrets.DLTK }}
