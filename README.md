@@ -1,8 +1,6 @@
-[![language](https://img.shields.io/static/v1?label=language&message=4d&color=blue)](https://developer.4d.com/)
-[![language](https://img.shields.io/github/languages/top/vdelachaux/UI-with-Class.svg)](https://developer.4d.com/)
-![code-size](https://img.shields.io/github/languages/code-size/vdelachaux/UI-with-Class.svg)
-[![license](https://img.shields.io/github/license/vdelachaux/UI-with-Class)](LICENSE)
-[![Build](https://github.com/vdelachaux/UI-with-Class/actions/workflows/build.yml/badge.svg)](https://github.com/vdelachaux/UI-with-Class/actions/workflows/build.yml)
+[![Dev Component](https://img.shields.io/badge/Dev%20Component-blue?logo=4d)](https://developer.4d.com) [![Project Dependencies](https://img.shields.io/badge/Project%20Dependencies-blue?logo=4d)](https://developer.4d.com/docs/Project/components/#loading-components)
+<br>
+[![language](https://img.shields.io/github/languages/top/vdelachaux/UI-with-Classes.svg)](https://developer.4d.com/) ![code-size](https://img.shields.io/github/languages/code-size/vdelachaux/UI-with-Classes.svg) [![release](https://img.shields.io/github/v/release/vdelachaux/UI-with-Classes?include_prereleases)](https://github.com/vdelachaux/UI-with-Classes/releases/latest) [![license](https://img.shields.io/github/license/vdelachaux/UI-with-Classes)](LICENSE) [![Build](https://github.com/vdelachaux/UI-with-Classes/actions/workflows/build.yml/badge.svg)](https://github.com/vdelachaux/UI-with-Classes/actions/workflows/build.yml) ![downloads](https://img.shields.io/github/downloads/vdelachaux/UI-with-Classes/total)
 
 ## Welcome to this 4D repository dedicated to user interface classes* 
 
