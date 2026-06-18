@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>NSHumanReadableCopyright</key>
+    <string/>
+    <key>CFBundleVersion</key>
+    <string/>
+    <key>CFBundleDisplayName</key>
+    <string>UI with Classes</string>
+    <key>CFBundleShortVersionString</key>
+    <string/>
+    <key>CFBundleGetInfoString</key>
+    <string>21</string>
+    <key>CFBundleLongVersionString</key>
+    <string>21</string>
+    <key>CFBundleName</key>
+    <string>UI with Classes</string>
+    <key>CFBundlePackageType</key>
+    <string>BNDL</string>
+  </dict>
+
+</plist>
