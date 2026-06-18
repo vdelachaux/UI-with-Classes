@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'UI with Classes/**/*.4dm'
+      - '**.yml'
   pull_request:
     paths:
       - 'UI with Classes/**/*.4dm'
