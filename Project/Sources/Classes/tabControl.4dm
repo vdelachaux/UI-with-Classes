@@ -1,7 +1,8 @@
 Class extends widget
 
 property data : Object
-property dataSource  //: Object
+property dataSource : Object
+property listRef : Integer
 
 Class constructor($name : Text; $data; $page : Integer; $parent : Object)
 	
@@ -19,6 +20,8 @@ Class constructor($name : Text; $data; $page : Integer; $parent : Object)
 			
 			//______________________________________________________
 		: (This:C1470.isChoiceList)  // Using a choice list
+			
+			This:C1470.listRef:=Num:C11($data)
 			
 			This:C1470.data.values:=[]
 			
@@ -101,7 +104,7 @@ Function set pageNumber($page : Integer)
 	
 	If (This:C1470.isChoiceList)
 		
-		SELECT LIST ITEMS BY REFERENCE:C630(This:C1470.dataSource; $page+1)
+		SELECT LIST ITEMS BY REFERENCE:C630(This:C1470.listRef; $page+1)
 		
 	End if 
 	
@@ -144,8 +147,14 @@ Function goToPage()
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get isChoiceList() : Boolean
 	
-	return ((Value type:C1509(This:C1470.dataSource)=Is longint:K8:6) || (Value type:C1509(This:C1470.dataSource)=Is real:K8:4))\
-		 && (Is a list:C621(This:C1470.dataSource))
+	var $sourceType : Integer:=Value type:C1509(This:C1470.dataSource)
+	If (($sourceType=Is longint:K8:6) || ($sourceType=Is real:K8:4))
+		
+		return Is a list:C621(This:C1470.listRef)
+		
+	End if 
+	
+	return False:C215
 	
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get isObject() : Boolean
@@ -157,7 +166,7 @@ Function clearList()
 	
 	If (This:C1470.isChoiceList)
 		
-		CLEAR LIST:C377(This:C1470.dataSource; *)
+		CLEAR LIST:C377(This:C1470.listRef; *)
 		
 	End if 
 
@@ -171,7 +180,7 @@ Function enableTab($index : Integer; $enabled : Boolean)
 	End if 
 	
 	$enabled:=Count parameters:C259>=2 ? $enabled : True:C214
-	SET LIST ITEM PROPERTIES:C386(This:C1470.dataSource; $index; $enabled; 0)
+	SET LIST ITEM PROPERTIES:C386(This:C1470.listRef; $index; $enabled; 0)
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function disableTab($index : Integer)
@@ -182,4 +191,4 @@ Function disableTab($index : Integer)
 		
 	End if 
 	
-	SET LIST ITEM PROPERTIES:C386(This:C1470.dataSource; $index; False:C215; 0)
+	SET LIST ITEM PROPERTIES:C386(This:C1470.listRef; $index; False:C215; 0)
