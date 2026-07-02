@@ -2591,8 +2591,11 @@
 			],
 			"Summary": ""
 		},
+		"listRef": {
+			"Syntax": "listRef : Integer"
+		},
 		"dataSource": {
-			"Syntax": "dataSource : Variant"
+			"Syntax": "dataSource : Object"
 		},
 		"data": {
 			"Syntax": "data : Object"

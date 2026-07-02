@@ -8,7 +8,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5rNj69h4ajJKZlRGywY5FAvjn3k=
+			zKh8NBoW2AJ1dQUWX1Pw8TN+OoU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -290,14 +290,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6r7RY7w7psb114eYNOSGBRp1KoWhud4Znek9PfD28Sc=
+			G08iLt5Vw7yOrwqw5THUTAOXCehcfv0KIlss4Jz3v+w=
 			</data>
 		</dict>
 		<key>Resources/en.lproj/syntaxEN.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bRqfmr3OSopO+hd21xX+d0dMdiLEYf9/V0VP9AwVLXg=
+			sG120++Bt38Yp06zO6Iw66Eks3Xe03YT2LNk3mgYLro=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -313,7 +313,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			IfrSJwkjity/b3/m1I9kUoXgyWI=
+			KpTr+/dBQnZIFDfpXorkxf0/bmA=
 			</data>
 			<key>requirement</key>
 			<string>identifier "UI with Classes.4DZ" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = DYRKW64QA9</string>
