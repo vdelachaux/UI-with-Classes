@@ -28,8 +28,10 @@ Function populate($menus : Collection) : cs:C1710.menuBar
 				This:C1470.setHelpMenu($menus[$i+1])
 				
 				//______________________________________________________
+				// OB Instance of is unreliable across compiled components, so fall back to
+				// the class name stored in the menu's __CLASS__ property (set in its constructor).
 			: (Value type:C1509($menus[$i+1])=Is object:K8:27)\
-				 && (OB Instance of:C1731($menus[$i+1]; cs:C1710.menu))
+				 && ((OB Instance of:C1731($menus[$i+1]; cs:C1710.menu)) || (String:C10($menus[$i+1].__CLASS__.name)="menu"))
 				
 				$menuIndex+=1
 				$itemIndex:=0
