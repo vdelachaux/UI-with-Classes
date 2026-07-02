@@ -23,6 +23,11 @@ Function populate($menus : Collection) : cs:C1710.menuBar
 		Case of 
 				
 				//______________________________________________________
+			: ($menus[$i+1]=Null:C1517)
+				
+				continue
+				
+				//______________________________________________________
 			: (Value type:C1509($menus[$i+1])=Is collection:K8:32)
 				
 				This:C1470.setHelpMenu($menus[$i+1])
