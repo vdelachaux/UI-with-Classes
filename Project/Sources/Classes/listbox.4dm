@@ -510,6 +510,33 @@ Function getFooterName($columnNumber : Integer) : Text
 	
 	return String:C10(This:C1470.definition[$columnNumber-1].footer)
 	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	/// Sets the header title of a column, designated by its number (1-based) or its name
+Function setColumnTitle($column; $title : Text) : cs:C1710.listbox
+	
+	This:C1470.updateDefinition()
+	
+	If (Value type:C1509($column)=Is real:K8:4) | (Value type:C1509($column)=Is longint:K8:6)
+		
+		If (Asserted:C1132($column<=This:C1470.definition.length; "Index out of range"))
+			
+			OBJECT SET TITLE:C194(*; This:C1470.definition[$column-1].header; $title)
+			
+		End if 
+		
+	Else 
+		
+		var $o : Object:=This:C1470.definition.query("name = "; String:C10($column)).first()
+		
+		If (Asserted:C1132($o#Null:C1517; "Unknown column name"))
+			
+			OBJECT SET TITLE:C194(*; $o.header; $title)
+			
+		End if 
+	End if 
+	
+	return This:C1470
+	
 	// MARK:- [⚠️ ARRAY TYPE LIST BOXES]
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Defines the foreground color of a row or a cell
