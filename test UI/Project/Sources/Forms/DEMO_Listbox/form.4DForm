@@ -1,0 +1,598 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "variable",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
+	"windowTitle": "Listbox — sources de données",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"title_arrayDyn": {
+					"type": "text",
+					"text": "1. Tableau dynamique ($)",
+					"left": 20,
+					"top": 10,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"arrayDyn": {
+					"type": "listbox",
+					"left": 20,
+					"top": 32,
+					"width": 340,
+					"height": 90,
+					"columns": [
+						{
+							"header": {
+								"text": "Valeur",
+								"name": "h_arrayDyn"
+							},
+							"name": "c_arrayDyn",
+							"footer": {
+								"name": "f_arrayDyn"
+							}
+						}
+					]
+				},
+				"in_arrayDyn": {
+					"type": "input",
+					"left": 20,
+					"top": 128,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_arrayNamed": {
+					"type": "text",
+					"text": "2. Tableau nommé (variable process)",
+					"left": 375,
+					"top": 10,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"arrayNamed": {
+					"type": "listbox",
+					"left": 375,
+					"top": 32,
+					"width": 340,
+					"height": 90,
+					"dataSource": "aValues",
+					"columns": [
+						{
+							"header": {
+								"text": "Valeur",
+								"name": "h_arrayNamed"
+							},
+							"name": "c_arrayNamed",
+							"footer": {
+								"name": "f_arrayNamed"
+							}
+						}
+					]
+				},
+				"in_arrayNamed": {
+					"type": "input",
+					"left": 375,
+					"top": 128,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_arrayMulti": {
+					"type": "text",
+					"text": "3. Tableau multi-colonnes (types variés)",
+					"left": 730,
+					"top": 10,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"arrayMulti": {
+					"type": "listbox",
+					"left": 730,
+					"top": 32,
+					"width": 340,
+					"height": 90,
+					"columns": [
+						{
+							"header": {
+								"text": "Nom",
+								"name": "h_am_name"
+							},
+							"name": "c_am_name",
+							"dataSource": "aNames",
+							"footer": {
+								"name": "f_am_name"
+							}
+						},
+						{
+							"header": {
+								"text": "Âge",
+								"name": "h_am_age"
+							},
+							"name": "c_am_age",
+							"dataSource": "aAges",
+							"footer": {
+								"name": "f_am_age"
+							}
+						},
+						{
+							"header": {
+								"text": "Actif",
+								"name": "h_am_active"
+							},
+							"name": "c_am_active",
+							"dataSource": "aActive",
+							"footer": {
+								"name": "f_am_active"
+							}
+						}
+					]
+				},
+				"in_arrayMulti": {
+					"type": "input",
+					"left": 730,
+					"top": 128,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_arrayHier": {
+					"type": "text",
+					"text": "4. Tableau hiérarchique",
+					"left": 20,
+					"top": 280,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"arrayHier": {
+					"type": "listbox",
+					"left": 20,
+					"top": 302,
+					"width": 340,
+					"height": 90,
+					"columns": [
+						{
+							"header": {
+								"text": "Pays",
+								"name": "h_ah_country"
+							},
+							"name": "c_ah_country",
+							"dataSource": "aPays",
+							"footer": {
+								"name": "f_ah_country"
+							}
+						},
+						{
+							"header": {
+								"text": "Région",
+								"name": "h_ah_region"
+							},
+							"name": "c_ah_region",
+							"dataSource": "aRegion",
+							"footer": {
+								"name": "f_ah_region"
+							}
+						},
+						{
+							"header": {
+								"text": "Ville",
+								"name": "h_ah_city"
+							},
+							"name": "c_ah_city",
+							"dataSource": "aVille",
+							"footer": {
+								"name": "f_ah_city"
+							}
+						}
+					]
+				},
+				"in_arrayHier": {
+					"type": "input",
+					"left": 20,
+					"top": 398,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_collNone": {
+					"type": "text",
+					"text": "5. Collection (sans source)",
+					"left": 375,
+					"top": 280,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"collNone": {
+					"type": "listbox",
+					"left": 375,
+					"top": 302,
+					"width": 340,
+					"height": 90,
+					"listboxType": "collection",
+					"columns": [
+						{
+							"header": {
+								"text": "Élément",
+								"name": "h_collNone"
+							},
+							"name": "c_collNone",
+							"dataSource": "This:C1470",
+							"footer": {
+								"name": "f_collNone"
+							}
+						}
+					]
+				},
+				"in_collNone": {
+					"type": "input",
+					"left": 375,
+					"top": 398,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_collScalars": {
+					"type": "text",
+					"text": "6. Collection de scalaires",
+					"left": 730,
+					"top": 280,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"collScalars": {
+					"type": "listbox",
+					"left": 730,
+					"top": 302,
+					"width": 340,
+					"height": 90,
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.scalars",
+					"columns": [
+						{
+							"header": {
+								"text": "Couleur",
+								"name": "h_collScalars"
+							},
+							"name": "c_collScalars",
+							"dataSource": "This:C1470",
+							"footer": {
+								"name": "f_collScalars"
+							}
+						}
+					]
+				},
+				"in_collScalars": {
+					"type": "input",
+					"left": 730,
+					"top": 398,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_collObjects": {
+					"type": "text",
+					"text": "7. Collection d'objets",
+					"left": 20,
+					"top": 550,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"collObjects": {
+					"type": "listbox",
+					"left": 20,
+					"top": 572,
+					"width": 340,
+					"height": 90,
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.objects",
+					"columns": [
+						{
+							"header": {
+								"text": "Nom",
+								"name": "h_collObjects"
+							},
+							"name": "c_collObjects",
+							"dataSource": "This:C1470.name",
+							"footer": {
+								"name": "f_collObjects"
+							}
+						}
+					]
+				},
+				"in_collObjects": {
+					"type": "input",
+					"left": 20,
+					"top": 668,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_collFull": {
+					"type": "text",
+					"text": "8. Collection d'objets + item/pos/sélection",
+					"left": 375,
+					"top": 550,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"collFull": {
+					"type": "listbox",
+					"left": 375,
+					"top": 572,
+					"width": 340,
+					"height": 90,
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.objects",
+					"currentItemSource": "Form:C1466.item",
+					"currentItemPositionSource": "Form:C1466.pos",
+					"selectedItemsSource": "Form:C1466.selected",
+					"columns": [
+						{
+							"header": {
+								"text": "Nom",
+								"name": "h_collFull"
+							},
+							"name": "c_collFull",
+							"dataSource": "This:C1470.name",
+							"footer": {
+								"name": "f_collFull"
+							}
+						}
+					]
+				},
+				"in_collFull": {
+					"type": "input",
+					"left": 375,
+					"top": 668,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_collVar": {
+					"type": "text",
+					"text": "9. Collection liée à une variable",
+					"left": 730,
+					"top": 550,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"collVar": {
+					"type": "listbox",
+					"left": 730,
+					"top": 572,
+					"width": 340,
+					"height": 90,
+					"listboxType": "collection",
+					"dataSource": "myColl",
+					"currentItemSource": "Form:C1466.item2",
+					"currentItemPositionSource": "Form:C1466.pos2",
+					"selectedItemsSource": "Form:C1466.selected2",
+					"columns": [
+						{
+							"header": {
+								"text": "Nom",
+								"name": "h_collVar"
+							},
+							"name": "c_collVar",
+							"dataSource": "This:C1470.name",
+							"footer": {
+								"name": "f_collVar"
+							}
+						}
+					]
+				},
+				"in_collVar": {
+					"type": "input",
+					"left": 730,
+					"top": 668,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_entitySel": {
+					"type": "text",
+					"text": "10. Entity selection",
+					"left": 20,
+					"top": 820,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"entitySel": {
+					"type": "listbox",
+					"left": 20,
+					"top": 842,
+					"width": 340,
+					"height": 90,
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.entitySel",
+					"currentItemSource": "Form:C1466.esItem",
+					"currentItemPositionSource": "Form:C1466.esPos",
+					"selectedItemsSource": "Form:C1466.esSelected",
+					"columns": [
+						{
+							"header": {
+								"text": "Nom",
+								"name": "h_entitySel"
+							},
+							"name": "c_entitySel",
+							"dataSource": "This:C1470.Field_2",
+							"footer": {
+								"name": "f_entitySel"
+							}
+						}
+					]
+				},
+				"in_entitySel": {
+					"type": "input",
+					"left": 20,
+					"top": 938,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_currentSel": {
+					"type": "text",
+					"text": "11. Current selection (table)",
+					"left": 375,
+					"top": 820,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"currentSel": {
+					"type": "listbox",
+					"left": 375,
+					"top": 842,
+					"width": 340,
+					"height": 90,
+					"listboxType": "currentSelection",
+					"table": 1,
+					"columns": [
+						{
+							"header": {
+								"text": "Champ",
+								"name": "h_currentSel"
+							},
+							"name": "c_currentSel",
+							"dataSource": "[Table_1:1]Field_2:2",
+							"footer": {
+								"name": "f_currentSel"
+							}
+						}
+					]
+				},
+				"in_currentSel": {
+					"type": "input",
+					"left": 375,
+					"top": 938,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				},
+				"title_namedSel": {
+					"type": "text",
+					"text": "12. Named selection",
+					"left": 730,
+					"top": 820,
+					"width": 340,
+					"height": 18,
+					"fontSize": 11,
+					"fontWeight": "bold"
+				},
+				"namedSel": {
+					"type": "listbox",
+					"left": 730,
+					"top": 842,
+					"width": 340,
+					"height": 90,
+					"listboxType": "namedSelection",
+					"table": 1,
+					"namedSelection": "mySel",
+					"columns": [
+						{
+							"header": {
+								"text": "Champ",
+								"name": "h_namedSel"
+							},
+							"name": "c_namedSel",
+							"dataSource": "[Table_1:1]Field_2:2",
+							"footer": {
+								"name": "f_namedSel"
+							}
+						}
+					]
+				},
+				"in_namedSel": {
+					"type": "input",
+					"left": 730,
+					"top": 938,
+					"width": 340,
+					"height": 140,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10,
+					"enterable": false
+				}
+			}
+		}
+	],
+	"geometryStamp": 8,
+	"method": "method.4dm",
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
+}

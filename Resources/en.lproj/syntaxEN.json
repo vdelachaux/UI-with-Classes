@@ -1,32 +1,5 @@
 {
 	"_method_": {
-		"formCallBack": {
-			"Syntax": "**formCallBack**( *data* : Object; *function* : Text )",
-			"Params": [
-				[
-					"data",
-					"Object",
-					"->"
-				],
-				[
-					"function",
-					"Text",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"formGetInstance": {
-			"Syntax": "**formGetInstance**() : 4D.Class",
-			"Params": [
-				[
-					"",
-					"4D.Class",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"form RESET GEOMETRY": {
 			"Syntax": "**form RESET GEOMETRY**( *name* : Text; *reset* : Boolean )",
 			"Params": [
@@ -39,28 +12,6 @@
 					"reset",
 					"Boolean",
 					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"formMenuHandle": {
-			"Syntax": "**formMenuHandle**() : Variant",
-			"Params": [
-				[
-					"",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"dropableWidgetMethod": {
-			"Syntax": "**dropableWidgetMethod**() : Integer",
-			"Params": [
-				[
-					"",
-					"Integer",
-					"<-"
 				]
 			],
 			"Summary": ""
@@ -1695,6 +1646,53 @@
 			],
 			"Summary": ""
 		},
+		"collapse()": {
+			"Syntax": "**.collapse**( *row* : Integer; *selector* : Integer; *recursive* : Boolean ) : cs.ui.listbox",
+			"Params": [
+				[
+					"row",
+					"Integer",
+					"->"
+				],
+				[
+					"selector",
+					"Integer",
+					"->"
+				],
+				[
+					"recursive",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.listbox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setColumnTitle()": {
+			"Syntax": "**.setColumnTitle**( *column* : Variant; *title* : Text ) : cs.ui.listbox",
+			"Params": [
+				[
+					"column",
+					"Variant",
+					"->"
+				],
+				[
+					"title",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.listbox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"deleteRows()": {
 			"Syntax": "**.deleteRows**( *row* : Integer ) : cs.ui.listbox",
 			"Params": [
@@ -2228,32 +2226,6 @@
 					"descendant",
 					"Boolean",
 					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"collapse()": {
-			"Syntax": "**.collapse**( *row* : Integer; *selector* : Integer; *recursive* : Boolean ) : cs.ui.listbox",
-			"Params": [
-				[
-					"row",
-					"Integer",
-					"->"
-				],
-				[
-					"selector",
-					"Integer",
-					"->"
-				],
-				[
-					"recursive",
-					"Boolean",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.listbox",
-					"<-"
 				]
 			],
 			"Summary": ""

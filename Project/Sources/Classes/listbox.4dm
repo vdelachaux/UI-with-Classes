@@ -36,17 +36,49 @@ Class constructor($name : Text; $parent : Object)
 	// Backup design properties
 	This:C1470.saveProperties()
 	
-	var $o:=This:C1470.jsonFormDefinition()
-	
-	If ($o#Null:C1517)
+	If (Application version:C493>="20A0")
 		
-		This:C1470.dataSources:={\
-			data: Formula from string:C1601(String:C10($o.dataSource)); \
-			item: Formula from string:C1601(String:C10($o.currentItemSource)); \
-			itemPosition: Formula from string:C1601(String:C10($o.currentItemPositionSource)); \
-			selectedItems: Formula from string:C1601(String:C10($o.selectedItemsSource))\
+		var $formula:=OBJECT Get data source formula:C1852(*; $name)
+		
+		var $o:={\
+			data: $formula; \
+			formula: $formula.source; \
+			valueType: Try(Value type:C1509($formula.call())); \
+			type: This:C1470._classifyDataSource()\
 			}
 		
+		Case of 
+				
+				//–––––––––––––––––––––––––––––––––
+			: ($o.type="Collection") | ($o.type="Entity Selection")
+				
+				$o.currentItemExpression:=LISTBOX Get property:C917(*; $name; lk current item expression:K53:79)
+				$o.currentItemPositionExpression:=LISTBOX Get property:C917(*; $name; lk current item pos expression:K53:80)
+				$o.selectedItemsExpression:=LISTBOX Get property:C917(*; $name; lk selected items expression:K53:81)
+				
+				$o.item:=Formula from string:C1601($o.currentItemExpression)
+				$o.itemPosition:=Formula from string:C1601($o.currentItemPositionExpression)
+				$o.selectedItems:=Formula from string:C1601($o.selectedItemsExpression)
+				
+				//–––––––––––––––––––––––––––––––––
+		End case 
+		
+		This:C1470.dataSources:=$o
+		
+	Else 
+		
+		$o:=This:C1470.jsonFormDefinition()
+		
+		If ($o#Null:C1517)
+			
+			This:C1470.dataSources:={\
+				data: Formula from string:C1601(String:C10($o.dataSource)); \
+				item: Formula from string:C1601(String:C10($o.currentItemSource)); \
+				itemPosition: Formula from string:C1601(String:C10($o.currentItemPositionSource)); \
+				selectedItems: Formula from string:C1601(String:C10($o.selectedItemsSource))\
+				}
+			
+		End if 
 	End if 
 	
 	//mark:-[READ ONLY]
@@ -171,45 +203,7 @@ Function set selectionHighlight($on : Boolean) : cs:C1710.listbox
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==
 Function get dataSourceType() : Text
 	
-	var $name : Text
-	var $table : Integer
-	
-	LISTBOX GET TABLE SOURCE:C1014(*; This:C1470.name; $table; $name)
-	
-	If ($table>0)
-		
-		return Length:C16($name)=0 ? "Current Selection" : "Named Selection"
-		
-	Else 
-		
-		var $ptr:=OBJECT Get pointer:C1124(Object named:K67:5; This:C1470.name)
-		
-		Case of 
-				
-				//–––––––––––––––––––––––––––––––––
-			: ($ptr=Null:C1517)
-				
-				//
-				
-				//–––––––––––––––––––––––––––––––––
-			: (Type:C295($ptr->)=Is collection:K8:32)
-				
-				return "Collection"
-				
-				//–––––––––––––––––––––––––––––––––
-			: (Type:C295($ptr->)=Boolean array:K8:21)
-				
-				return "Array"
-				
-				//–––––––––––––––––––––––––––––––––
-			: (Type:C295($ptr->)=Is longint:K8:6)\
-				 | (Type:C295($ptr->)=Is real:K8:4)
-				
-				return "Entity Selection"
-				
-				//–––––––––––––––––––––––––––––––––
-		End case 
-	End if 
+	return This:C1470._classifyDataSource()
 	
 	// MARK:-[SOURCE & DATA]
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -290,7 +284,7 @@ Function isEntitySelection($caller : Text) : Boolean
 Function isArray($caller : Text) : Boolean
 	
 	var $success : Boolean
-	$success:=This:C1470.dataSourceType="array"
+	$success:=This:C1470.dataSourceType="Array"
 	
 	If (Count parameters:C259>=1)
 		
@@ -968,7 +962,7 @@ Function forceEdit($target; $item : Integer)
 	Else 
 		
 		Case of 
-			
+				
 				//______________________________________________________________
 			: (Count parameters:C259=0)  // First editable column of the current row
 				
@@ -1441,6 +1435,83 @@ Function _commonProperties() : Object
 		fontStyleExpression: {k: lk font style expression:K53:49}; \
 		truncate: {k: lk truncate:K53:37}\
 		}
+	
+	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+	//  Classify the listbox data source (single source of truth for the whole class)
+	//  Returns: "Current Selection" | "Named Selection" | "Collection" | "Entity Selection" | "Array" | ""
+Function _classifyDataSource() : Text
+	
+	var $name : Text
+	var $table : Integer
+	
+	LISTBOX GET TABLE SOURCE:C1014(*; This:C1470.name; $table; $name)
+	
+	If ($table>0)
+		
+		return Length:C16($name)=0 ? "Current Selection" : "Named Selection"
+		
+	End if 
+	
+	// Formula-bound source (no variable): needs the modern data source command
+	If (Application version:C493>="20A0")
+		
+		var $formula:=OBJECT Get data source formula:C1852(*; This:C1470.name)
+		
+		If (Position:C15("$"; String:C10($formula.source))=1)  // Dynamic form variable
+			
+			return "Array"
+			
+		End if 
+		
+		If ($formula=Null:C1517)  // No formula → collection/entity selection list box without data source
+			
+			return "Collection"
+			
+		End if 
+		
+		// Runtime value distinguishes Collection from Entity Selection
+		var $target:=$formula.call()
+		
+		Case of 
+				
+				//–––––––––––––––––––––––––––––––––
+			: (Value type:C1509($target)=Is collection:K8:32)
+				
+				return "Collection"
+				
+				//–––––––––––––––––––––––––––––––––
+			: (Value type:C1509($target)=Is object:K8:27) && (OB Instance of:C1731($target; 4D:C1709.EntitySelection))
+				
+				return "Entity Selection"
+				
+				//–––––––––––––––––––––––––––––––––
+		End case 
+		
+	Else 
+		
+		var $ptr:=OBJECT Get pointer:C1124(Object named:K67:5; This:C1470.name)
+		
+		If ($ptr#Null:C1517)  // Variable-bound source
+			
+			Case of 
+					
+					//–––––––––––––––––––––––––––––––––
+				: (Type:C295($ptr->)=Is collection:K8:32)
+					
+					return "Collection"
+					
+					//–––––––––––––––––––––––––––––––––
+				: (Type:C295($ptr->)=Is longint:K8:6)\
+					 | (Type:C295($ptr->)=Is real:K8:4)
+					
+					return "Entity Selection"
+					
+					//–––––––––––––––––––––––––––––––––
+			End case 
+		End if 
+	End if 
+	
+	return "Array"  // Named array (scalar formula) or variable-bound array (legacy)
 	
 	// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 	//  clear the objects that are set by the listbox object

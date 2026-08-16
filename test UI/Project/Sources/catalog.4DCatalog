@@ -2,6 +2,17 @@
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
 <base name="test UI" uuid="F75C639D647B49458A6DBD550B382830" collation_locale="en">
 	<schema name="DEFAULT_SCHEMA"/>
+	<table name="Table_1" uuid="36C47B3369E1475FB4B15B30DF10DF99" id="1">
+		<field name="ID" uuid="620B285E21814C218795D042CDE2FABE" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="Field_2" uuid="DC10CBDA33B944C58C7F1B60220699BE" type="10" limiting_length="255" id="2"/>
+		<field name="Field_3" uuid="A47C3AD7FDB5473E994A2F07B40F065C" type="1" id="3"/>
+		<primary_key field_name="ID" field_uuid="620B285E21814C218795D042CDE2FABE"/>
+	</table>
+	<index kind="regular" unique_keys="true" uuid="9ABCF56038F2423BA217E9D3FC1FF467" type="7">
+		<field_ref uuid="620B285E21814C218795D042CDE2FABE" name="ID">
+			<table_ref uuid="36C47B3369E1475FB4B15B30DF10DF99" name="Table_1"/>
+		</field_ref>
+	</index>
 	<base_extra>
 		<journal_file journal_file_enabled="true"/>
 	</base_extra>

@@ -1,0 +1,262 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "variable",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
+	"windowTitle": "window title",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"dynamicArray": {
+					"type": "listbox",
+					"left": 20,
+					"top": 8,
+					"width": 338,
+					"height": 64,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"columns": [
+						{
+							"header": {
+								"text": "Header1",
+								"name": "Header1"
+							},
+							"name": "Column1",
+							"footer": {
+								"name": "Footer1"
+							}
+						}
+					]
+				},
+				"array": {
+					"type": "listbox",
+					"left": 20,
+					"top": 219,
+					"width": 338,
+					"height": 56,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"dataSource": "vArray",
+					"columns": [
+						{
+							"header": {
+								"text": "Header1",
+								"name": "Header2"
+							},
+							"name": "Column2",
+							"footer": {
+								"name": "Footer2"
+							}
+						}
+					]
+				},
+				"Input": {
+					"type": "input",
+					"left": 22,
+					"top": 89,
+					"width": 336,
+					"height": 110,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10
+				},
+				"Input1": {
+					"type": "input",
+					"left": 20,
+					"top": 295,
+					"width": 336,
+					"height": 110,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10
+				},
+				"collection": {
+					"type": "listbox",
+					"left": 383,
+					"top": 8,
+					"width": 338,
+					"height": 56,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"listboxType": "collection",
+					"columns": [
+						{
+							"header": {
+								"text": "Header1",
+								"name": "Header3"
+							},
+							"name": "Column3",
+							"footer": {
+								"name": "Footer3"
+							}
+						}
+					]
+				},
+				"Input2": {
+					"type": "input",
+					"left": 383,
+					"top": 84,
+					"width": 336,
+					"height": 110,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10
+				},
+				"collection1": {
+					"type": "listbox",
+					"left": 383,
+					"top": 219,
+					"width": 338,
+					"height": 56,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.data",
+					"columns": [
+						{
+							"header": {
+								"text": "Header1",
+								"name": "Header4"
+							},
+							"name": "Column4",
+							"footer": {
+								"name": "Footer4"
+							}
+						}
+					]
+				},
+				"Input3": {
+					"type": "input",
+					"left": 383,
+					"top": 295,
+					"width": 336,
+					"height": 110,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10
+				},
+				"collection2": {
+					"type": "listbox",
+					"left": 738,
+					"top": 8,
+					"width": 338,
+					"height": 56,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.data",
+					"currentItemSource": "Form:C1466.item",
+					"currentItemPositionSource": "Form:C1466.pos",
+					"selectedItemsSource": "Form:C1466.selected",
+					"columns": [
+						{
+							"header": {
+								"text": "Header1",
+								"name": "Header5"
+							},
+							"name": "Column5",
+							"footer": {
+								"name": "Footer5"
+							}
+						}
+					]
+				},
+				"Input4": {
+					"type": "input",
+					"left": 738,
+					"top": 84,
+					"width": 336,
+					"height": 110,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10
+				},
+				"collection3": {
+					"type": "listbox",
+					"left": 738,
+					"top": 219,
+					"width": 338,
+					"height": 56,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"listboxType": "collection",
+					"dataSource": "myCollection",
+					"currentItemSource": "Form:C1466.item",
+					"currentItemPositionSource": "Form:C1466.pos",
+					"selectedItemsSource": "Form:C1466.selected",
+					"columns": [
+						{
+							"header": {
+								"text": "Header1",
+								"name": "Header6"
+							},
+							"name": "Column6",
+							"footer": {
+								"name": "Footer6"
+							}
+						}
+					]
+				},
+				"Input5": {
+					"type": "input",
+					"left": 738,
+					"top": 295,
+					"width": 336,
+					"height": 110,
+					"dataSource": "",
+					"dataSourceTypeHint": "object",
+					"fontSize": 10
+				}
+			}
+		}
+	],
+	"geometryStamp": 56,
+	"method": "method.4dm",
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
+}

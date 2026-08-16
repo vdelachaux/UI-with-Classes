@@ -1,3 +1,19 @@
 {
-	"tables": {}
+	"tables": {
+		"Table_1": {
+			"color": {
+				"red": 255,
+				"green": 255,
+				"blue": 255,
+				"alpha": 0
+			},
+			"coordinates": {
+				"left": 39.9921875,
+				"top": 40,
+				"width": 120,
+				"height": 167.33203125
+			},
+			"displayable_fields_count": 6
+		}
+	}
 }
