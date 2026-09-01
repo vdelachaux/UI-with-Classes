@@ -58,6 +58,7 @@ DEV
 *.dylib
 test UI/Project/Sources/dependencies.json
 Components
+_Components
 Method[0-9]*.4dm
 Form[0-9]*.4dm
 test UI/Project/Trash
