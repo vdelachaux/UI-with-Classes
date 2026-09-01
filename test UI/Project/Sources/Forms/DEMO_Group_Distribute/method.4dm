@@ -1,3 +1,13 @@
+var $form:=cs:C1710.ui.form.new()
+
+If (FORM Event:C1606.code=On Timer:K2:25)
+	
+	SET TIMER:C645(0)
+	
+	// The width was set automatically during loading. Now prevent resizing.
+	$form.setHorizontalResising(False:C215)
+	
+End if 
 
 // The first widget group should be right-aligned and its members treated as buttons.
 // Notes that we give the “button” type to the group members, so the height is adjusted according to the platform. 
@@ -17,4 +27,8 @@ cs:C1710.ui.group.new([cs:C1710.ui.button.new("Button6"); cs:C1710.ui.button.new
 cs:C1710.ui.group.new("myButton@"; "button").distributeAroundCenter({spacing: 2; minWidth: 15}).disable()
 
 // No widget has the focus at dialog opening.
-cs:C1710.ui.form.new().removeFocus()
+$form.removeFocus()
+
+SET TIMER:C645(-1)
+
+

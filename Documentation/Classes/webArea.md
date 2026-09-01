@@ -2,6 +2,10 @@
 
 The `webArea` class provides an interface to manage properties and actions of webArea widget.
 
+## Hierarchy
+
+<img src="./img/hierarchy-webArea.svg" width="408">
+
 The `webArea` class is available via the [`form`](form.md#objects) class through the `WebArea` interface.
 
 ```4d
@@ -172,6 +176,9 @@ If a `4D.File` is passed as parameter, the url loaded will be "file:///"+ the pa
 ### Example
 
 ```4d
-var $coordinates:=cs.coordinates.new("Input")$coordinates.left+=10$coordinates.top+=10$coordinates.apply()
+var $coordinates:=cs.coordinates.new("Input")
+$coordinates.left+=10
+$coordinates.top+=10
+$coordinates.apply()
 ```
 -->

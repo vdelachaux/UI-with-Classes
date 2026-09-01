@@ -2,6 +2,10 @@
 
 The `colors` class provides an interface for manipulating the colors that can be used for a widget.
 
+## Hierarchy
+
+<img src="./img/hierarchy-colors.svg" width="242">
+
 This class is available from the `cs` class store, or `cs.ui` class store if you use the `UI` component.
 
 <hr>

@@ -2,6 +2,10 @@
 
 The `button` class provides an interface to manage properties and actions of [button](https://developer.4d.com/docs/20/FormObjects/buttonOverview) widget.
 
+## Hierarchy
+
+<img src="./img/hierarchy-button.svg" width="392">
+
 <hr>
 
 ℹ️ <b>Important</b>

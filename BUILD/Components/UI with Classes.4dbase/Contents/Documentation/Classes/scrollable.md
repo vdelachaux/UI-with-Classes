@@ -1,6 +1,10 @@
 # scrollable
 
 The `scrollable` class provides an interface to manage properties and actions of scrollable widgets.
+
+## Hierarchy
+
+<img src="./img/hierarchy-scrollable.svg" width="350">
 <hr>
 
 ℹ️ <b>Important</b>
@@ -62,7 +66,9 @@ Inherited properties and functions are described in the parent classes:
 
  Values for horizontal & vertical could be:
  
- > = 0: Hide<br> = 1: Show<br> = 2: Automatic
+ > = 0: Hide
+<br> = 1: Show
+<br> = 2: Automatic
 
 #### <a name="scroll">Scroll object</a>
 

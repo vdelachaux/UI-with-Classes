@@ -2,6 +2,10 @@
 
 The `tabControl` class provides an interface to manage tab control widgets.
 
+## Hierarchy
+
+<img src="./img/hierarchy-tabControl.svg" width="422">
+
 <hr>
 
 ℹ️ <b>Important</b>

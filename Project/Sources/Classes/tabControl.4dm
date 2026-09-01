@@ -16,10 +16,13 @@ Class constructor($name : Text; $data; $page : Integer; $parent : Object)
 	
 	This:C1470.data:={}
 	
+	var $sourceType : Integer:=Value type:C1509(This:C1470.dataSource)
+	
 	Case of 
 			
 			//______________________________________________________
-		: (This:C1470.isChoiceList)  // Using a choice list
+		: ($sourceType=Is real:K8:4)\
+			 || ($sourceType=Is longint:K8:6)  // Using a choice list
 			
 			This:C1470.listRef:=Num:C11($data)
 			
@@ -34,7 +37,7 @@ Class constructor($name : Text; $data; $page : Integer; $parent : Object)
 			End for 
 			
 			//______________________________________________________
-		: (This:C1470.isObject)  // Using an object
+		: ($sourceType=Is object:K8:27)  // Using an object
 			
 			Case of 
 					
@@ -169,7 +172,7 @@ Function clearList()
 		CLEAR LIST:C377(This:C1470.listRef; *)
 		
 	End if 
-
+	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function enableTab($index : Integer; $enabled : Boolean)
 	

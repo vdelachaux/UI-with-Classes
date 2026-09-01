@@ -163,9 +163,10 @@
 			"Vue 9": {}
 		}
 	},
-	"geometryStamp": 79,
+	"geometryStamp": 80,
 	"$4d": {
 		"version": "1",
 		"kind": "form"
-	}
+	},
+	"windowSizingY": "fixed"
 }

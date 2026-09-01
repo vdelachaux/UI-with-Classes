@@ -2,6 +2,10 @@
 
 The `selector` class is intended to manage Dropdown, Combo Box and Tab Control widgets.
 
+## Hierarchy
+
+<img src="./img/hierarchy-selector.svg" width="403">
+
 <hr>
 
 ℹ️ <b>Important</b>

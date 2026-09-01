@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="38">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="39">
 	<com.4d>
 		<general execute_host_database_event="true"/>
 		<compiler>
 			<typage default_for_button="2"/>
 			<method_suffix arrays="" interprocess_arrays="" interprocess_variables="" methods="" variables=""/>
-			<options compilation_path="3" target="all"/>
+			<options compilation_path="4" target="all"/>
 		</compiler>
 		<interface>
 			<shortcuts>

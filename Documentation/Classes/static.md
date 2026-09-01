@@ -2,6 +2,10 @@
 
 The `static` class provides an interface to manage properties and actions common to all widgets, and is the parent class of all form widget UI classes
 
+## Hierarchy
+
+<img src="./img/hierarchy-static.svg" width="378">
+
 The `static` class is available via the [`form`](form.md#objects) class through the `Static` interface.
 
 #### Example

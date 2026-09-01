@@ -1,5 +1,16 @@
 {
 	"_method_": {
+		"formGetInstance": {
+			"Syntax": "**formGetInstance**() : 4D.Class",
+			"Params": [
+				[
+					"",
+					"4D.Class",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"form RESET GEOMETRY": {
 			"Syntax": "**form RESET GEOMETRY**( *name* : Text; *reset* : Boolean )",
 			"Params": [
@@ -12,6 +23,17 @@
 					"reset",
 					"Boolean",
 					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"formMenuHandle": {
+			"Syntax": "**formMenuHandle**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
 				]
 			],
 			"Summary": ""

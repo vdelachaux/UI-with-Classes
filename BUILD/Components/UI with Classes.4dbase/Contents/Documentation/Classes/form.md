@@ -2,6 +2,10 @@
 
 The `form` class is intended to be called as a delegate by a `form controller class`, as in the [code example](#sample) below line 8.
 
+## Hierarchy
+
+<img src="./img/hierarchy-form.svg" width="401">
+
 <br>
 ### <a name="sample">Example</a>
 

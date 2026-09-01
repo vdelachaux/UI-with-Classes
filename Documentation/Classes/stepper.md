@@ -2,6 +2,10 @@
 
 The `stepper` class provides an interface to manage stepper widgets.
 
+## Hierarchy
+
+<img src="./img/hierarchy-stepper.svg" width="399">
+
 <hr>
 
 ℹ️ <b>Important</b>

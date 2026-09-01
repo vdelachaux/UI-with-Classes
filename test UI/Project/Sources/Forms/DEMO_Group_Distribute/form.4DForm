@@ -7,7 +7,8 @@
 	"markerBreak": 220,
 	"markerFooter": 240,
 	"events": [
-		"onLoad"
+		"onLoad",
+		"onTimer"
 	],
 	"method": "method.4dm",
 	"pageFormat": {
@@ -259,12 +260,13 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"geometryStamp": 150,
+	"geometryStamp": 154,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",
 		"views": {
 			"View 1": {}
 		}
-	}
+	},
+	"windowSizingY": "fixed"
 }

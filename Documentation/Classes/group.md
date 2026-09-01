@@ -1,6 +1,10 @@
 # group
 
-Widget groups are available in the form editor but are not recognized at runtime. 
+Widget groups are available in the form editor but are not recognized at runtime.
+
+## Hierarchy
+
+<img src="./img/hierarchy-group.svg" width="234"> 
 
 A classic way to handle this is to create name patterns to handle a group of widgets at once. This is sometimes a problem when you want to change the organization of the form.
 

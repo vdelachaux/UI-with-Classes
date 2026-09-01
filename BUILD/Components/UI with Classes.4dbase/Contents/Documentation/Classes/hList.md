@@ -2,6 +2,10 @@
 
 The `hList` class is intended to handle hierarchical list widgets.
 
+## Hierarchy
+
+<img src="./img/hierarchy-hList.svg" width="520">
+
 <hr>
 
 ℹ️ <b>Important</b>

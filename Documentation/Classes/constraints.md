@@ -2,6 +2,10 @@
 
 The `constraints` class retains the rules for moving and resizing form objects, and manages them during resizing.
 
+## Hierarchy
+
+<img src="./img/hierarchy-constraints.svg" width="274">
+
 > 📌 Note that, for the moment, only horizontal rules are supported.    
 > (I've never needed vertical constraints, but perhaps I will in the future...).
 
@@ -75,7 +79,13 @@ Allow to store more than one rule for a same target.
 
 ```4d
 // Class _myDialog_Controller
-Class constructor		This.isSubform:=False	This.toBeInitialized:=False		// Instantiate the form	This.form:=cs.form.new(This)
+Class constructor
+	
+	This.isSubform:=False
+	This.toBeInitialized:=False
+	
+	// Instantiate the form
+	This.form:=cs.form.new(This)
 	
 	...
 	
@@ -87,19 +97,62 @@ Function init()
 	
 	...
 
-	// The right edge of the lisbox must be in the middle (50%) of the dialog,	// & the width must be no less than 130px and no more than 520 px	This.form.constraints.add({target: This.listbox; set: [\	  {type: "right"; value: 50}; \	  {type: "minimum-width"; value: 150}; \	  {type: "maximum-width"; value: 520}\	]})	
-			// The "input" box must stay centered in the dialog.	// 📌 The "input.label" is automatically attached to the input box.	This.form.constraints.add({\	  target: "input"; \	  type: "horizontal-alignment"; \	  alignment: "center"\	})
+	// The right edge of the lisbox must be in the middle (50%) of the dialog,
+	// & the width must be no less than 130px and no more than 520 px
+	This.form.constraints.add({target: This.listbox; set: [\
+	  {type: "right"; value: 50}; \
+	  {type: "minimum-width"; value: 150}; \
+	  {type: "maximum-width"; value: 520}\
+	]})	
+		
+	// The "input" box must stay centered in the dialog.
+	// 📌 The "input.label" is automatically attached to the input box.
+	This.form.constraints.add({\
+	  target: "input"; \
+	  type: "horizontal-alignment"; \
+	  alignment: "center"\
+	})
 	
 	...
 	
-Function handleEvents($e : cs.evt)		$e:=$e || cs.evt.new()		If ($e.form)				// Mark: FORM METHOD				Case of 								//==============================================			: ($e.load)								This.form.onLoad()								//==============================================			: ($e.resize)								// Applying the constraints				This.form.constraints.apply()								//==============================================		End case 			Else 				// Mark: WIDGETS METHOD
+Function handleEvents($e : cs.evt)
+	
+	$e:=$e || cs.evt.new()
+	
+	If ($e.form)
 		
-	   ...			End if
+		// Mark: FORM METHOD
+		
+		Case of 
+				
+				//==============================================
+			: ($e.load)
+				
+				This.form.onLoad()
+				
+				//==============================================
+			: ($e.resize)
+				
+				// Applying the constraints
+				This.form.constraints.apply()
+				
+				//==============================================
+		End case 
+		
+	Else 
+		
+		// Mark: WIDGETS METHOD
+		
+	   ...
+		
+	End if
 	
 Function onLoad()
 	
 	...	
-		// Applying the constraints	This.form.constraints.apply()
+	
+	// Applying the constraints
+	This.form.constraints.apply()
 	
 ```
 

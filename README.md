@@ -6,6 +6,10 @@
 
 This repository consolidates a collection of reusable user-interface components, example projects, and comprehensive documentation. It contains ready-to-use components, forms, database and UI methods, and multilingual resources, plus demos and step-by-step guides to simplify integration into 4D projects. Designed for developers who want to build modular, accessible, and maintainable interfaces, the repository provides best-practice patterns, example code, and assets to accelerate UI development.
 
+> ## 📄 [**Cheat Sheet**](Documentation/CheatSheet.md)
+> **New here? Start with the [Cheat Sheet](Documentation/CheatSheet.md)** — a one-glance,
+> 2-page overview of every class and what it can do.
+
 ### Repository structure
 
 This repository includes two complementary 4D projects:
@@ -68,7 +72,7 @@ I often have to modify the organization of the interface as projects evolve. For
 I define my widget once and for all with its name:
 
 ```4d
-Form.myPassword:=myForm.input.new("Input")
+Form.myPassword:=myForm.Input("Input")
 ```
 
 This is the only line of code I might have to modify in the sub-form, after which the code no longer refers to this name:
@@ -91,7 +95,7 @@ What's more, if a 4D command evolves, a simple update to a class function immedi
 
 1. See the [How it works](#how) section below.
 1. I suggest you first look at ***DEMO_1***, which is a simple case, to understand the design. Then you can run and explore the other demos that introduce more complicated or specific uses, I'm trying to show use cases like menu bar management or contextual menus.  Other demonstrations will follow (I need to enrich this part), as it's also instructive for optimizing and enriching commands. 
-1. See the [Documentation](Documentation/Classes/) folder. I suggest you begin with the [`formDelegate` class documentation](Documentation/Classes/formDelegate.md).
+1. See the [Documentation](Documentation/Classes/) folder. I suggest you begin with the [`form` class documentation](Documentation/Classes/form.md).
 
 ## Installation (4D Package Manager)
 
@@ -132,7 +136,7 @@ As you can see from the demos included in the project, each demo consists of a f
 
 ![Form](README/form.png)
 
-2️⃣ In the` dialog class` constructor, the property `.form` is set as `cs.formDelegate.new(This) `where **This** is the dialog class.
+2️⃣ In the` dialog class` constructor, the property `.form` is set as `cs.form.new(This) `where **This** is the dialog class.
 
 3️⃣ The` dialog class `define, at least one function:  `.handleEvents()`
 
@@ -143,8 +147,8 @@ Class constructor
 	This.isSubform:=False
 	This.toBeInitialized:=False
 	
-	// 2️⃣ Instantiate the formDelegate
-	This.form:=cs.formDelegate.new(This)
+	// 2️⃣ Instantiate the form
+	This.form:=cs.form.new(This)
 	
 	This.form.init()
 	
@@ -157,11 +161,11 @@ Function init()
 		• Note that the label is not instantiated, as we don't need to act on it.
 	*/
 	
-	This.pwd:=This.form.input.new("Input")
+	This.pwd:=This.form.Input("Input")
 	
 	// Bottom buttons
-	This.ok:=This.form.button.new("Button")
-	This.cancel:=This.form.button.new("Button1")
+	This.ok:=This.form.Button("Button")
+	This.cancel:=This.form.Button("Button1")
 	
 	// === === === === === === === === === === === === === === === === === === === === ===
 Function handleEvents($e : cs.evt) // 3️⃣
@@ -222,7 +226,7 @@ Function onLoad()
 	This.pwd.asPassword:=True
 	
 	// Distribute bottom buttons according to their label
-	This.form.group.new(This.ok; This.cancel).distributeRigthToLeft()
+	This.form.Group(This.ok; This.cancel).distributeRigthToLeft()
 	This.ok.helpTip:="Click here to validate your password"
 	This.cancel.helpTip:="Click here to abandon"
 	
@@ -230,6 +234,15 @@ Function onLoad()
 ```
 
 ## Class diagram (the hidden face of the iceberg)
+
+### Overview (inheritance & composition)
+
+<img src="Classes-overview.svg" width="500">
+
+### Detailed view (complete API)
+
+The full diagram is too large to render inline; it is provided as a zoomable SVG.
+See also the source in [Classes-diagram.md](Classes-diagram.md).
 
 Note: For a complete view of the diagram:
 * Right-click on the image & select "Open Image in a new tab"

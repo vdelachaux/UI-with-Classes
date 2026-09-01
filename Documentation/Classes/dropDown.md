@@ -2,6 +2,10 @@
 
 The`dropDown` class provides an interface to manage properties and actions of [Drop-down List](https://developer.4d.com/docs/20/FormObjects/dropdownListOverview) widgets using an `Object` as data source.
 
+## Hierarchy
+
+<img src="./img/hierarchy-dropDown.svg" width="520">
+
 The `dropDown` class is available via the [`form`](form.md#objects) class through the `DropDown` interface.
 
 #### Example

@@ -55,7 +55,7 @@ Case of
 		Form:C1466.objects:=[{name: "Alpha"; age: 10}; {name: "Bravo"; age: 20}; {name: "Charlie"; age: 30}]
 		
 		// === 9. Collection liée à une variable process ===
-		myColl:=[{name: "Xavier"; age: 1}; {name: "Yannick"; age: 2}]
+		var myColl:=[{name: "Xavier"; age: 1}; {name: "Yannick"; age: 2}]
 		
 		// === Données table (cas 10, 11, 12) ===
 		// Les enregistrements et la sélection nommée "mySel" sont préparés par la

@@ -2,6 +2,10 @@
 
 The `window` class provides an interface to manage 4D windows from form controllers and application logic.
 
+## Hierarchy
+
+<img src="./img/hierarchy-window.svg" width="249">
+
 <hr>
 
 ℹ️ <b>Important</b>

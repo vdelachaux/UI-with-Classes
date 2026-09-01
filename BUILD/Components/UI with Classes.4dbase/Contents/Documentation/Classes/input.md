@@ -2,6 +2,10 @@
 
 The `input` class provides an interface to manage properties and actions of input widgets.
 
+## Hierarchy
+
+<img src="./img/hierarchy-input.svg" width="520">
+
 <hr>
 ℹ️ <b>Important</b>
 
@@ -116,6 +120,12 @@ If the dictionary is not installed, an assert is triggered.
 ### <a name="selectionObject">Selection object</a>
 
 ```4d
-{ start: $start;  end: $end;  length: $end-$start; \ withSelection: $end#$start;  noSelection: $end=$start; selection: ""
+{
+ start: $start; 
+ end: $end; 
+ length: $end-$start; \
+ withSelection: $end#$start; 
+ noSelection: $end=$start;
+ selection: ""
 }
 ```

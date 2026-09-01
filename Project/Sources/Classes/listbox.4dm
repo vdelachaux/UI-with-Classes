@@ -218,9 +218,8 @@ Function setSource($source) : cs:C1710.listbox
 		
 		This:C1470.source:=$source
 		This:C1470.kind:=$type
-		This:C1470.setData()
 		
-		return This:C1470
+		return This:C1470.setData()
 		
 	End if 
 	
@@ -228,9 +227,8 @@ Function setSource($source) : cs:C1710.listbox
 		
 		This:C1470.source:=$source
 		This:C1470.kind:=$type
-		This:C1470.setData()
 		
-		return This:C1470
+		return This:C1470.setData()
 		
 	End if 
 	

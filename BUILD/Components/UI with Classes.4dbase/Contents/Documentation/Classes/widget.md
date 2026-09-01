@@ -4,7 +4,9 @@ The `widget ` class provides an interface to manage properties and actions of ac
 
 This class is a transition class between the `static` class and more specific classes like `input`, `button`, `listbox`… <u><br>Normally, you'll never have to instantiate the **cs**.widget class</u>, since instantiation is automatic with a more specialized widget.
 
-[Class diagram](widgetmermaid.md)
+## Hierarchy
+
+<img src="./img/hierarchy-widget.svg" width="165">
 
 <hr>
 

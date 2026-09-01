@@ -2,6 +2,10 @@
 
 The `subform` class provides an interface to manage subform widgets and their embedded form behavior.
 
+## Hierarchy
+
+<img src="./img/hierarchy-subform.svg" width="520">
+
 <hr>
 
 ℹ️ <b>Important</b>

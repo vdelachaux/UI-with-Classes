@@ -2,6 +2,10 @@
 
 The`comboBox` class provides an interface to manage properties and actions of [Combo Box](https://developer.4d.com/docs/20/FormObjects/comboBoxOverview) widgets using an `Object` as data source.
 
+## Hierarchy
+
+<img src="./img/hierarchy-comboBox.svg" width="520">
+
 The `comboBox` class is available via the [`form`](form.md#objects) class through the `ComboBox` interface.
 
 #### Example

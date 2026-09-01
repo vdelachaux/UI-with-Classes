@@ -1,6 +1,10 @@
 # thermometer
 
-The `thermometer` class provides an interface to manage properties and actions of thermometer widgets. 
+The `thermometer` class provides an interface to manage properties and actions of thermometer widgets.
+
+## Hierarchy
+
+<img src="./img/hierarchy-thermometer.svg" width="442"> 
 
 <hr>
 

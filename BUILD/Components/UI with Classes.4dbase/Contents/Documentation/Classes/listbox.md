@@ -1,6 +1,10 @@
 # listbox
 
-The `listbox` class is intended to handle listbox widget.  
+The `listbox` class is intended to handle listbox widget.
+
+## Hierarchy
+
+<img src="./img/hierarchy-listbox.svg" width="520">  
 
 > #### 📌 This class inherit from the [`scrollable`](scrollable.md) class
 

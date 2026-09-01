@@ -2,6 +2,10 @@
 
 The `picture` class provides an interface to manage picture widgets and images.
 
+## Hierarchy
+
+<img src="./img/hierarchy-picture.svg" width="520">
+
 <hr>
 
 ℹ️ <b>Important</b>

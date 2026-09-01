@@ -236,8 +236,7 @@ Function _extraManager()
 📌 $menuHandle will call the _handleMenus() function of this class
 		
 */
-		var $menuHandle : Text
-		$menuHandle:=Formula:C1597(formMenuHandle).source
+		var $menuHandle:=Formula:C1597(formMenuHandle).source
 		
 /*
 		
@@ -246,7 +245,6 @@ Create a menu with 2 lines and a "Language" submenu
 📌 Sub-menu items are associated with data, 
    in this case a character string that will be used if the item is selected.
    See _handleMenus() below
-		
 		
 */
 		$menu:=cs:C1710.ui.menu.new()\
