@@ -17,10 +17,11 @@
 				"titleBackground": {
 					"type": "rectangle",
 					"top": 0,
-					"left": 0,
-					"width": 940,
+					"left": 255,
+					"width": 685,
 					"height": 53,
-					"class": "windowFrameBackground"
+					"class": "windowFrameBackground",
+					"fill": "automatic"
 				},
 				"macOS_sidebarBackground": {
 					"type": "rectangle",
@@ -30,7 +31,8 @@
 					"height": 872,
 					"bottom": 872,
 					"borderRadius": 4,
-					"class": "mac sidebarBackground"
+					"class": "mac sidebarBackground",
+					"fill": "#F1F2F3"
 				},
 				"sidebar": {
 					"type": "listbox",
@@ -214,7 +216,7 @@
 		}
 	],
 	"method": "formMethod",
-	"geometryStamp": 337,
+	"geometryStamp": 338,
 	"editor": {
 		"groups": {
 			"Group": [
