@@ -1246,7 +1246,7 @@ Function _cursors() : Object
 	
 	// MARK:-[DRAG & DROP]
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-	/// Appends data to the pasteboard under the data type specified in uri. Also sets the drag icon if passed
+	/// Appends data to the D&D pasteboard under the data type specified in uri. Also sets the drag icon if passed
 Function beginDrag($uri : Text; $data; $dragIcon : Picture)
 	
 	If (Value type:C1509($data)=Is BLOB:K8:12)
@@ -1268,7 +1268,7 @@ Function beginDrag($uri : Text; $data; $dragIcon : Picture)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
-	/// Returns the data from the pasteboard whose type you pass in uri
+	/// Returns the data from the D&D pasteboard whose type you pass in uri
 Function getPasteboard($uri : Text) : Variant
 	
 	var $x : Blob
@@ -1283,6 +1283,20 @@ Function getPasteboard($uri : Text) : Variant
 		return $value
 		
 	End if 
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	/// Returns True if data of the type you passed in uri exists in the D&D pasteboard
+Function testPasteboard($uri : Text) : Boolean
+	
+	// TODO: Accept a collection of types
+	return Pasteboard data size:C400($uri)>0
+	
+	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
+	/// Returns the object drop response (integer) for the type you passed in uri
+Function checkPasteboard($uri : Text) : Integer
+	
+	// TODO: Accept a collection of types
+	return This:C1470.testPasteboard($uri) ? /*Accept drop*/0 : /*reject drop*/-1
 	
 	// MARK:-[FORM DEFINITION ACCESS]
 	// <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <== <==

@@ -8,7 +8,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7gG4XPwqObqSeJMswaeok1a4hno=
+			qnzphJcNuGFdVwMDblhrX4EdX4s=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -22,6 +22,10 @@
 	<dict>
 		<key>Documentation/CheatSheet.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			yQ1ZWzyctePOPhkhLURj2D9Pj6I=
+			</data>
 			<key>hash2</key>
 			<data>
 			Vr8MRV8wQelXOnx7R+/vJPnNjACWukOZ8DVduIv16Xk=
@@ -29,6 +33,10 @@
 		</dict>
 		<key>Documentation/Classes/_evtCst.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			6zotXUlMe3iJF7j+wkveFlxGjtA=
+			</data>
 			<key>hash2</key>
 			<data>
 			PFV1lCadtXSSYQUpj8k/39Ii2LN+DJslMX9aaX9WADI=
@@ -36,6 +44,10 @@
 		</dict>
 		<key>Documentation/Classes/button.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			4VhUOk08RrPKvAIX3PV9B+rDNeM=
+			</data>
 			<key>hash2</key>
 			<data>
 			uWl/8ZKfE3nEh4edOD9KpueJHcqp1bilEO+Mxc0IJCc=
@@ -43,6 +55,10 @@
 		</dict>
 		<key>Documentation/Classes/colors.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			TDpcmaCZRj74ouMUoPpiCZp2zCs=
+			</data>
 			<key>hash2</key>
 			<data>
 			7kkx+NCpzuzJQNKIts/r+x2WJ9CwwnSFlMh0xGzDYVg=
@@ -50,6 +66,10 @@
 		</dict>
 		<key>Documentation/Classes/comboBox.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			P3qwu7xghYXBaFB9HfpMB2cFEJc=
+			</data>
 			<key>hash2</key>
 			<data>
 			cXXjZhLQ38ssBUXAW/aeptGC7UK/zFYdpZI6PWggvis=
@@ -57,6 +77,10 @@
 		</dict>
 		<key>Documentation/Classes/constraints.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			2e/3N6680Gbg4wx1deLeNRG50hs=
+			</data>
 			<key>hash2</key>
 			<data>
 			ZKM5QiiHhkl/6lhxSL4oPxa6MChDLRl8wjAfFsZd0zk=
@@ -64,6 +88,10 @@
 		</dict>
 		<key>Documentation/Classes/coordinates.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			6+2kDzGED+QxtGFQnXtlirIvYjo=
+			</data>
 			<key>hash2</key>
 			<data>
 			iAqGna4wgrsA+6JqxiLaYkO6FbY0qIQmvqd1mNi60Jk=
@@ -71,6 +99,10 @@
 		</dict>
 		<key>Documentation/Classes/dimensions.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			wSzAICpv5OFkmjohTOZ+DLThfXM=
+			</data>
 			<key>hash2</key>
 			<data>
 			oj3dbURpgBaPL8RXHyw/HvMApBu4G/4Lvy9B7R/WLa0=
@@ -78,6 +110,10 @@
 		</dict>
 		<key>Documentation/Classes/dropDown.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			gftv7No837wHSSWD76PbwkEHezk=
+			</data>
 			<key>hash2</key>
 			<data>
 			Cu37EjLosBpCoF4wGOu4X295FjMABaIAn22kV1MArXk=
@@ -85,6 +121,10 @@
 		</dict>
 		<key>Documentation/Classes/evt.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			1jPvsyRAMKcWvZIa6ISR5nsD5vM=
+			</data>
 			<key>hash2</key>
 			<data>
 			asDpbID+syAlxrnxM8VlDWMnCSamKetUPlgmkGz//Ss=
@@ -92,6 +132,10 @@
 		</dict>
 		<key>Documentation/Classes/flexContainer.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			NUNgeqKSRh3kmsxDNbXoy3aT7yI=
+			</data>
 			<key>hash2</key>
 			<data>
 			KjDah9X2AepUTuQjXfcLk80OPNlGLTsKhtUx4YmkQYg=
@@ -99,6 +143,10 @@
 		</dict>
 		<key>Documentation/Classes/flexRules.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			pNX4jvGb2owlQkXXLs8LzZlOxdA=
+			</data>
 			<key>hash2</key>
 			<data>
 			Ixu+ijWyyyEVnp+j+lyGjxzZMWvYG8KziE+wZsrgwTQ=
@@ -106,6 +154,10 @@
 		</dict>
 		<key>Documentation/Classes/form.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			j9bgAobH7e5hBDHrVw5ZzCKXqAU=
+			</data>
 			<key>hash2</key>
 			<data>
 			5S3XiD3LN/unW/ssNBLZawxI549gv25wDaQ6dgzmRfQ=
@@ -113,6 +165,10 @@
 		</dict>
 		<key>Documentation/Classes/group.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			xXyscUqq5wSydIWT5l87XDl5lX0=
+			</data>
 			<key>hash2</key>
 			<data>
 			TwY6NBl/zc+mOtyK4Kd38drYZjtPCw6iyL97mEV+uWs=
@@ -120,6 +176,10 @@
 		</dict>
 		<key>Documentation/Classes/hList.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			jmM+laSCHfVwMAipjuVh0++xJ74=
+			</data>
 			<key>hash2</key>
 			<data>
 			0XmJqr10XTZtiBsfqQWyQXlPxnlqjVLLwP+009u33rM=
@@ -127,6 +187,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-button.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			8vgUXZg6EyMV9c7dKVv89mNdsak=
+			</data>
 			<key>hash2</key>
 			<data>
 			4oC/e9mFX9OlEIOo0htlD2owlUEE8XNXocRZ06CBdPA=
@@ -134,6 +198,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-colors.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			4zmSMwOCGwkc2L3xA1to2xIqTOs=
+			</data>
 			<key>hash2</key>
 			<data>
 			hjndRiNow9dqXI4VRPgaddGGDolDxlDzfJLoSpGwAfs=
@@ -141,6 +209,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-comboBox.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			/Ht1p6osU+YMjzt5l5up2/ZaKP0=
+			</data>
 			<key>hash2</key>
 			<data>
 			3mMZHXeOZWv6nLufJa41NnD4PqPpd2r8oFvU+2/VaYs=
@@ -148,6 +220,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-constraints.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			9A51TIEey49mK4Jrt9+Dg+JOERE=
+			</data>
 			<key>hash2</key>
 			<data>
 			6XMrzq8VuAciBlNS44mszF1m8O7dxR57a7Jwb1UKPpk=
@@ -155,6 +231,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-dropDown.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			7LNmmry/KIzKeaP2gJbzvBP7VL0=
+			</data>
 			<key>hash2</key>
 			<data>
 			wV8ygNDndOtNvAYVw4bnF+3RJCmT8IKRSa18mfeWpHA=
@@ -162,6 +242,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-form.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			1GTORQE76pSKGfT4KRqPW1XOUpo=
+			</data>
 			<key>hash2</key>
 			<data>
 			NxQYPeQq1Y/ehv0Ep+ocdj8p1P4C1Ej/ImH/hb568fw=
@@ -169,6 +253,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-group.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			Ef2o8Ty8cl7LBeKhwlMIMnG68kY=
+			</data>
 			<key>hash2</key>
 			<data>
 			rOct8sS34bpO0e6bJDx4+kSBUJc6SJRrkDRQR0dzXME=
@@ -176,6 +264,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-hList.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			qO3aq2LwNBwJm+MUOfxFltizYDo=
+			</data>
 			<key>hash2</key>
 			<data>
 			yv7KvXPQNnbQKZQQaXBw6Hx8x7D4zKTbz/GDzkIuenI=
@@ -183,6 +275,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-input.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			Oiub8I9r2rkZlAWYsQLy7d/5cx8=
+			</data>
 			<key>hash2</key>
 			<data>
 			56Be45VfDjO5VQuafnQL1WJ1mj6JXIxsaX3meVYBT70=
@@ -190,6 +286,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-listbox.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			4tHCgao+yR3BbzWt9P4lh0rDYk4=
+			</data>
 			<key>hash2</key>
 			<data>
 			AkvUdYW8bFSxQwDNgffayiDUh+NGgI/VXvZL8FYX1CI=
@@ -197,6 +297,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-picture.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			fVlMvJ52bYve4PUTjBuHjXVIf18=
+			</data>
 			<key>hash2</key>
 			<data>
 			jo1jmqHeGDWYrQGKjV0MCa3udE62aqQTFVFWNvHkzCw=
@@ -204,6 +308,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-scrollable.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			L13Qo28PFLe6+qizxkuWfvC/gHk=
+			</data>
 			<key>hash2</key>
 			<data>
 			Xn0cmbJsAxEfP1NOcdUSJ9j1HlDOIFFj2QIg50rQyhw=
@@ -211,6 +319,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-selector.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			Oy0Rk4FJaRgIoDdpM92fldUuxy0=
+			</data>
 			<key>hash2</key>
 			<data>
 			8RtVA9kw7TTiWmUZgUWb7vEVOgpQMuuYbvUKc7KFi8g=
@@ -218,6 +330,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-static.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			YLgXuOzhDiYOMFHkGkpQvuMf10A=
+			</data>
 			<key>hash2</key>
 			<data>
 			hTtmWEb35jVZzaZ5DqM2UeqwnrT7+ySlDIc2itNIprA=
@@ -225,6 +341,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-stepper.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			CLT8OgcKetLs0knkaoBt1yj7A8g=
+			</data>
 			<key>hash2</key>
 			<data>
 			MwzVq77hNJc4mA0xt6rz6m9p4k7pHcA49D7Y8pCU1UM=
@@ -232,6 +352,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-subform.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			3DqP21VIypQ59Kh2CU3EThW5338=
+			</data>
 			<key>hash2</key>
 			<data>
 			fLivBXVk/2LkcF0Ol3IT3zrQZJNHTOwIX9i7w9OC+dU=
@@ -239,6 +363,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-tabControl.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			2GyIEpHPTPqMFXCXzDMhxAVh2Cc=
+			</data>
 			<key>hash2</key>
 			<data>
 			eaxp9Jxb028oMhCdQrDU6RhMmWqq68OD3ZyGOeoJbko=
@@ -246,6 +374,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-thermometer.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			O7nbiWkK8GGum1LG6GJH57STRsE=
+			</data>
 			<key>hash2</key>
 			<data>
 			gpxsz3yvm2zmwmyZ9wEsKGM9HDohAtb2bWral9Xohcw=
@@ -253,6 +385,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-webArea.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			fxmU61DgkbErCdCHO5CBBPLR8rI=
+			</data>
 			<key>hash2</key>
 			<data>
 			UvYnTx30Jx+eH3zkBrDCFLmctOM/eNcBXDtjFWLaUM8=
@@ -260,6 +396,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-widget.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			7W5T6sgO2M9vFaRBSBLRfN2fM9Y=
+			</data>
 			<key>hash2</key>
 			<data>
 			3I9aMBf/MV+I7nPZPJv+1ogkAb79KFBfloASvr6bPOo=
@@ -267,6 +407,10 @@
 		</dict>
 		<key>Documentation/Classes/img/hierarchy-window.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			84VyHu0VhAroEUCHdluWR9MdcgY=
+			</data>
 			<key>hash2</key>
 			<data>
 			fVFEyUnsoMhUi0IHvfbISvn0QFmgZPbgprOzgbkbFg8=
@@ -274,6 +418,10 @@
 		</dict>
 		<key>Documentation/Classes/input.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			twX0ji4p5uIiCUw4piRZArDw54I=
+			</data>
 			<key>hash2</key>
 			<data>
 			IpG64YXyJ+GXhkS3rVwecAd6jCI8sa82QJMYaEb5g7c=
@@ -281,6 +429,10 @@
 		</dict>
 		<key>Documentation/Classes/listbox.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			CRVbbq71PUEXNhIGLHo4nGLT1TU=
+			</data>
 			<key>hash2</key>
 			<data>
 			G6WDkKORgv7QS5m95HM5FSR09GCGqrEPHL/7DEh7Zt8=
@@ -288,6 +440,10 @@
 		</dict>
 		<key>Documentation/Classes/menu.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			EYacGbMm7DEfN/UbxYZA+o9ZWeY=
+			</data>
 			<key>hash2</key>
 			<data>
 			rW0lVVY63s2KdnUy+yhdgPOqcxugahq1aPCFRlRYnko=
@@ -295,6 +451,10 @@
 		</dict>
 		<key>Documentation/Classes/menuBar.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			b7ZjJQIzaTUFYFTZRDjHdEeTb6I=
+			</data>
 			<key>hash2</key>
 			<data>
 			y7Fk3Tvc1l00/sd9cc76UElJiMdmCwjFvBejzBMgqU8=
@@ -302,6 +462,10 @@
 		</dict>
 		<key>Documentation/Classes/onBoard.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			DtPzhGmuCn+wuOgft72JvNc5j2w=
+			</data>
 			<key>hash2</key>
 			<data>
 			UFn4DoRzuprjywkE54py11muWdKReumRqyxTHZ4+5Ok=
@@ -309,6 +473,10 @@
 		</dict>
 		<key>Documentation/Classes/onBoard/onBoard.gif</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			s2OX4VmT+Yu643qzyaUiZ6qFmvk=
+			</data>
 			<key>hash2</key>
 			<data>
 			G0JvMPxMiXJIxjdeSEOpBscagk1U3O3zKFBbgBXP8tY=
@@ -316,6 +484,10 @@
 		</dict>
 		<key>Documentation/Classes/picture.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			LILQmFBJLQMktz64Q2j7HNv6I7k=
+			</data>
 			<key>hash2</key>
 			<data>
 			w1bksKQW+SLO/5FwgfAqqvZkriPmrNaKdco3IwLgecQ=
@@ -323,6 +495,10 @@
 		</dict>
 		<key>Documentation/Classes/rect.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			vZCrBNw50BmqxMejU07peDxUZIM=
+			</data>
 			<key>hash2</key>
 			<data>
 			4vySi9CXkDHs2XSPKdiMA/g6jHhx5UsiNBpsNpRm9Ys=
@@ -330,6 +506,10 @@
 		</dict>
 		<key>Documentation/Classes/scrollable.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			HdwYzTGCQwBBAa7MxII5RttRXgw=
+			</data>
 			<key>hash2</key>
 			<data>
 			NgfPiWcrxzYWf0MOb0VAfXPHk3d9MjBxRqQxKhAdn0Q=
@@ -337,6 +517,10 @@
 		</dict>
 		<key>Documentation/Classes/selector.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			KyMvTdylCj7YBm0p+jdUMWquLmk=
+			</data>
 			<key>hash2</key>
 			<data>
 			WCwCpLOVw5WSerOe8ExwcD4Gtu2SwHjdEu9j2qjaMko=
@@ -344,6 +528,10 @@
 		</dict>
 		<key>Documentation/Classes/static.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			EwwD6WSB3+JoTM7Paj0w/wpwwuk=
+			</data>
 			<key>hash2</key>
 			<data>
 			PX6VVPoWulATRUZR61yAVTi497JhD8QfnRATJw2d+kI=
@@ -351,6 +539,10 @@
 		</dict>
 		<key>Documentation/Classes/stepper.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			1zOwJQbY3A/rIFu6GOLpyL+sUlw=
+			</data>
 			<key>hash2</key>
 			<data>
 			yCNRDOtrlVWFxnoEOCShkS45gO5hq51i5CJMzBwKIPo=
@@ -358,6 +550,10 @@
 		</dict>
 		<key>Documentation/Classes/subform.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			4+gFY+USBWaEUAGWzK7nqj18x7o=
+			</data>
 			<key>hash2</key>
 			<data>
 			EmPqXJdY48RQHNzg4EFWULdA660g1uGeCihWh0sMif4=
@@ -365,6 +561,10 @@
 		</dict>
 		<key>Documentation/Classes/tabControl.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			mHLK/Ns9Nw6P8M7BiM9Fek2FeW8=
+			</data>
 			<key>hash2</key>
 			<data>
 			GR55WetgzkfVRqthQdZObKshZ2AY1zXbjJBlgkKVjJk=
@@ -372,6 +572,10 @@
 		</dict>
 		<key>Documentation/Classes/thermometer.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			DZ7RBwFgUWke+sEtmynU3MAOBCU=
+			</data>
 			<key>hash2</key>
 			<data>
 			jsqP4o/pFd/BSGYVa/wdzjiCbY9Aejg2ums8M7VVVsE=
@@ -379,6 +583,10 @@
 		</dict>
 		<key>Documentation/Classes/tips.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			5l8G6x4MQcLs1Z2KXucjMAs5uZI=
+			</data>
 			<key>hash2</key>
 			<data>
 			jmLcwmeP/BcmAB9zxm3Io7DqvvXexmiOX9vFT2HJk4U=
@@ -386,6 +594,10 @@
 		</dict>
 		<key>Documentation/Classes/webArea.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			Yj4tnCgp8e09yWCxn1KYfOvS0uA=
+			</data>
 			<key>hash2</key>
 			<data>
 			d1HyKtJU9ZexubQ5tIRwGeeEXaxdULAWZ6tYltniKLo=
@@ -393,6 +605,10 @@
 		</dict>
 		<key>Documentation/Classes/widget.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			BCrbf5HNCoz+xgVr+0OpFnvujVo=
+			</data>
 			<key>hash2</key>
 			<data>
 			0zQei9TicULaIF6FKTA/eK86Z71zLCDpxaN1Lwnk56s=
@@ -400,6 +616,10 @@
 		</dict>
 		<key>Documentation/Classes/window.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			gMS6ASNYtUpbpfVEnUv45cYL47o=
+			</data>
 			<key>hash2</key>
 			<data>
 			5lahAf3Yhg7GfdH3nUihonDkdlRaR5gKmMRaoBbfwTk=
@@ -407,6 +627,10 @@
 		</dict>
 		<key>Documentation/Methods/formGetInstance.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			PkhrJJZwVLUQSrpKBnLsZE0u+rs=
+			</data>
 			<key>hash2</key>
 			<data>
 			OzJXLS94g0qTeNPYhZfXQJkxo7veAjyDKBMtnvYHLa4=
@@ -414,6 +638,10 @@
 		</dict>
 		<key>Documentation/Methods/formMethod.md</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			Z3/u2KPXDH4vBNZVBr61pSEq9f0=
+			</data>
 			<key>hash2</key>
 			<data>
 			xa83ksFne6p1zLNw/Wc55ZKo23vun+EEg66y2FZxIp4=
@@ -421,6 +649,10 @@
 		</dict>
 		<key>Documentation/Methods/formMethod/explorer.png</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			NLSjxYInT+s1YXPpPuGeJygtzGk=
+			</data>
 			<key>hash2</key>
 			<data>
 			+rK7DslmEOaFTyQtLYNNm1CsW/2mubJ4zcdLjFBPc18=
@@ -428,6 +660,10 @@
 		</dict>
 		<key>Documentation/Methods/formMethod/form.png</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			h58Jg2NWlzh4mgGfmrOJ53XD53A=
+			</data>
 			<key>hash2</key>
 			<data>
 			mjlwrto536NXn9xHsG7RRoFGbamwnA6hgNilRIITvqM=
@@ -435,22 +671,34 @@
 		</dict>
 		<key>Libraries/lib4d-arm64.dylib</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			JELdAnGBtCgQcNnj6X7zZgVdNss=
+			</data>
 			<key>hash2</key>
 			<data>
-			XUVfvAPMP2wtKqETHC6NSYYaIOVgU7eMbMKH2O5yrfs=
+			g90gM5NbOSKeHNXxyZD9EermD5P1nEUiE3y3ff0gyRM=
 			</data>
 		</dict>
 		<key>Resources/en.lproj/syntaxEN.json</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			qnzphJcNuGFdVwMDblhrX4EdX4s=
+			</data>
 			<key>hash2</key>
 			<data>
-			coQWZZE95Ax9z0jSpPHnWvhv01gmxd6yL1cwP4g7KV4=
+			rJSi1W1jdHLa/fkSHfO2g5JAAbJmSrQGgNaCOXUz4Mk=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/logo.svg</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			Y+Aw2ftPsrCqZzxuvaAzTVUII/o=
+			</data>
 			<key>hash2</key>
 			<data>
 			pQOYQvzXMpcUuzVLNutT8lieb1kfgXPoRBSKqPxP9NQ=
@@ -460,10 +708,10 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			KMvHTXqcIkgEI14fx6B0XOAuA5M=
+			tE2vsdFbpX5aYbNjXFZUo3Wo4Eg=
 			</data>
 			<key>requirement</key>
-			<string>identifier "UI with Classes.4DZ" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = DYRKW64QA9</string>
+			<string>identifier "UI with Classes.4DZ" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Vincent de Lachaux (99U8H5L528)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 	</dict>
 	<key>rules</key>

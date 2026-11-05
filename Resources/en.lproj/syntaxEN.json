@@ -7177,6 +7177,27 @@
 			],
 			"Summary": ""
 		},
+		"DropDown()": {
+			"Syntax": "**.DropDown**( *name* : Text; *data* : Object ) : cs.ui.dropDown",
+			"Params": [
+				[
+					"name",
+					"Text",
+					"->"
+				],
+				[
+					"data",
+					"Object",
+					"->"
+				],
+				[
+					"",
+					"cs.ui.dropDown",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"ComboBox()": {
 			"Syntax": "**.ComboBox**( *name* : Text; *data* : Object ) : cs.ui.comboBox",
 			"Params": [
@@ -7576,27 +7597,6 @@
 			],
 			"Summary": ""
 		},
-		"DropDown()": {
-			"Syntax": "**.DropDown**( *name* : Text; *data* : Object ) : cs.ui.dropDown",
-			"Params": [
-				[
-					"name",
-					"Text",
-					"->"
-				],
-				[
-					"data",
-					"Object",
-					"->"
-				],
-				[
-					"",
-					"cs.ui.dropDown",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"nextPage()": {
 			"Syntax": "**.nextPage**( *parent* : Boolean )",
 			"Params": [
@@ -7686,6 +7686,22 @@
 					"message",
 					"Object",
 					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"checkPasteboard()": {
+			"Syntax": "**.checkPasteboard**( *uri* : Text ) : Integer",
+			"Params": [
+				[
+					"uri",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Integer",
+					"<-"
 				]
 			],
 			"Summary": ""
@@ -8166,6 +8182,22 @@
 		"get verticallyResizable()": {
 			"Syntax": "**.get verticallyResizable**() : Boolean",
 			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"testPasteboard()": {
+			"Syntax": "**.testPasteboard**( *uri* : Text ) : Boolean",
+			"Params": [
+				[
+					"uri",
+					"Text",
+					"->"
+				],
 				[
 					"",
 					"Boolean",

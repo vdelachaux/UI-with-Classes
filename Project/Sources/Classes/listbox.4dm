@@ -38,7 +38,7 @@ Class constructor($name : Text; $parent : Object)
 	
 	If (Application version:C493>="20A0")
 		
-		var $formula:=OBJECT Get data source formula:C1852(*; $name)
+		var $formula : 4D:C1709.Function:=OBJECT Get data source formula:C1852(*; $name)
 		
 		var $o:={\
 			data: $formula; \
@@ -1453,7 +1453,7 @@ Function _classifyDataSource() : Text
 	// Formula-bound source (no variable): needs the modern data source command
 	If (Application version:C493>="20A0")
 		
-		var $formula:=OBJECT Get data source formula:C1852(*; This:C1470.name)
+		var $formula : 4D:C1709.Function:=OBJECT Get data source formula:C1852(*; This:C1470.name)
 		
 		If (Position:C15("$"; String:C10($formula.source))=1)  // Dynamic form variable
 			

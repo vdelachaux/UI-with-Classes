@@ -410,7 +410,7 @@ or if no form method is associated with the form.
 				
 			End if 
 			
-			This:C1470._events.combine($c)
+			This:C1470._events.combine($c).distinct()
 			
 			//______________________________________________________
 		: (Value type:C1509($events)=Is collection:K8:32)
