@@ -8,7 +8,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qnzphJcNuGFdVwMDblhrX4EdX4s=
+			Jnl1cjXnzOlcm5SnV/xIPiLkIWU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -673,22 +673,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JELdAnGBtCgQcNnj6X7zZgVdNss=
+			2dlmiva+L3HVXOqqSS9WqYqEL5I=
 			</data>
 			<key>hash2</key>
 			<data>
-			g90gM5NbOSKeHNXxyZD9EermD5P1nEUiE3y3ff0gyRM=
+			EiNaiDVrEK2cOUftgp08uKFfZCcmCCwHAQwvH1//ge4=
 			</data>
 		</dict>
 		<key>Resources/en.lproj/syntaxEN.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qnzphJcNuGFdVwMDblhrX4EdX4s=
+			Jnl1cjXnzOlcm5SnV/xIPiLkIWU=
 			</data>
 			<key>hash2</key>
 			<data>
-			rJSi1W1jdHLa/fkSHfO2g5JAAbJmSrQGgNaCOXUz4Mk=
+			XxIps7WHC6UV2uNSr+TIszDI5XKxV3h3khwoLEJTXx0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -708,7 +708,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			tE2vsdFbpX5aYbNjXFZUo3Wo4Eg=
+			aQz+waXW4VSOLSXDzgWAfpDpz98=
 			</data>
 			<key>requirement</key>
 			<string>identifier "UI with Classes.4DZ" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Vincent de Lachaux (99U8H5L528)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>

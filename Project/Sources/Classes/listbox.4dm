@@ -577,11 +577,9 @@ Function setRowFontStyle($row : Integer; $tyle : Integer)
 	// MARK:-
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	// Current cell indexes {column,row}
-Function cellPosition($e : cs:C1710.evt) : Object
+Function cellPosition($e : Object) : Object
 	
-	var $button; $column; $row; $x; $y : Integer
-	
-	$e:=$e || cs:C1710.evt.new()
+	$e:=$e || FORM Event:C1606
 	
 	If ($e.code=On Clicked:K2:4)\
 		 | ($e.code=On Double Clicked:K2:5)\
@@ -590,10 +588,12 @@ Function cellPosition($e : cs:C1710.evt) : Object
 		 | ($e.code=On Delete Action:K2:56)
 		
 		// ⚠️  Column is always 0
+		var $column; $row : Integer
 		LISTBOX GET CELL POSITION:C971(*; This:C1470.name; $column; $row)
 		
 	Else 
 		
+		var $x; $y; $button : Integer
 		MOUSE POSITION:C468($x; $y; $button)
 		LISTBOX GET CELL POSITION:C971(*; This:C1470.name; $x; $y; $column; $row)
 		

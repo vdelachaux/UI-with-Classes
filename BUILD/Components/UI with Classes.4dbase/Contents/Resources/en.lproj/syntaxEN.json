@@ -1,11 +1,11 @@
 {
 	"_method_": {
 		"formGetInstance": {
-			"Syntax": "**formGetInstance**() : 4D.Class",
+			"Syntax": "**formGetInstance**() : 4D.Object",
 			"Params": [
 				[
 					"",
-					"4D.Class",
+					"4D.Object",
 					"<-"
 				]
 			],
@@ -1775,11 +1775,11 @@
 			"Summary": ""
 		},
 		"cellPosition()": {
-			"Syntax": "**.cellPosition**( *e* : cs.ui.evt ) : Object",
+			"Syntax": "**.cellPosition**( *e* : Object ) : Object",
 			"Params": [
 				[
 					"e",
-					"cs.ui.evt",
+					"Object",
 					"->"
 				],
 				[

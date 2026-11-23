@@ -3,20 +3,6 @@ property instances : Collection
 
 Class constructor($widget : Text; $form : Text)
 	
-	//FIXME:Fix for use from a component
-	
-	//ARRAY TEXT($names; 0x0000)
-	//FORM GET NAMES($names; $form)
-	//ASSERT(Size of array($names)=1; "Form not found: "+$form)
-	//ARRAY LONGINT($pages; 0x0000)
-	//ARRAY POINTER($pointers; 0x0000)
-	//FORM GET OBJECTS($names; $pointers; $pages; Form all pages)
-	//var $indx : Integer
-	//$indx:=Find in array($names; $widget)
-	//If (Asserted($indx>0; "Widget not found: "+$widget))
-	//ASSERT($pages{$indx}=0; "WARNING: The widget is not on page 0")
-	//End if 
-	
 	This:C1470.form:=$form  // The form to use as a sub-form
 	
 	This:C1470.instances:=[{\
@@ -260,14 +246,22 @@ Function _setProgress($value : Integer; $message : Text)
 	End if 
 	
 	// === === === === === === === === === === === === === === === === === ===
-	// Generic asignment management when loading the sub-form
+	// Generic asignment management when loading the subform
 Function onLoad()
+	
+	// Clear additional value
+	OBJECT SET TITLE:C194(*; "additional"; "")
 	
 	var $key : Text
 	
 	For each ($key; Form:C1466)
 		
 		Case of 
+				
+				//╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
+			: ($key="type")
+				
+				OBJECT SET VISIBLE:C603(*; "cancel"; Form:C1466[$key]="CONFIRM")
 				
 				//╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 			: ($key="title")\
@@ -290,6 +284,9 @@ Function onLoad()
 				//╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 		End case 
 	End for each 
+	
+	// Position the buttons according to the labels
+	cs:C1710.group.new("ok,cancel"; "button").distributeRigthToLeft()
 	
 	// === === === === === === === === === === === === === === === === === ===
 	// Generic widget position management when resizing the host form
