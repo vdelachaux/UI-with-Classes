@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="6">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="7">
 	<com.4d>
 		<compiler>
 			<options compilation_path="4" syntax_file="true" target="all"/>
@@ -6,5 +6,8 @@
 			<method_suffix arrays="" interprocess_arrays="" interprocess_variables="" methods="" variables=""/>
 		</compiler>
 		<general component_classStore_name="ui" execute_host_database_event="true"/>
+		<database>
+			<misc mac_use_lf="true" no_bom="true" non_blocking_printing="true" prefer_null_than_blank_values="true" split_catalog="true" standard_xpath="true" win_form_text_directwrite="true"/>
+		</database>
 	</com.4d>
 </preferences>

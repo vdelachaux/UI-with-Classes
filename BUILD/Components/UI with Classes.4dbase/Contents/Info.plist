@@ -3,21 +3,18 @@
 <plist version="1.0">
   <dict>
     <key>NSHumanReadableCopyright</key>
-    <string/>
+    <string>©2026</string>
     <key>CFBundleVersion</key>
-    <string/>
+    <string>21</string>
     <key>CFBundleDisplayName</key>
-    <string>UI with Classes</string>
+    <string>UI with classes</string>
     <key>CFBundleShortVersionString</key>
-    <string/>
+    <string>21.2</string>
     <key>CFBundleGetInfoString</key>
-    <string>21</string>
+    <string>21.2</string>
     <key>CFBundleLongVersionString</key>
-    <string>21</string>
+    <string>21.2 (21)</string>
     <key>CFBundleName</key>
     <string>UI with Classes</string>
-    <key>CFBundlePackageType</key>
-    <string>BNDL</string>
   </dict>
-
 </plist>

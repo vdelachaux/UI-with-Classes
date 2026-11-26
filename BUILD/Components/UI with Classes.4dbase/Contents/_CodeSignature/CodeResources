@@ -673,11 +673,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2dlmiva+L3HVXOqqSS9WqYqEL5I=
+			jCjYMJJFWOf7zxFgRuqzcRJivTw=
 			</data>
 			<key>hash2</key>
 			<data>
-			EiNaiDVrEK2cOUftgp08uKFfZCcmCCwHAQwvH1//ge4=
+			6zyWW5rpPA8N9/ErAl0ROu/wB2JK8/kpskaJi0iRkGo=
 			</data>
 		</dict>
 		<key>Resources/en.lproj/syntaxEN.json</key>
@@ -708,7 +708,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			aQz+waXW4VSOLSXDzgWAfpDpz98=
+			tcYN6Ie5+0/2t8ui8BG5B5n/SoQ=
 			</data>
 			<key>requirement</key>
 			<string>identifier "UI with Classes.4DZ" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Vincent de Lachaux (99U8H5L528)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>

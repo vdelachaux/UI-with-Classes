@@ -929,15 +929,13 @@ Function callChild($subform; $method : Variant;  ...  : Variant)
 	
 	// TODO:Returned value
 	
-	var $target : Text
-	
 	Case of 
 			
 			// ______________________________________________________
 		: (Value type:C1509($1)=Is object:K8:27)\
-			 && (OB Instance of:C1731($1.setPrivateEvents; 4D:C1709.Function))
+			 && (OB Instance of:C1731($1.setPrivateEvents; 4D:C1709.Function))  // subform
 			
-			$target:=$1.name
+			var $target : Text:=$1.name
 			
 			// ______________________________________________________
 		: (Value type:C1509($1)=Is text:K8:3)

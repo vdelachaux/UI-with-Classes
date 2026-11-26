@@ -131,7 +131,7 @@ Function getParentRect() : cs:C1710.rect
 	OBJECT GET SUBFORM CONTAINER SIZE:C1148($width; $height)
 	
 	return cs:C1710.rect.new($width; $height)
-
+	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 	/// Returns the width and height of the container.
 Function getParentDimensions() : cs:C1710.dimensions
@@ -207,7 +207,6 @@ Function setSubform($detail : Text; $list : Text; $table : Pointer) : cs:C1710.s
 	
 	// === === === === === === === === === === === === === === === === === === === === === === === === === ===
 Function alignHorizontally($alignment : Integer; $reference)
-	
 	
 	var $coordinates:=This:C1470.getCoordinates()
 	
